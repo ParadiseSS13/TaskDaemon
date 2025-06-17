@@ -1,0 +1,104 @@
+package me.aa07.paradise.taskdaemon.core;
+
+import com.moandjiezana.toml.Toml;
+import java.io.File;
+import java.util.Optional;
+import me.aa07.paradise.taskdaemon.core.config.ConfigHolder;
+import me.aa07.paradise.taskdaemon.core.database.DbCore;
+import me.aa07.paradise.taskdaemon.core.modules.profilercleanup.ProfilerCleanupJob;
+import me.aa07.paradise.taskdaemon.core.modules.profileringest.ProfilerWorker;
+import me.aa07.paradise.taskdaemon.core.redis.RedisManager;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.quartz.CronScheduleBuilder;
+import org.quartz.CronTrigger;
+import org.quartz.JobBuilder;
+import org.quartz.JobDataMap;
+import org.quartz.JobDetail;
+import org.quartz.Scheduler;
+import org.quartz.SchedulerException;
+import org.quartz.TriggerBuilder;
+import org.quartz.impl.StdSchedulerFactory;
+
+public class Core {
+    // Threads
+    private Thread profilerWorkerThread;
+    private Thread redisthread;
+
+    public void run() {
+        Logger logger = LogManager.getLogger(Core.class);
+        logger.info("Starting up");
+        logger.info("Loading configuration...");
+
+        Optional<ConfigHolder> config = Optional.empty();
+
+        try {
+            File configfile = new File("config.toml");
+            config = Optional.of(new Toml().read(configfile).to(ConfigHolder.class));
+        } catch (Exception exception) {
+            logger.fatal("Failed to load config.toml!");
+            exception.printStackTrace();
+            return;
+        }
+
+        if (!config.isPresent()) {
+            logger.fatal("Failed to load config.toml - but we didnt throw an exception! What the heck?!");
+            return;
+        }
+
+        logger.info("Preparing threads...");
+        setupThreads(config.get(), logger);
+        logger.info("Launching threads...");
+        launchAll();
+        logger.info("Core startup complete");
+    }
+
+    private void setupThreads(ConfigHolder config, Logger logger) {
+        // Initial setup
+        DbCore database = new DbCore(config, logger);
+
+        // Profiler stuff
+        ProfilerWorker pw = new ProfilerWorker(database, logger);
+        profilerWorkerThread = new Thread(pw::run, "profiler-worker");
+
+        // Redis stuff
+        RedisManager rm = new RedisManager(config.redis, logger, pw);
+        redisthread = new Thread(rm::run, "redis");
+
+        // Launch Quartz
+        try {
+            Scheduler scheduler = StdSchedulerFactory.getDefaultScheduler();
+            setupJobs(scheduler, database, logger);
+            scheduler.start();
+        } catch (SchedulerException ex) {
+            logger.error("Quartz had a hissy fit!", ex);
+        }
+    }
+
+    private void setupJobs(Scheduler scheduler, DbCore dbCore, Logger logger) throws SchedulerException {
+        // See below for CRON format
+        // https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html
+
+        // Profiler cleanup
+        JobDataMap jdm_profilercleanup = new JobDataMap();
+        jdm_profilercleanup.put("LOGGER", logger);
+        jdm_profilercleanup.put("DBCORE", dbCore);
+        JobDetail jd_profilercleanup = JobBuilder.newJob(ProfilerCleanupJob.class)
+            .withIdentity("profilercleanup", "profilercleanup")
+            .usingJobData(jdm_profilercleanup)
+            .build();
+        CronTrigger ct_profilercleanup = TriggerBuilder.newTrigger()
+            .withIdentity("profilercleanup", "profilercleanup")
+            .withSchedule(CronScheduleBuilder.cronSchedule("0 0 8 * * ?")) // Every day - 8AM
+            .build();
+
+
+        // Schedule all
+        scheduler.scheduleJob(jd_profilercleanup, ct_profilercleanup);
+    }
+
+    private void launchAll() {
+        profilerWorkerThread.start();
+        redisthread.start();
+    }
+}
