@@ -39,7 +39,7 @@ public class ProfilerSendmapsProcessor extends ProfilerBaseProcessor {
 
     @Override
     protected long getProcId(String procname) {
-        DSLContext ctx = database.jooq(DatabaseType.GameDb);
+        DSLContext ctx = database.jooq(DatabaseType.ProfilerDb);
         if (!ctx.fetchExists(ctx.select(Tables.SENDMAPS_PROCS.ID).from(Tables.SENDMAPS_PROCS).where(Tables.SENDMAPS_PROCS.PROCPATH.eq(procname)))) {
             // We dont exist, make us
             log(String.format("%s did not exist in the DB. It does now.", procname));
