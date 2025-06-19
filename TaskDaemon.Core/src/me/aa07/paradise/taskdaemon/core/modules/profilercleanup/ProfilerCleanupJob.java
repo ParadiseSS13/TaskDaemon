@@ -48,8 +48,12 @@ public class ProfilerCleanupJob implements Job {
 
         DbCore dbcore = dbcore_holder.get();
 
-        logger.info("Cleaning out profiler DB");
-        dbcore.jooq(DatabaseType.ProfilerDb).delete(Tables.SAMPLES).where(Tables.SAMPLES.SAMPLETIME.lt(dbcore.now().minusDays(7))).execute();
+        logger.info("Cleaning out profiler DB - proc samples");
+        dbcore.jooq(DatabaseType.ProfilerDb).delete(Tables.SAMPLES)
+            .where(Tables.SAMPLES.SAMPLETIME.lt(dbcore.now().minusDays(7))).execute();
+        logger.info("Cleaning out profiler DB - sendmaps samples");
+        dbcore.jooq(DatabaseType.ProfilerDb).delete(Tables.SENDMAPS_SAMPLES)
+            .where(Tables.SENDMAPS_SAMPLES.SAMPLETIME.lt(dbcore.now().minusDays(7))).execute();
         logger.info("Cleaned");
     }
 
