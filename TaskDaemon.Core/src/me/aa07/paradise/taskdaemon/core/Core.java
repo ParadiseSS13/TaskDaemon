@@ -5,6 +5,7 @@ import java.io.File;
 import java.util.Optional;
 import me.aa07.paradise.taskdaemon.core.config.ConfigHolder;
 import me.aa07.paradise.taskdaemon.core.database.DbCore;
+import me.aa07.paradise.taskdaemon.core.modules.bouncerrestart.BouncerRestartJob;
 import me.aa07.paradise.taskdaemon.core.modules.profilercleanup.ProfilerCleanupJob;
 import me.aa07.paradise.taskdaemon.core.modules.profileringest.ProfilerWorker;
 import me.aa07.paradise.taskdaemon.core.redis.RedisManager;
@@ -68,16 +69,29 @@ public class Core {
         // Launch Quartz
         try {
             Scheduler scheduler = StdSchedulerFactory.getDefaultScheduler();
-            setupJobs(scheduler, database, logger);
+            setupJobs(scheduler, database, config, logger);
             scheduler.start();
         } catch (SchedulerException ex) {
             logger.error("Quartz had a hissy fit!", ex);
         }
     }
 
-    private void setupJobs(Scheduler scheduler, DbCore dbCore, Logger logger) throws SchedulerException {
+    private void setupJobs(Scheduler scheduler, DbCore dbCore, ConfigHolder config, Logger logger) throws SchedulerException {
         // See below for CRON format
         // https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html
+
+        // Bouncer restart
+        JobDataMap jdm_bouncerrestart = new JobDataMap();
+        jdm_bouncerrestart.put("LOGGER", logger);
+        jdm_bouncerrestart.put("TGS_CFG", config.tgs);
+        JobDetail jd_bouncerrestart = JobBuilder.newJob(BouncerRestartJob.class)
+                .withIdentity("bouncerrestart", "bouncerrestart")
+                .usingJobData(jdm_bouncerrestart)
+                .build();
+        CronTrigger ct_bouncerrestart = TriggerBuilder.newTrigger()
+                .withIdentity("bouncerrestart", "bouncerrestart")
+                .withSchedule(CronScheduleBuilder.cronSchedule("0 0 0 * * ?")) // Every day - midnight
+                .build();
 
         // Profiler cleanup
         JobDataMap jdm_profilercleanup = new JobDataMap();
@@ -94,6 +108,7 @@ public class Core {
 
 
         // Schedule all
+        scheduler.scheduleJob(jd_bouncerrestart, ct_bouncerrestart);
         scheduler.scheduleJob(jd_profilercleanup, ct_profilercleanup);
     }
 

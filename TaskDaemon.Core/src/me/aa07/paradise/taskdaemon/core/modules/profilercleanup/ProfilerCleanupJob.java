@@ -27,7 +27,7 @@ public class ProfilerCleanupJob implements Job {
         }
 
         if (!logger_holder.isPresent()) {
-            System.out.println("LOGGER WAS SOMEHOW NULL - THIS IS VERY BAD");
+            System.out.println("[ProfilerCleanup] LOGGER WAS SOMEHOW NULL - THIS IS VERY BAD");
             return;
         }
 
@@ -42,19 +42,19 @@ public class ProfilerCleanupJob implements Job {
         }
 
         if (!dbcore_holder.isPresent()) {
-            logger.error("DBCORE WAS SOMEHOW NULL - THIS IS VERY BAD");
+            logger.error("[ProfilerCleanup] DBCORE WAS SOMEHOW NULL - THIS IS VERY BAD");
             return;
         }
 
         DbCore dbcore = dbcore_holder.get();
 
-        logger.info("Cleaning out profiler DB - proc samples");
+        logger.info("[ProfilerCleanup] Cleaning out profiler DB - proc samples");
         dbcore.jooq(DatabaseType.ProfilerDb).delete(Tables.SAMPLES)
             .where(Tables.SAMPLES.SAMPLETIME.lt(dbcore.now().minusDays(7))).execute();
-        logger.info("Cleaning out profiler DB - sendmaps samples");
+        logger.info("[ProfilerCleanup] Cleaning out profiler DB - sendmaps samples");
         dbcore.jooq(DatabaseType.ProfilerDb).delete(Tables.SENDMAPS_SAMPLES)
             .where(Tables.SENDMAPS_SAMPLES.SAMPLETIME.lt(dbcore.now().minusDays(7))).execute();
-        logger.info("Cleaned");
+        logger.info("[ProfilerCleanup] Cleaned");
     }
 
 }

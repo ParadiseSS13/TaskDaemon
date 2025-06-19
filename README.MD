@@ -6,8 +6,13 @@ Java application designed to automate various backend tasks we have within Parad
 
 It handles:
 
+- Bouncer Restart
 - Profiler Daemon Ingest
 - Profiler DB Cleanup
+
+### Bouncer Restart
+
+Restarts our "bouncer" server every day. This is the thing that does 2FA, server queue, and region redirection.
 
 ### Profiler Daemon Ingest
 
@@ -33,16 +38,15 @@ To build, run `mvn package` to generate the JAR file. This will then appear in t
 1. Compile the codebase (See `Building`).
 2. Copy the jar and the example `config.toml` in the repository root to a running location.
 3. Import the `schemas/profiler_schema.sql` schema to your database server.
-4. Setup the configuration to specify the relevant information:
+4. Setup the configuration as per section labels.
 5. Start the application up, it will now run tasks in the background.
-
-Or just use the dockerfile.
 
 ## Code Guidelines
 
-- Code must be tested
-- Code must adhere to the style guidelines set in `checkstyle.xml`
-  - These are google's guidelines but with minor tweaks for my own needs
+- Code must be tested.
+  - Good luck.
+- Code must adhere to the style guidelines set in `checkstyle.xml`.
+  - These are google's guidelines but with minor tweaks for my own needs.
 
 ## License
 
