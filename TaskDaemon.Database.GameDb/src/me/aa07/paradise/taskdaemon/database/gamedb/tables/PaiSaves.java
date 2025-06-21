@@ -8,7 +8,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import me.aa07.paradise.taskdaemon.database.gamedb.Keys;
-import me.aa07.paradise.taskdaemon.database.gamedb.ParadiseGamedb;
+import me.aa07.paradise.taskdaemon.database.gamedb.ParadbUnmodified;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.records.PaiSavesRecord;
 
 import org.jooq.Field;
@@ -36,7 +36,7 @@ public class PaiSaves extends TableImpl<PaiSavesRecord> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * The reference instance of <code>paradise_gamedb.pai_saves</code>
+     * The reference instance of <code>paradb_unmodified.pai_saves</code>
      */
     public static final PaiSaves PAI_SAVES = new PaiSaves();
 
@@ -49,32 +49,32 @@ public class PaiSaves extends TableImpl<PaiSavesRecord> {
     }
 
     /**
-     * The column <code>paradise_gamedb.pai_saves.id</code>.
+     * The column <code>paradb_unmodified.pai_saves.id</code>.
      */
     public final TableField<PaiSavesRecord, Integer> ID = createField(DSL.name("id"), SQLDataType.INTEGER.nullable(false).identity(true), this, "");
 
     /**
-     * The column <code>paradise_gamedb.pai_saves.ckey</code>.
+     * The column <code>paradb_unmodified.pai_saves.ckey</code>.
      */
     public final TableField<PaiSavesRecord, String> CKEY = createField(DSL.name("ckey"), SQLDataType.VARCHAR(50).nullable(false), this, "");
 
     /**
-     * The column <code>paradise_gamedb.pai_saves.pai_name</code>.
+     * The column <code>paradb_unmodified.pai_saves.pai_name</code>.
      */
     public final TableField<PaiSavesRecord, String> PAI_NAME = createField(DSL.name("pai_name"), SQLDataType.CLOB.defaultValue(DSL.inline("NULL", SQLDataType.CLOB)), this, "");
 
     /**
-     * The column <code>paradise_gamedb.pai_saves.description</code>.
+     * The column <code>paradb_unmodified.pai_saves.description</code>.
      */
     public final TableField<PaiSavesRecord, String> DESCRIPTION = createField(DSL.name("description"), SQLDataType.CLOB.defaultValue(DSL.inline("NULL", SQLDataType.CLOB)), this, "");
 
     /**
-     * The column <code>paradise_gamedb.pai_saves.preferred_role</code>.
+     * The column <code>paradb_unmodified.pai_saves.preferred_role</code>.
      */
     public final TableField<PaiSavesRecord, String> PREFERRED_ROLE = createField(DSL.name("preferred_role"), SQLDataType.CLOB.defaultValue(DSL.inline("NULL", SQLDataType.CLOB)), this, "");
 
     /**
-     * The column <code>paradise_gamedb.pai_saves.ooc_comments</code>.
+     * The column <code>paradb_unmodified.pai_saves.ooc_comments</code>.
      */
     public final TableField<PaiSavesRecord, String> OOC_COMMENTS = createField(DSL.name("ooc_comments"), SQLDataType.CLOB.defaultValue(DSL.inline("NULL", SQLDataType.CLOB)), this, "");
 
@@ -87,21 +87,23 @@ public class PaiSaves extends TableImpl<PaiSavesRecord> {
     }
 
     /**
-     * Create an aliased <code>paradise_gamedb.pai_saves</code> table reference
+     * Create an aliased <code>paradb_unmodified.pai_saves</code> table
+     * reference
      */
     public PaiSaves(String alias) {
         this(DSL.name(alias), PAI_SAVES);
     }
 
     /**
-     * Create an aliased <code>paradise_gamedb.pai_saves</code> table reference
+     * Create an aliased <code>paradb_unmodified.pai_saves</code> table
+     * reference
      */
     public PaiSaves(Name alias) {
         this(alias, PAI_SAVES);
     }
 
     /**
-     * Create a <code>paradise_gamedb.pai_saves</code> table reference
+     * Create a <code>paradb_unmodified.pai_saves</code> table reference
      */
     public PaiSaves() {
         this(DSL.name("pai_saves"), null);
@@ -113,7 +115,7 @@ public class PaiSaves extends TableImpl<PaiSavesRecord> {
 
     @Override
     public Schema getSchema() {
-        return aliased() ? null : ParadiseGamedb.PARADISE_GAMEDB;
+        return aliased() ? null : ParadbUnmodified.PARADB_UNMODIFIED;
     }
 
     @Override

@@ -9,7 +9,7 @@ import java.util.List;
 
 import me.aa07.paradise.taskdaemon.database.gamedb.Indexes;
 import me.aa07.paradise.taskdaemon.database.gamedb.Keys;
-import me.aa07.paradise.taskdaemon.database.gamedb.ParadiseGamedb;
+import me.aa07.paradise.taskdaemon.database.gamedb.ParadbUnmodified;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.records.LibraryRecord;
 
 import org.jooq.Field;
@@ -38,7 +38,7 @@ public class Library extends TableImpl<LibraryRecord> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * The reference instance of <code>paradise_gamedb.library</code>
+     * The reference instance of <code>paradb_unmodified.library</code>
      */
     public static final Library LIBRARY = new Library();
 
@@ -51,62 +51,62 @@ public class Library extends TableImpl<LibraryRecord> {
     }
 
     /**
-     * The column <code>paradise_gamedb.library.id</code>.
+     * The column <code>paradb_unmodified.library.id</code>.
      */
     public final TableField<LibraryRecord, Integer> ID = createField(DSL.name("id"), SQLDataType.INTEGER.nullable(false).identity(true), this, "");
 
     /**
-     * The column <code>paradise_gamedb.library.author</code>.
+     * The column <code>paradb_unmodified.library.author</code>.
      */
     public final TableField<LibraryRecord, String> AUTHOR = createField(DSL.name("author"), SQLDataType.CLOB.nullable(false), this, "");
 
     /**
-     * The column <code>paradise_gamedb.library.title</code>.
+     * The column <code>paradb_unmodified.library.title</code>.
      */
     public final TableField<LibraryRecord, String> TITLE = createField(DSL.name("title"), SQLDataType.CLOB.nullable(false), this, "");
 
     /**
-     * The column <code>paradise_gamedb.library.content</code>.
+     * The column <code>paradb_unmodified.library.content</code>.
      */
     public final TableField<LibraryRecord, String> CONTENT = createField(DSL.name("content"), SQLDataType.CLOB.nullable(false), this, "");
 
     /**
-     * The column <code>paradise_gamedb.library.ckey</code>.
+     * The column <code>paradb_unmodified.library.ckey</code>.
      */
     public final TableField<LibraryRecord, String> CKEY = createField(DSL.name("ckey"), SQLDataType.VARCHAR(32).nullable(false), this, "");
 
     /**
-     * The column <code>paradise_gamedb.library.reports</code>.
+     * The column <code>paradb_unmodified.library.reports</code>.
      */
     public final TableField<LibraryRecord, String> REPORTS = createField(DSL.name("reports"), SQLDataType.CLOB.nullable(false), this, "");
 
     /**
-     * The column <code>paradise_gamedb.library.summary</code>.
+     * The column <code>paradb_unmodified.library.summary</code>.
      */
     public final TableField<LibraryRecord, String> SUMMARY = createField(DSL.name("summary"), SQLDataType.CLOB.nullable(false), this, "");
 
     /**
-     * The column <code>paradise_gamedb.library.rating</code>.
+     * The column <code>paradb_unmodified.library.rating</code>.
      */
     public final TableField<LibraryRecord, Double> RATING = createField(DSL.name("rating"), SQLDataType.DOUBLE.defaultValue(DSL.inline("0", SQLDataType.DOUBLE)), this, "");
 
     /**
-     * The column <code>paradise_gamedb.library.raters</code>.
+     * The column <code>paradb_unmodified.library.raters</code>.
      */
     public final TableField<LibraryRecord, String> RATERS = createField(DSL.name("raters"), SQLDataType.CLOB.nullable(false), this, "");
 
     /**
-     * The column <code>paradise_gamedb.library.primary_category</code>.
+     * The column <code>paradb_unmodified.library.primary_category</code>.
      */
     public final TableField<LibraryRecord, Integer> PRIMARY_CATEGORY = createField(DSL.name("primary_category"), SQLDataType.INTEGER.defaultValue(DSL.inline("0", SQLDataType.INTEGER)), this, "");
 
     /**
-     * The column <code>paradise_gamedb.library.secondary_category</code>.
+     * The column <code>paradb_unmodified.library.secondary_category</code>.
      */
     public final TableField<LibraryRecord, Integer> SECONDARY_CATEGORY = createField(DSL.name("secondary_category"), SQLDataType.INTEGER.nullable(false).defaultValue(DSL.inline("0", SQLDataType.INTEGER)), this, "");
 
     /**
-     * The column <code>paradise_gamedb.library.tertiary_category</code>.
+     * The column <code>paradb_unmodified.library.tertiary_category</code>.
      */
     public final TableField<LibraryRecord, Integer> TERTIARY_CATEGORY = createField(DSL.name("tertiary_category"), SQLDataType.INTEGER.defaultValue(DSL.inline("0", SQLDataType.INTEGER)), this, "");
 
@@ -119,21 +119,21 @@ public class Library extends TableImpl<LibraryRecord> {
     }
 
     /**
-     * Create an aliased <code>paradise_gamedb.library</code> table reference
+     * Create an aliased <code>paradb_unmodified.library</code> table reference
      */
     public Library(String alias) {
         this(DSL.name(alias), LIBRARY);
     }
 
     /**
-     * Create an aliased <code>paradise_gamedb.library</code> table reference
+     * Create an aliased <code>paradb_unmodified.library</code> table reference
      */
     public Library(Name alias) {
         this(alias, LIBRARY);
     }
 
     /**
-     * Create a <code>paradise_gamedb.library</code> table reference
+     * Create a <code>paradb_unmodified.library</code> table reference
      */
     public Library() {
         this(DSL.name("library"), null);
@@ -145,7 +145,7 @@ public class Library extends TableImpl<LibraryRecord> {
 
     @Override
     public Schema getSchema() {
-        return aliased() ? null : ParadiseGamedb.PARADISE_GAMEDB;
+        return aliased() ? null : ParadbUnmodified.PARADB_UNMODIFIED;
     }
 
     @Override

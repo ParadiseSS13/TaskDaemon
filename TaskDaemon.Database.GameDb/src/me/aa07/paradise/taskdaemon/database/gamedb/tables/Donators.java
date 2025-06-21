@@ -10,7 +10,7 @@ import java.util.List;
 
 import me.aa07.paradise.taskdaemon.database.gamedb.Indexes;
 import me.aa07.paradise.taskdaemon.database.gamedb.Keys;
-import me.aa07.paradise.taskdaemon.database.gamedb.ParadiseGamedb;
+import me.aa07.paradise.taskdaemon.database.gamedb.ParadbUnmodified;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.records.DonatorsRecord;
 
 import org.jooq.Field;
@@ -38,7 +38,7 @@ public class Donators extends TableImpl<DonatorsRecord> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * The reference instance of <code>paradise_gamedb.donators</code>
+     * The reference instance of <code>paradb_unmodified.donators</code>
      */
     public static final Donators DONATORS = new Donators();
 
@@ -51,32 +51,32 @@ public class Donators extends TableImpl<DonatorsRecord> {
     }
 
     /**
-     * The column <code>paradise_gamedb.donators.patreon_name</code>.
+     * The column <code>paradb_unmodified.donators.patreon_name</code>.
      */
     public final TableField<DonatorsRecord, String> PATREON_NAME = createField(DSL.name("patreon_name"), SQLDataType.VARCHAR(32).nullable(false), this, "");
 
     /**
-     * The column <code>paradise_gamedb.donators.tier</code>.
+     * The column <code>paradb_unmodified.donators.tier</code>.
      */
     public final TableField<DonatorsRecord, Integer> TIER = createField(DSL.name("tier"), SQLDataType.INTEGER.defaultValue(DSL.inline("NULL", SQLDataType.INTEGER)), this, "");
 
     /**
-     * The column <code>paradise_gamedb.donators.ckey</code>. Manual Field
+     * The column <code>paradb_unmodified.donators.ckey</code>. Manual Field
      */
     public final TableField<DonatorsRecord, String> CKEY = createField(DSL.name("ckey"), SQLDataType.VARCHAR(32).defaultValue(DSL.inline("NULL", SQLDataType.VARCHAR)), this, "Manual Field");
 
     /**
-     * The column <code>paradise_gamedb.donators.start_date</code>.
+     * The column <code>paradb_unmodified.donators.start_date</code>.
      */
     public final TableField<DonatorsRecord, LocalDateTime> START_DATE = createField(DSL.name("start_date"), SQLDataType.LOCALDATETIME(0).defaultValue(DSL.inline("NULL", SQLDataType.LOCALDATETIME)), this, "");
 
     /**
-     * The column <code>paradise_gamedb.donators.end_date</code>.
+     * The column <code>paradb_unmodified.donators.end_date</code>.
      */
     public final TableField<DonatorsRecord, LocalDateTime> END_DATE = createField(DSL.name("end_date"), SQLDataType.LOCALDATETIME(0).defaultValue(DSL.inline("NULL", SQLDataType.LOCALDATETIME)), this, "");
 
     /**
-     * The column <code>paradise_gamedb.donators.active</code>.
+     * The column <code>paradb_unmodified.donators.active</code>.
      */
     public final TableField<DonatorsRecord, Byte> ACTIVE = createField(DSL.name("active"), SQLDataType.TINYINT.defaultValue(DSL.inline("NULL", SQLDataType.TINYINT)), this, "");
 
@@ -89,21 +89,21 @@ public class Donators extends TableImpl<DonatorsRecord> {
     }
 
     /**
-     * Create an aliased <code>paradise_gamedb.donators</code> table reference
+     * Create an aliased <code>paradb_unmodified.donators</code> table reference
      */
     public Donators(String alias) {
         this(DSL.name(alias), DONATORS);
     }
 
     /**
-     * Create an aliased <code>paradise_gamedb.donators</code> table reference
+     * Create an aliased <code>paradb_unmodified.donators</code> table reference
      */
     public Donators(Name alias) {
         this(alias, DONATORS);
     }
 
     /**
-     * Create a <code>paradise_gamedb.donators</code> table reference
+     * Create a <code>paradb_unmodified.donators</code> table reference
      */
     public Donators() {
         this(DSL.name("donators"), null);
@@ -115,7 +115,7 @@ public class Donators extends TableImpl<DonatorsRecord> {
 
     @Override
     public Schema getSchema() {
-        return aliased() ? null : ParadiseGamedb.PARADISE_GAMEDB;
+        return aliased() ? null : ParadbUnmodified.PARADB_UNMODIFIED;
     }
 
     @Override

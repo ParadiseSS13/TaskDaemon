@@ -69,7 +69,7 @@ import org.jooq.impl.Internal;
 
 /**
  * A class modelling foreign key relationships and constraints of tables in
- * paradise_gamedb.
+ * paradb_unmodified.
  */
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Keys {

@@ -10,7 +10,7 @@ import java.util.List;
 
 import me.aa07.paradise.taskdaemon.database.gamedb.Indexes;
 import me.aa07.paradise.taskdaemon.database.gamedb.Keys;
-import me.aa07.paradise.taskdaemon.database.gamedb.ParadiseGamedb;
+import me.aa07.paradise.taskdaemon.database.gamedb.ParadbUnmodified;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.records.BanRecord;
 
 import org.jooq.Field;
@@ -38,7 +38,7 @@ public class Ban extends TableImpl<BanRecord> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * The reference instance of <code>paradise_gamedb.ban</code>
+     * The reference instance of <code>paradb_unmodified.ban</code>
      */
     public static final Ban BAN = new Ban();
 
@@ -51,137 +51,137 @@ public class Ban extends TableImpl<BanRecord> {
     }
 
     /**
-     * The column <code>paradise_gamedb.ban.id</code>.
+     * The column <code>paradb_unmodified.ban.id</code>.
      */
     public final TableField<BanRecord, Integer> ID = createField(DSL.name("id"), SQLDataType.INTEGER.nullable(false).identity(true), this, "");
 
     /**
-     * The column <code>paradise_gamedb.ban.bantime</code>.
+     * The column <code>paradb_unmodified.ban.bantime</code>.
      */
     public final TableField<BanRecord, LocalDateTime> BANTIME = createField(DSL.name("bantime"), SQLDataType.LOCALDATETIME(0).nullable(false), this, "");
 
     /**
-     * The column <code>paradise_gamedb.ban.ban_round_id</code>.
+     * The column <code>paradb_unmodified.ban.ban_round_id</code>.
      */
     public final TableField<BanRecord, Integer> BAN_ROUND_ID = createField(DSL.name("ban_round_id"), SQLDataType.INTEGER.defaultValue(DSL.inline("NULL", SQLDataType.INTEGER)), this, "");
 
     /**
-     * The column <code>paradise_gamedb.ban.serverip</code>.
+     * The column <code>paradb_unmodified.ban.serverip</code>.
      */
     public final TableField<BanRecord, String> SERVERIP = createField(DSL.name("serverip"), SQLDataType.VARCHAR(32).nullable(false), this, "");
 
     /**
-     * The column <code>paradise_gamedb.ban.server_id</code>.
+     * The column <code>paradb_unmodified.ban.server_id</code>.
      */
     public final TableField<BanRecord, String> SERVER_ID = createField(DSL.name("server_id"), SQLDataType.VARCHAR(50).defaultValue(DSL.inline("NULL", SQLDataType.VARCHAR)), this, "");
 
     /**
-     * The column <code>paradise_gamedb.ban.bantype</code>.
+     * The column <code>paradb_unmodified.ban.bantype</code>.
      */
     public final TableField<BanRecord, String> BANTYPE = createField(DSL.name("bantype"), SQLDataType.VARCHAR(32).nullable(false), this, "");
 
     /**
-     * The column <code>paradise_gamedb.ban.reason</code>.
+     * The column <code>paradb_unmodified.ban.reason</code>.
      */
     public final TableField<BanRecord, String> REASON = createField(DSL.name("reason"), SQLDataType.CLOB.nullable(false), this, "");
 
     /**
-     * The column <code>paradise_gamedb.ban.job</code>.
+     * The column <code>paradb_unmodified.ban.job</code>.
      */
     public final TableField<BanRecord, String> JOB = createField(DSL.name("job"), SQLDataType.VARCHAR(32).defaultValue(DSL.inline("NULL", SQLDataType.VARCHAR)), this, "");
 
     /**
-     * The column <code>paradise_gamedb.ban.duration</code>.
+     * The column <code>paradb_unmodified.ban.duration</code>.
      */
     public final TableField<BanRecord, Integer> DURATION = createField(DSL.name("duration"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
-     * The column <code>paradise_gamedb.ban.rounds</code>.
+     * The column <code>paradb_unmodified.ban.rounds</code>.
      */
     public final TableField<BanRecord, Integer> ROUNDS = createField(DSL.name("rounds"), SQLDataType.INTEGER.defaultValue(DSL.inline("NULL", SQLDataType.INTEGER)), this, "");
 
     /**
-     * The column <code>paradise_gamedb.ban.expiration_time</code>.
+     * The column <code>paradb_unmodified.ban.expiration_time</code>.
      */
     public final TableField<BanRecord, LocalDateTime> EXPIRATION_TIME = createField(DSL.name("expiration_time"), SQLDataType.LOCALDATETIME(0).nullable(false), this, "");
 
     /**
-     * The column <code>paradise_gamedb.ban.ckey</code>.
+     * The column <code>paradb_unmodified.ban.ckey</code>.
      */
     public final TableField<BanRecord, String> CKEY = createField(DSL.name("ckey"), SQLDataType.VARCHAR(32).nullable(false), this, "");
 
     /**
-     * The column <code>paradise_gamedb.ban.computerid</code>.
+     * The column <code>paradb_unmodified.ban.computerid</code>.
      */
     public final TableField<BanRecord, String> COMPUTERID = createField(DSL.name("computerid"), SQLDataType.VARCHAR(32).nullable(false), this, "");
 
     /**
-     * The column <code>paradise_gamedb.ban.ip</code>.
+     * The column <code>paradb_unmodified.ban.ip</code>.
      */
     public final TableField<BanRecord, String> IP = createField(DSL.name("ip"), SQLDataType.VARCHAR(32).nullable(false), this, "");
 
     /**
-     * The column <code>paradise_gamedb.ban.a_ckey</code>.
+     * The column <code>paradb_unmodified.ban.a_ckey</code>.
      */
     public final TableField<BanRecord, String> A_CKEY = createField(DSL.name("a_ckey"), SQLDataType.VARCHAR(32).nullable(false), this, "");
 
     /**
-     * The column <code>paradise_gamedb.ban.a_computerid</code>.
+     * The column <code>paradb_unmodified.ban.a_computerid</code>.
      */
     public final TableField<BanRecord, String> A_COMPUTERID = createField(DSL.name("a_computerid"), SQLDataType.VARCHAR(32).nullable(false), this, "");
 
     /**
-     * The column <code>paradise_gamedb.ban.a_ip</code>.
+     * The column <code>paradb_unmodified.ban.a_ip</code>.
      */
     public final TableField<BanRecord, String> A_IP = createField(DSL.name("a_ip"), SQLDataType.VARCHAR(32).nullable(false), this, "");
 
     /**
-     * The column <code>paradise_gamedb.ban.who</code>.
+     * The column <code>paradb_unmodified.ban.who</code>.
      */
     public final TableField<BanRecord, String> WHO = createField(DSL.name("who"), SQLDataType.CLOB.nullable(false), this, "");
 
     /**
-     * The column <code>paradise_gamedb.ban.adminwho</code>.
+     * The column <code>paradb_unmodified.ban.adminwho</code>.
      */
     public final TableField<BanRecord, String> ADMINWHO = createField(DSL.name("adminwho"), SQLDataType.CLOB.nullable(false), this, "");
 
     /**
-     * The column <code>paradise_gamedb.ban.edits</code>.
+     * The column <code>paradb_unmodified.ban.edits</code>.
      */
     public final TableField<BanRecord, String> EDITS = createField(DSL.name("edits"), SQLDataType.CLOB.defaultValue(DSL.inline("NULL", SQLDataType.CLOB)), this, "");
 
     /**
-     * The column <code>paradise_gamedb.ban.unbanned</code>.
+     * The column <code>paradb_unmodified.ban.unbanned</code>.
      */
     public final TableField<BanRecord, Byte> UNBANNED = createField(DSL.name("unbanned"), SQLDataType.TINYINT.defaultValue(DSL.inline("NULL", SQLDataType.TINYINT)), this, "");
 
     /**
-     * The column <code>paradise_gamedb.ban.unbanned_datetime</code>.
+     * The column <code>paradb_unmodified.ban.unbanned_datetime</code>.
      */
     public final TableField<BanRecord, LocalDateTime> UNBANNED_DATETIME = createField(DSL.name("unbanned_datetime"), SQLDataType.LOCALDATETIME(0).defaultValue(DSL.inline("NULL", SQLDataType.LOCALDATETIME)), this, "");
 
     /**
-     * The column <code>paradise_gamedb.ban.unbanned_round_id</code>.
+     * The column <code>paradb_unmodified.ban.unbanned_round_id</code>.
      */
     public final TableField<BanRecord, Integer> UNBANNED_ROUND_ID = createField(DSL.name("unbanned_round_id"), SQLDataType.INTEGER.defaultValue(DSL.inline("NULL", SQLDataType.INTEGER)), this, "");
 
     /**
-     * The column <code>paradise_gamedb.ban.unbanned_ckey</code>.
+     * The column <code>paradb_unmodified.ban.unbanned_ckey</code>.
      */
     public final TableField<BanRecord, String> UNBANNED_CKEY = createField(DSL.name("unbanned_ckey"), SQLDataType.VARCHAR(32).defaultValue(DSL.inline("NULL", SQLDataType.VARCHAR)), this, "");
 
     /**
-     * The column <code>paradise_gamedb.ban.unbanned_computerid</code>.
+     * The column <code>paradb_unmodified.ban.unbanned_computerid</code>.
      */
     public final TableField<BanRecord, String> UNBANNED_COMPUTERID = createField(DSL.name("unbanned_computerid"), SQLDataType.VARCHAR(32).defaultValue(DSL.inline("NULL", SQLDataType.VARCHAR)), this, "");
 
     /**
-     * The column <code>paradise_gamedb.ban.unbanned_ip</code>.
+     * The column <code>paradb_unmodified.ban.unbanned_ip</code>.
      */
     public final TableField<BanRecord, String> UNBANNED_IP = createField(DSL.name("unbanned_ip"), SQLDataType.VARCHAR(32).defaultValue(DSL.inline("NULL", SQLDataType.VARCHAR)), this, "");
 
     /**
-     * The column <code>paradise_gamedb.ban.exportable</code>.
+     * The column <code>paradb_unmodified.ban.exportable</code>.
      */
     public final TableField<BanRecord, Byte> EXPORTABLE = createField(DSL.name("exportable"), SQLDataType.TINYINT.nullable(false).defaultValue(DSL.inline("1", SQLDataType.TINYINT)), this, "");
 
@@ -194,21 +194,21 @@ public class Ban extends TableImpl<BanRecord> {
     }
 
     /**
-     * Create an aliased <code>paradise_gamedb.ban</code> table reference
+     * Create an aliased <code>paradb_unmodified.ban</code> table reference
      */
     public Ban(String alias) {
         this(DSL.name(alias), BAN);
     }
 
     /**
-     * Create an aliased <code>paradise_gamedb.ban</code> table reference
+     * Create an aliased <code>paradb_unmodified.ban</code> table reference
      */
     public Ban(Name alias) {
         this(alias, BAN);
     }
 
     /**
-     * Create a <code>paradise_gamedb.ban</code> table reference
+     * Create a <code>paradb_unmodified.ban</code> table reference
      */
     public Ban() {
         this(DSL.name("ban"), null);
@@ -220,7 +220,7 @@ public class Ban extends TableImpl<BanRecord> {
 
     @Override
     public Schema getSchema() {
-        return aliased() ? null : ParadiseGamedb.PARADISE_GAMEDB;
+        return aliased() ? null : ParadbUnmodified.PARADB_UNMODIFIED;
     }
 
     @Override

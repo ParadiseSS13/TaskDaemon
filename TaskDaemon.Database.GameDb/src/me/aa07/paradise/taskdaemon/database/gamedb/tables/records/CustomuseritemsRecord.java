@@ -22,126 +22,126 @@ public class CustomuseritemsRecord extends UpdatableRecordImpl<CustomuseritemsRe
     private static final long serialVersionUID = 1L;
 
     /**
-     * Setter for <code>paradise_gamedb.customuseritems.id</code>.
+     * Setter for <code>paradb_unmodified.customuseritems.id</code>.
      */
     public void setId(Integer value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.customuseritems.id</code>.
+     * Getter for <code>paradb_unmodified.customuseritems.id</code>.
      */
     public Integer getId() {
         return (Integer) get(0);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.customuseritems.cuiCKey</code>.
+     * Setter for <code>paradb_unmodified.customuseritems.cuiCKey</code>.
      */
     public void setCuickey(String value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.customuseritems.cuiCKey</code>.
+     * Getter for <code>paradb_unmodified.customuseritems.cuiCKey</code>.
      */
     public String getCuickey() {
         return (String) get(1);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.customuseritems.cuiRealName</code>.
+     * Setter for <code>paradb_unmodified.customuseritems.cuiRealName</code>.
      */
     public void setCuirealname(String value) {
         set(2, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.customuseritems.cuiRealName</code>.
+     * Getter for <code>paradb_unmodified.customuseritems.cuiRealName</code>.
      */
     public String getCuirealname() {
         return (String) get(2);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.customuseritems.cuiPath</code>.
+     * Setter for <code>paradb_unmodified.customuseritems.cuiPath</code>.
      */
     public void setCuipath(String value) {
         set(3, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.customuseritems.cuiPath</code>.
+     * Getter for <code>paradb_unmodified.customuseritems.cuiPath</code>.
      */
     public String getCuipath() {
         return (String) get(3);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.customuseritems.cuiItemName</code>.
+     * Setter for <code>paradb_unmodified.customuseritems.cuiItemName</code>.
      */
     public void setCuiitemname(String value) {
         set(4, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.customuseritems.cuiItemName</code>.
+     * Getter for <code>paradb_unmodified.customuseritems.cuiItemName</code>.
      */
     public String getCuiitemname() {
         return (String) get(4);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.customuseritems.cuiDescription</code>.
+     * Setter for <code>paradb_unmodified.customuseritems.cuiDescription</code>.
      */
     public void setCuidescription(String value) {
         set(5, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.customuseritems.cuiDescription</code>.
+     * Getter for <code>paradb_unmodified.customuseritems.cuiDescription</code>.
      */
     public String getCuidescription() {
         return (String) get(5);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.customuseritems.cuiReason</code>.
+     * Setter for <code>paradb_unmodified.customuseritems.cuiReason</code>.
      */
     public void setCuireason(String value) {
         set(6, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.customuseritems.cuiReason</code>.
+     * Getter for <code>paradb_unmodified.customuseritems.cuiReason</code>.
      */
     public String getCuireason() {
         return (String) get(6);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.customuseritems.cuiPropAdjust</code>.
+     * Setter for <code>paradb_unmodified.customuseritems.cuiPropAdjust</code>.
      */
     public void setCuipropadjust(String value) {
         set(7, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.customuseritems.cuiPropAdjust</code>.
+     * Getter for <code>paradb_unmodified.customuseritems.cuiPropAdjust</code>.
      */
     public String getCuipropadjust() {
         return (String) get(7);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.customuseritems.cuiJobMask</code>.
+     * Setter for <code>paradb_unmodified.customuseritems.cuiJobMask</code>.
      */
     public void setCuijobmask(String value) {
         set(8, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.customuseritems.cuiJobMask</code>.
+     * Getter for <code>paradb_unmodified.customuseritems.cuiJobMask</code>.
      */
     public String getCuijobmask() {
         return (String) get(8);

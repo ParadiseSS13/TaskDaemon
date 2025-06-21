@@ -7,14 +7,14 @@ package me.aa07.paradise.taskdaemon.database.gamedb.tables;
 import java.time.LocalDate;
 
 import me.aa07.paradise.taskdaemon.database.gamedb.Keys;
-import me.aa07.paradise.taskdaemon.database.gamedb.ParadiseGamedb;
+import me.aa07.paradise.taskdaemon.database.gamedb.ParadbUnmodified;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.records.PlaytimeHistoryRecord;
 
 import org.jooq.Field;
 import org.jooq.ForeignKey;
 import org.jooq.Name;
 import org.jooq.Record;
-import org.jooq.Row4;
+import org.jooq.Row14;
 import org.jooq.Schema;
 import org.jooq.Table;
 import org.jooq.TableField;
@@ -34,7 +34,7 @@ public class PlaytimeHistory extends TableImpl<PlaytimeHistoryRecord> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * The reference instance of <code>paradise_gamedb.playtime_history</code>
+     * The reference instance of <code>paradb_unmodified.playtime_history</code>
      */
     public static final PlaytimeHistory PLAYTIME_HISTORY = new PlaytimeHistory();
 
@@ -47,24 +47,75 @@ public class PlaytimeHistory extends TableImpl<PlaytimeHistoryRecord> {
     }
 
     /**
-     * The column <code>paradise_gamedb.playtime_history.ckey</code>.
+     * The column <code>paradb_unmodified.playtime_history.ckey</code>.
      */
     public final TableField<PlaytimeHistoryRecord, String> CKEY = createField(DSL.name("ckey"), SQLDataType.VARCHAR(32).nullable(false), this, "");
 
     /**
-     * The column <code>paradise_gamedb.playtime_history.date</code>.
+     * The column <code>paradb_unmodified.playtime_history.date</code>.
      */
     public final TableField<PlaytimeHistoryRecord, LocalDate> DATE = createField(DSL.name("date"), SQLDataType.LOCALDATE.nullable(false), this, "");
 
     /**
-     * The column <code>paradise_gamedb.playtime_history.time_living</code>.
+     * The column <code>paradb_unmodified.playtime_history.time_living</code>.
      */
     public final TableField<PlaytimeHistoryRecord, Short> TIME_LIVING = createField(DSL.name("time_living"), SQLDataType.SMALLINT.nullable(false), this, "");
 
     /**
-     * The column <code>paradise_gamedb.playtime_history.time_ghost</code>.
+     * The column <code>paradb_unmodified.playtime_history.time_crew</code>.
+     */
+    public final TableField<PlaytimeHistoryRecord, Short> TIME_CREW = createField(DSL.name("time_crew"), SQLDataType.SMALLINT.nullable(false), this, "");
+
+    /**
+     * The column <code>paradb_unmodified.playtime_history.time_special</code>.
+     */
+    public final TableField<PlaytimeHistoryRecord, Short> TIME_SPECIAL = createField(DSL.name("time_special"), SQLDataType.SMALLINT.nullable(false), this, "");
+
+    /**
+     * The column <code>paradb_unmodified.playtime_history.time_ghost</code>.
      */
     public final TableField<PlaytimeHistoryRecord, Short> TIME_GHOST = createField(DSL.name("time_ghost"), SQLDataType.SMALLINT.nullable(false), this, "");
+
+    /**
+     * The column <code>paradb_unmodified.playtime_history.time_command</code>.
+     */
+    public final TableField<PlaytimeHistoryRecord, Short> TIME_COMMAND = createField(DSL.name("time_command"), SQLDataType.SMALLINT.nullable(false), this, "");
+
+    /**
+     * The column
+     * <code>paradb_unmodified.playtime_history.time_engineering</code>.
+     */
+    public final TableField<PlaytimeHistoryRecord, Short> TIME_ENGINEERING = createField(DSL.name("time_engineering"), SQLDataType.SMALLINT.nullable(false), this, "");
+
+    /**
+     * The column <code>paradb_unmodified.playtime_history.time_medical</code>.
+     */
+    public final TableField<PlaytimeHistoryRecord, Short> TIME_MEDICAL = createField(DSL.name("time_medical"), SQLDataType.SMALLINT.nullable(false), this, "");
+
+    /**
+     * The column <code>paradb_unmodified.playtime_history.time_science</code>.
+     */
+    public final TableField<PlaytimeHistoryRecord, Short> TIME_SCIENCE = createField(DSL.name("time_science"), SQLDataType.SMALLINT.nullable(false), this, "");
+
+    /**
+     * The column <code>paradb_unmodified.playtime_history.time_supply</code>.
+     */
+    public final TableField<PlaytimeHistoryRecord, Short> TIME_SUPPLY = createField(DSL.name("time_supply"), SQLDataType.SMALLINT.nullable(false), this, "");
+
+    /**
+     * The column <code>paradb_unmodified.playtime_history.time_security</code>.
+     */
+    public final TableField<PlaytimeHistoryRecord, Short> TIME_SECURITY = createField(DSL.name("time_security"), SQLDataType.SMALLINT.nullable(false), this, "");
+
+    /**
+     * The column <code>paradb_unmodified.playtime_history.time_silicon</code>.
+     */
+    public final TableField<PlaytimeHistoryRecord, Short> TIME_SILICON = createField(DSL.name("time_silicon"), SQLDataType.SMALLINT.nullable(false), this, "");
+
+    /**
+     * The column <code>paradb_unmodified.playtime_history.time_service</code>.
+     */
+    public final TableField<PlaytimeHistoryRecord, Short> TIME_SERVICE = createField(DSL.name("time_service"), SQLDataType.SMALLINT.nullable(false), this, "");
 
     private PlaytimeHistory(Name alias, Table<PlaytimeHistoryRecord> aliased) {
         this(alias, aliased, null);
@@ -75,7 +126,7 @@ public class PlaytimeHistory extends TableImpl<PlaytimeHistoryRecord> {
     }
 
     /**
-     * Create an aliased <code>paradise_gamedb.playtime_history</code> table
+     * Create an aliased <code>paradb_unmodified.playtime_history</code> table
      * reference
      */
     public PlaytimeHistory(String alias) {
@@ -83,7 +134,7 @@ public class PlaytimeHistory extends TableImpl<PlaytimeHistoryRecord> {
     }
 
     /**
-     * Create an aliased <code>paradise_gamedb.playtime_history</code> table
+     * Create an aliased <code>paradb_unmodified.playtime_history</code> table
      * reference
      */
     public PlaytimeHistory(Name alias) {
@@ -91,7 +142,7 @@ public class PlaytimeHistory extends TableImpl<PlaytimeHistoryRecord> {
     }
 
     /**
-     * Create a <code>paradise_gamedb.playtime_history</code> table reference
+     * Create a <code>paradb_unmodified.playtime_history</code> table reference
      */
     public PlaytimeHistory() {
         this(DSL.name("playtime_history"), null);
@@ -103,7 +154,7 @@ public class PlaytimeHistory extends TableImpl<PlaytimeHistoryRecord> {
 
     @Override
     public Schema getSchema() {
-        return aliased() ? null : ParadiseGamedb.PARADISE_GAMEDB;
+        return aliased() ? null : ParadbUnmodified.PARADB_UNMODIFIED;
     }
 
     @Override
@@ -138,11 +189,11 @@ public class PlaytimeHistory extends TableImpl<PlaytimeHistoryRecord> {
     }
 
     // -------------------------------------------------------------------------
-    // Row4 type methods
+    // Row14 type methods
     // -------------------------------------------------------------------------
 
     @Override
-    public Row4<String, LocalDate, Short, Short> fieldsRow() {
-        return (Row4) super.fieldsRow();
+    public Row14<String, LocalDate, Short, Short, Short, Short, Short, Short, Short, Short, Short, Short, Short, Short> fieldsRow() {
+        return (Row14) super.fieldsRow();
     }
 }

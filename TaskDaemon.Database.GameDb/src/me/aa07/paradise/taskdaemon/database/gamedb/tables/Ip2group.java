@@ -10,7 +10,7 @@ import java.util.List;
 
 import me.aa07.paradise.taskdaemon.database.gamedb.Indexes;
 import me.aa07.paradise.taskdaemon.database.gamedb.Keys;
-import me.aa07.paradise.taskdaemon.database.gamedb.ParadiseGamedb;
+import me.aa07.paradise.taskdaemon.database.gamedb.ParadbUnmodified;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.records.Ip2groupRecord;
 
 import org.jooq.Field;
@@ -27,6 +27,7 @@ import org.jooq.UniqueKey;
 import org.jooq.impl.DSL;
 import org.jooq.impl.SQLDataType;
 import org.jooq.impl.TableImpl;
+import org.jooq.types.UInteger;
 
 
 /**
@@ -38,7 +39,7 @@ public class Ip2group extends TableImpl<Ip2groupRecord> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * The reference instance of <code>paradise_gamedb.ip2group</code>
+     * The reference instance of <code>paradb_unmodified.ip2group</code>
      */
     public static final Ip2group IP2GROUP = new Ip2group();
 
@@ -51,19 +52,19 @@ public class Ip2group extends TableImpl<Ip2groupRecord> {
     }
 
     /**
-     * The column <code>paradise_gamedb.ip2group.ip</code>.
+     * The column <code>paradb_unmodified.ip2group.ip</code>.
      */
-    public final TableField<Ip2groupRecord, String> IP = createField(DSL.name("ip"), SQLDataType.VARCHAR(18).nullable(false), this, "");
+    public final TableField<Ip2groupRecord, UInteger> IP = createField(DSL.name("ip"), SQLDataType.INTEGERUNSIGNED.nullable(false), this, "");
 
     /**
-     * The column <code>paradise_gamedb.ip2group.date</code>.
+     * The column <code>paradb_unmodified.ip2group.date</code>.
      */
     public final TableField<Ip2groupRecord, LocalDateTime> DATE = createField(DSL.name("date"), SQLDataType.LOCALDATETIME(0).nullable(false).defaultValue(DSL.field("current_timestamp()", SQLDataType.LOCALDATETIME)), this, "");
 
     /**
-     * The column <code>paradise_gamedb.ip2group.groupstr</code>.
+     * The column <code>paradb_unmodified.ip2group.groupstr</code>.
      */
-    public final TableField<Ip2groupRecord, String> GROUPSTR = createField(DSL.name("groupstr"), SQLDataType.VARCHAR(32).nullable(false).defaultValue(DSL.inline("''", SQLDataType.VARCHAR)), this, "");
+    public final TableField<Ip2groupRecord, UInteger> GROUPSTR = createField(DSL.name("groupstr"), SQLDataType.INTEGERUNSIGNED.nullable(false), this, "");
 
     private Ip2group(Name alias, Table<Ip2groupRecord> aliased) {
         this(alias, aliased, null);
@@ -74,21 +75,21 @@ public class Ip2group extends TableImpl<Ip2groupRecord> {
     }
 
     /**
-     * Create an aliased <code>paradise_gamedb.ip2group</code> table reference
+     * Create an aliased <code>paradb_unmodified.ip2group</code> table reference
      */
     public Ip2group(String alias) {
         this(DSL.name(alias), IP2GROUP);
     }
 
     /**
-     * Create an aliased <code>paradise_gamedb.ip2group</code> table reference
+     * Create an aliased <code>paradb_unmodified.ip2group</code> table reference
      */
     public Ip2group(Name alias) {
         this(alias, IP2GROUP);
     }
 
     /**
-     * Create a <code>paradise_gamedb.ip2group</code> table reference
+     * Create a <code>paradb_unmodified.ip2group</code> table reference
      */
     public Ip2group() {
         this(DSL.name("ip2group"), null);
@@ -100,7 +101,7 @@ public class Ip2group extends TableImpl<Ip2groupRecord> {
 
     @Override
     public Schema getSchema() {
-        return aliased() ? null : ParadiseGamedb.PARADISE_GAMEDB;
+        return aliased() ? null : ParadbUnmodified.PARADB_UNMODIFIED;
     }
 
     @Override
@@ -144,7 +145,7 @@ public class Ip2group extends TableImpl<Ip2groupRecord> {
     // -------------------------------------------------------------------------
 
     @Override
-    public Row3<String, LocalDateTime, String> fieldsRow() {
+    public Row3<UInteger, LocalDateTime, UInteger> fieldsRow() {
         return (Row3) super.fieldsRow();
     }
 }

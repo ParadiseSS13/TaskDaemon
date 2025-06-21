@@ -24,70 +24,70 @@ public class LegacyPopulationRecord extends UpdatableRecordImpl<LegacyPopulation
     private static final long serialVersionUID = 1L;
 
     /**
-     * Setter for <code>paradise_gamedb.legacy_population.id</code>.
+     * Setter for <code>paradb_unmodified.legacy_population.id</code>.
      */
     public void setId(Integer value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.legacy_population.id</code>.
+     * Getter for <code>paradb_unmodified.legacy_population.id</code>.
      */
     public Integer getId() {
         return (Integer) get(0);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.legacy_population.playercount</code>.
+     * Setter for <code>paradb_unmodified.legacy_population.playercount</code>.
      */
     public void setPlayercount(Integer value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.legacy_population.playercount</code>.
+     * Getter for <code>paradb_unmodified.legacy_population.playercount</code>.
      */
     public Integer getPlayercount() {
         return (Integer) get(1);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.legacy_population.admincount</code>.
+     * Setter for <code>paradb_unmodified.legacy_population.admincount</code>.
      */
     public void setAdmincount(Integer value) {
         set(2, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.legacy_population.admincount</code>.
+     * Getter for <code>paradb_unmodified.legacy_population.admincount</code>.
      */
     public Integer getAdmincount() {
         return (Integer) get(2);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.legacy_population.server_id</code>.
+     * Setter for <code>paradb_unmodified.legacy_population.server_id</code>.
      */
     public void setServerId(String value) {
         set(3, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.legacy_population.server_id</code>.
+     * Getter for <code>paradb_unmodified.legacy_population.server_id</code>.
      */
     public String getServerId() {
         return (String) get(3);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.legacy_population.time</code>.
+     * Setter for <code>paradb_unmodified.legacy_population.time</code>.
      */
     public void setTime(LocalDateTime value) {
         set(4, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.legacy_population.time</code>.
+     * Getter for <code>paradb_unmodified.legacy_population.time</code>.
      */
     public LocalDateTime getTime() {
         return (LocalDateTime) get(4);

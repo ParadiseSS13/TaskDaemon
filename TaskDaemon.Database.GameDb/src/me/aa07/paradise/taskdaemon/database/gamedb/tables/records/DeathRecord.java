@@ -24,252 +24,254 @@ public class DeathRecord extends UpdatableRecordImpl<DeathRecord> implements Rec
     private static final long serialVersionUID = 1L;
 
     /**
-     * Setter for <code>paradise_gamedb.death.id</code>.
+     * Setter for <code>paradb_unmodified.death.id</code>.
      */
     public void setId(Integer value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.death.id</code>.
+     * Getter for <code>paradb_unmodified.death.id</code>.
      */
     public Integer getId() {
         return (Integer) get(0);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.death.pod</code>. Place of death
+     * Setter for <code>paradb_unmodified.death.pod</code>. Place of death
      */
     public void setPod(String value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.death.pod</code>. Place of death
+     * Getter for <code>paradb_unmodified.death.pod</code>. Place of death
      */
     public String getPod() {
         return (String) get(1);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.death.coord</code>. X, Y, Z POD
+     * Setter for <code>paradb_unmodified.death.coord</code>. X, Y, Z POD
      */
     public void setCoord(String value) {
         set(2, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.death.coord</code>. X, Y, Z POD
+     * Getter for <code>paradb_unmodified.death.coord</code>. X, Y, Z POD
      */
     public String getCoord() {
         return (String) get(2);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.death.tod</code>. Time of death
+     * Setter for <code>paradb_unmodified.death.tod</code>. Time of death
      */
     public void setTod(LocalDateTime value) {
         set(3, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.death.tod</code>. Time of death
+     * Getter for <code>paradb_unmodified.death.tod</code>. Time of death
      */
     public LocalDateTime getTod() {
         return (LocalDateTime) get(3);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.death.death_rid</code>.
+     * Setter for <code>paradb_unmodified.death.death_rid</code>.
      */
     public void setDeathRid(Integer value) {
         set(4, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.death.death_rid</code>.
+     * Getter for <code>paradb_unmodified.death.death_rid</code>.
      */
     public Integer getDeathRid() {
         return (Integer) get(4);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.death.last_words</code>.
+     * Setter for <code>paradb_unmodified.death.last_words</code>.
      */
     public void setLastWords(String value) {
         set(5, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.death.last_words</code>.
+     * Getter for <code>paradb_unmodified.death.last_words</code>.
      */
     public String getLastWords() {
         return (String) get(5);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.death.server_id</code>.
+     * Setter for <code>paradb_unmodified.death.server_id</code>.
      */
     public void setServerId(String value) {
         set(6, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.death.server_id</code>.
+     * Getter for <code>paradb_unmodified.death.server_id</code>.
      */
     public String getServerId() {
         return (String) get(6);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.death.job</code>.
+     * Setter for <code>paradb_unmodified.death.job</code>.
      */
     public void setJob(String value) {
         set(7, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.death.job</code>.
+     * Getter for <code>paradb_unmodified.death.job</code>.
      */
     public String getJob() {
         return (String) get(7);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.death.special</code>.
+     * Setter for <code>paradb_unmodified.death.special</code>.
      */
     public void setSpecial(String value) {
         set(8, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.death.special</code>.
+     * Getter for <code>paradb_unmodified.death.special</code>.
      */
     public String getSpecial() {
         return (String) get(8);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.death.name</code>.
+     * Setter for <code>paradb_unmodified.death.name</code>.
      */
     public void setName(String value) {
         set(9, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.death.name</code>.
+     * Getter for <code>paradb_unmodified.death.name</code>.
      */
     public String getName() {
         return (String) get(9);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.death.byondkey</code>.
+     * Setter for <code>paradb_unmodified.death.byondkey</code>.
      */
     public void setByondkey(String value) {
         set(10, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.death.byondkey</code>.
+     * Getter for <code>paradb_unmodified.death.byondkey</code>.
      */
     public String getByondkey() {
         return (String) get(10);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.death.laname</code>. Last attacker name
+     * Setter for <code>paradb_unmodified.death.laname</code>. Last attacker
+     * name
      */
     public void setLaname(String value) {
         set(11, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.death.laname</code>. Last attacker name
+     * Getter for <code>paradb_unmodified.death.laname</code>. Last attacker
+     * name
      */
     public String getLaname() {
         return (String) get(11);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.death.lakey</code>. Last attacker key
+     * Setter for <code>paradb_unmodified.death.lakey</code>. Last attacker key
      */
     public void setLakey(String value) {
         set(12, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.death.lakey</code>. Last attacker key
+     * Getter for <code>paradb_unmodified.death.lakey</code>. Last attacker key
      */
     public String getLakey() {
         return (String) get(12);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.death.gender</code>.
+     * Setter for <code>paradb_unmodified.death.gender</code>.
      */
     public void setGender(String value) {
         set(13, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.death.gender</code>.
+     * Getter for <code>paradb_unmodified.death.gender</code>.
      */
     public String getGender() {
         return (String) get(13);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.death.bruteloss</code>.
+     * Setter for <code>paradb_unmodified.death.bruteloss</code>.
      */
     public void setBruteloss(Integer value) {
         set(14, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.death.bruteloss</code>.
+     * Getter for <code>paradb_unmodified.death.bruteloss</code>.
      */
     public Integer getBruteloss() {
         return (Integer) get(14);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.death.brainloss</code>.
+     * Setter for <code>paradb_unmodified.death.brainloss</code>.
      */
     public void setBrainloss(Integer value) {
         set(15, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.death.brainloss</code>.
+     * Getter for <code>paradb_unmodified.death.brainloss</code>.
      */
     public Integer getBrainloss() {
         return (Integer) get(15);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.death.fireloss</code>.
+     * Setter for <code>paradb_unmodified.death.fireloss</code>.
      */
     public void setFireloss(Integer value) {
         set(16, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.death.fireloss</code>.
+     * Getter for <code>paradb_unmodified.death.fireloss</code>.
      */
     public Integer getFireloss() {
         return (Integer) get(16);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.death.oxyloss</code>.
+     * Setter for <code>paradb_unmodified.death.oxyloss</code>.
      */
     public void setOxyloss(Integer value) {
         set(17, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.death.oxyloss</code>.
+     * Getter for <code>paradb_unmodified.death.oxyloss</code>.
      */
     public Integer getOxyloss() {
         return (Integer) get(17);

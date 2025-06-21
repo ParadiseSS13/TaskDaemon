@@ -24,479 +24,535 @@ public class PlayerRecord extends UpdatableRecordImpl<PlayerRecord> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * Setter for <code>paradise_gamedb.player.id</code>.
+     * Setter for <code>paradb_unmodified.player.id</code>.
      */
     public void setId(Integer value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.player.id</code>.
+     * Getter for <code>paradb_unmodified.player.id</code>.
      */
     public Integer getId() {
         return (Integer) get(0);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.player.ckey</code>.
+     * Setter for <code>paradb_unmodified.player.ckey</code>.
      */
     public void setCkey(String value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.player.ckey</code>.
+     * Getter for <code>paradb_unmodified.player.ckey</code>.
      */
     public String getCkey() {
         return (String) get(1);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.player.firstseen</code>.
+     * Setter for <code>paradb_unmodified.player.firstseen</code>.
      */
     public void setFirstseen(LocalDateTime value) {
         set(2, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.player.firstseen</code>.
+     * Getter for <code>paradb_unmodified.player.firstseen</code>.
      */
     public LocalDateTime getFirstseen() {
         return (LocalDateTime) get(2);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.player.lastseen</code>.
+     * Setter for <code>paradb_unmodified.player.lastseen</code>.
      */
     public void setLastseen(LocalDateTime value) {
         set(3, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.player.lastseen</code>.
+     * Getter for <code>paradb_unmodified.player.lastseen</code>.
      */
     public LocalDateTime getLastseen() {
         return (LocalDateTime) get(3);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.player.ip</code>.
+     * Setter for <code>paradb_unmodified.player.ip</code>.
      */
     public void setIp(String value) {
         set(4, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.player.ip</code>.
+     * Getter for <code>paradb_unmodified.player.ip</code>.
      */
     public String getIp() {
         return (String) get(4);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.player.computerid</code>.
+     * Setter for <code>paradb_unmodified.player.computerid</code>.
      */
     public void setComputerid(String value) {
         set(5, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.player.computerid</code>.
+     * Getter for <code>paradb_unmodified.player.computerid</code>.
      */
     public String getComputerid() {
         return (String) get(5);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.player.lastadminrank</code>.
+     * Setter for <code>paradb_unmodified.player.lastadminrank</code>.
      */
     public void setLastadminrank(String value) {
         set(6, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.player.lastadminrank</code>.
+     * Getter for <code>paradb_unmodified.player.lastadminrank</code>.
      */
     public String getLastadminrank() {
         return (String) get(6);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.player.ooccolor</code>.
+     * Setter for <code>paradb_unmodified.player.ooccolor</code>.
      */
     public void setOoccolor(String value) {
         set(7, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.player.ooccolor</code>.
+     * Getter for <code>paradb_unmodified.player.ooccolor</code>.
      */
     public String getOoccolor() {
         return (String) get(7);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.player.UI_style</code>.
+     * Setter for <code>paradb_unmodified.player.UI_style</code>.
      */
     public void setUiStyle(String value) {
         set(8, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.player.UI_style</code>.
+     * Getter for <code>paradb_unmodified.player.UI_style</code>.
      */
     public String getUiStyle() {
         return (String) get(8);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.player.UI_style_color</code>.
+     * Setter for <code>paradb_unmodified.player.UI_style_color</code>.
      */
     public void setUiStyleColor(String value) {
         set(9, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.player.UI_style_color</code>.
+     * Getter for <code>paradb_unmodified.player.UI_style_color</code>.
      */
     public String getUiStyleColor() {
         return (String) get(9);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.player.UI_style_alpha</code>.
+     * Setter for <code>paradb_unmodified.player.UI_style_alpha</code>.
      */
     public void setUiStyleAlpha(Short value) {
         set(10, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.player.UI_style_alpha</code>.
+     * Getter for <code>paradb_unmodified.player.UI_style_alpha</code>.
      */
     public Short getUiStyleAlpha() {
         return (Short) get(10);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.player.be_role</code>.
+     * Setter for <code>paradb_unmodified.player.be_role</code>.
      */
     public void setBeRole(String value) {
         set(11, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.player.be_role</code>.
+     * Getter for <code>paradb_unmodified.player.be_role</code>.
      */
     public String getBeRole() {
         return (String) get(11);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.player.default_slot</code>.
+     * Setter for <code>paradb_unmodified.player.default_slot</code>.
      */
     public void setDefaultSlot(Short value) {
         set(12, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.player.default_slot</code>.
+     * Getter for <code>paradb_unmodified.player.default_slot</code>.
      */
     public Short getDefaultSlot() {
         return (Short) get(12);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.player.toggles</code>.
+     * Setter for <code>paradb_unmodified.player.toggles</code>.
      */
     public void setToggles(Integer value) {
         set(13, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.player.toggles</code>.
+     * Getter for <code>paradb_unmodified.player.toggles</code>.
      */
     public Integer getToggles() {
         return (Integer) get(13);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.player.toggles_2</code>.
+     * Setter for <code>paradb_unmodified.player.toggles_2</code>.
      */
     public void setToggles_2(Integer value) {
         set(14, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.player.toggles_2</code>.
+     * Getter for <code>paradb_unmodified.player.toggles_2</code>.
      */
     public Integer getToggles_2() {
         return (Integer) get(14);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.player.sound</code>.
+     * Setter for <code>paradb_unmodified.player.toggles_3</code>.
      */
-    public void setSound(Integer value) {
+    public void setToggles_3(Integer value) {
         set(15, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.player.sound</code>.
+     * Getter for <code>paradb_unmodified.player.toggles_3</code>.
      */
-    public Integer getSound() {
+    public Integer getToggles_3() {
         return (Integer) get(15);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.player.volume_mixer</code>.
+     * Setter for <code>paradb_unmodified.player.sound</code>.
      */
-    public void setVolumeMixer(String value) {
+    public void setSound(Integer value) {
         set(16, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.player.volume_mixer</code>.
+     * Getter for <code>paradb_unmodified.player.sound</code>.
      */
-    public String getVolumeMixer() {
-        return (String) get(16);
+    public Integer getSound() {
+        return (Integer) get(16);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.player.lastchangelog</code>.
+     * Setter for <code>paradb_unmodified.player.light</code>.
      */
-    public void setLastchangelog(String value) {
+    public void setLight(Integer value) {
         set(17, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.player.lastchangelog</code>.
+     * Getter for <code>paradb_unmodified.player.light</code>.
      */
-    public String getLastchangelog() {
-        return (String) get(17);
+    public Integer getLight() {
+        return (Integer) get(17);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.player.exp</code>.
+     * Setter for <code>paradb_unmodified.player.glowlevel</code>.
      */
-    public void setExp(String value) {
+    public void setGlowlevel(Byte value) {
         set(18, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.player.exp</code>.
+     * Getter for <code>paradb_unmodified.player.glowlevel</code>.
      */
-    public String getExp() {
-        return (String) get(18);
+    public Byte getGlowlevel() {
+        return (Byte) get(18);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.player.clientfps</code>.
+     * Setter for <code>paradb_unmodified.player.volume_mixer</code>.
      */
-    public void setClientfps(Short value) {
+    public void setVolumeMixer(String value) {
         set(19, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.player.clientfps</code>.
+     * Getter for <code>paradb_unmodified.player.volume_mixer</code>.
      */
-    public Short getClientfps() {
-        return (Short) get(19);
+    public String getVolumeMixer() {
+        return (String) get(19);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.player.atklog</code>.
+     * Setter for <code>paradb_unmodified.player.lastchangelog</code>.
      */
-    public void setAtklog(Short value) {
+    public void setLastchangelog(String value) {
         set(20, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.player.atklog</code>.
+     * Getter for <code>paradb_unmodified.player.lastchangelog</code>.
      */
-    public Short getAtklog() {
-        return (Short) get(20);
+    public String getLastchangelog() {
+        return (String) get(20);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.player.fuid</code>.
+     * Setter for <code>paradb_unmodified.player.exp</code>.
      */
-    public void setFuid(Long value) {
+    public void setExp(String value) {
         set(21, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.player.fuid</code>.
+     * Getter for <code>paradb_unmodified.player.exp</code>.
      */
-    public Long getFuid() {
-        return (Long) get(21);
+    public String getExp() {
+        return (String) get(21);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.player.fupdate</code>.
+     * Setter for <code>paradb_unmodified.player.clientfps</code>.
      */
-    public void setFupdate(Short value) {
+    public void setClientfps(Short value) {
         set(22, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.player.fupdate</code>.
+     * Getter for <code>paradb_unmodified.player.clientfps</code>.
      */
-    public Short getFupdate() {
+    public Short getClientfps() {
         return (Short) get(22);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.player.parallax</code>.
+     * Setter for <code>paradb_unmodified.player.atklog</code>.
      */
-    public void setParallax(Byte value) {
+    public void setAtklog(Short value) {
         set(23, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.player.parallax</code>.
+     * Getter for <code>paradb_unmodified.player.atklog</code>.
      */
-    public Byte getParallax() {
-        return (Byte) get(23);
+    public Short getAtklog() {
+        return (Short) get(23);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.player.byond_date</code>.
+     * Setter for <code>paradb_unmodified.player.fuid</code>.
      */
-    public void setByondDate(LocalDate value) {
+    public void setFuid(Long value) {
         set(24, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.player.byond_date</code>.
+     * Getter for <code>paradb_unmodified.player.fuid</code>.
      */
-    public LocalDate getByondDate() {
-        return (LocalDate) get(24);
+    public Long getFuid() {
+        return (Long) get(24);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.player.2fa_status</code>.
+     * Setter for <code>paradb_unmodified.player.fupdate</code>.
      */
-    public void set_2faStatus(Player_2faStatus value) {
+    public void setFupdate(Short value) {
         set(25, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.player.2fa_status</code>.
+     * Getter for <code>paradb_unmodified.player.fupdate</code>.
      */
-    public Player_2faStatus get_2faStatus() {
-        return (Player_2faStatus) get(25);
+    public Short getFupdate() {
+        return (Short) get(25);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.player.screentip_mode</code>.
+     * Setter for <code>paradb_unmodified.player.parallax</code>.
      */
-    public void setScreentipMode(Byte value) {
+    public void setParallax(Byte value) {
         set(26, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.player.screentip_mode</code>.
+     * Getter for <code>paradb_unmodified.player.parallax</code>.
      */
-    public Byte getScreentipMode() {
+    public Byte getParallax() {
         return (Byte) get(26);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.player.screentip_color</code>.
+     * Setter for <code>paradb_unmodified.player.byond_date</code>.
      */
-    public void setScreentipColor(String value) {
+    public void setByondDate(LocalDate value) {
         set(27, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.player.screentip_color</code>.
+     * Getter for <code>paradb_unmodified.player.byond_date</code>.
      */
-    public String getScreentipColor() {
-        return (String) get(27);
+    public LocalDate getByondDate() {
+        return (LocalDate) get(27);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.player.ghost_darkness_level</code>.
+     * Setter for <code>paradb_unmodified.player.2fa_status</code>.
      */
-    public void setGhostDarknessLevel(UByte value) {
+    public void set_2faStatus(Player_2faStatus value) {
         set(28, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.player.ghost_darkness_level</code>.
+     * Getter for <code>paradb_unmodified.player.2fa_status</code>.
      */
-    public UByte getGhostDarknessLevel() {
-        return (UByte) get(28);
+    public Player_2faStatus get_2faStatus() {
+        return (Player_2faStatus) get(28);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.player.colourblind_mode</code>.
+     * Setter for <code>paradb_unmodified.player.screentip_mode</code>.
      */
-    public void setColourblindMode(String value) {
+    public void setScreentipMode(Byte value) {
         set(29, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.player.colourblind_mode</code>.
+     * Getter for <code>paradb_unmodified.player.screentip_mode</code>.
      */
-    public String getColourblindMode() {
-        return (String) get(29);
+    public Byte getScreentipMode() {
+        return (Byte) get(29);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.player.keybindings</code>.
+     * Setter for <code>paradb_unmodified.player.screentip_color</code>.
      */
-    public void setKeybindings(String value) {
+    public void setScreentipColor(String value) {
         set(30, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.player.keybindings</code>.
+     * Getter for <code>paradb_unmodified.player.screentip_color</code>.
      */
-    public String getKeybindings() {
+    public String getScreentipColor() {
         return (String) get(30);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.player.server_region</code>.
+     * Setter for <code>paradb_unmodified.player.ghost_darkness_level</code>.
      */
-    public void setServerRegion(String value) {
+    public void setGhostDarknessLevel(UByte value) {
         set(31, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.player.server_region</code>.
+     * Getter for <code>paradb_unmodified.player.ghost_darkness_level</code>.
      */
-    public String getServerRegion() {
-        return (String) get(31);
+    public UByte getGhostDarknessLevel() {
+        return (UByte) get(31);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.player.muted_adminsounds_ckeys</code>.
+     * Setter for <code>paradb_unmodified.player.colourblind_mode</code>.
      */
-    public void setMutedAdminsoundsCkeys(String value) {
+    public void setColourblindMode(String value) {
         set(32, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.player.muted_adminsounds_ckeys</code>.
+     * Getter for <code>paradb_unmodified.player.colourblind_mode</code>.
      */
-    public String getMutedAdminsoundsCkeys() {
+    public String getColourblindMode() {
         return (String) get(32);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.player.viewrange</code>.
+     * Setter for <code>paradb_unmodified.player.keybindings</code>.
      */
-    public void setViewrange(String value) {
+    public void setKeybindings(String value) {
         set(33, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.player.viewrange</code>.
+     * Getter for <code>paradb_unmodified.player.keybindings</code>.
+     */
+    public String getKeybindings() {
+        return (String) get(33);
+    }
+
+    /**
+     * Setter for <code>paradb_unmodified.player.server_region</code>.
+     */
+    public void setServerRegion(String value) {
+        set(34, value);
+    }
+
+    /**
+     * Getter for <code>paradb_unmodified.player.server_region</code>.
+     */
+    public String getServerRegion() {
+        return (String) get(34);
+    }
+
+    /**
+     * Setter for <code>paradb_unmodified.player.muted_adminsounds_ckeys</code>.
+     */
+    public void setMutedAdminsoundsCkeys(String value) {
+        set(35, value);
+    }
+
+    /**
+     * Getter for <code>paradb_unmodified.player.muted_adminsounds_ckeys</code>.
+     */
+    public String getMutedAdminsoundsCkeys() {
+        return (String) get(35);
+    }
+
+    /**
+     * Setter for <code>paradb_unmodified.player.viewrange</code>.
+     */
+    public void setViewrange(String value) {
+        set(36, value);
+    }
+
+    /**
+     * Getter for <code>paradb_unmodified.player.viewrange</code>.
      */
     public String getViewrange() {
-        return (String) get(33);
+        return (String) get(36);
+    }
+
+    /**
+     * Setter for <code>paradb_unmodified.player.map_vote_pref_json</code>.
+     */
+    public void setMapVotePrefJson(String value) {
+        set(37, value);
+    }
+
+    /**
+     * Getter for <code>paradb_unmodified.player.map_vote_pref_json</code>.
+     */
+    public String getMapVotePrefJson() {
+        return (String) get(37);
     }
 
     // -------------------------------------------------------------------------
@@ -522,7 +578,7 @@ public class PlayerRecord extends UpdatableRecordImpl<PlayerRecord> {
     /**
      * Create a detached, initialised PlayerRecord
      */
-    public PlayerRecord(Integer id, String ckey, LocalDateTime firstseen, LocalDateTime lastseen, String ip, String computerid, String lastadminrank, String ooccolor, String uiStyle, String uiStyleColor, Short uiStyleAlpha, String beRole, Short defaultSlot, Integer toggles, Integer toggles_2, Integer sound, String volumeMixer, String lastchangelog, String exp, Short clientfps, Short atklog, Long fuid, Short fupdate, Byte parallax, LocalDate byondDate, Player_2faStatus _2faStatus, Byte screentipMode, String screentipColor, UByte ghostDarknessLevel, String colourblindMode, String keybindings, String serverRegion, String mutedAdminsoundsCkeys, String viewrange) {
+    public PlayerRecord(Integer id, String ckey, LocalDateTime firstseen, LocalDateTime lastseen, String ip, String computerid, String lastadminrank, String ooccolor, String uiStyle, String uiStyleColor, Short uiStyleAlpha, String beRole, Short defaultSlot, Integer toggles, Integer toggles_2, Integer toggles_3, Integer sound, Integer light, Byte glowlevel, String volumeMixer, String lastchangelog, String exp, Short clientfps, Short atklog, Long fuid, Short fupdate, Byte parallax, LocalDate byondDate, Player_2faStatus _2faStatus, Byte screentipMode, String screentipColor, UByte ghostDarknessLevel, String colourblindMode, String keybindings, String serverRegion, String mutedAdminsoundsCkeys, String viewrange, String mapVotePrefJson) {
         super(Player.PLAYER);
 
         setId(id);
@@ -540,7 +596,10 @@ public class PlayerRecord extends UpdatableRecordImpl<PlayerRecord> {
         setDefaultSlot(defaultSlot);
         setToggles(toggles);
         setToggles_2(toggles_2);
+        setToggles_3(toggles_3);
         setSound(sound);
+        setLight(light);
+        setGlowlevel(glowlevel);
         setVolumeMixer(volumeMixer);
         setLastchangelog(lastchangelog);
         setExp(exp);
@@ -559,5 +618,6 @@ public class PlayerRecord extends UpdatableRecordImpl<PlayerRecord> {
         setServerRegion(serverRegion);
         setMutedAdminsoundsCkeys(mutedAdminsoundsCkeys);
         setViewrange(viewrange);
+        setMapVotePrefJson(mapVotePrefJson);
     }
 }

@@ -26,196 +26,196 @@ public class NotesRecord extends UpdatableRecordImpl<NotesRecord> implements Rec
     private static final long serialVersionUID = 1L;
 
     /**
-     * Setter for <code>paradise_gamedb.notes.id</code>.
+     * Setter for <code>paradb_unmodified.notes.id</code>.
      */
     public void setId(Integer value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.notes.id</code>.
+     * Getter for <code>paradb_unmodified.notes.id</code>.
      */
     public Integer getId() {
         return (Integer) get(0);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.notes.ckey</code>.
+     * Setter for <code>paradb_unmodified.notes.ckey</code>.
      */
     public void setCkey(String value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.notes.ckey</code>.
+     * Getter for <code>paradb_unmodified.notes.ckey</code>.
      */
     public String getCkey() {
         return (String) get(1);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.notes.notetext</code>.
+     * Setter for <code>paradb_unmodified.notes.notetext</code>.
      */
     public void setNotetext(String value) {
         set(2, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.notes.notetext</code>.
+     * Getter for <code>paradb_unmodified.notes.notetext</code>.
      */
     public String getNotetext() {
         return (String) get(2);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.notes.timestamp</code>.
+     * Setter for <code>paradb_unmodified.notes.timestamp</code>.
      */
     public void setTimestamp(LocalDateTime value) {
         set(3, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.notes.timestamp</code>.
+     * Getter for <code>paradb_unmodified.notes.timestamp</code>.
      */
     public LocalDateTime getTimestamp() {
         return (LocalDateTime) get(3);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.notes.round_id</code>.
+     * Setter for <code>paradb_unmodified.notes.round_id</code>.
      */
     public void setRoundId(Integer value) {
         set(4, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.notes.round_id</code>.
+     * Getter for <code>paradb_unmodified.notes.round_id</code>.
      */
     public Integer getRoundId() {
         return (Integer) get(4);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.notes.adminckey</code>.
+     * Setter for <code>paradb_unmodified.notes.adminckey</code>.
      */
     public void setAdminckey(String value) {
         set(5, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.notes.adminckey</code>.
+     * Getter for <code>paradb_unmodified.notes.adminckey</code>.
      */
     public String getAdminckey() {
         return (String) get(5);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.notes.last_editor</code>.
+     * Setter for <code>paradb_unmodified.notes.last_editor</code>.
      */
     public void setLastEditor(String value) {
         set(6, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.notes.last_editor</code>.
+     * Getter for <code>paradb_unmodified.notes.last_editor</code>.
      */
     public String getLastEditor() {
         return (String) get(6);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.notes.edits</code>.
+     * Setter for <code>paradb_unmodified.notes.edits</code>.
      */
     public void setEdits(String value) {
         set(7, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.notes.edits</code>.
+     * Getter for <code>paradb_unmodified.notes.edits</code>.
      */
     public String getEdits() {
         return (String) get(7);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.notes.server</code>.
+     * Setter for <code>paradb_unmodified.notes.server</code>.
      */
     public void setServer(String value) {
         set(8, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.notes.server</code>.
+     * Getter for <code>paradb_unmodified.notes.server</code>.
      */
     public String getServer() {
         return (String) get(8);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.notes.crew_playtime</code>.
+     * Setter for <code>paradb_unmodified.notes.crew_playtime</code>.
      */
     public void setCrewPlaytime(UInteger value) {
         set(9, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.notes.crew_playtime</code>.
+     * Getter for <code>paradb_unmodified.notes.crew_playtime</code>.
      */
     public UInteger getCrewPlaytime() {
         return (UInteger) get(9);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.notes.automated</code>.
+     * Setter for <code>paradb_unmodified.notes.automated</code>.
      */
     public void setAutomated(UByte value) {
         set(10, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.notes.automated</code>.
+     * Getter for <code>paradb_unmodified.notes.automated</code>.
      */
     public UByte getAutomated() {
         return (UByte) get(10);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.notes.deleted</code>.
+     * Setter for <code>paradb_unmodified.notes.deleted</code>.
      */
     public void setDeleted(Byte value) {
         set(11, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.notes.deleted</code>.
+     * Getter for <code>paradb_unmodified.notes.deleted</code>.
      */
     public Byte getDeleted() {
         return (Byte) get(11);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.notes.deletedby</code>.
+     * Setter for <code>paradb_unmodified.notes.deletedby</code>.
      */
     public void setDeletedby(String value) {
         set(12, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.notes.deletedby</code>.
+     * Getter for <code>paradb_unmodified.notes.deletedby</code>.
      */
     public String getDeletedby() {
         return (String) get(12);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.notes.public</code>.
+     * Setter for <code>paradb_unmodified.notes.public</code>.
      */
     public void setPublic(Byte value) {
         set(13, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.notes.public</code>.
+     * Getter for <code>paradb_unmodified.notes.public</code>.
      */
     public Byte getPublic() {
         return (Byte) get(13);

@@ -27,98 +27,98 @@ public class FeedbackRecord extends UpdatableRecordImpl<FeedbackRecord> implemen
     private static final long serialVersionUID = 1L;
 
     /**
-     * Setter for <code>paradise_gamedb.feedback.id</code>.
+     * Setter for <code>paradb_unmodified.feedback.id</code>.
      */
     public void setId(UInteger value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.feedback.id</code>.
+     * Getter for <code>paradb_unmodified.feedback.id</code>.
      */
     public UInteger getId() {
         return (UInteger) get(0);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.feedback.datetime</code>.
+     * Setter for <code>paradb_unmodified.feedback.datetime</code>.
      */
     public void setDatetime(LocalDateTime value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.feedback.datetime</code>.
+     * Getter for <code>paradb_unmodified.feedback.datetime</code>.
      */
     public LocalDateTime getDatetime() {
         return (LocalDateTime) get(1);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.feedback.round_id</code>.
+     * Setter for <code>paradb_unmodified.feedback.round_id</code>.
      */
     public void setRoundId(Integer value) {
         set(2, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.feedback.round_id</code>.
+     * Getter for <code>paradb_unmodified.feedback.round_id</code>.
      */
     public Integer getRoundId() {
         return (Integer) get(2);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.feedback.key_name</code>.
+     * Setter for <code>paradb_unmodified.feedback.key_name</code>.
      */
     public void setKeyName(String value) {
         set(3, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.feedback.key_name</code>.
+     * Getter for <code>paradb_unmodified.feedback.key_name</code>.
      */
     public String getKeyName() {
         return (String) get(3);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.feedback.key_type</code>.
+     * Setter for <code>paradb_unmodified.feedback.key_type</code>.
      */
     public void setKeyType(FeedbackKeyType value) {
         set(4, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.feedback.key_type</code>.
+     * Getter for <code>paradb_unmodified.feedback.key_type</code>.
      */
     public FeedbackKeyType getKeyType() {
         return (FeedbackKeyType) get(4);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.feedback.version</code>.
+     * Setter for <code>paradb_unmodified.feedback.version</code>.
      */
     public void setVersion(UByte value) {
         set(5, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.feedback.version</code>.
+     * Getter for <code>paradb_unmodified.feedback.version</code>.
      */
     public UByte getVersion() {
         return (UByte) get(5);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.feedback.json</code>.
+     * Setter for <code>paradb_unmodified.feedback.json</code>.
      */
     public void setJson(String value) {
         set(6, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.feedback.json</code>.
+     * Getter for <code>paradb_unmodified.feedback.json</code>.
      */
     public String getJson() {
         return (String) get(6);

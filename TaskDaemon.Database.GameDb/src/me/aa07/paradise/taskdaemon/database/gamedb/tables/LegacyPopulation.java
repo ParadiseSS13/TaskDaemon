@@ -7,7 +7,7 @@ package me.aa07.paradise.taskdaemon.database.gamedb.tables;
 import java.time.LocalDateTime;
 
 import me.aa07.paradise.taskdaemon.database.gamedb.Keys;
-import me.aa07.paradise.taskdaemon.database.gamedb.ParadiseGamedb;
+import me.aa07.paradise.taskdaemon.database.gamedb.ParadbUnmodified;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.records.LegacyPopulationRecord;
 
 import org.jooq.Field;
@@ -35,7 +35,8 @@ public class LegacyPopulation extends TableImpl<LegacyPopulationRecord> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * The reference instance of <code>paradise_gamedb.legacy_population</code>
+     * The reference instance of
+     * <code>paradb_unmodified.legacy_population</code>
      */
     public static final LegacyPopulation LEGACY_POPULATION = new LegacyPopulation();
 
@@ -48,27 +49,27 @@ public class LegacyPopulation extends TableImpl<LegacyPopulationRecord> {
     }
 
     /**
-     * The column <code>paradise_gamedb.legacy_population.id</code>.
+     * The column <code>paradb_unmodified.legacy_population.id</code>.
      */
     public final TableField<LegacyPopulationRecord, Integer> ID = createField(DSL.name("id"), SQLDataType.INTEGER.nullable(false).identity(true), this, "");
 
     /**
-     * The column <code>paradise_gamedb.legacy_population.playercount</code>.
+     * The column <code>paradb_unmodified.legacy_population.playercount</code>.
      */
     public final TableField<LegacyPopulationRecord, Integer> PLAYERCOUNT = createField(DSL.name("playercount"), SQLDataType.INTEGER.defaultValue(DSL.inline("NULL", SQLDataType.INTEGER)), this, "");
 
     /**
-     * The column <code>paradise_gamedb.legacy_population.admincount</code>.
+     * The column <code>paradb_unmodified.legacy_population.admincount</code>.
      */
     public final TableField<LegacyPopulationRecord, Integer> ADMINCOUNT = createField(DSL.name("admincount"), SQLDataType.INTEGER.defaultValue(DSL.inline("NULL", SQLDataType.INTEGER)), this, "");
 
     /**
-     * The column <code>paradise_gamedb.legacy_population.server_id</code>.
+     * The column <code>paradb_unmodified.legacy_population.server_id</code>.
      */
     public final TableField<LegacyPopulationRecord, String> SERVER_ID = createField(DSL.name("server_id"), SQLDataType.VARCHAR(50).defaultValue(DSL.inline("NULL", SQLDataType.VARCHAR)), this, "");
 
     /**
-     * The column <code>paradise_gamedb.legacy_population.time</code>.
+     * The column <code>paradb_unmodified.legacy_population.time</code>.
      */
     public final TableField<LegacyPopulationRecord, LocalDateTime> TIME = createField(DSL.name("time"), SQLDataType.LOCALDATETIME(0).nullable(false), this, "");
 
@@ -81,7 +82,7 @@ public class LegacyPopulation extends TableImpl<LegacyPopulationRecord> {
     }
 
     /**
-     * Create an aliased <code>paradise_gamedb.legacy_population</code> table
+     * Create an aliased <code>paradb_unmodified.legacy_population</code> table
      * reference
      */
     public LegacyPopulation(String alias) {
@@ -89,7 +90,7 @@ public class LegacyPopulation extends TableImpl<LegacyPopulationRecord> {
     }
 
     /**
-     * Create an aliased <code>paradise_gamedb.legacy_population</code> table
+     * Create an aliased <code>paradb_unmodified.legacy_population</code> table
      * reference
      */
     public LegacyPopulation(Name alias) {
@@ -97,7 +98,7 @@ public class LegacyPopulation extends TableImpl<LegacyPopulationRecord> {
     }
 
     /**
-     * Create a <code>paradise_gamedb.legacy_population</code> table reference
+     * Create a <code>paradb_unmodified.legacy_population</code> table reference
      */
     public LegacyPopulation() {
         this(DSL.name("legacy_population"), null);
@@ -109,7 +110,7 @@ public class LegacyPopulation extends TableImpl<LegacyPopulationRecord> {
 
     @Override
     public Schema getSchema() {
-        return aliased() ? null : ParadiseGamedb.PARADISE_GAMEDB;
+        return aliased() ? null : ParadbUnmodified.PARADB_UNMODIFIED;
     }
 
     @Override

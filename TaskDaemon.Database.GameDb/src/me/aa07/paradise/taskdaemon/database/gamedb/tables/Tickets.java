@@ -10,7 +10,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import me.aa07.paradise.taskdaemon.database.gamedb.Keys;
-import me.aa07.paradise.taskdaemon.database.gamedb.ParadiseGamedb;
+import me.aa07.paradise.taskdaemon.database.gamedb.ParadbUnmodified;
 import me.aa07.paradise.taskdaemon.database.gamedb.enums.TicketsEndRoundState;
 import me.aa07.paradise.taskdaemon.database.gamedb.enums.TicketsTicketType;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.records.TicketsRecord;
@@ -42,7 +42,7 @@ public class Tickets extends TableImpl<TicketsRecord> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * The reference instance of <code>paradise_gamedb.tickets</code>
+     * The reference instance of <code>paradb_unmodified.tickets</code>
      */
     public static final Tickets TICKETS = new Tickets();
 
@@ -55,62 +55,62 @@ public class Tickets extends TableImpl<TicketsRecord> {
     }
 
     /**
-     * The column <code>paradise_gamedb.tickets.id</code>.
+     * The column <code>paradb_unmodified.tickets.id</code>.
      */
     public final TableField<TicketsRecord, Integer> ID = createField(DSL.name("id"), SQLDataType.INTEGER.nullable(false).identity(true), this, "");
 
     /**
-     * The column <code>paradise_gamedb.tickets.ticket_num</code>.
+     * The column <code>paradb_unmodified.tickets.ticket_num</code>.
      */
     public final TableField<TicketsRecord, Integer> TICKET_NUM = createField(DSL.name("ticket_num"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
-     * The column <code>paradise_gamedb.tickets.ticket_type</code>.
+     * The column <code>paradb_unmodified.tickets.ticket_type</code>.
      */
     public final TableField<TicketsRecord, TicketsTicketType> TICKET_TYPE = createField(DSL.name("ticket_type"), SQLDataType.VARCHAR(6).nullable(false).asEnumDataType(me.aa07.paradise.taskdaemon.database.gamedb.enums.TicketsTicketType.class), this, "");
 
     /**
-     * The column <code>paradise_gamedb.tickets.real_filetime</code>.
+     * The column <code>paradb_unmodified.tickets.real_filetime</code>.
      */
     public final TableField<TicketsRecord, LocalDateTime> REAL_FILETIME = createField(DSL.name("real_filetime"), SQLDataType.LOCALDATETIME(0).nullable(false), this, "");
 
     /**
-     * The column <code>paradise_gamedb.tickets.relative_filetime</code>.
+     * The column <code>paradb_unmodified.tickets.relative_filetime</code>.
      */
     public final TableField<TicketsRecord, LocalTime> RELATIVE_FILETIME = createField(DSL.name("relative_filetime"), SQLDataType.LOCALTIME.nullable(false), this, "");
 
     /**
-     * The column <code>paradise_gamedb.tickets.ticket_creator</code>.
+     * The column <code>paradb_unmodified.tickets.ticket_creator</code>.
      */
     public final TableField<TicketsRecord, String> TICKET_CREATOR = createField(DSL.name("ticket_creator"), SQLDataType.VARCHAR(32).nullable(false), this, "");
 
     /**
-     * The column <code>paradise_gamedb.tickets.ticket_topic</code>.
+     * The column <code>paradb_unmodified.tickets.ticket_topic</code>.
      */
     public final TableField<TicketsRecord, String> TICKET_TOPIC = createField(DSL.name("ticket_topic"), SQLDataType.CLOB.nullable(false), this, "");
 
     /**
-     * The column <code>paradise_gamedb.tickets.ticket_taker</code>.
+     * The column <code>paradb_unmodified.tickets.ticket_taker</code>.
      */
     public final TableField<TicketsRecord, String> TICKET_TAKER = createField(DSL.name("ticket_taker"), SQLDataType.VARCHAR(32).defaultValue(DSL.inline("NULL", SQLDataType.VARCHAR)), this, "");
 
     /**
-     * The column <code>paradise_gamedb.tickets.ticket_take_time</code>.
+     * The column <code>paradb_unmodified.tickets.ticket_take_time</code>.
      */
     public final TableField<TicketsRecord, LocalDateTime> TICKET_TAKE_TIME = createField(DSL.name("ticket_take_time"), SQLDataType.LOCALDATETIME(0).defaultValue(DSL.inline("NULL", SQLDataType.LOCALDATETIME)), this, "");
 
     /**
-     * The column <code>paradise_gamedb.tickets.all_responses</code>.
+     * The column <code>paradb_unmodified.tickets.all_responses</code>.
      */
     public final TableField<TicketsRecord, String> ALL_RESPONSES = createField(DSL.name("all_responses"), SQLDataType.CLOB.defaultValue(DSL.inline("NULL", SQLDataType.CLOB)), this, "");
 
     /**
-     * The column <code>paradise_gamedb.tickets.awho</code>.
+     * The column <code>paradb_unmodified.tickets.awho</code>.
      */
     public final TableField<TicketsRecord, String> AWHO = createField(DSL.name("awho"), SQLDataType.CLOB.nullable(false), this, "");
 
     /**
-     * The column <code>paradise_gamedb.tickets.end_round_state</code>.
+     * The column <code>paradb_unmodified.tickets.end_round_state</code>.
      */
     public final TableField<TicketsRecord, TicketsEndRoundState> END_ROUND_STATE = createField(DSL.name("end_round_state"), SQLDataType.VARCHAR(8).nullable(false).asEnumDataType(me.aa07.paradise.taskdaemon.database.gamedb.enums.TicketsEndRoundState.class), this, "");
 
@@ -123,21 +123,21 @@ public class Tickets extends TableImpl<TicketsRecord> {
     }
 
     /**
-     * Create an aliased <code>paradise_gamedb.tickets</code> table reference
+     * Create an aliased <code>paradb_unmodified.tickets</code> table reference
      */
     public Tickets(String alias) {
         this(DSL.name(alias), TICKETS);
     }
 
     /**
-     * Create an aliased <code>paradise_gamedb.tickets</code> table reference
+     * Create an aliased <code>paradb_unmodified.tickets</code> table reference
      */
     public Tickets(Name alias) {
         this(alias, TICKETS);
     }
 
     /**
-     * Create a <code>paradise_gamedb.tickets</code> table reference
+     * Create a <code>paradb_unmodified.tickets</code> table reference
      */
     public Tickets() {
         this(DSL.name("tickets"), null);
@@ -149,7 +149,7 @@ public class Tickets extends TableImpl<TicketsRecord> {
 
     @Override
     public Schema getSchema() {
-        return aliased() ? null : ParadiseGamedb.PARADISE_GAMEDB;
+        return aliased() ? null : ParadbUnmodified.PARADB_UNMODIFIED;
     }
 
     @Override

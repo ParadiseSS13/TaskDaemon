@@ -24,84 +24,84 @@ public class JsonDatumSavesRecord extends UpdatableRecordImpl<JsonDatumSavesReco
     private static final long serialVersionUID = 1L;
 
     /**
-     * Setter for <code>paradise_gamedb.json_datum_saves.id</code>.
+     * Setter for <code>paradb_unmodified.json_datum_saves.id</code>.
      */
     public void setId(Integer value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.json_datum_saves.id</code>.
+     * Getter for <code>paradb_unmodified.json_datum_saves.id</code>.
      */
     public Integer getId() {
         return (Integer) get(0);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.json_datum_saves.ckey</code>.
+     * Setter for <code>paradb_unmodified.json_datum_saves.ckey</code>.
      */
     public void setCkey(String value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.json_datum_saves.ckey</code>.
+     * Getter for <code>paradb_unmodified.json_datum_saves.ckey</code>.
      */
     public String getCkey() {
         return (String) get(1);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.json_datum_saves.slotname</code>.
+     * Setter for <code>paradb_unmodified.json_datum_saves.slotname</code>.
      */
     public void setSlotname(String value) {
         set(2, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.json_datum_saves.slotname</code>.
+     * Getter for <code>paradb_unmodified.json_datum_saves.slotname</code>.
      */
     public String getSlotname() {
         return (String) get(2);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.json_datum_saves.slotjson</code>.
+     * Setter for <code>paradb_unmodified.json_datum_saves.slotjson</code>.
      */
     public void setSlotjson(String value) {
         set(3, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.json_datum_saves.slotjson</code>.
+     * Getter for <code>paradb_unmodified.json_datum_saves.slotjson</code>.
      */
     public String getSlotjson() {
         return (String) get(3);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.json_datum_saves.created</code>.
+     * Setter for <code>paradb_unmodified.json_datum_saves.created</code>.
      */
     public void setCreated(LocalDateTime value) {
         set(4, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.json_datum_saves.created</code>.
+     * Getter for <code>paradb_unmodified.json_datum_saves.created</code>.
      */
     public LocalDateTime getCreated() {
         return (LocalDateTime) get(4);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.json_datum_saves.updated</code>.
+     * Setter for <code>paradb_unmodified.json_datum_saves.updated</code>.
      */
     public void setUpdated(LocalDateTime value) {
         set(5, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.json_datum_saves.updated</code>.
+     * Getter for <code>paradb_unmodified.json_datum_saves.updated</code>.
      */
     public LocalDateTime getUpdated() {
         return (LocalDateTime) get(5);

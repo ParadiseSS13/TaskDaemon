@@ -21,378 +21,378 @@ public class BanRecord extends UpdatableRecordImpl<BanRecord> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * Setter for <code>paradise_gamedb.ban.id</code>.
+     * Setter for <code>paradb_unmodified.ban.id</code>.
      */
     public void setId(Integer value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.ban.id</code>.
+     * Getter for <code>paradb_unmodified.ban.id</code>.
      */
     public Integer getId() {
         return (Integer) get(0);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.ban.bantime</code>.
+     * Setter for <code>paradb_unmodified.ban.bantime</code>.
      */
     public void setBantime(LocalDateTime value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.ban.bantime</code>.
+     * Getter for <code>paradb_unmodified.ban.bantime</code>.
      */
     public LocalDateTime getBantime() {
         return (LocalDateTime) get(1);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.ban.ban_round_id</code>.
+     * Setter for <code>paradb_unmodified.ban.ban_round_id</code>.
      */
     public void setBanRoundId(Integer value) {
         set(2, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.ban.ban_round_id</code>.
+     * Getter for <code>paradb_unmodified.ban.ban_round_id</code>.
      */
     public Integer getBanRoundId() {
         return (Integer) get(2);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.ban.serverip</code>.
+     * Setter for <code>paradb_unmodified.ban.serverip</code>.
      */
     public void setServerip(String value) {
         set(3, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.ban.serverip</code>.
+     * Getter for <code>paradb_unmodified.ban.serverip</code>.
      */
     public String getServerip() {
         return (String) get(3);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.ban.server_id</code>.
+     * Setter for <code>paradb_unmodified.ban.server_id</code>.
      */
     public void setServerId(String value) {
         set(4, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.ban.server_id</code>.
+     * Getter for <code>paradb_unmodified.ban.server_id</code>.
      */
     public String getServerId() {
         return (String) get(4);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.ban.bantype</code>.
+     * Setter for <code>paradb_unmodified.ban.bantype</code>.
      */
     public void setBantype(String value) {
         set(5, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.ban.bantype</code>.
+     * Getter for <code>paradb_unmodified.ban.bantype</code>.
      */
     public String getBantype() {
         return (String) get(5);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.ban.reason</code>.
+     * Setter for <code>paradb_unmodified.ban.reason</code>.
      */
     public void setReason(String value) {
         set(6, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.ban.reason</code>.
+     * Getter for <code>paradb_unmodified.ban.reason</code>.
      */
     public String getReason() {
         return (String) get(6);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.ban.job</code>.
+     * Setter for <code>paradb_unmodified.ban.job</code>.
      */
     public void setJob(String value) {
         set(7, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.ban.job</code>.
+     * Getter for <code>paradb_unmodified.ban.job</code>.
      */
     public String getJob() {
         return (String) get(7);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.ban.duration</code>.
+     * Setter for <code>paradb_unmodified.ban.duration</code>.
      */
     public void setDuration(Integer value) {
         set(8, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.ban.duration</code>.
+     * Getter for <code>paradb_unmodified.ban.duration</code>.
      */
     public Integer getDuration() {
         return (Integer) get(8);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.ban.rounds</code>.
+     * Setter for <code>paradb_unmodified.ban.rounds</code>.
      */
     public void setRounds(Integer value) {
         set(9, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.ban.rounds</code>.
+     * Getter for <code>paradb_unmodified.ban.rounds</code>.
      */
     public Integer getRounds() {
         return (Integer) get(9);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.ban.expiration_time</code>.
+     * Setter for <code>paradb_unmodified.ban.expiration_time</code>.
      */
     public void setExpirationTime(LocalDateTime value) {
         set(10, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.ban.expiration_time</code>.
+     * Getter for <code>paradb_unmodified.ban.expiration_time</code>.
      */
     public LocalDateTime getExpirationTime() {
         return (LocalDateTime) get(10);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.ban.ckey</code>.
+     * Setter for <code>paradb_unmodified.ban.ckey</code>.
      */
     public void setCkey(String value) {
         set(11, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.ban.ckey</code>.
+     * Getter for <code>paradb_unmodified.ban.ckey</code>.
      */
     public String getCkey() {
         return (String) get(11);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.ban.computerid</code>.
+     * Setter for <code>paradb_unmodified.ban.computerid</code>.
      */
     public void setComputerid(String value) {
         set(12, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.ban.computerid</code>.
+     * Getter for <code>paradb_unmodified.ban.computerid</code>.
      */
     public String getComputerid() {
         return (String) get(12);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.ban.ip</code>.
+     * Setter for <code>paradb_unmodified.ban.ip</code>.
      */
     public void setIp(String value) {
         set(13, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.ban.ip</code>.
+     * Getter for <code>paradb_unmodified.ban.ip</code>.
      */
     public String getIp() {
         return (String) get(13);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.ban.a_ckey</code>.
+     * Setter for <code>paradb_unmodified.ban.a_ckey</code>.
      */
     public void setACkey(String value) {
         set(14, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.ban.a_ckey</code>.
+     * Getter for <code>paradb_unmodified.ban.a_ckey</code>.
      */
     public String getACkey() {
         return (String) get(14);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.ban.a_computerid</code>.
+     * Setter for <code>paradb_unmodified.ban.a_computerid</code>.
      */
     public void setAComputerid(String value) {
         set(15, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.ban.a_computerid</code>.
+     * Getter for <code>paradb_unmodified.ban.a_computerid</code>.
      */
     public String getAComputerid() {
         return (String) get(15);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.ban.a_ip</code>.
+     * Setter for <code>paradb_unmodified.ban.a_ip</code>.
      */
     public void setAIp(String value) {
         set(16, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.ban.a_ip</code>.
+     * Getter for <code>paradb_unmodified.ban.a_ip</code>.
      */
     public String getAIp() {
         return (String) get(16);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.ban.who</code>.
+     * Setter for <code>paradb_unmodified.ban.who</code>.
      */
     public void setWho(String value) {
         set(17, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.ban.who</code>.
+     * Getter for <code>paradb_unmodified.ban.who</code>.
      */
     public String getWho() {
         return (String) get(17);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.ban.adminwho</code>.
+     * Setter for <code>paradb_unmodified.ban.adminwho</code>.
      */
     public void setAdminwho(String value) {
         set(18, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.ban.adminwho</code>.
+     * Getter for <code>paradb_unmodified.ban.adminwho</code>.
      */
     public String getAdminwho() {
         return (String) get(18);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.ban.edits</code>.
+     * Setter for <code>paradb_unmodified.ban.edits</code>.
      */
     public void setEdits(String value) {
         set(19, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.ban.edits</code>.
+     * Getter for <code>paradb_unmodified.ban.edits</code>.
      */
     public String getEdits() {
         return (String) get(19);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.ban.unbanned</code>.
+     * Setter for <code>paradb_unmodified.ban.unbanned</code>.
      */
     public void setUnbanned(Byte value) {
         set(20, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.ban.unbanned</code>.
+     * Getter for <code>paradb_unmodified.ban.unbanned</code>.
      */
     public Byte getUnbanned() {
         return (Byte) get(20);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.ban.unbanned_datetime</code>.
+     * Setter for <code>paradb_unmodified.ban.unbanned_datetime</code>.
      */
     public void setUnbannedDatetime(LocalDateTime value) {
         set(21, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.ban.unbanned_datetime</code>.
+     * Getter for <code>paradb_unmodified.ban.unbanned_datetime</code>.
      */
     public LocalDateTime getUnbannedDatetime() {
         return (LocalDateTime) get(21);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.ban.unbanned_round_id</code>.
+     * Setter for <code>paradb_unmodified.ban.unbanned_round_id</code>.
      */
     public void setUnbannedRoundId(Integer value) {
         set(22, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.ban.unbanned_round_id</code>.
+     * Getter for <code>paradb_unmodified.ban.unbanned_round_id</code>.
      */
     public Integer getUnbannedRoundId() {
         return (Integer) get(22);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.ban.unbanned_ckey</code>.
+     * Setter for <code>paradb_unmodified.ban.unbanned_ckey</code>.
      */
     public void setUnbannedCkey(String value) {
         set(23, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.ban.unbanned_ckey</code>.
+     * Getter for <code>paradb_unmodified.ban.unbanned_ckey</code>.
      */
     public String getUnbannedCkey() {
         return (String) get(23);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.ban.unbanned_computerid</code>.
+     * Setter for <code>paradb_unmodified.ban.unbanned_computerid</code>.
      */
     public void setUnbannedComputerid(String value) {
         set(24, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.ban.unbanned_computerid</code>.
+     * Getter for <code>paradb_unmodified.ban.unbanned_computerid</code>.
      */
     public String getUnbannedComputerid() {
         return (String) get(24);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.ban.unbanned_ip</code>.
+     * Setter for <code>paradb_unmodified.ban.unbanned_ip</code>.
      */
     public void setUnbannedIp(String value) {
         set(25, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.ban.unbanned_ip</code>.
+     * Getter for <code>paradb_unmodified.ban.unbanned_ip</code>.
      */
     public String getUnbannedIp() {
         return (String) get(25);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.ban.exportable</code>.
+     * Setter for <code>paradb_unmodified.ban.exportable</code>.
      */
     public void setExportable(Byte value) {
         set(26, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.ban.exportable</code>.
+     * Getter for <code>paradb_unmodified.ban.exportable</code>.
      */
     public Byte getExportable() {
         return (Byte) get(26);

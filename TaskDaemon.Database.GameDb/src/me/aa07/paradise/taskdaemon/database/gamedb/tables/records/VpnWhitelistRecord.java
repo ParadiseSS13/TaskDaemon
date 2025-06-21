@@ -22,28 +22,28 @@ public class VpnWhitelistRecord extends UpdatableRecordImpl<VpnWhitelistRecord> 
     private static final long serialVersionUID = 1L;
 
     /**
-     * Setter for <code>paradise_gamedb.vpn_whitelist.ckey</code>.
+     * Setter for <code>paradb_unmodified.vpn_whitelist.ckey</code>.
      */
     public void setCkey(String value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.vpn_whitelist.ckey</code>.
+     * Getter for <code>paradb_unmodified.vpn_whitelist.ckey</code>.
      */
     public String getCkey() {
         return (String) get(0);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.vpn_whitelist.reason</code>.
+     * Setter for <code>paradb_unmodified.vpn_whitelist.reason</code>.
      */
     public void setReason(String value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.vpn_whitelist.reason</code>.
+     * Getter for <code>paradb_unmodified.vpn_whitelist.reason</code>.
      */
     public String getReason() {
         return (String) get(1);

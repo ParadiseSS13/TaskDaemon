@@ -24,84 +24,84 @@ public class DonatorsRecord extends UpdatableRecordImpl<DonatorsRecord> implemen
     private static final long serialVersionUID = 1L;
 
     /**
-     * Setter for <code>paradise_gamedb.donators.patreon_name</code>.
+     * Setter for <code>paradb_unmodified.donators.patreon_name</code>.
      */
     public void setPatreonName(String value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.donators.patreon_name</code>.
+     * Getter for <code>paradb_unmodified.donators.patreon_name</code>.
      */
     public String getPatreonName() {
         return (String) get(0);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.donators.tier</code>.
+     * Setter for <code>paradb_unmodified.donators.tier</code>.
      */
     public void setTier(Integer value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.donators.tier</code>.
+     * Getter for <code>paradb_unmodified.donators.tier</code>.
      */
     public Integer getTier() {
         return (Integer) get(1);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.donators.ckey</code>. Manual Field
+     * Setter for <code>paradb_unmodified.donators.ckey</code>. Manual Field
      */
     public void setCkey(String value) {
         set(2, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.donators.ckey</code>. Manual Field
+     * Getter for <code>paradb_unmodified.donators.ckey</code>. Manual Field
      */
     public String getCkey() {
         return (String) get(2);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.donators.start_date</code>.
+     * Setter for <code>paradb_unmodified.donators.start_date</code>.
      */
     public void setStartDate(LocalDateTime value) {
         set(3, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.donators.start_date</code>.
+     * Getter for <code>paradb_unmodified.donators.start_date</code>.
      */
     public LocalDateTime getStartDate() {
         return (LocalDateTime) get(3);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.donators.end_date</code>.
+     * Setter for <code>paradb_unmodified.donators.end_date</code>.
      */
     public void setEndDate(LocalDateTime value) {
         set(4, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.donators.end_date</code>.
+     * Getter for <code>paradb_unmodified.donators.end_date</code>.
      */
     public LocalDateTime getEndDate() {
         return (LocalDateTime) get(4);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.donators.active</code>.
+     * Setter for <code>paradb_unmodified.donators.active</code>.
      */
     public void setActive(Byte value) {
         set(5, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.donators.active</code>.
+     * Getter for <code>paradb_unmodified.donators.active</code>.
      */
     public Byte getActive() {
         return (Byte) get(5);

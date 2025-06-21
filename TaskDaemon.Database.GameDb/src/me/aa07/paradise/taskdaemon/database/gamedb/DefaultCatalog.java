@@ -25,9 +25,9 @@ public class DefaultCatalog extends CatalogImpl {
     public static final DefaultCatalog DEFAULT_CATALOG = new DefaultCatalog();
 
     /**
-     * The schema <code>paradise_gamedb</code>.
+     * The schema <code>paradb_unmodified</code>.
      */
-    public final ParadiseGamedb PARADISE_GAMEDB = ParadiseGamedb.PARADISE_GAMEDB;
+    public final ParadbUnmodified PARADB_UNMODIFIED = ParadbUnmodified.PARADB_UNMODIFIED;
 
     /**
      * No further instances allowed
@@ -39,7 +39,7 @@ public class DefaultCatalog extends CatalogImpl {
     @Override
     public final List<Schema> getSchemas() {
         return Arrays.asList(
-            ParadiseGamedb.PARADISE_GAMEDB
+            ParadbUnmodified.PARADB_UNMODIFIED
         );
     }
 }

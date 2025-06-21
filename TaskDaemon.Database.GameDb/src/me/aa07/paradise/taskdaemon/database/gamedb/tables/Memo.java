@@ -7,7 +7,7 @@ package me.aa07.paradise.taskdaemon.database.gamedb.tables;
 import java.time.LocalDateTime;
 
 import me.aa07.paradise.taskdaemon.database.gamedb.Keys;
-import me.aa07.paradise.taskdaemon.database.gamedb.ParadiseGamedb;
+import me.aa07.paradise.taskdaemon.database.gamedb.ParadbUnmodified;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.records.MemoRecord;
 
 import org.jooq.Field;
@@ -34,7 +34,7 @@ public class Memo extends TableImpl<MemoRecord> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * The reference instance of <code>paradise_gamedb.memo</code>
+     * The reference instance of <code>paradb_unmodified.memo</code>
      */
     public static final Memo MEMO = new Memo();
 
@@ -47,27 +47,27 @@ public class Memo extends TableImpl<MemoRecord> {
     }
 
     /**
-     * The column <code>paradise_gamedb.memo.ckey</code>.
+     * The column <code>paradb_unmodified.memo.ckey</code>.
      */
     public final TableField<MemoRecord, String> CKEY = createField(DSL.name("ckey"), SQLDataType.VARCHAR(32).nullable(false), this, "");
 
     /**
-     * The column <code>paradise_gamedb.memo.memotext</code>.
+     * The column <code>paradb_unmodified.memo.memotext</code>.
      */
     public final TableField<MemoRecord, String> MEMOTEXT = createField(DSL.name("memotext"), SQLDataType.CLOB.nullable(false), this, "");
 
     /**
-     * The column <code>paradise_gamedb.memo.timestamp</code>.
+     * The column <code>paradb_unmodified.memo.timestamp</code>.
      */
     public final TableField<MemoRecord, LocalDateTime> TIMESTAMP = createField(DSL.name("timestamp"), SQLDataType.LOCALDATETIME(0).nullable(false), this, "");
 
     /**
-     * The column <code>paradise_gamedb.memo.last_editor</code>.
+     * The column <code>paradb_unmodified.memo.last_editor</code>.
      */
     public final TableField<MemoRecord, String> LAST_EDITOR = createField(DSL.name("last_editor"), SQLDataType.VARCHAR(32).defaultValue(DSL.inline("NULL", SQLDataType.VARCHAR)), this, "");
 
     /**
-     * The column <code>paradise_gamedb.memo.edits</code>.
+     * The column <code>paradb_unmodified.memo.edits</code>.
      */
     public final TableField<MemoRecord, String> EDITS = createField(DSL.name("edits"), SQLDataType.CLOB.defaultValue(DSL.inline("NULL", SQLDataType.CLOB)), this, "");
 
@@ -80,21 +80,21 @@ public class Memo extends TableImpl<MemoRecord> {
     }
 
     /**
-     * Create an aliased <code>paradise_gamedb.memo</code> table reference
+     * Create an aliased <code>paradb_unmodified.memo</code> table reference
      */
     public Memo(String alias) {
         this(DSL.name(alias), MEMO);
     }
 
     /**
-     * Create an aliased <code>paradise_gamedb.memo</code> table reference
+     * Create an aliased <code>paradb_unmodified.memo</code> table reference
      */
     public Memo(Name alias) {
         this(alias, MEMO);
     }
 
     /**
-     * Create a <code>paradise_gamedb.memo</code> table reference
+     * Create a <code>paradb_unmodified.memo</code> table reference
      */
     public Memo() {
         this(DSL.name("memo"), null);
@@ -106,7 +106,7 @@ public class Memo extends TableImpl<MemoRecord> {
 
     @Override
     public Schema getSchema() {
-        return aliased() ? null : ParadiseGamedb.PARADISE_GAMEDB;
+        return aliased() ? null : ParadbUnmodified.PARADB_UNMODIFIED;
     }
 
     @Override

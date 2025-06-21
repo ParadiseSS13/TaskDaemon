@@ -9,7 +9,8 @@ import java.util.List;
 
 import me.aa07.paradise.taskdaemon.database.gamedb.Indexes;
 import me.aa07.paradise.taskdaemon.database.gamedb.Keys;
-import me.aa07.paradise.taskdaemon.database.gamedb.ParadiseGamedb;
+import me.aa07.paradise.taskdaemon.database.gamedb.ParadbUnmodified;
+import me.aa07.paradise.taskdaemon.database.gamedb.enums.CharactersCyborgBrainType;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.records.CharactersRecord;
 
 import org.jooq.Field;
@@ -38,7 +39,7 @@ public class Characters extends TableImpl<CharactersRecord> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * The reference instance of <code>paradise_gamedb.characters</code>
+     * The reference instance of <code>paradb_unmodified.characters</code>
      */
     public static final Characters CHARACTERS = new Characters();
 
@@ -51,291 +52,331 @@ public class Characters extends TableImpl<CharactersRecord> {
     }
 
     /**
-     * The column <code>paradise_gamedb.characters.id</code>.
+     * The column <code>paradb_unmodified.characters.id</code>.
      */
     public final TableField<CharactersRecord, Integer> ID = createField(DSL.name("id"), SQLDataType.INTEGER.nullable(false).identity(true), this, "");
 
     /**
-     * The column <code>paradise_gamedb.characters.ckey</code>.
+     * The column <code>paradb_unmodified.characters.ckey</code>.
      */
     public final TableField<CharactersRecord, String> CKEY = createField(DSL.name("ckey"), SQLDataType.VARCHAR(32).nullable(false), this, "");
 
     /**
-     * The column <code>paradise_gamedb.characters.slot</code>.
+     * The column <code>paradb_unmodified.characters.slot</code>.
      */
     public final TableField<CharactersRecord, Integer> SLOT = createField(DSL.name("slot"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
-     * The column <code>paradise_gamedb.characters.OOC_Notes</code>.
+     * The column <code>paradb_unmodified.characters.OOC_Notes</code>.
      */
     public final TableField<CharactersRecord, String> OOC_NOTES = createField(DSL.name("OOC_Notes"), SQLDataType.CLOB.nullable(false), this, "");
 
     /**
-     * The column <code>paradise_gamedb.characters.real_name</code>.
+     * The column <code>paradb_unmodified.characters.real_name</code>.
      */
     public final TableField<CharactersRecord, String> REAL_NAME = createField(DSL.name("real_name"), SQLDataType.VARCHAR(55).nullable(false), this, "");
 
     /**
-     * The column <code>paradise_gamedb.characters.name_is_always_random</code>.
+     * The column
+     * <code>paradb_unmodified.characters.name_is_always_random</code>.
      */
     public final TableField<CharactersRecord, Byte> NAME_IS_ALWAYS_RANDOM = createField(DSL.name("name_is_always_random"), SQLDataType.TINYINT.nullable(false), this, "");
 
     /**
-     * The column <code>paradise_gamedb.characters.gender</code>.
+     * The column <code>paradb_unmodified.characters.gender</code>.
      */
     public final TableField<CharactersRecord, String> GENDER = createField(DSL.name("gender"), SQLDataType.VARCHAR(11).nullable(false), this, "");
 
     /**
-     * The column <code>paradise_gamedb.characters.age</code>.
+     * The column <code>paradb_unmodified.characters.body_type</code>.
+     */
+    public final TableField<CharactersRecord, String> BODY_TYPE = createField(DSL.name("body_type"), SQLDataType.VARCHAR(11).nullable(false), this, "");
+
+    /**
+     * The column <code>paradb_unmodified.characters.age</code>.
      */
     public final TableField<CharactersRecord, Short> AGE = createField(DSL.name("age"), SQLDataType.SMALLINT.nullable(false), this, "");
 
     /**
-     * The column <code>paradise_gamedb.characters.species</code>.
+     * The column <code>paradb_unmodified.characters.species</code>.
      */
     public final TableField<CharactersRecord, String> SPECIES = createField(DSL.name("species"), SQLDataType.VARCHAR(45).nullable(false), this, "");
 
     /**
-     * The column <code>paradise_gamedb.characters.language</code>.
+     * The column <code>paradb_unmodified.characters.language</code>.
      */
     public final TableField<CharactersRecord, String> LANGUAGE = createField(DSL.name("language"), SQLDataType.VARCHAR(45).nullable(false), this, "");
 
     /**
-     * The column <code>paradise_gamedb.characters.hair_colour</code>.
+     * The column <code>paradb_unmodified.characters.hair_colour</code>.
      */
     public final TableField<CharactersRecord, String> HAIR_COLOUR = createField(DSL.name("hair_colour"), SQLDataType.VARCHAR(7).nullable(false).defaultValue(DSL.inline("'#000000'", SQLDataType.VARCHAR)), this, "");
 
     /**
-     * The column <code>paradise_gamedb.characters.secondary_hair_colour</code>.
+     * The column
+     * <code>paradb_unmodified.characters.secondary_hair_colour</code>.
      */
     public final TableField<CharactersRecord, String> SECONDARY_HAIR_COLOUR = createField(DSL.name("secondary_hair_colour"), SQLDataType.VARCHAR(7).nullable(false).defaultValue(DSL.inline("'#000000'", SQLDataType.VARCHAR)), this, "");
 
     /**
-     * The column <code>paradise_gamedb.characters.facial_hair_colour</code>.
+     * The column <code>paradb_unmodified.characters.facial_hair_colour</code>.
      */
     public final TableField<CharactersRecord, String> FACIAL_HAIR_COLOUR = createField(DSL.name("facial_hair_colour"), SQLDataType.VARCHAR(7).nullable(false).defaultValue(DSL.inline("'#000000'", SQLDataType.VARCHAR)), this, "");
 
     /**
      * The column
-     * <code>paradise_gamedb.characters.secondary_facial_hair_colour</code>.
+     * <code>paradb_unmodified.characters.secondary_facial_hair_colour</code>.
      */
     public final TableField<CharactersRecord, String> SECONDARY_FACIAL_HAIR_COLOUR = createField(DSL.name("secondary_facial_hair_colour"), SQLDataType.VARCHAR(7).nullable(false).defaultValue(DSL.inline("'#000000'", SQLDataType.VARCHAR)), this, "");
 
     /**
-     * The column <code>paradise_gamedb.characters.skin_tone</code>.
+     * The column <code>paradb_unmodified.characters.skin_tone</code>.
      */
     public final TableField<CharactersRecord, Short> SKIN_TONE = createField(DSL.name("skin_tone"), SQLDataType.SMALLINT.nullable(false), this, "");
 
     /**
-     * The column <code>paradise_gamedb.characters.skin_colour</code>.
+     * The column <code>paradb_unmodified.characters.skin_colour</code>.
      */
     public final TableField<CharactersRecord, String> SKIN_COLOUR = createField(DSL.name("skin_colour"), SQLDataType.VARCHAR(7).nullable(false).defaultValue(DSL.inline("'#000000'", SQLDataType.VARCHAR)), this, "");
 
     /**
-     * The column <code>paradise_gamedb.characters.marking_colours</code>.
+     * The column <code>paradb_unmodified.characters.marking_colours</code>.
      */
     public final TableField<CharactersRecord, String> MARKING_COLOURS = createField(DSL.name("marking_colours"), SQLDataType.VARCHAR(255).nullable(false).defaultValue(DSL.inline("'head=%23000000&body=%23000000&tail=%23000000'", SQLDataType.VARCHAR)), this, "");
 
     /**
-     * The column <code>paradise_gamedb.characters.head_accessory_colour</code>.
+     * The column
+     * <code>paradb_unmodified.characters.head_accessory_colour</code>.
      */
     public final TableField<CharactersRecord, String> HEAD_ACCESSORY_COLOUR = createField(DSL.name("head_accessory_colour"), SQLDataType.VARCHAR(7).nullable(false).defaultValue(DSL.inline("'#000000'", SQLDataType.VARCHAR)), this, "");
 
     /**
-     * The column <code>paradise_gamedb.characters.hair_style_name</code>.
+     * The column <code>paradb_unmodified.characters.hair_style_name</code>.
      */
     public final TableField<CharactersRecord, String> HAIR_STYLE_NAME = createField(DSL.name("hair_style_name"), SQLDataType.VARCHAR(45).nullable(false), this, "");
 
     /**
-     * The column <code>paradise_gamedb.characters.facial_style_name</code>.
+     * The column <code>paradb_unmodified.characters.facial_style_name</code>.
      */
     public final TableField<CharactersRecord, String> FACIAL_STYLE_NAME = createField(DSL.name("facial_style_name"), SQLDataType.VARCHAR(45).nullable(false), this, "");
 
     /**
-     * The column <code>paradise_gamedb.characters.marking_styles</code>.
+     * The column <code>paradb_unmodified.characters.marking_styles</code>.
      */
     public final TableField<CharactersRecord, String> MARKING_STYLES = createField(DSL.name("marking_styles"), SQLDataType.VARCHAR(255).nullable(false).defaultValue(DSL.inline("'head=None&body=None&tail=None'", SQLDataType.VARCHAR)), this, "");
 
     /**
      * The column
-     * <code>paradise_gamedb.characters.head_accessory_style_name</code>.
+     * <code>paradb_unmodified.characters.head_accessory_style_name</code>.
      */
     public final TableField<CharactersRecord, String> HEAD_ACCESSORY_STYLE_NAME = createField(DSL.name("head_accessory_style_name"), SQLDataType.VARCHAR(45).nullable(false), this, "");
 
     /**
-     * The column <code>paradise_gamedb.characters.alt_head_name</code>.
+     * The column <code>paradb_unmodified.characters.alt_head_name</code>.
      */
     public final TableField<CharactersRecord, String> ALT_HEAD_NAME = createField(DSL.name("alt_head_name"), SQLDataType.VARCHAR(45).nullable(false), this, "");
 
     /**
-     * The column <code>paradise_gamedb.characters.eye_colour</code>.
+     * The column <code>paradb_unmodified.characters.eye_colour</code>.
      */
     public final TableField<CharactersRecord, String> EYE_COLOUR = createField(DSL.name("eye_colour"), SQLDataType.VARCHAR(7).nullable(false).defaultValue(DSL.inline("'#000000'", SQLDataType.VARCHAR)), this, "");
 
     /**
-     * The column <code>paradise_gamedb.characters.underwear</code>.
+     * The column <code>paradb_unmodified.characters.underwear</code>.
      */
     public final TableField<CharactersRecord, String> UNDERWEAR = createField(DSL.name("underwear"), SQLDataType.CLOB.nullable(false), this, "");
 
     /**
-     * The column <code>paradise_gamedb.characters.undershirt</code>.
+     * The column <code>paradb_unmodified.characters.undershirt</code>.
      */
     public final TableField<CharactersRecord, String> UNDERSHIRT = createField(DSL.name("undershirt"), SQLDataType.CLOB.nullable(false), this, "");
 
     /**
-     * The column <code>paradise_gamedb.characters.backbag</code>.
+     * The column <code>paradb_unmodified.characters.backbag</code>.
      */
     public final TableField<CharactersRecord, String> BACKBAG = createField(DSL.name("backbag"), SQLDataType.CLOB.defaultValue(DSL.inline("NULL", SQLDataType.CLOB)), this, "");
 
     /**
-     * The column <code>paradise_gamedb.characters.b_type</code>.
+     * The column <code>paradb_unmodified.characters.b_type</code>.
      */
     public final TableField<CharactersRecord, String> B_TYPE = createField(DSL.name("b_type"), SQLDataType.VARCHAR(45).nullable(false), this, "");
 
     /**
-     * The column <code>paradise_gamedb.characters.alternate_option</code>.
+     * The column <code>paradb_unmodified.characters.alternate_option</code>.
      */
     public final TableField<CharactersRecord, Short> ALTERNATE_OPTION = createField(DSL.name("alternate_option"), SQLDataType.SMALLINT.nullable(false), this, "");
 
     /**
-     * The column <code>paradise_gamedb.characters.job_support_high</code>.
+     * The column <code>paradb_unmodified.characters.job_support_high</code>.
      */
     public final TableField<CharactersRecord, Integer> JOB_SUPPORT_HIGH = createField(DSL.name("job_support_high"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
-     * The column <code>paradise_gamedb.characters.job_support_med</code>.
+     * The column <code>paradb_unmodified.characters.job_support_med</code>.
      */
     public final TableField<CharactersRecord, Integer> JOB_SUPPORT_MED = createField(DSL.name("job_support_med"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
-     * The column <code>paradise_gamedb.characters.job_support_low</code>.
+     * The column <code>paradb_unmodified.characters.job_support_low</code>.
      */
     public final TableField<CharactersRecord, Integer> JOB_SUPPORT_LOW = createField(DSL.name("job_support_low"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
-     * The column <code>paradise_gamedb.characters.job_medsci_high</code>.
+     * The column <code>paradb_unmodified.characters.job_medsci_high</code>.
      */
     public final TableField<CharactersRecord, Integer> JOB_MEDSCI_HIGH = createField(DSL.name("job_medsci_high"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
-     * The column <code>paradise_gamedb.characters.job_medsci_med</code>.
+     * The column <code>paradb_unmodified.characters.job_medsci_med</code>.
      */
     public final TableField<CharactersRecord, Integer> JOB_MEDSCI_MED = createField(DSL.name("job_medsci_med"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
-     * The column <code>paradise_gamedb.characters.job_medsci_low</code>.
+     * The column <code>paradb_unmodified.characters.job_medsci_low</code>.
      */
     public final TableField<CharactersRecord, Integer> JOB_MEDSCI_LOW = createField(DSL.name("job_medsci_low"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
-     * The column <code>paradise_gamedb.characters.job_engsec_high</code>.
+     * The column <code>paradb_unmodified.characters.job_engsec_high</code>.
      */
     public final TableField<CharactersRecord, Integer> JOB_ENGSEC_HIGH = createField(DSL.name("job_engsec_high"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
-     * The column <code>paradise_gamedb.characters.job_engsec_med</code>.
+     * The column <code>paradb_unmodified.characters.job_engsec_med</code>.
      */
     public final TableField<CharactersRecord, Integer> JOB_ENGSEC_MED = createField(DSL.name("job_engsec_med"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
-     * The column <code>paradise_gamedb.characters.job_engsec_low</code>.
+     * The column <code>paradb_unmodified.characters.job_engsec_low</code>.
      */
     public final TableField<CharactersRecord, Integer> JOB_ENGSEC_LOW = createField(DSL.name("job_engsec_low"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
-     * The column <code>paradise_gamedb.characters.flavor_text</code>.
+     * The column <code>paradb_unmodified.characters.flavor_text</code>.
      */
     public final TableField<CharactersRecord, String> FLAVOR_TEXT = createField(DSL.name("flavor_text"), SQLDataType.CLOB.nullable(false), this, "");
 
     /**
-     * The column <code>paradise_gamedb.characters.med_record</code>.
+     * The column <code>paradb_unmodified.characters.med_record</code>.
      */
     public final TableField<CharactersRecord, String> MED_RECORD = createField(DSL.name("med_record"), SQLDataType.CLOB.nullable(false), this, "");
 
     /**
-     * The column <code>paradise_gamedb.characters.sec_record</code>.
+     * The column <code>paradb_unmodified.characters.sec_record</code>.
      */
     public final TableField<CharactersRecord, String> SEC_RECORD = createField(DSL.name("sec_record"), SQLDataType.CLOB.nullable(false), this, "");
 
     /**
-     * The column <code>paradise_gamedb.characters.gen_record</code>.
+     * The column <code>paradb_unmodified.characters.gen_record</code>.
      */
     public final TableField<CharactersRecord, String> GEN_RECORD = createField(DSL.name("gen_record"), SQLDataType.CLOB.nullable(false), this, "");
 
     /**
-     * The column <code>paradise_gamedb.characters.disabilities</code>.
+     * The column <code>paradb_unmodified.characters.disabilities</code>.
      */
     public final TableField<CharactersRecord, Integer> DISABILITIES = createField(DSL.name("disabilities"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
-     * The column <code>paradise_gamedb.characters.player_alt_titles</code>.
+     * The column <code>paradb_unmodified.characters.player_alt_titles</code>.
      */
     public final TableField<CharactersRecord, String> PLAYER_ALT_TITLES = createField(DSL.name("player_alt_titles"), SQLDataType.CLOB.nullable(false), this, "");
 
     /**
-     * The column <code>paradise_gamedb.characters.organ_data</code>.
+     * The column <code>paradb_unmodified.characters.organ_data</code>.
      */
     public final TableField<CharactersRecord, String> ORGAN_DATA = createField(DSL.name("organ_data"), SQLDataType.CLOB.nullable(false), this, "");
 
     /**
-     * The column <code>paradise_gamedb.characters.rlimb_data</code>.
+     * The column <code>paradb_unmodified.characters.rlimb_data</code>.
      */
     public final TableField<CharactersRecord, String> RLIMB_DATA = createField(DSL.name("rlimb_data"), SQLDataType.CLOB.nullable(false), this, "");
 
     /**
-     * The column <code>paradise_gamedb.characters.nanotrasen_relation</code>.
+     * The column <code>paradb_unmodified.characters.nanotrasen_relation</code>.
      */
     public final TableField<CharactersRecord, String> NANOTRASEN_RELATION = createField(DSL.name("nanotrasen_relation"), SQLDataType.VARCHAR(45).nullable(false), this, "");
 
     /**
-     * The column <code>paradise_gamedb.characters.speciesprefs</code>.
+     * The column <code>paradb_unmodified.characters.physique</code>.
+     */
+    public final TableField<CharactersRecord, String> PHYSIQUE = createField(DSL.name("physique"), SQLDataType.VARCHAR(45).defaultValue(DSL.inline("NULL", SQLDataType.VARCHAR)), this, "");
+
+    /**
+     * The column <code>paradb_unmodified.characters.height</code>.
+     */
+    public final TableField<CharactersRecord, String> HEIGHT = createField(DSL.name("height"), SQLDataType.VARCHAR(45).defaultValue(DSL.inline("NULL", SQLDataType.VARCHAR)), this, "");
+
+    /**
+     * The column <code>paradb_unmodified.characters.speciesprefs</code>.
      */
     public final TableField<CharactersRecord, Integer> SPECIESPREFS = createField(DSL.name("speciesprefs"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
-     * The column <code>paradise_gamedb.characters.socks</code>.
+     * The column <code>paradb_unmodified.characters.socks</code>.
      */
     public final TableField<CharactersRecord, String> SOCKS = createField(DSL.name("socks"), SQLDataType.CLOB.nullable(false), this, "");
 
     /**
-     * The column <code>paradise_gamedb.characters.body_accessory</code>.
+     * The column <code>paradb_unmodified.characters.body_accessory</code>.
      */
     public final TableField<CharactersRecord, String> BODY_ACCESSORY = createField(DSL.name("body_accessory"), SQLDataType.CLOB.nullable(false), this, "");
 
     /**
-     * The column <code>paradise_gamedb.characters.gear</code>.
+     * The column <code>paradb_unmodified.characters.gear</code>.
      */
     public final TableField<CharactersRecord, String> GEAR = createField(DSL.name("gear"), SQLDataType.CLOB.nullable(false), this, "");
 
     /**
-     * The column <code>paradise_gamedb.characters.autohiss</code>.
+     * The column <code>paradb_unmodified.characters.autohiss</code>.
      */
     public final TableField<CharactersRecord, Byte> AUTOHISS = createField(DSL.name("autohiss"), SQLDataType.TINYINT.nullable(false), this, "");
 
     /**
-     * The column <code>paradise_gamedb.characters.hair_gradient</code>.
+     * The column <code>paradb_unmodified.characters.hair_gradient</code>.
      */
     public final TableField<CharactersRecord, String> HAIR_GRADIENT = createField(DSL.name("hair_gradient"), SQLDataType.VARCHAR(45).nullable(false), this, "");
 
     /**
-     * The column <code>paradise_gamedb.characters.hair_gradient_offset</code>.
+     * The column
+     * <code>paradb_unmodified.characters.hair_gradient_offset</code>.
      */
     public final TableField<CharactersRecord, String> HAIR_GRADIENT_OFFSET = createField(DSL.name("hair_gradient_offset"), SQLDataType.VARCHAR(7).nullable(false).defaultValue(DSL.inline("'0,0'", SQLDataType.VARCHAR)), this, "");
 
     /**
-     * The column <code>paradise_gamedb.characters.hair_gradient_colour</code>.
+     * The column
+     * <code>paradb_unmodified.characters.hair_gradient_colour</code>.
      */
     public final TableField<CharactersRecord, String> HAIR_GRADIENT_COLOUR = createField(DSL.name("hair_gradient_colour"), SQLDataType.VARCHAR(7).nullable(false).defaultValue(DSL.inline("'#000000'", SQLDataType.VARCHAR)), this, "");
 
     /**
-     * The column <code>paradise_gamedb.characters.hair_gradient_alpha</code>.
+     * The column <code>paradb_unmodified.characters.hair_gradient_alpha</code>.
      */
     public final TableField<CharactersRecord, UByte> HAIR_GRADIENT_ALPHA = createField(DSL.name("hair_gradient_alpha"), SQLDataType.TINYINTUNSIGNED.nullable(false).defaultValue(DSL.inline("255", SQLDataType.TINYINTUNSIGNED)), this, "");
 
     /**
-     * The column <code>paradise_gamedb.characters.custom_emotes</code>.
+     * The column <code>paradb_unmodified.characters.custom_emotes</code>.
      */
     public final TableField<CharactersRecord, String> CUSTOM_EMOTES = createField(DSL.name("custom_emotes"), SQLDataType.CLOB.defaultValue(DSL.inline("NULL", SQLDataType.CLOB)), this, "");
+
+    /**
+     * The column <code>paradb_unmodified.characters.runechat_color</code>.
+     */
+    public final TableField<CharactersRecord, String> RUNECHAT_COLOR = createField(DSL.name("runechat_color"), SQLDataType.VARCHAR(7).nullable(false).defaultValue(DSL.inline("'#FFFFFF'", SQLDataType.VARCHAR)), this, "");
+
+    /**
+     * The column <code>paradb_unmodified.characters.cyborg_brain_type</code>.
+     */
+    public final TableField<CharactersRecord, CharactersCyborgBrainType> CYBORG_BRAIN_TYPE = createField(DSL.name("cyborg_brain_type"), SQLDataType.VARCHAR(10).nullable(false).defaultValue(DSL.inline("'MMI'", SQLDataType.VARCHAR)).asEnumDataType(me.aa07.paradise.taskdaemon.database.gamedb.enums.CharactersCyborgBrainType.class), this, "");
+
+    /**
+     * The column <code>paradb_unmodified.characters.pda_ringtone</code>.
+     */
+    public final TableField<CharactersRecord, String> PDA_RINGTONE = createField(DSL.name("pda_ringtone"), SQLDataType.VARCHAR(16).defaultValue(DSL.inline("NULL", SQLDataType.VARCHAR)), this, "");
+
+    /**
+     * The column <code>paradb_unmodified.characters.quirks</code>.
+     */
+    public final TableField<CharactersRecord, String> QUIRKS = createField(DSL.name("quirks"), SQLDataType.CLOB.defaultValue(DSL.inline("NULL", SQLDataType.CLOB)), this, "");
 
     private Characters(Name alias, Table<CharactersRecord> aliased) {
         this(alias, aliased, null);
@@ -346,21 +387,23 @@ public class Characters extends TableImpl<CharactersRecord> {
     }
 
     /**
-     * Create an aliased <code>paradise_gamedb.characters</code> table reference
+     * Create an aliased <code>paradb_unmodified.characters</code> table
+     * reference
      */
     public Characters(String alias) {
         this(DSL.name(alias), CHARACTERS);
     }
 
     /**
-     * Create an aliased <code>paradise_gamedb.characters</code> table reference
+     * Create an aliased <code>paradb_unmodified.characters</code> table
+     * reference
      */
     public Characters(Name alias) {
         this(alias, CHARACTERS);
     }
 
     /**
-     * Create a <code>paradise_gamedb.characters</code> table reference
+     * Create a <code>paradb_unmodified.characters</code> table reference
      */
     public Characters() {
         this(DSL.name("characters"), null);
@@ -372,7 +415,7 @@ public class Characters extends TableImpl<CharactersRecord> {
 
     @Override
     public Schema getSchema() {
-        return aliased() ? null : ParadiseGamedb.PARADISE_GAMEDB;
+        return aliased() ? null : ParadbUnmodified.PARADB_UNMODIFIED;
     }
 
     @Override

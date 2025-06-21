@@ -24,84 +24,84 @@ public class WatchRecord extends UpdatableRecordImpl<WatchRecord> implements Rec
     private static final long serialVersionUID = 1L;
 
     /**
-     * Setter for <code>paradise_gamedb.watch.ckey</code>.
+     * Setter for <code>paradb_unmodified.watch.ckey</code>.
      */
     public void setCkey(String value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.watch.ckey</code>.
+     * Getter for <code>paradb_unmodified.watch.ckey</code>.
      */
     public String getCkey() {
         return (String) get(0);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.watch.reason</code>.
+     * Setter for <code>paradb_unmodified.watch.reason</code>.
      */
     public void setReason(String value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.watch.reason</code>.
+     * Getter for <code>paradb_unmodified.watch.reason</code>.
      */
     public String getReason() {
         return (String) get(1);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.watch.timestamp</code>.
+     * Setter for <code>paradb_unmodified.watch.timestamp</code>.
      */
     public void setTimestamp(LocalDateTime value) {
         set(2, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.watch.timestamp</code>.
+     * Getter for <code>paradb_unmodified.watch.timestamp</code>.
      */
     public LocalDateTime getTimestamp() {
         return (LocalDateTime) get(2);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.watch.adminckey</code>.
+     * Setter for <code>paradb_unmodified.watch.adminckey</code>.
      */
     public void setAdminckey(String value) {
         set(3, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.watch.adminckey</code>.
+     * Getter for <code>paradb_unmodified.watch.adminckey</code>.
      */
     public String getAdminckey() {
         return (String) get(3);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.watch.last_editor</code>.
+     * Setter for <code>paradb_unmodified.watch.last_editor</code>.
      */
     public void setLastEditor(String value) {
         set(4, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.watch.last_editor</code>.
+     * Getter for <code>paradb_unmodified.watch.last_editor</code>.
      */
     public String getLastEditor() {
         return (String) get(4);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.watch.edits</code>.
+     * Setter for <code>paradb_unmodified.watch.edits</code>.
      */
     public void setEdits(String value) {
         set(5, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.watch.edits</code>.
+     * Getter for <code>paradb_unmodified.watch.edits</code>.
      */
     public String getEdits() {
         return (String) get(5);

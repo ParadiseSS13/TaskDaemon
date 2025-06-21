@@ -9,7 +9,7 @@ import java.util.List;
 
 import me.aa07.paradise.taskdaemon.database.gamedb.Indexes;
 import me.aa07.paradise.taskdaemon.database.gamedb.Keys;
-import me.aa07.paradise.taskdaemon.database.gamedb.ParadiseGamedb;
+import me.aa07.paradise.taskdaemon.database.gamedb.ParadbUnmodified;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.records.AdminRecord;
 
 import org.jooq.Field;
@@ -38,7 +38,7 @@ public class Admin extends TableImpl<AdminRecord> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * The reference instance of <code>paradise_gamedb.admin</code>
+     * The reference instance of <code>paradb_unmodified.admin</code>
      */
     public static final Admin ADMIN = new Admin();
 
@@ -51,27 +51,27 @@ public class Admin extends TableImpl<AdminRecord> {
     }
 
     /**
-     * The column <code>paradise_gamedb.admin.id</code>.
+     * The column <code>paradb_unmodified.admin.id</code>.
      */
     public final TableField<AdminRecord, Integer> ID = createField(DSL.name("id"), SQLDataType.INTEGER.nullable(false).identity(true), this, "");
 
     /**
-     * The column <code>paradise_gamedb.admin.ckey</code>.
+     * The column <code>paradb_unmodified.admin.ckey</code>.
      */
     public final TableField<AdminRecord, String> CKEY = createField(DSL.name("ckey"), SQLDataType.VARCHAR(32).nullable(false), this, "");
 
     /**
-     * The column <code>paradise_gamedb.admin.admin_rank</code>.
+     * The column <code>paradb_unmodified.admin.admin_rank</code>.
      */
     public final TableField<AdminRecord, String> ADMIN_RANK = createField(DSL.name("admin_rank"), SQLDataType.VARCHAR(32).nullable(false).defaultValue(DSL.inline("'Administrator'", SQLDataType.VARCHAR)), this, "");
 
     /**
-     * The column <code>paradise_gamedb.admin.level</code>.
+     * The column <code>paradb_unmodified.admin.level</code>.
      */
     public final TableField<AdminRecord, Integer> LEVEL = createField(DSL.name("level"), SQLDataType.INTEGER.nullable(false).defaultValue(DSL.inline("0", SQLDataType.INTEGER)), this, "");
 
     /**
-     * The column <code>paradise_gamedb.admin.flags</code>.
+     * The column <code>paradb_unmodified.admin.flags</code>.
      */
     public final TableField<AdminRecord, Integer> FLAGS = createField(DSL.name("flags"), SQLDataType.INTEGER.nullable(false).defaultValue(DSL.inline("0", SQLDataType.INTEGER)), this, "");
 
@@ -84,21 +84,21 @@ public class Admin extends TableImpl<AdminRecord> {
     }
 
     /**
-     * Create an aliased <code>paradise_gamedb.admin</code> table reference
+     * Create an aliased <code>paradb_unmodified.admin</code> table reference
      */
     public Admin(String alias) {
         this(DSL.name(alias), ADMIN);
     }
 
     /**
-     * Create an aliased <code>paradise_gamedb.admin</code> table reference
+     * Create an aliased <code>paradb_unmodified.admin</code> table reference
      */
     public Admin(Name alias) {
         this(alias, ADMIN);
     }
 
     /**
-     * Create a <code>paradise_gamedb.admin</code> table reference
+     * Create a <code>paradb_unmodified.admin</code> table reference
      */
     public Admin() {
         this(DSL.name("admin"), null);
@@ -110,7 +110,7 @@ public class Admin extends TableImpl<AdminRecord> {
 
     @Override
     public Schema getSchema() {
-        return aliased() ? null : ParadiseGamedb.PARADISE_GAMEDB;
+        return aliased() ? null : ParadbUnmodified.PARADB_UNMODIFIED;
     }
 
     @Override

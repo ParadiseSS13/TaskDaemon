@@ -9,7 +9,7 @@ import java.util.List;
 
 import me.aa07.paradise.taskdaemon.database.gamedb.Indexes;
 import me.aa07.paradise.taskdaemon.database.gamedb.Keys;
-import me.aa07.paradise.taskdaemon.database.gamedb.ParadiseGamedb;
+import me.aa07.paradise.taskdaemon.database.gamedb.ParadbUnmodified;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.records.CustomuseritemsRecord;
 
 import org.jooq.Field;
@@ -38,7 +38,7 @@ public class Customuseritems extends TableImpl<CustomuseritemsRecord> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * The reference instance of <code>paradise_gamedb.customuseritems</code>
+     * The reference instance of <code>paradb_unmodified.customuseritems</code>
      */
     public static final Customuseritems CUSTOMUSERITEMS = new Customuseritems();
 
@@ -51,47 +51,47 @@ public class Customuseritems extends TableImpl<CustomuseritemsRecord> {
     }
 
     /**
-     * The column <code>paradise_gamedb.customuseritems.id</code>.
+     * The column <code>paradb_unmodified.customuseritems.id</code>.
      */
     public final TableField<CustomuseritemsRecord, Integer> ID = createField(DSL.name("id"), SQLDataType.INTEGER.nullable(false).identity(true), this, "");
 
     /**
-     * The column <code>paradise_gamedb.customuseritems.cuiCKey</code>.
+     * The column <code>paradb_unmodified.customuseritems.cuiCKey</code>.
      */
     public final TableField<CustomuseritemsRecord, String> CUICKEY = createField(DSL.name("cuiCKey"), SQLDataType.VARCHAR(36).nullable(false), this, "");
 
     /**
-     * The column <code>paradise_gamedb.customuseritems.cuiRealName</code>.
+     * The column <code>paradb_unmodified.customuseritems.cuiRealName</code>.
      */
     public final TableField<CustomuseritemsRecord, String> CUIREALNAME = createField(DSL.name("cuiRealName"), SQLDataType.VARCHAR(60).nullable(false), this, "");
 
     /**
-     * The column <code>paradise_gamedb.customuseritems.cuiPath</code>.
+     * The column <code>paradb_unmodified.customuseritems.cuiPath</code>.
      */
     public final TableField<CustomuseritemsRecord, String> CUIPATH = createField(DSL.name("cuiPath"), SQLDataType.VARCHAR(255).nullable(false), this, "");
 
     /**
-     * The column <code>paradise_gamedb.customuseritems.cuiItemName</code>.
+     * The column <code>paradb_unmodified.customuseritems.cuiItemName</code>.
      */
     public final TableField<CustomuseritemsRecord, String> CUIITEMNAME = createField(DSL.name("cuiItemName"), SQLDataType.CLOB.defaultValue(DSL.inline("NULL", SQLDataType.CLOB)), this, "");
 
     /**
-     * The column <code>paradise_gamedb.customuseritems.cuiDescription</code>.
+     * The column <code>paradb_unmodified.customuseritems.cuiDescription</code>.
      */
     public final TableField<CustomuseritemsRecord, String> CUIDESCRIPTION = createField(DSL.name("cuiDescription"), SQLDataType.CLOB.defaultValue(DSL.inline("NULL", SQLDataType.CLOB)), this, "");
 
     /**
-     * The column <code>paradise_gamedb.customuseritems.cuiReason</code>.
+     * The column <code>paradb_unmodified.customuseritems.cuiReason</code>.
      */
     public final TableField<CustomuseritemsRecord, String> CUIREASON = createField(DSL.name("cuiReason"), SQLDataType.CLOB.defaultValue(DSL.inline("NULL", SQLDataType.CLOB)), this, "");
 
     /**
-     * The column <code>paradise_gamedb.customuseritems.cuiPropAdjust</code>.
+     * The column <code>paradb_unmodified.customuseritems.cuiPropAdjust</code>.
      */
     public final TableField<CustomuseritemsRecord, String> CUIPROPADJUST = createField(DSL.name("cuiPropAdjust"), SQLDataType.CLOB.defaultValue(DSL.inline("NULL", SQLDataType.CLOB)), this, "");
 
     /**
-     * The column <code>paradise_gamedb.customuseritems.cuiJobMask</code>.
+     * The column <code>paradb_unmodified.customuseritems.cuiJobMask</code>.
      */
     public final TableField<CustomuseritemsRecord, String> CUIJOBMASK = createField(DSL.name("cuiJobMask"), SQLDataType.CLOB.nullable(false), this, "");
 
@@ -104,7 +104,7 @@ public class Customuseritems extends TableImpl<CustomuseritemsRecord> {
     }
 
     /**
-     * Create an aliased <code>paradise_gamedb.customuseritems</code> table
+     * Create an aliased <code>paradb_unmodified.customuseritems</code> table
      * reference
      */
     public Customuseritems(String alias) {
@@ -112,7 +112,7 @@ public class Customuseritems extends TableImpl<CustomuseritemsRecord> {
     }
 
     /**
-     * Create an aliased <code>paradise_gamedb.customuseritems</code> table
+     * Create an aliased <code>paradb_unmodified.customuseritems</code> table
      * reference
      */
     public Customuseritems(Name alias) {
@@ -120,7 +120,7 @@ public class Customuseritems extends TableImpl<CustomuseritemsRecord> {
     }
 
     /**
-     * Create a <code>paradise_gamedb.customuseritems</code> table reference
+     * Create a <code>paradb_unmodified.customuseritems</code> table reference
      */
     public Customuseritems() {
         this(DSL.name("customuseritems"), null);
@@ -132,7 +132,7 @@ public class Customuseritems extends TableImpl<CustomuseritemsRecord> {
 
     @Override
     public Schema getSchema() {
-        return aliased() ? null : ParadiseGamedb.PARADISE_GAMEDB;
+        return aliased() ? null : ParadbUnmodified.PARADB_UNMODIFIED;
     }
 
     @Override

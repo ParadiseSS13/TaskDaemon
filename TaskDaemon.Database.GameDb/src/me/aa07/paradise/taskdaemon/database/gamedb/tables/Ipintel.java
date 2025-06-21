@@ -7,7 +7,7 @@ package me.aa07.paradise.taskdaemon.database.gamedb.tables;
 import java.time.LocalDateTime;
 
 import me.aa07.paradise.taskdaemon.database.gamedb.Keys;
-import me.aa07.paradise.taskdaemon.database.gamedb.ParadiseGamedb;
+import me.aa07.paradise.taskdaemon.database.gamedb.ParadbUnmodified;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.records.IpintelRecord;
 
 import org.jooq.Field;
@@ -35,7 +35,7 @@ public class Ipintel extends TableImpl<IpintelRecord> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * The reference instance of <code>paradise_gamedb.ipintel</code>
+     * The reference instance of <code>paradb_unmodified.ipintel</code>
      */
     public static final Ipintel IPINTEL = new Ipintel();
 
@@ -48,17 +48,17 @@ public class Ipintel extends TableImpl<IpintelRecord> {
     }
 
     /**
-     * The column <code>paradise_gamedb.ipintel.ip</code>.
+     * The column <code>paradb_unmodified.ipintel.ip</code>.
      */
     public final TableField<IpintelRecord, UInteger> IP = createField(DSL.name("ip"), SQLDataType.INTEGERUNSIGNED.nullable(false), this, "");
 
     /**
-     * The column <code>paradise_gamedb.ipintel.date</code>.
+     * The column <code>paradb_unmodified.ipintel.date</code>.
      */
     public final TableField<IpintelRecord, LocalDateTime> DATE = createField(DSL.name("date"), SQLDataType.LOCALDATETIME(0).nullable(false).defaultValue(DSL.field("current_timestamp()", SQLDataType.LOCALDATETIME)), this, "");
 
     /**
-     * The column <code>paradise_gamedb.ipintel.intel</code>.
+     * The column <code>paradb_unmodified.ipintel.intel</code>.
      */
     public final TableField<IpintelRecord, Double> INTEL = createField(DSL.name("intel"), SQLDataType.DOUBLE.nullable(false).defaultValue(DSL.inline("0", SQLDataType.DOUBLE)), this, "");
 
@@ -71,21 +71,21 @@ public class Ipintel extends TableImpl<IpintelRecord> {
     }
 
     /**
-     * Create an aliased <code>paradise_gamedb.ipintel</code> table reference
+     * Create an aliased <code>paradb_unmodified.ipintel</code> table reference
      */
     public Ipintel(String alias) {
         this(DSL.name(alias), IPINTEL);
     }
 
     /**
-     * Create an aliased <code>paradise_gamedb.ipintel</code> table reference
+     * Create an aliased <code>paradb_unmodified.ipintel</code> table reference
      */
     public Ipintel(Name alias) {
         this(alias, IPINTEL);
     }
 
     /**
-     * Create a <code>paradise_gamedb.ipintel</code> table reference
+     * Create a <code>paradb_unmodified.ipintel</code> table reference
      */
     public Ipintel() {
         this(DSL.name("ipintel"), null);
@@ -97,7 +97,7 @@ public class Ipintel extends TableImpl<IpintelRecord> {
 
     @Override
     public Schema getSchema() {
-        return aliased() ? null : ParadiseGamedb.PARADISE_GAMEDB;
+        return aliased() ? null : ParadbUnmodified.PARADB_UNMODIFIED;
     }
 
     @Override

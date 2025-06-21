@@ -24,42 +24,42 @@ public class PrivacyRecord extends UpdatableRecordImpl<PrivacyRecord> implements
     private static final long serialVersionUID = 1L;
 
     /**
-     * Setter for <code>paradise_gamedb.privacy.ckey</code>.
+     * Setter for <code>paradb_unmodified.privacy.ckey</code>.
      */
     public void setCkey(String value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.privacy.ckey</code>.
+     * Getter for <code>paradb_unmodified.privacy.ckey</code>.
      */
     public String getCkey() {
         return (String) get(0);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.privacy.datetime</code>.
+     * Setter for <code>paradb_unmodified.privacy.datetime</code>.
      */
     public void setDatetime(LocalDateTime value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.privacy.datetime</code>.
+     * Getter for <code>paradb_unmodified.privacy.datetime</code>.
      */
     public LocalDateTime getDatetime() {
         return (LocalDateTime) get(1);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.privacy.consent</code>.
+     * Setter for <code>paradb_unmodified.privacy.consent</code>.
      */
     public void setConsent(Boolean value) {
         set(2, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.privacy.consent</code>.
+     * Getter for <code>paradb_unmodified.privacy.consent</code>.
      */
     public Boolean getConsent() {
         return (Boolean) get(2);

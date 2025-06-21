@@ -24,70 +24,70 @@ public class MemoRecord extends UpdatableRecordImpl<MemoRecord> implements Recor
     private static final long serialVersionUID = 1L;
 
     /**
-     * Setter for <code>paradise_gamedb.memo.ckey</code>.
+     * Setter for <code>paradb_unmodified.memo.ckey</code>.
      */
     public void setCkey(String value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.memo.ckey</code>.
+     * Getter for <code>paradb_unmodified.memo.ckey</code>.
      */
     public String getCkey() {
         return (String) get(0);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.memo.memotext</code>.
+     * Setter for <code>paradb_unmodified.memo.memotext</code>.
      */
     public void setMemotext(String value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.memo.memotext</code>.
+     * Getter for <code>paradb_unmodified.memo.memotext</code>.
      */
     public String getMemotext() {
         return (String) get(1);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.memo.timestamp</code>.
+     * Setter for <code>paradb_unmodified.memo.timestamp</code>.
      */
     public void setTimestamp(LocalDateTime value) {
         set(2, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.memo.timestamp</code>.
+     * Getter for <code>paradb_unmodified.memo.timestamp</code>.
      */
     public LocalDateTime getTimestamp() {
         return (LocalDateTime) get(2);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.memo.last_editor</code>.
+     * Setter for <code>paradb_unmodified.memo.last_editor</code>.
      */
     public void setLastEditor(String value) {
         set(3, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.memo.last_editor</code>.
+     * Getter for <code>paradb_unmodified.memo.last_editor</code>.
      */
     public String getLastEditor() {
         return (String) get(3);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.memo.edits</code>.
+     * Setter for <code>paradb_unmodified.memo.edits</code>.
      */
     public void setEdits(String value) {
         set(4, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.memo.edits</code>.
+     * Getter for <code>paradb_unmodified.memo.edits</code>.
      */
     public String getEdits() {
         return (String) get(4);

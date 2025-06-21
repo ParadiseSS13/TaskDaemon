@@ -27,168 +27,168 @@ public class TicketsRecord extends UpdatableRecordImpl<TicketsRecord> implements
     private static final long serialVersionUID = 1L;
 
     /**
-     * Setter for <code>paradise_gamedb.tickets.id</code>.
+     * Setter for <code>paradb_unmodified.tickets.id</code>.
      */
     public void setId(Integer value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.tickets.id</code>.
+     * Getter for <code>paradb_unmodified.tickets.id</code>.
      */
     public Integer getId() {
         return (Integer) get(0);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.tickets.ticket_num</code>.
+     * Setter for <code>paradb_unmodified.tickets.ticket_num</code>.
      */
     public void setTicketNum(Integer value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.tickets.ticket_num</code>.
+     * Getter for <code>paradb_unmodified.tickets.ticket_num</code>.
      */
     public Integer getTicketNum() {
         return (Integer) get(1);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.tickets.ticket_type</code>.
+     * Setter for <code>paradb_unmodified.tickets.ticket_type</code>.
      */
     public void setTicketType(TicketsTicketType value) {
         set(2, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.tickets.ticket_type</code>.
+     * Getter for <code>paradb_unmodified.tickets.ticket_type</code>.
      */
     public TicketsTicketType getTicketType() {
         return (TicketsTicketType) get(2);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.tickets.real_filetime</code>.
+     * Setter for <code>paradb_unmodified.tickets.real_filetime</code>.
      */
     public void setRealFiletime(LocalDateTime value) {
         set(3, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.tickets.real_filetime</code>.
+     * Getter for <code>paradb_unmodified.tickets.real_filetime</code>.
      */
     public LocalDateTime getRealFiletime() {
         return (LocalDateTime) get(3);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.tickets.relative_filetime</code>.
+     * Setter for <code>paradb_unmodified.tickets.relative_filetime</code>.
      */
     public void setRelativeFiletime(LocalTime value) {
         set(4, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.tickets.relative_filetime</code>.
+     * Getter for <code>paradb_unmodified.tickets.relative_filetime</code>.
      */
     public LocalTime getRelativeFiletime() {
         return (LocalTime) get(4);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.tickets.ticket_creator</code>.
+     * Setter for <code>paradb_unmodified.tickets.ticket_creator</code>.
      */
     public void setTicketCreator(String value) {
         set(5, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.tickets.ticket_creator</code>.
+     * Getter for <code>paradb_unmodified.tickets.ticket_creator</code>.
      */
     public String getTicketCreator() {
         return (String) get(5);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.tickets.ticket_topic</code>.
+     * Setter for <code>paradb_unmodified.tickets.ticket_topic</code>.
      */
     public void setTicketTopic(String value) {
         set(6, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.tickets.ticket_topic</code>.
+     * Getter for <code>paradb_unmodified.tickets.ticket_topic</code>.
      */
     public String getTicketTopic() {
         return (String) get(6);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.tickets.ticket_taker</code>.
+     * Setter for <code>paradb_unmodified.tickets.ticket_taker</code>.
      */
     public void setTicketTaker(String value) {
         set(7, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.tickets.ticket_taker</code>.
+     * Getter for <code>paradb_unmodified.tickets.ticket_taker</code>.
      */
     public String getTicketTaker() {
         return (String) get(7);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.tickets.ticket_take_time</code>.
+     * Setter for <code>paradb_unmodified.tickets.ticket_take_time</code>.
      */
     public void setTicketTakeTime(LocalDateTime value) {
         set(8, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.tickets.ticket_take_time</code>.
+     * Getter for <code>paradb_unmodified.tickets.ticket_take_time</code>.
      */
     public LocalDateTime getTicketTakeTime() {
         return (LocalDateTime) get(8);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.tickets.all_responses</code>.
+     * Setter for <code>paradb_unmodified.tickets.all_responses</code>.
      */
     public void setAllResponses(String value) {
         set(9, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.tickets.all_responses</code>.
+     * Getter for <code>paradb_unmodified.tickets.all_responses</code>.
      */
     public String getAllResponses() {
         return (String) get(9);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.tickets.awho</code>.
+     * Setter for <code>paradb_unmodified.tickets.awho</code>.
      */
     public void setAwho(String value) {
         set(10, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.tickets.awho</code>.
+     * Getter for <code>paradb_unmodified.tickets.awho</code>.
      */
     public String getAwho() {
         return (String) get(10);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.tickets.end_round_state</code>.
+     * Setter for <code>paradb_unmodified.tickets.end_round_state</code>.
      */
     public void setEndRoundState(TicketsEndRoundState value) {
         set(11, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.tickets.end_round_state</code>.
+     * Getter for <code>paradb_unmodified.tickets.end_round_state</code>.
      */
     public TicketsEndRoundState getEndRoundState() {
         return (TicketsEndRoundState) get(11);

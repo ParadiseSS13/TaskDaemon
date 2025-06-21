@@ -22,70 +22,70 @@ public class AdminRecord extends UpdatableRecordImpl<AdminRecord> implements Rec
     private static final long serialVersionUID = 1L;
 
     /**
-     * Setter for <code>paradise_gamedb.admin.id</code>.
+     * Setter for <code>paradb_unmodified.admin.id</code>.
      */
     public void setId(Integer value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.admin.id</code>.
+     * Getter for <code>paradb_unmodified.admin.id</code>.
      */
     public Integer getId() {
         return (Integer) get(0);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.admin.ckey</code>.
+     * Setter for <code>paradb_unmodified.admin.ckey</code>.
      */
     public void setCkey(String value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.admin.ckey</code>.
+     * Getter for <code>paradb_unmodified.admin.ckey</code>.
      */
     public String getCkey() {
         return (String) get(1);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.admin.admin_rank</code>.
+     * Setter for <code>paradb_unmodified.admin.admin_rank</code>.
      */
     public void setAdminRank(String value) {
         set(2, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.admin.admin_rank</code>.
+     * Getter for <code>paradb_unmodified.admin.admin_rank</code>.
      */
     public String getAdminRank() {
         return (String) get(2);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.admin.level</code>.
+     * Setter for <code>paradb_unmodified.admin.level</code>.
      */
     public void setLevel(Integer value) {
         set(3, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.admin.level</code>.
+     * Getter for <code>paradb_unmodified.admin.level</code>.
      */
     public Integer getLevel() {
         return (Integer) get(3);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.admin.flags</code>.
+     * Setter for <code>paradb_unmodified.admin.flags</code>.
      */
     public void setFlags(Integer value) {
         set(4, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.admin.flags</code>.
+     * Getter for <code>paradb_unmodified.admin.flags</code>.
      */
     public Integer getFlags() {
         return (Integer) get(4);

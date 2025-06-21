@@ -22,84 +22,84 @@ public class PaiSavesRecord extends UpdatableRecordImpl<PaiSavesRecord> implemen
     private static final long serialVersionUID = 1L;
 
     /**
-     * Setter for <code>paradise_gamedb.pai_saves.id</code>.
+     * Setter for <code>paradb_unmodified.pai_saves.id</code>.
      */
     public void setId(Integer value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.pai_saves.id</code>.
+     * Getter for <code>paradb_unmodified.pai_saves.id</code>.
      */
     public Integer getId() {
         return (Integer) get(0);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.pai_saves.ckey</code>.
+     * Setter for <code>paradb_unmodified.pai_saves.ckey</code>.
      */
     public void setCkey(String value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.pai_saves.ckey</code>.
+     * Getter for <code>paradb_unmodified.pai_saves.ckey</code>.
      */
     public String getCkey() {
         return (String) get(1);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.pai_saves.pai_name</code>.
+     * Setter for <code>paradb_unmodified.pai_saves.pai_name</code>.
      */
     public void setPaiName(String value) {
         set(2, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.pai_saves.pai_name</code>.
+     * Getter for <code>paradb_unmodified.pai_saves.pai_name</code>.
      */
     public String getPaiName() {
         return (String) get(2);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.pai_saves.description</code>.
+     * Setter for <code>paradb_unmodified.pai_saves.description</code>.
      */
     public void setDescription(String value) {
         set(3, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.pai_saves.description</code>.
+     * Getter for <code>paradb_unmodified.pai_saves.description</code>.
      */
     public String getDescription() {
         return (String) get(3);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.pai_saves.preferred_role</code>.
+     * Setter for <code>paradb_unmodified.pai_saves.preferred_role</code>.
      */
     public void setPreferredRole(String value) {
         set(4, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.pai_saves.preferred_role</code>.
+     * Getter for <code>paradb_unmodified.pai_saves.preferred_role</code>.
      */
     public String getPreferredRole() {
         return (String) get(4);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.pai_saves.ooc_comments</code>.
+     * Setter for <code>paradb_unmodified.pai_saves.ooc_comments</code>.
      */
     public void setOocComments(String value) {
         set(5, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.pai_saves.ooc_comments</code>.
+     * Getter for <code>paradb_unmodified.pai_saves.ooc_comments</code>.
      */
     public String getOocComments() {
         return (String) get(5);

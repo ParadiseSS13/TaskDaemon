@@ -24,56 +24,58 @@ public class InstanceDataCacheRecord extends UpdatableRecordImpl<InstanceDataCac
     private static final long serialVersionUID = 1L;
 
     /**
-     * Setter for <code>paradise_gamedb.instance_data_cache.server_id</code>.
+     * Setter for <code>paradb_unmodified.instance_data_cache.server_id</code>.
      */
     public void setServerId(String value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.instance_data_cache.server_id</code>.
+     * Getter for <code>paradb_unmodified.instance_data_cache.server_id</code>.
      */
     public String getServerId() {
         return (String) get(0);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.instance_data_cache.key_name</code>.
+     * Setter for <code>paradb_unmodified.instance_data_cache.key_name</code>.
      */
     public void setKeyName(String value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.instance_data_cache.key_name</code>.
+     * Getter for <code>paradb_unmodified.instance_data_cache.key_name</code>.
      */
     public String getKeyName() {
         return (String) get(1);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.instance_data_cache.key_value</code>.
+     * Setter for <code>paradb_unmodified.instance_data_cache.key_value</code>.
      */
     public void setKeyValue(String value) {
         set(2, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.instance_data_cache.key_value</code>.
+     * Getter for <code>paradb_unmodified.instance_data_cache.key_value</code>.
      */
     public String getKeyValue() {
         return (String) get(2);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.instance_data_cache.last_updated</code>.
+     * Setter for
+     * <code>paradb_unmodified.instance_data_cache.last_updated</code>.
      */
     public void setLastUpdated(LocalDateTime value) {
         set(3, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.instance_data_cache.last_updated</code>.
+     * Getter for
+     * <code>paradb_unmodified.instance_data_cache.last_updated</code>.
      */
     public LocalDateTime getLastUpdated() {
         return (LocalDateTime) get(3);

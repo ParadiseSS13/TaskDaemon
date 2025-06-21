@@ -10,7 +10,7 @@ import java.util.List;
 
 import me.aa07.paradise.taskdaemon.database.gamedb.Indexes;
 import me.aa07.paradise.taskdaemon.database.gamedb.Keys;
-import me.aa07.paradise.taskdaemon.database.gamedb.ParadiseGamedb;
+import me.aa07.paradise.taskdaemon.database.gamedb.ParadbUnmodified;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.records.JsonDatumSavesRecord;
 
 import org.jooq.Field;
@@ -39,7 +39,7 @@ public class JsonDatumSaves extends TableImpl<JsonDatumSavesRecord> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * The reference instance of <code>paradise_gamedb.json_datum_saves</code>
+     * The reference instance of <code>paradb_unmodified.json_datum_saves</code>
      */
     public static final JsonDatumSaves JSON_DATUM_SAVES = new JsonDatumSaves();
 
@@ -52,32 +52,32 @@ public class JsonDatumSaves extends TableImpl<JsonDatumSavesRecord> {
     }
 
     /**
-     * The column <code>paradise_gamedb.json_datum_saves.id</code>.
+     * The column <code>paradb_unmodified.json_datum_saves.id</code>.
      */
     public final TableField<JsonDatumSavesRecord, Integer> ID = createField(DSL.name("id"), SQLDataType.INTEGER.nullable(false).identity(true), this, "");
 
     /**
-     * The column <code>paradise_gamedb.json_datum_saves.ckey</code>.
+     * The column <code>paradb_unmodified.json_datum_saves.ckey</code>.
      */
     public final TableField<JsonDatumSavesRecord, String> CKEY = createField(DSL.name("ckey"), SQLDataType.VARCHAR(64).nullable(false), this, "");
 
     /**
-     * The column <code>paradise_gamedb.json_datum_saves.slotname</code>.
+     * The column <code>paradb_unmodified.json_datum_saves.slotname</code>.
      */
     public final TableField<JsonDatumSavesRecord, String> SLOTNAME = createField(DSL.name("slotname"), SQLDataType.VARCHAR(32).nullable(false), this, "");
 
     /**
-     * The column <code>paradise_gamedb.json_datum_saves.slotjson</code>.
+     * The column <code>paradb_unmodified.json_datum_saves.slotjson</code>.
      */
     public final TableField<JsonDatumSavesRecord, String> SLOTJSON = createField(DSL.name("slotjson"), SQLDataType.CLOB.nullable(false), this, "");
 
     /**
-     * The column <code>paradise_gamedb.json_datum_saves.created</code>.
+     * The column <code>paradb_unmodified.json_datum_saves.created</code>.
      */
     public final TableField<JsonDatumSavesRecord, LocalDateTime> CREATED = createField(DSL.name("created"), SQLDataType.LOCALDATETIME(0).nullable(false).defaultValue(DSL.field("current_timestamp()", SQLDataType.LOCALDATETIME)), this, "");
 
     /**
-     * The column <code>paradise_gamedb.json_datum_saves.updated</code>.
+     * The column <code>paradb_unmodified.json_datum_saves.updated</code>.
      */
     public final TableField<JsonDatumSavesRecord, LocalDateTime> UPDATED = createField(DSL.name("updated"), SQLDataType.LOCALDATETIME(0).nullable(false).defaultValue(DSL.field("current_timestamp()", SQLDataType.LOCALDATETIME)), this, "");
 
@@ -90,7 +90,7 @@ public class JsonDatumSaves extends TableImpl<JsonDatumSavesRecord> {
     }
 
     /**
-     * Create an aliased <code>paradise_gamedb.json_datum_saves</code> table
+     * Create an aliased <code>paradb_unmodified.json_datum_saves</code> table
      * reference
      */
     public JsonDatumSaves(String alias) {
@@ -98,7 +98,7 @@ public class JsonDatumSaves extends TableImpl<JsonDatumSavesRecord> {
     }
 
     /**
-     * Create an aliased <code>paradise_gamedb.json_datum_saves</code> table
+     * Create an aliased <code>paradb_unmodified.json_datum_saves</code> table
      * reference
      */
     public JsonDatumSaves(Name alias) {
@@ -106,7 +106,7 @@ public class JsonDatumSaves extends TableImpl<JsonDatumSavesRecord> {
     }
 
     /**
-     * Create a <code>paradise_gamedb.json_datum_saves</code> table reference
+     * Create a <code>paradb_unmodified.json_datum_saves</code> table reference
      */
     public JsonDatumSaves() {
         this(DSL.name("json_datum_saves"), null);
@@ -118,7 +118,7 @@ public class JsonDatumSaves extends TableImpl<JsonDatumSavesRecord> {
 
     @Override
     public Schema getSchema() {
-        return aliased() ? null : ParadiseGamedb.PARADISE_GAMEDB;
+        return aliased() ? null : ParadbUnmodified.PARADB_UNMODIFIED;
     }
 
     @Override

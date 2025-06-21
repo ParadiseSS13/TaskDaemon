@@ -7,7 +7,7 @@ package me.aa07.paradise.taskdaemon.database.gamedb.tables;
 import java.time.LocalDateTime;
 
 import me.aa07.paradise.taskdaemon.database.gamedb.Keys;
-import me.aa07.paradise.taskdaemon.database.gamedb.ParadiseGamedb;
+import me.aa07.paradise.taskdaemon.database.gamedb.ParadbUnmodified;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.records.RoundRecord;
 
 import org.jooq.Field;
@@ -37,7 +37,7 @@ public class Round extends TableImpl<RoundRecord> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * The reference instance of <code>paradise_gamedb.round</code>
+     * The reference instance of <code>paradb_unmodified.round</code>
      */
     public static final Round ROUND = new Round();
 
@@ -50,77 +50,77 @@ public class Round extends TableImpl<RoundRecord> {
     }
 
     /**
-     * The column <code>paradise_gamedb.round.id</code>.
+     * The column <code>paradb_unmodified.round.id</code>.
      */
     public final TableField<RoundRecord, Integer> ID = createField(DSL.name("id"), SQLDataType.INTEGER.nullable(false).identity(true), this, "");
 
     /**
-     * The column <code>paradise_gamedb.round.initialize_datetime</code>.
+     * The column <code>paradb_unmodified.round.initialize_datetime</code>.
      */
     public final TableField<RoundRecord, LocalDateTime> INITIALIZE_DATETIME = createField(DSL.name("initialize_datetime"), SQLDataType.LOCALDATETIME(0).nullable(false), this, "");
 
     /**
-     * The column <code>paradise_gamedb.round.start_datetime</code>.
+     * The column <code>paradb_unmodified.round.start_datetime</code>.
      */
     public final TableField<RoundRecord, LocalDateTime> START_DATETIME = createField(DSL.name("start_datetime"), SQLDataType.LOCALDATETIME(0).defaultValue(DSL.inline("NULL", SQLDataType.LOCALDATETIME)), this, "");
 
     /**
-     * The column <code>paradise_gamedb.round.shutdown_datetime</code>.
+     * The column <code>paradb_unmodified.round.shutdown_datetime</code>.
      */
     public final TableField<RoundRecord, LocalDateTime> SHUTDOWN_DATETIME = createField(DSL.name("shutdown_datetime"), SQLDataType.LOCALDATETIME(0).defaultValue(DSL.inline("NULL", SQLDataType.LOCALDATETIME)), this, "");
 
     /**
-     * The column <code>paradise_gamedb.round.end_datetime</code>.
+     * The column <code>paradb_unmodified.round.end_datetime</code>.
      */
     public final TableField<RoundRecord, LocalDateTime> END_DATETIME = createField(DSL.name("end_datetime"), SQLDataType.LOCALDATETIME(0).defaultValue(DSL.inline("NULL", SQLDataType.LOCALDATETIME)), this, "");
 
     /**
-     * The column <code>paradise_gamedb.round.server_ip</code>.
+     * The column <code>paradb_unmodified.round.server_ip</code>.
      */
     public final TableField<RoundRecord, UInteger> SERVER_IP = createField(DSL.name("server_ip"), SQLDataType.INTEGERUNSIGNED.nullable(false), this, "");
 
     /**
-     * The column <code>paradise_gamedb.round.server_port</code>.
+     * The column <code>paradb_unmodified.round.server_port</code>.
      */
     public final TableField<RoundRecord, UShort> SERVER_PORT = createField(DSL.name("server_port"), SQLDataType.SMALLINTUNSIGNED.nullable(false), this, "");
 
     /**
-     * The column <code>paradise_gamedb.round.commit_hash</code>.
+     * The column <code>paradb_unmodified.round.commit_hash</code>.
      */
     public final TableField<RoundRecord, String> COMMIT_HASH = createField(DSL.name("commit_hash"), SQLDataType.CHAR(40).defaultValue(DSL.inline("NULL", SQLDataType.CHAR)), this, "");
 
     /**
-     * The column <code>paradise_gamedb.round.game_mode</code>.
+     * The column <code>paradb_unmodified.round.game_mode</code>.
      */
     public final TableField<RoundRecord, String> GAME_MODE = createField(DSL.name("game_mode"), SQLDataType.VARCHAR(32).defaultValue(DSL.inline("NULL", SQLDataType.VARCHAR)), this, "");
 
     /**
-     * The column <code>paradise_gamedb.round.game_mode_result</code>.
+     * The column <code>paradb_unmodified.round.game_mode_result</code>.
      */
     public final TableField<RoundRecord, String> GAME_MODE_RESULT = createField(DSL.name("game_mode_result"), SQLDataType.VARCHAR(64).defaultValue(DSL.inline("NULL", SQLDataType.VARCHAR)), this, "");
 
     /**
-     * The column <code>paradise_gamedb.round.end_state</code>.
+     * The column <code>paradb_unmodified.round.end_state</code>.
      */
     public final TableField<RoundRecord, String> END_STATE = createField(DSL.name("end_state"), SQLDataType.VARCHAR(64).defaultValue(DSL.inline("NULL", SQLDataType.VARCHAR)), this, "");
 
     /**
-     * The column <code>paradise_gamedb.round.shuttle_name</code>.
+     * The column <code>paradb_unmodified.round.shuttle_name</code>.
      */
     public final TableField<RoundRecord, String> SHUTTLE_NAME = createField(DSL.name("shuttle_name"), SQLDataType.VARCHAR(64).defaultValue(DSL.inline("NULL", SQLDataType.VARCHAR)), this, "");
 
     /**
-     * The column <code>paradise_gamedb.round.map_name</code>.
+     * The column <code>paradb_unmodified.round.map_name</code>.
      */
     public final TableField<RoundRecord, String> MAP_NAME = createField(DSL.name("map_name"), SQLDataType.VARCHAR(32).defaultValue(DSL.inline("NULL", SQLDataType.VARCHAR)), this, "");
 
     /**
-     * The column <code>paradise_gamedb.round.station_name</code>.
+     * The column <code>paradb_unmodified.round.station_name</code>.
      */
     public final TableField<RoundRecord, String> STATION_NAME = createField(DSL.name("station_name"), SQLDataType.VARCHAR(80).defaultValue(DSL.inline("NULL", SQLDataType.VARCHAR)), this, "");
 
     /**
-     * The column <code>paradise_gamedb.round.server_id</code>.
+     * The column <code>paradb_unmodified.round.server_id</code>.
      */
     public final TableField<RoundRecord, String> SERVER_ID = createField(DSL.name("server_id"), SQLDataType.VARCHAR(50).defaultValue(DSL.inline("NULL", SQLDataType.VARCHAR)), this, "");
 
@@ -133,21 +133,21 @@ public class Round extends TableImpl<RoundRecord> {
     }
 
     /**
-     * Create an aliased <code>paradise_gamedb.round</code> table reference
+     * Create an aliased <code>paradb_unmodified.round</code> table reference
      */
     public Round(String alias) {
         this(DSL.name(alias), ROUND);
     }
 
     /**
-     * Create an aliased <code>paradise_gamedb.round</code> table reference
+     * Create an aliased <code>paradb_unmodified.round</code> table reference
      */
     public Round(Name alias) {
         this(alias, ROUND);
     }
 
     /**
-     * Create a <code>paradise_gamedb.round</code> table reference
+     * Create a <code>paradb_unmodified.round</code> table reference
      */
     public Round() {
         this(DSL.name("round"), null);
@@ -159,7 +159,7 @@ public class Round extends TableImpl<RoundRecord> {
 
     @Override
     public Schema getSchema() {
-        return aliased() ? null : ParadiseGamedb.PARADISE_GAMEDB;
+        return aliased() ? null : ParadbUnmodified.PARADB_UNMODIFIED;
     }
 
     @Override

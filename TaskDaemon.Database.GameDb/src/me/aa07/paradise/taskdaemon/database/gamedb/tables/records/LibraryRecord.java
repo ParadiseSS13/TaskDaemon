@@ -22,168 +22,168 @@ public class LibraryRecord extends UpdatableRecordImpl<LibraryRecord> implements
     private static final long serialVersionUID = 1L;
 
     /**
-     * Setter for <code>paradise_gamedb.library.id</code>.
+     * Setter for <code>paradb_unmodified.library.id</code>.
      */
     public void setId(Integer value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.library.id</code>.
+     * Getter for <code>paradb_unmodified.library.id</code>.
      */
     public Integer getId() {
         return (Integer) get(0);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.library.author</code>.
+     * Setter for <code>paradb_unmodified.library.author</code>.
      */
     public void setAuthor(String value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.library.author</code>.
+     * Getter for <code>paradb_unmodified.library.author</code>.
      */
     public String getAuthor() {
         return (String) get(1);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.library.title</code>.
+     * Setter for <code>paradb_unmodified.library.title</code>.
      */
     public void setTitle(String value) {
         set(2, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.library.title</code>.
+     * Getter for <code>paradb_unmodified.library.title</code>.
      */
     public String getTitle() {
         return (String) get(2);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.library.content</code>.
+     * Setter for <code>paradb_unmodified.library.content</code>.
      */
     public void setContent(String value) {
         set(3, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.library.content</code>.
+     * Getter for <code>paradb_unmodified.library.content</code>.
      */
     public String getContent() {
         return (String) get(3);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.library.ckey</code>.
+     * Setter for <code>paradb_unmodified.library.ckey</code>.
      */
     public void setCkey(String value) {
         set(4, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.library.ckey</code>.
+     * Getter for <code>paradb_unmodified.library.ckey</code>.
      */
     public String getCkey() {
         return (String) get(4);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.library.reports</code>.
+     * Setter for <code>paradb_unmodified.library.reports</code>.
      */
     public void setReports(String value) {
         set(5, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.library.reports</code>.
+     * Getter for <code>paradb_unmodified.library.reports</code>.
      */
     public String getReports() {
         return (String) get(5);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.library.summary</code>.
+     * Setter for <code>paradb_unmodified.library.summary</code>.
      */
     public void setSummary(String value) {
         set(6, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.library.summary</code>.
+     * Getter for <code>paradb_unmodified.library.summary</code>.
      */
     public String getSummary() {
         return (String) get(6);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.library.rating</code>.
+     * Setter for <code>paradb_unmodified.library.rating</code>.
      */
     public void setRating(Double value) {
         set(7, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.library.rating</code>.
+     * Getter for <code>paradb_unmodified.library.rating</code>.
      */
     public Double getRating() {
         return (Double) get(7);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.library.raters</code>.
+     * Setter for <code>paradb_unmodified.library.raters</code>.
      */
     public void setRaters(String value) {
         set(8, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.library.raters</code>.
+     * Getter for <code>paradb_unmodified.library.raters</code>.
      */
     public String getRaters() {
         return (String) get(8);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.library.primary_category</code>.
+     * Setter for <code>paradb_unmodified.library.primary_category</code>.
      */
     public void setPrimaryCategory(Integer value) {
         set(9, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.library.primary_category</code>.
+     * Getter for <code>paradb_unmodified.library.primary_category</code>.
      */
     public Integer getPrimaryCategory() {
         return (Integer) get(9);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.library.secondary_category</code>.
+     * Setter for <code>paradb_unmodified.library.secondary_category</code>.
      */
     public void setSecondaryCategory(Integer value) {
         set(10, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.library.secondary_category</code>.
+     * Getter for <code>paradb_unmodified.library.secondary_category</code>.
      */
     public Integer getSecondaryCategory() {
         return (Integer) get(10);
     }
 
     /**
-     * Setter for <code>paradise_gamedb.library.tertiary_category</code>.
+     * Setter for <code>paradb_unmodified.library.tertiary_category</code>.
      */
     public void setTertiaryCategory(Integer value) {
         set(11, value);
     }
 
     /**
-     * Getter for <code>paradise_gamedb.library.tertiary_category</code>.
+     * Getter for <code>paradb_unmodified.library.tertiary_category</code>.
      */
     public Integer getTertiaryCategory() {
         return (Integer) get(11);
