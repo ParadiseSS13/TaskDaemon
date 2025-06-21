@@ -6,6 +6,7 @@ import java.util.Optional;
 import me.aa07.paradise.taskdaemon.core.config.ConfigHolder;
 import me.aa07.paradise.taskdaemon.core.database.DbCore;
 import me.aa07.paradise.taskdaemon.core.modules.bouncerrestart.BouncerRestartJob;
+import me.aa07.paradise.taskdaemon.core.modules.ip2asn.Ip2AsnJob;
 import me.aa07.paradise.taskdaemon.core.modules.profilercleanup.ProfilerCleanupJob;
 import me.aa07.paradise.taskdaemon.core.modules.profileringest.ProfilerWorker;
 import me.aa07.paradise.taskdaemon.core.redis.RedisManager;
@@ -93,6 +94,21 @@ public class Core {
                 .withSchedule(CronScheduleBuilder.cronSchedule("0 0 0 * * ?")) // Every day - midnight
                 .build();
 
+        // IP2ASN
+        JobDataMap jdm_ip2asn = new JobDataMap();
+        jdm_ip2asn.put("LOGGER", logger);
+        jdm_ip2asn.put("DBCORE", dbCore);
+        jdm_ip2asn.put("IP2ASNCFG", config.ip2asn);
+        JobDetail jd_ip2asn = JobBuilder.newJob(Ip2AsnJob.class)
+                .withIdentity("ip2asn", "ip2asn")
+                .usingJobData(jdm_ip2asn)
+                .build();
+        CronTrigger ct_ip2asn = TriggerBuilder.newTrigger()
+                .withIdentity("ip2asn", "ip2asn")
+                //.withSchedule(CronScheduleBuilder.cronSchedule("0 */10 * * * ?")) // Every 10 minutes
+                .withSchedule(CronScheduleBuilder.cronSchedule("0 * * * * ?"))
+                .build();
+
         // Profiler cleanup
         JobDataMap jdm_profilercleanup = new JobDataMap();
         jdm_profilercleanup.put("LOGGER", logger);
@@ -109,6 +125,7 @@ public class Core {
 
         // Schedule all
         scheduler.scheduleJob(jd_bouncerrestart, ct_bouncerrestart);
+        scheduler.scheduleJob(jd_ip2asn, ct_ip2asn);
         scheduler.scheduleJob(jd_profilercleanup, ct_profilercleanup);
     }
 

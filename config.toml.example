@@ -1,5 +1,14 @@
 # This is an example configuration. Please see README.MD
 
+[gameDatabase]
+host = "172.16.0.200"
+username = "myuser"
+password = "mypassword"
+database = "paradise_profilerdaemon"
+
+[ip2asn]
+host = "http://127.0.0.1:53661/v1/as/ip/" # Fill out URL - IP will be appended at the end
+
 [profilerDatabase]
 host = "172.16.0.200"
 username = "myuser"

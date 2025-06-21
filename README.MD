@@ -7,12 +7,17 @@ Java application designed to automate various backend tasks we have within Parad
 It handles:
 
 - Bouncer Restart
+- IP2ASN
 - Profiler Daemon Ingest
 - Profiler DB Cleanup
 
 ### Bouncer Restart
 
 Restarts our "bouncer" server every day. This is the thing that does 2FA, server queue, and region redirection.
+
+### IP2ASN
+
+Caches ASNs for IP addresses of recent players.
 
 ### Profiler Daemon Ingest
 

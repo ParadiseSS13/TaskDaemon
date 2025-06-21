@@ -16,18 +16,16 @@ import org.jooq.exception.NoDataFoundException;
 import org.jooq.impl.DSL;
 
 public class DbCore {
-    private ConfigHolder config;
     private HashMap<DatabaseType, DataSource> connectionMap;
 
     public DbCore(ConfigHolder config, Logger logger) {
-        this.config = config;
         // Suppress JOOQ console spam
         System.getProperties().setProperty("org.jooq.no-logo", "true");
         System.getProperties().setProperty("org.jooq.no-tips", "true");
 
         connectionMap = new HashMap<DatabaseType, DataSource>();
 
-        establishConnections();
+        establishConnections(config);
         logger.info("Ready to handle DB requests");
     }
 
@@ -36,6 +34,7 @@ public class DbCore {
         source.addConnectionProperty("autoReconnect", "true");
         source.addConnectionProperty("allowMultiQueries", "true");
         source.addConnectionProperty("zeroDateTimeBehavior", "convertToNull");
+        source.addConnectionProperty("connectionTimeZone", "UTC");
         source.setDefaultTransactionIsolation(Connection.TRANSACTION_READ_COMMITTED);
         source.setDriverClassName("com.mysql.cj.jdbc.Driver");
         source.setUrl(url);
@@ -49,9 +48,10 @@ public class DbCore {
         return source;
     }
 
-    private void establishConnections() {
+    private void establishConnections(ConfigHolder config) {
         HashMap<DatabaseType, DatabaseConfig> db_types = new HashMap<DatabaseType, DatabaseConfig>();
 
+        db_types.put(DatabaseType.GameDb, config.gameDatabase);
         db_types.put(DatabaseType.ProfilerDb, config.profilerDatabase);
 
         for (DatabaseType dbtype : db_types.keySet()) {
