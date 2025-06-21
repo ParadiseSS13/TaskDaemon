@@ -27,7 +27,10 @@ Just wipes rows older than 7 days out the profiler table.
 ## Provided Projects
 
 - `TaskDaemon.Core` - Core application which handles running tasks.
-- `TaskDaemon.Database.Profiler` - Database project automatically generated with JOOQ (Use `mvn package -P update-db` to update) for the `paradise_profiler` database.
+- `TaskDaemon.Database.GameDb` - Database project automatically generated with JOOQ for the `paradise_gamedb` database.
+- `TaskDaemon.Database.Profiler` - Database project automatically generated with JOOQ for the `paradise_profiler` database.
+
+Use `mvn package -P update-db` to update DB projects.
 
 ## Building
 
