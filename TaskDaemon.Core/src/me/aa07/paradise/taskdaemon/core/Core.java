@@ -105,8 +105,7 @@ public class Core {
                 .build();
         CronTrigger ct_ip2asn = TriggerBuilder.newTrigger()
                 .withIdentity("ip2asn", "ip2asn")
-                //.withSchedule(CronScheduleBuilder.cronSchedule("0 */10 * * * ?")) // Every 10 minutes
-                .withSchedule(CronScheduleBuilder.cronSchedule("0 * * * * ?"))
+                .withSchedule(CronScheduleBuilder.cronSchedule("0 */10 * * * ?")) // Every 10 minutes
                 .build();
 
         // Profiler cleanup
