@@ -25,42 +25,42 @@ public class Ip2groupRecord extends UpdatableRecordImpl<Ip2groupRecord> implemen
     private static final long serialVersionUID = 1L;
 
     /**
-     * Setter for <code>paradb_unmodified.ip2group.ip</code>.
+     * Setter for <code>paradise_gamedb.ip2group.ip</code>.
      */
     public void setIp(UInteger value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.ip2group.ip</code>.
+     * Getter for <code>paradise_gamedb.ip2group.ip</code>.
      */
     public UInteger getIp() {
         return (UInteger) get(0);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.ip2group.date</code>.
+     * Setter for <code>paradise_gamedb.ip2group.date</code>.
      */
     public void setDate(LocalDateTime value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.ip2group.date</code>.
+     * Getter for <code>paradise_gamedb.ip2group.date</code>.
      */
     public LocalDateTime getDate() {
         return (LocalDateTime) get(1);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.ip2group.groupstr</code>.
+     * Setter for <code>paradise_gamedb.ip2group.groupstr</code>.
      */
     public void setGroupstr(UInteger value) {
         set(2, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.ip2group.groupstr</code>.
+     * Getter for <code>paradise_gamedb.ip2group.groupstr</code>.
      */
     public UInteger getGroupstr() {
         return (UInteger) get(2);

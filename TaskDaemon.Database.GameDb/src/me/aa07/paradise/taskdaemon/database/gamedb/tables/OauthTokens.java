@@ -9,7 +9,7 @@ import java.util.List;
 
 import me.aa07.paradise.taskdaemon.database.gamedb.Indexes;
 import me.aa07.paradise.taskdaemon.database.gamedb.Keys;
-import me.aa07.paradise.taskdaemon.database.gamedb.ParadbUnmodified;
+import me.aa07.paradise.taskdaemon.database.gamedb.ParadiseGamedb;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.records.OauthTokensRecord;
 
 import org.jooq.Field;
@@ -37,7 +37,7 @@ public class OauthTokens extends TableImpl<OauthTokensRecord> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * The reference instance of <code>paradb_unmodified.oauth_tokens</code>
+     * The reference instance of <code>paradise_gamedb.oauth_tokens</code>
      */
     public static final OauthTokens OAUTH_TOKENS = new OauthTokens();
 
@@ -50,12 +50,12 @@ public class OauthTokens extends TableImpl<OauthTokensRecord> {
     }
 
     /**
-     * The column <code>paradb_unmodified.oauth_tokens.ckey</code>.
+     * The column <code>paradise_gamedb.oauth_tokens.ckey</code>.
      */
     public final TableField<OauthTokensRecord, String> CKEY = createField(DSL.name("ckey"), SQLDataType.VARCHAR(32).nullable(false), this, "");
 
     /**
-     * The column <code>paradb_unmodified.oauth_tokens.token</code>.
+     * The column <code>paradise_gamedb.oauth_tokens.token</code>.
      */
     public final TableField<OauthTokensRecord, String> TOKEN = createField(DSL.name("token"), SQLDataType.VARCHAR(32).nullable(false), this, "");
 
@@ -68,7 +68,7 @@ public class OauthTokens extends TableImpl<OauthTokensRecord> {
     }
 
     /**
-     * Create an aliased <code>paradb_unmodified.oauth_tokens</code> table
+     * Create an aliased <code>paradise_gamedb.oauth_tokens</code> table
      * reference
      */
     public OauthTokens(String alias) {
@@ -76,7 +76,7 @@ public class OauthTokens extends TableImpl<OauthTokensRecord> {
     }
 
     /**
-     * Create an aliased <code>paradb_unmodified.oauth_tokens</code> table
+     * Create an aliased <code>paradise_gamedb.oauth_tokens</code> table
      * reference
      */
     public OauthTokens(Name alias) {
@@ -84,7 +84,7 @@ public class OauthTokens extends TableImpl<OauthTokensRecord> {
     }
 
     /**
-     * Create a <code>paradb_unmodified.oauth_tokens</code> table reference
+     * Create a <code>paradise_gamedb.oauth_tokens</code> table reference
      */
     public OauthTokens() {
         this(DSL.name("oauth_tokens"), null);
@@ -96,7 +96,7 @@ public class OauthTokens extends TableImpl<OauthTokensRecord> {
 
     @Override
     public Schema getSchema() {
-        return aliased() ? null : ParadbUnmodified.PARADB_UNMODIFIED;
+        return aliased() ? null : ParadiseGamedb.PARADISE_GAMEDB;
     }
 
     @Override

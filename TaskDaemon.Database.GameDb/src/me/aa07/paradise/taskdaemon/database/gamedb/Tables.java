@@ -35,148 +35,148 @@ import me.aa07.paradise.taskdaemon.database.gamedb.tables._2faSecrets;
 
 
 /**
- * Convenience access to all tables in paradb_unmodified.
+ * Convenience access to all tables in paradise_gamedb.
  */
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Tables {
 
     /**
-     * The table <code>paradb_unmodified.2fa_secrets</code>.
+     * The table <code>paradise_gamedb.2fa_secrets</code>.
      */
     public static final _2faSecrets _2FA_SECRETS = _2faSecrets._2FA_SECRETS;
 
     /**
-     * The table <code>paradb_unmodified.admin</code>.
+     * The table <code>paradise_gamedb.admin</code>.
      */
     public static final Admin ADMIN = Admin.ADMIN;
 
     /**
-     * The table <code>paradb_unmodified.admin_log</code>.
+     * The table <code>paradise_gamedb.admin_log</code>.
      */
     public static final AdminLog ADMIN_LOG = AdminLog.ADMIN_LOG;
 
     /**
-     * The table <code>paradb_unmodified.ban</code>.
+     * The table <code>paradise_gamedb.ban</code>.
      */
     public static final Ban BAN = Ban.BAN;
 
     /**
-     * The table <code>paradb_unmodified.changelog</code>.
+     * The table <code>paradise_gamedb.changelog</code>.
      */
     public static final Changelog CHANGELOG = Changelog.CHANGELOG;
 
     /**
-     * The table <code>paradb_unmodified.characters</code>.
+     * The table <code>paradise_gamedb.characters</code>.
      */
     public static final Characters CHARACTERS = Characters.CHARACTERS;
 
     /**
-     * The table <code>paradb_unmodified.connection_log</code>.
+     * The table <code>paradise_gamedb.connection_log</code>.
      */
     public static final ConnectionLog CONNECTION_LOG = ConnectionLog.CONNECTION_LOG;
 
     /**
-     * The table <code>paradb_unmodified.customuseritems</code>.
+     * The table <code>paradise_gamedb.customuseritems</code>.
      */
     public static final Customuseritems CUSTOMUSERITEMS = Customuseritems.CUSTOMUSERITEMS;
 
     /**
-     * The table <code>paradb_unmodified.death</code>.
+     * The table <code>paradise_gamedb.death</code>.
      */
     public static final Death DEATH = Death.DEATH;
 
     /**
-     * The table <code>paradb_unmodified.donators</code>.
+     * The table <code>paradise_gamedb.donators</code>.
      */
     public static final Donators DONATORS = Donators.DONATORS;
 
     /**
-     * The table <code>paradb_unmodified.feedback</code>.
+     * The table <code>paradise_gamedb.feedback</code>.
      */
     public static final Feedback FEEDBACK = Feedback.FEEDBACK;
 
     /**
-     * The table <code>paradb_unmodified.instance_data_cache</code>.
+     * The table <code>paradise_gamedb.instance_data_cache</code>.
      */
     public static final InstanceDataCache INSTANCE_DATA_CACHE = InstanceDataCache.INSTANCE_DATA_CACHE;
 
     /**
-     * The table <code>paradb_unmodified.ip2group</code>.
+     * The table <code>paradise_gamedb.ip2group</code>.
      */
     public static final Ip2group IP2GROUP = Ip2group.IP2GROUP;
 
     /**
-     * The table <code>paradb_unmodified.ipintel</code>.
+     * The table <code>paradise_gamedb.ipintel</code>.
      */
     public static final Ipintel IPINTEL = Ipintel.IPINTEL;
 
     /**
-     * The table <code>paradb_unmodified.json_datum_saves</code>.
+     * The table <code>paradise_gamedb.json_datum_saves</code>.
      */
     public static final JsonDatumSaves JSON_DATUM_SAVES = JsonDatumSaves.JSON_DATUM_SAVES;
 
     /**
-     * The table <code>paradb_unmodified.legacy_population</code>.
+     * The table <code>paradise_gamedb.legacy_population</code>.
      */
     public static final LegacyPopulation LEGACY_POPULATION = LegacyPopulation.LEGACY_POPULATION;
 
     /**
-     * The table <code>paradb_unmodified.library</code>.
+     * The table <code>paradise_gamedb.library</code>.
      */
     public static final Library LIBRARY = Library.LIBRARY;
 
     /**
-     * The table <code>paradb_unmodified.memo</code>.
+     * The table <code>paradise_gamedb.memo</code>.
      */
     public static final Memo MEMO = Memo.MEMO;
 
     /**
-     * The table <code>paradb_unmodified.notes</code>.
+     * The table <code>paradise_gamedb.notes</code>.
      */
     public static final Notes NOTES = Notes.NOTES;
 
     /**
-     * The table <code>paradb_unmodified.oauth_tokens</code>.
+     * The table <code>paradise_gamedb.oauth_tokens</code>.
      */
     public static final OauthTokens OAUTH_TOKENS = OauthTokens.OAUTH_TOKENS;
 
     /**
-     * The table <code>paradb_unmodified.pai_saves</code>.
+     * The table <code>paradise_gamedb.pai_saves</code>.
      */
     public static final PaiSaves PAI_SAVES = PaiSaves.PAI_SAVES;
 
     /**
-     * The table <code>paradb_unmodified.player</code>.
+     * The table <code>paradise_gamedb.player</code>.
      */
     public static final Player PLAYER = Player.PLAYER;
 
     /**
-     * The table <code>paradb_unmodified.playtime_history</code>.
+     * The table <code>paradise_gamedb.playtime_history</code>.
      */
     public static final PlaytimeHistory PLAYTIME_HISTORY = PlaytimeHistory.PLAYTIME_HISTORY;
 
     /**
-     * The table <code>paradb_unmodified.privacy</code>.
+     * The table <code>paradise_gamedb.privacy</code>.
      */
     public static final Privacy PRIVACY = Privacy.PRIVACY;
 
     /**
-     * The table <code>paradb_unmodified.round</code>.
+     * The table <code>paradise_gamedb.round</code>.
      */
     public static final Round ROUND = Round.ROUND;
 
     /**
-     * The table <code>paradb_unmodified.tickets</code>.
+     * The table <code>paradise_gamedb.tickets</code>.
      */
     public static final Tickets TICKETS = Tickets.TICKETS;
 
     /**
-     * The table <code>paradb_unmodified.vpn_whitelist</code>.
+     * The table <code>paradise_gamedb.vpn_whitelist</code>.
      */
     public static final VpnWhitelist VPN_WHITELIST = VpnWhitelist.VPN_WHITELIST;
 
     /**
-     * The table <code>paradb_unmodified.watch</code>.
+     * The table <code>paradise_gamedb.watch</code>.
      */
     public static final Watch WATCH = Watch.WATCH;
 }

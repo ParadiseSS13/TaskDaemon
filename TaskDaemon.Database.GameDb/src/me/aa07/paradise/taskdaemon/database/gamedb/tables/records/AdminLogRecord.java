@@ -24,70 +24,70 @@ public class AdminLogRecord extends UpdatableRecordImpl<AdminLogRecord> implemen
     private static final long serialVersionUID = 1L;
 
     /**
-     * Setter for <code>paradb_unmodified.admin_log.id</code>.
+     * Setter for <code>paradise_gamedb.admin_log.id</code>.
      */
     public void setId(Integer value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.admin_log.id</code>.
+     * Getter for <code>paradise_gamedb.admin_log.id</code>.
      */
     public Integer getId() {
         return (Integer) get(0);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.admin_log.datetime</code>.
+     * Setter for <code>paradise_gamedb.admin_log.datetime</code>.
      */
     public void setDatetime(LocalDateTime value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.admin_log.datetime</code>.
+     * Getter for <code>paradise_gamedb.admin_log.datetime</code>.
      */
     public LocalDateTime getDatetime() {
         return (LocalDateTime) get(1);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.admin_log.adminckey</code>.
+     * Setter for <code>paradise_gamedb.admin_log.adminckey</code>.
      */
     public void setAdminckey(String value) {
         set(2, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.admin_log.adminckey</code>.
+     * Getter for <code>paradise_gamedb.admin_log.adminckey</code>.
      */
     public String getAdminckey() {
         return (String) get(2);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.admin_log.adminip</code>.
+     * Setter for <code>paradise_gamedb.admin_log.adminip</code>.
      */
     public void setAdminip(String value) {
         set(3, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.admin_log.adminip</code>.
+     * Getter for <code>paradise_gamedb.admin_log.adminip</code>.
      */
     public String getAdminip() {
         return (String) get(3);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.admin_log.log</code>.
+     * Setter for <code>paradise_gamedb.admin_log.log</code>.
      */
     public void setLog(String value) {
         set(4, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.admin_log.log</code>.
+     * Getter for <code>paradise_gamedb.admin_log.log</code>.
      */
     public String getLog() {
         return (String) get(4);

@@ -7,7 +7,7 @@ package me.aa07.paradise.taskdaemon.database.gamedb.tables;
 import java.time.LocalDateTime;
 
 import me.aa07.paradise.taskdaemon.database.gamedb.Keys;
-import me.aa07.paradise.taskdaemon.database.gamedb.ParadbUnmodified;
+import me.aa07.paradise.taskdaemon.database.gamedb.ParadiseGamedb;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.records.WatchRecord;
 
 import org.jooq.Field;
@@ -34,7 +34,7 @@ public class Watch extends TableImpl<WatchRecord> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * The reference instance of <code>paradb_unmodified.watch</code>
+     * The reference instance of <code>paradise_gamedb.watch</code>
      */
     public static final Watch WATCH = new Watch();
 
@@ -47,32 +47,32 @@ public class Watch extends TableImpl<WatchRecord> {
     }
 
     /**
-     * The column <code>paradb_unmodified.watch.ckey</code>.
+     * The column <code>paradise_gamedb.watch.ckey</code>.
      */
     public final TableField<WatchRecord, String> CKEY = createField(DSL.name("ckey"), SQLDataType.VARCHAR(32).nullable(false), this, "");
 
     /**
-     * The column <code>paradb_unmodified.watch.reason</code>.
+     * The column <code>paradise_gamedb.watch.reason</code>.
      */
     public final TableField<WatchRecord, String> REASON = createField(DSL.name("reason"), SQLDataType.CLOB.nullable(false), this, "");
 
     /**
-     * The column <code>paradb_unmodified.watch.timestamp</code>.
+     * The column <code>paradise_gamedb.watch.timestamp</code>.
      */
     public final TableField<WatchRecord, LocalDateTime> TIMESTAMP = createField(DSL.name("timestamp"), SQLDataType.LOCALDATETIME(0).nullable(false), this, "");
 
     /**
-     * The column <code>paradb_unmodified.watch.adminckey</code>.
+     * The column <code>paradise_gamedb.watch.adminckey</code>.
      */
     public final TableField<WatchRecord, String> ADMINCKEY = createField(DSL.name("adminckey"), SQLDataType.VARCHAR(32).nullable(false), this, "");
 
     /**
-     * The column <code>paradb_unmodified.watch.last_editor</code>.
+     * The column <code>paradise_gamedb.watch.last_editor</code>.
      */
     public final TableField<WatchRecord, String> LAST_EDITOR = createField(DSL.name("last_editor"), SQLDataType.VARCHAR(32).defaultValue(DSL.inline("NULL", SQLDataType.VARCHAR)), this, "");
 
     /**
-     * The column <code>paradb_unmodified.watch.edits</code>.
+     * The column <code>paradise_gamedb.watch.edits</code>.
      */
     public final TableField<WatchRecord, String> EDITS = createField(DSL.name("edits"), SQLDataType.CLOB.defaultValue(DSL.inline("NULL", SQLDataType.CLOB)), this, "");
 
@@ -85,21 +85,21 @@ public class Watch extends TableImpl<WatchRecord> {
     }
 
     /**
-     * Create an aliased <code>paradb_unmodified.watch</code> table reference
+     * Create an aliased <code>paradise_gamedb.watch</code> table reference
      */
     public Watch(String alias) {
         this(DSL.name(alias), WATCH);
     }
 
     /**
-     * Create an aliased <code>paradb_unmodified.watch</code> table reference
+     * Create an aliased <code>paradise_gamedb.watch</code> table reference
      */
     public Watch(Name alias) {
         this(alias, WATCH);
     }
 
     /**
-     * Create a <code>paradb_unmodified.watch</code> table reference
+     * Create a <code>paradise_gamedb.watch</code> table reference
      */
     public Watch() {
         this(DSL.name("watch"), null);
@@ -111,7 +111,7 @@ public class Watch extends TableImpl<WatchRecord> {
 
     @Override
     public Schema getSchema() {
-        return aliased() ? null : ParadbUnmodified.PARADB_UNMODIFIED;
+        return aliased() ? null : ParadiseGamedb.PARADISE_GAMEDB;
     }
 
     @Override

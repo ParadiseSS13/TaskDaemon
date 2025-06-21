@@ -22,28 +22,28 @@ public class OauthTokensRecord extends UpdatableRecordImpl<OauthTokensRecord> im
     private static final long serialVersionUID = 1L;
 
     /**
-     * Setter for <code>paradb_unmodified.oauth_tokens.ckey</code>.
+     * Setter for <code>paradise_gamedb.oauth_tokens.ckey</code>.
      */
     public void setCkey(String value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.oauth_tokens.ckey</code>.
+     * Getter for <code>paradise_gamedb.oauth_tokens.ckey</code>.
      */
     public String getCkey() {
         return (String) get(0);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.oauth_tokens.token</code>.
+     * Setter for <code>paradise_gamedb.oauth_tokens.token</code>.
      */
     public void setToken(String value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.oauth_tokens.token</code>.
+     * Getter for <code>paradise_gamedb.oauth_tokens.token</code>.
      */
     public String getToken() {
         return (String) get(1);

@@ -24,98 +24,98 @@ public class PlaytimeHistoryRecord extends UpdatableRecordImpl<PlaytimeHistoryRe
     private static final long serialVersionUID = 1L;
 
     /**
-     * Setter for <code>paradb_unmodified.playtime_history.ckey</code>.
+     * Setter for <code>paradise_gamedb.playtime_history.ckey</code>.
      */
     public void setCkey(String value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.playtime_history.ckey</code>.
+     * Getter for <code>paradise_gamedb.playtime_history.ckey</code>.
      */
     public String getCkey() {
         return (String) get(0);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.playtime_history.date</code>.
+     * Setter for <code>paradise_gamedb.playtime_history.date</code>.
      */
     public void setDate(LocalDate value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.playtime_history.date</code>.
+     * Getter for <code>paradise_gamedb.playtime_history.date</code>.
      */
     public LocalDate getDate() {
         return (LocalDate) get(1);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.playtime_history.time_living</code>.
+     * Setter for <code>paradise_gamedb.playtime_history.time_living</code>.
      */
     public void setTimeLiving(Short value) {
         set(2, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.playtime_history.time_living</code>.
+     * Getter for <code>paradise_gamedb.playtime_history.time_living</code>.
      */
     public Short getTimeLiving() {
         return (Short) get(2);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.playtime_history.time_crew</code>.
+     * Setter for <code>paradise_gamedb.playtime_history.time_crew</code>.
      */
     public void setTimeCrew(Short value) {
         set(3, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.playtime_history.time_crew</code>.
+     * Getter for <code>paradise_gamedb.playtime_history.time_crew</code>.
      */
     public Short getTimeCrew() {
         return (Short) get(3);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.playtime_history.time_special</code>.
+     * Setter for <code>paradise_gamedb.playtime_history.time_special</code>.
      */
     public void setTimeSpecial(Short value) {
         set(4, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.playtime_history.time_special</code>.
+     * Getter for <code>paradise_gamedb.playtime_history.time_special</code>.
      */
     public Short getTimeSpecial() {
         return (Short) get(4);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.playtime_history.time_ghost</code>.
+     * Setter for <code>paradise_gamedb.playtime_history.time_ghost</code>.
      */
     public void setTimeGhost(Short value) {
         set(5, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.playtime_history.time_ghost</code>.
+     * Getter for <code>paradise_gamedb.playtime_history.time_ghost</code>.
      */
     public Short getTimeGhost() {
         return (Short) get(5);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.playtime_history.time_command</code>.
+     * Setter for <code>paradise_gamedb.playtime_history.time_command</code>.
      */
     public void setTimeCommand(Short value) {
         set(6, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.playtime_history.time_command</code>.
+     * Getter for <code>paradise_gamedb.playtime_history.time_command</code>.
      */
     public Short getTimeCommand() {
         return (Short) get(6);
@@ -123,7 +123,7 @@ public class PlaytimeHistoryRecord extends UpdatableRecordImpl<PlaytimeHistoryRe
 
     /**
      * Setter for
-     * <code>paradb_unmodified.playtime_history.time_engineering</code>.
+     * <code>paradise_gamedb.playtime_history.time_engineering</code>.
      */
     public void setTimeEngineering(Short value) {
         set(7, value);
@@ -131,91 +131,91 @@ public class PlaytimeHistoryRecord extends UpdatableRecordImpl<PlaytimeHistoryRe
 
     /**
      * Getter for
-     * <code>paradb_unmodified.playtime_history.time_engineering</code>.
+     * <code>paradise_gamedb.playtime_history.time_engineering</code>.
      */
     public Short getTimeEngineering() {
         return (Short) get(7);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.playtime_history.time_medical</code>.
+     * Setter for <code>paradise_gamedb.playtime_history.time_medical</code>.
      */
     public void setTimeMedical(Short value) {
         set(8, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.playtime_history.time_medical</code>.
+     * Getter for <code>paradise_gamedb.playtime_history.time_medical</code>.
      */
     public Short getTimeMedical() {
         return (Short) get(8);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.playtime_history.time_science</code>.
+     * Setter for <code>paradise_gamedb.playtime_history.time_science</code>.
      */
     public void setTimeScience(Short value) {
         set(9, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.playtime_history.time_science</code>.
+     * Getter for <code>paradise_gamedb.playtime_history.time_science</code>.
      */
     public Short getTimeScience() {
         return (Short) get(9);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.playtime_history.time_supply</code>.
+     * Setter for <code>paradise_gamedb.playtime_history.time_supply</code>.
      */
     public void setTimeSupply(Short value) {
         set(10, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.playtime_history.time_supply</code>.
+     * Getter for <code>paradise_gamedb.playtime_history.time_supply</code>.
      */
     public Short getTimeSupply() {
         return (Short) get(10);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.playtime_history.time_security</code>.
+     * Setter for <code>paradise_gamedb.playtime_history.time_security</code>.
      */
     public void setTimeSecurity(Short value) {
         set(11, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.playtime_history.time_security</code>.
+     * Getter for <code>paradise_gamedb.playtime_history.time_security</code>.
      */
     public Short getTimeSecurity() {
         return (Short) get(11);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.playtime_history.time_silicon</code>.
+     * Setter for <code>paradise_gamedb.playtime_history.time_silicon</code>.
      */
     public void setTimeSilicon(Short value) {
         set(12, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.playtime_history.time_silicon</code>.
+     * Getter for <code>paradise_gamedb.playtime_history.time_silicon</code>.
      */
     public Short getTimeSilicon() {
         return (Short) get(12);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.playtime_history.time_service</code>.
+     * Setter for <code>paradise_gamedb.playtime_history.time_service</code>.
      */
     public void setTimeService(Short value) {
         set(13, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.playtime_history.time_service</code>.
+     * Getter for <code>paradise_gamedb.playtime_history.time_service</code>.
      */
     public Short getTimeService() {
         return (Short) get(13);

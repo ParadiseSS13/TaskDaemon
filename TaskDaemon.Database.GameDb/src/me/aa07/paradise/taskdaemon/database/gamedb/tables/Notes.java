@@ -10,7 +10,7 @@ import java.util.List;
 
 import me.aa07.paradise.taskdaemon.database.gamedb.Indexes;
 import me.aa07.paradise.taskdaemon.database.gamedb.Keys;
-import me.aa07.paradise.taskdaemon.database.gamedb.ParadbUnmodified;
+import me.aa07.paradise.taskdaemon.database.gamedb.ParadiseGamedb;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.records.NotesRecord;
 
 import org.jooq.Field;
@@ -41,7 +41,7 @@ public class Notes extends TableImpl<NotesRecord> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * The reference instance of <code>paradb_unmodified.notes</code>
+     * The reference instance of <code>paradise_gamedb.notes</code>
      */
     public static final Notes NOTES = new Notes();
 
@@ -54,72 +54,72 @@ public class Notes extends TableImpl<NotesRecord> {
     }
 
     /**
-     * The column <code>paradb_unmodified.notes.id</code>.
+     * The column <code>paradise_gamedb.notes.id</code>.
      */
     public final TableField<NotesRecord, Integer> ID = createField(DSL.name("id"), SQLDataType.INTEGER.nullable(false).identity(true), this, "");
 
     /**
-     * The column <code>paradb_unmodified.notes.ckey</code>.
+     * The column <code>paradise_gamedb.notes.ckey</code>.
      */
     public final TableField<NotesRecord, String> CKEY = createField(DSL.name("ckey"), SQLDataType.VARCHAR(32).nullable(false), this, "");
 
     /**
-     * The column <code>paradb_unmodified.notes.notetext</code>.
+     * The column <code>paradise_gamedb.notes.notetext</code>.
      */
     public final TableField<NotesRecord, String> NOTETEXT = createField(DSL.name("notetext"), SQLDataType.CLOB.nullable(false), this, "");
 
     /**
-     * The column <code>paradb_unmodified.notes.timestamp</code>.
+     * The column <code>paradise_gamedb.notes.timestamp</code>.
      */
     public final TableField<NotesRecord, LocalDateTime> TIMESTAMP = createField(DSL.name("timestamp"), SQLDataType.LOCALDATETIME(0).nullable(false), this, "");
 
     /**
-     * The column <code>paradb_unmodified.notes.round_id</code>.
+     * The column <code>paradise_gamedb.notes.round_id</code>.
      */
     public final TableField<NotesRecord, Integer> ROUND_ID = createField(DSL.name("round_id"), SQLDataType.INTEGER.defaultValue(DSL.inline("NULL", SQLDataType.INTEGER)), this, "");
 
     /**
-     * The column <code>paradb_unmodified.notes.adminckey</code>.
+     * The column <code>paradise_gamedb.notes.adminckey</code>.
      */
     public final TableField<NotesRecord, String> ADMINCKEY = createField(DSL.name("adminckey"), SQLDataType.VARCHAR(32).nullable(false), this, "");
 
     /**
-     * The column <code>paradb_unmodified.notes.last_editor</code>.
+     * The column <code>paradise_gamedb.notes.last_editor</code>.
      */
     public final TableField<NotesRecord, String> LAST_EDITOR = createField(DSL.name("last_editor"), SQLDataType.VARCHAR(32).defaultValue(DSL.inline("NULL", SQLDataType.VARCHAR)), this, "");
 
     /**
-     * The column <code>paradb_unmodified.notes.edits</code>.
+     * The column <code>paradise_gamedb.notes.edits</code>.
      */
     public final TableField<NotesRecord, String> EDITS = createField(DSL.name("edits"), SQLDataType.CLOB.defaultValue(DSL.inline("NULL", SQLDataType.CLOB)), this, "");
 
     /**
-     * The column <code>paradb_unmodified.notes.server</code>.
+     * The column <code>paradise_gamedb.notes.server</code>.
      */
     public final TableField<NotesRecord, String> SERVER = createField(DSL.name("server"), SQLDataType.VARCHAR(50).nullable(false), this, "");
 
     /**
-     * The column <code>paradb_unmodified.notes.crew_playtime</code>.
+     * The column <code>paradise_gamedb.notes.crew_playtime</code>.
      */
     public final TableField<NotesRecord, UInteger> CREW_PLAYTIME = createField(DSL.name("crew_playtime"), SQLDataType.INTEGERUNSIGNED.defaultValue(DSL.inline("0", SQLDataType.INTEGERUNSIGNED)), this, "");
 
     /**
-     * The column <code>paradb_unmodified.notes.automated</code>.
+     * The column <code>paradise_gamedb.notes.automated</code>.
      */
     public final TableField<NotesRecord, UByte> AUTOMATED = createField(DSL.name("automated"), SQLDataType.TINYINTUNSIGNED.defaultValue(DSL.inline("0", SQLDataType.TINYINTUNSIGNED)), this, "");
 
     /**
-     * The column <code>paradb_unmodified.notes.deleted</code>.
+     * The column <code>paradise_gamedb.notes.deleted</code>.
      */
     public final TableField<NotesRecord, Byte> DELETED = createField(DSL.name("deleted"), SQLDataType.TINYINT.nullable(false).defaultValue(DSL.inline("0", SQLDataType.TINYINT)), this, "");
 
     /**
-     * The column <code>paradb_unmodified.notes.deletedby</code>.
+     * The column <code>paradise_gamedb.notes.deletedby</code>.
      */
     public final TableField<NotesRecord, String> DELETEDBY = createField(DSL.name("deletedby"), SQLDataType.VARCHAR(32).defaultValue(DSL.inline("NULL", SQLDataType.VARCHAR)), this, "");
 
     /**
-     * The column <code>paradb_unmodified.notes.public</code>.
+     * The column <code>paradise_gamedb.notes.public</code>.
      */
     public final TableField<NotesRecord, Byte> PUBLIC = createField(DSL.name("public"), SQLDataType.TINYINT.nullable(false).defaultValue(DSL.inline("0", SQLDataType.TINYINT)), this, "");
 
@@ -132,21 +132,21 @@ public class Notes extends TableImpl<NotesRecord> {
     }
 
     /**
-     * Create an aliased <code>paradb_unmodified.notes</code> table reference
+     * Create an aliased <code>paradise_gamedb.notes</code> table reference
      */
     public Notes(String alias) {
         this(DSL.name(alias), NOTES);
     }
 
     /**
-     * Create an aliased <code>paradb_unmodified.notes</code> table reference
+     * Create an aliased <code>paradise_gamedb.notes</code> table reference
      */
     public Notes(Name alias) {
         this(alias, NOTES);
     }
 
     /**
-     * Create a <code>paradb_unmodified.notes</code> table reference
+     * Create a <code>paradise_gamedb.notes</code> table reference
      */
     public Notes() {
         this(DSL.name("notes"), null);
@@ -158,7 +158,7 @@ public class Notes extends TableImpl<NotesRecord> {
 
     @Override
     public Schema getSchema() {
-        return aliased() ? null : ParadbUnmodified.PARADB_UNMODIFIED;
+        return aliased() ? null : ParadiseGamedb.PARADISE_GAMEDB;
     }
 
     @Override

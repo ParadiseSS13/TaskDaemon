@@ -7,7 +7,7 @@ package me.aa07.paradise.taskdaemon.database.gamedb.tables;
 import java.time.LocalDateTime;
 
 import me.aa07.paradise.taskdaemon.database.gamedb.Keys;
-import me.aa07.paradise.taskdaemon.database.gamedb.ParadbUnmodified;
+import me.aa07.paradise.taskdaemon.database.gamedb.ParadiseGamedb;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.records.PrivacyRecord;
 
 import org.jooq.Field;
@@ -34,7 +34,7 @@ public class Privacy extends TableImpl<PrivacyRecord> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * The reference instance of <code>paradb_unmodified.privacy</code>
+     * The reference instance of <code>paradise_gamedb.privacy</code>
      */
     public static final Privacy PRIVACY = new Privacy();
 
@@ -47,17 +47,17 @@ public class Privacy extends TableImpl<PrivacyRecord> {
     }
 
     /**
-     * The column <code>paradb_unmodified.privacy.ckey</code>.
+     * The column <code>paradise_gamedb.privacy.ckey</code>.
      */
     public final TableField<PrivacyRecord, String> CKEY = createField(DSL.name("ckey"), SQLDataType.VARCHAR(32).nullable(false), this, "");
 
     /**
-     * The column <code>paradb_unmodified.privacy.datetime</code>.
+     * The column <code>paradise_gamedb.privacy.datetime</code>.
      */
     public final TableField<PrivacyRecord, LocalDateTime> DATETIME = createField(DSL.name("datetime"), SQLDataType.LOCALDATETIME(0).nullable(false), this, "");
 
     /**
-     * The column <code>paradb_unmodified.privacy.consent</code>.
+     * The column <code>paradise_gamedb.privacy.consent</code>.
      */
     public final TableField<PrivacyRecord, Boolean> CONSENT = createField(DSL.name("consent"), SQLDataType.BIT.nullable(false), this, "");
 
@@ -70,21 +70,21 @@ public class Privacy extends TableImpl<PrivacyRecord> {
     }
 
     /**
-     * Create an aliased <code>paradb_unmodified.privacy</code> table reference
+     * Create an aliased <code>paradise_gamedb.privacy</code> table reference
      */
     public Privacy(String alias) {
         this(DSL.name(alias), PRIVACY);
     }
 
     /**
-     * Create an aliased <code>paradb_unmodified.privacy</code> table reference
+     * Create an aliased <code>paradise_gamedb.privacy</code> table reference
      */
     public Privacy(Name alias) {
         this(alias, PRIVACY);
     }
 
     /**
-     * Create a <code>paradb_unmodified.privacy</code> table reference
+     * Create a <code>paradise_gamedb.privacy</code> table reference
      */
     public Privacy() {
         this(DSL.name("privacy"), null);
@@ -96,7 +96,7 @@ public class Privacy extends TableImpl<PrivacyRecord> {
 
     @Override
     public Schema getSchema() {
-        return aliased() ? null : ParadbUnmodified.PARADB_UNMODIFIED;
+        return aliased() ? null : ParadiseGamedb.PARADISE_GAMEDB;
     }
 
     @Override

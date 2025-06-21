@@ -5,7 +5,7 @@ package me.aa07.paradise.taskdaemon.database.gamedb.tables;
 
 
 import me.aa07.paradise.taskdaemon.database.gamedb.Keys;
-import me.aa07.paradise.taskdaemon.database.gamedb.ParadbUnmodified;
+import me.aa07.paradise.taskdaemon.database.gamedb.ParadiseGamedb;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.records.VpnWhitelistRecord;
 
 import org.jooq.Field;
@@ -32,7 +32,7 @@ public class VpnWhitelist extends TableImpl<VpnWhitelistRecord> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * The reference instance of <code>paradb_unmodified.vpn_whitelist</code>
+     * The reference instance of <code>paradise_gamedb.vpn_whitelist</code>
      */
     public static final VpnWhitelist VPN_WHITELIST = new VpnWhitelist();
 
@@ -45,12 +45,12 @@ public class VpnWhitelist extends TableImpl<VpnWhitelistRecord> {
     }
 
     /**
-     * The column <code>paradb_unmodified.vpn_whitelist.ckey</code>.
+     * The column <code>paradise_gamedb.vpn_whitelist.ckey</code>.
      */
     public final TableField<VpnWhitelistRecord, String> CKEY = createField(DSL.name("ckey"), SQLDataType.VARCHAR(32).nullable(false), this, "");
 
     /**
-     * The column <code>paradb_unmodified.vpn_whitelist.reason</code>.
+     * The column <code>paradise_gamedb.vpn_whitelist.reason</code>.
      */
     public final TableField<VpnWhitelistRecord, String> REASON = createField(DSL.name("reason"), SQLDataType.CLOB.defaultValue(DSL.inline("NULL", SQLDataType.CLOB)), this, "");
 
@@ -63,7 +63,7 @@ public class VpnWhitelist extends TableImpl<VpnWhitelistRecord> {
     }
 
     /**
-     * Create an aliased <code>paradb_unmodified.vpn_whitelist</code> table
+     * Create an aliased <code>paradise_gamedb.vpn_whitelist</code> table
      * reference
      */
     public VpnWhitelist(String alias) {
@@ -71,7 +71,7 @@ public class VpnWhitelist extends TableImpl<VpnWhitelistRecord> {
     }
 
     /**
-     * Create an aliased <code>paradb_unmodified.vpn_whitelist</code> table
+     * Create an aliased <code>paradise_gamedb.vpn_whitelist</code> table
      * reference
      */
     public VpnWhitelist(Name alias) {
@@ -79,7 +79,7 @@ public class VpnWhitelist extends TableImpl<VpnWhitelistRecord> {
     }
 
     /**
-     * Create a <code>paradb_unmodified.vpn_whitelist</code> table reference
+     * Create a <code>paradise_gamedb.vpn_whitelist</code> table reference
      */
     public VpnWhitelist() {
         this(DSL.name("vpn_whitelist"), null);
@@ -91,7 +91,7 @@ public class VpnWhitelist extends TableImpl<VpnWhitelistRecord> {
 
     @Override
     public Schema getSchema() {
-        return aliased() ? null : ParadbUnmodified.PARADB_UNMODIFIED;
+        return aliased() ? null : ParadiseGamedb.PARADISE_GAMEDB;
     }
 
     @Override

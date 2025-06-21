@@ -26,210 +26,210 @@ public class RoundRecord extends UpdatableRecordImpl<RoundRecord> implements Rec
     private static final long serialVersionUID = 1L;
 
     /**
-     * Setter for <code>paradb_unmodified.round.id</code>.
+     * Setter for <code>paradise_gamedb.round.id</code>.
      */
     public void setId(Integer value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.round.id</code>.
+     * Getter for <code>paradise_gamedb.round.id</code>.
      */
     public Integer getId() {
         return (Integer) get(0);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.round.initialize_datetime</code>.
+     * Setter for <code>paradise_gamedb.round.initialize_datetime</code>.
      */
     public void setInitializeDatetime(LocalDateTime value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.round.initialize_datetime</code>.
+     * Getter for <code>paradise_gamedb.round.initialize_datetime</code>.
      */
     public LocalDateTime getInitializeDatetime() {
         return (LocalDateTime) get(1);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.round.start_datetime</code>.
+     * Setter for <code>paradise_gamedb.round.start_datetime</code>.
      */
     public void setStartDatetime(LocalDateTime value) {
         set(2, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.round.start_datetime</code>.
+     * Getter for <code>paradise_gamedb.round.start_datetime</code>.
      */
     public LocalDateTime getStartDatetime() {
         return (LocalDateTime) get(2);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.round.shutdown_datetime</code>.
+     * Setter for <code>paradise_gamedb.round.shutdown_datetime</code>.
      */
     public void setShutdownDatetime(LocalDateTime value) {
         set(3, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.round.shutdown_datetime</code>.
+     * Getter for <code>paradise_gamedb.round.shutdown_datetime</code>.
      */
     public LocalDateTime getShutdownDatetime() {
         return (LocalDateTime) get(3);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.round.end_datetime</code>.
+     * Setter for <code>paradise_gamedb.round.end_datetime</code>.
      */
     public void setEndDatetime(LocalDateTime value) {
         set(4, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.round.end_datetime</code>.
+     * Getter for <code>paradise_gamedb.round.end_datetime</code>.
      */
     public LocalDateTime getEndDatetime() {
         return (LocalDateTime) get(4);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.round.server_ip</code>.
+     * Setter for <code>paradise_gamedb.round.server_ip</code>.
      */
     public void setServerIp(UInteger value) {
         set(5, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.round.server_ip</code>.
+     * Getter for <code>paradise_gamedb.round.server_ip</code>.
      */
     public UInteger getServerIp() {
         return (UInteger) get(5);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.round.server_port</code>.
+     * Setter for <code>paradise_gamedb.round.server_port</code>.
      */
     public void setServerPort(UShort value) {
         set(6, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.round.server_port</code>.
+     * Getter for <code>paradise_gamedb.round.server_port</code>.
      */
     public UShort getServerPort() {
         return (UShort) get(6);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.round.commit_hash</code>.
+     * Setter for <code>paradise_gamedb.round.commit_hash</code>.
      */
     public void setCommitHash(String value) {
         set(7, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.round.commit_hash</code>.
+     * Getter for <code>paradise_gamedb.round.commit_hash</code>.
      */
     public String getCommitHash() {
         return (String) get(7);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.round.game_mode</code>.
+     * Setter for <code>paradise_gamedb.round.game_mode</code>.
      */
     public void setGameMode(String value) {
         set(8, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.round.game_mode</code>.
+     * Getter for <code>paradise_gamedb.round.game_mode</code>.
      */
     public String getGameMode() {
         return (String) get(8);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.round.game_mode_result</code>.
+     * Setter for <code>paradise_gamedb.round.game_mode_result</code>.
      */
     public void setGameModeResult(String value) {
         set(9, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.round.game_mode_result</code>.
+     * Getter for <code>paradise_gamedb.round.game_mode_result</code>.
      */
     public String getGameModeResult() {
         return (String) get(9);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.round.end_state</code>.
+     * Setter for <code>paradise_gamedb.round.end_state</code>.
      */
     public void setEndState(String value) {
         set(10, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.round.end_state</code>.
+     * Getter for <code>paradise_gamedb.round.end_state</code>.
      */
     public String getEndState() {
         return (String) get(10);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.round.shuttle_name</code>.
+     * Setter for <code>paradise_gamedb.round.shuttle_name</code>.
      */
     public void setShuttleName(String value) {
         set(11, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.round.shuttle_name</code>.
+     * Getter for <code>paradise_gamedb.round.shuttle_name</code>.
      */
     public String getShuttleName() {
         return (String) get(11);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.round.map_name</code>.
+     * Setter for <code>paradise_gamedb.round.map_name</code>.
      */
     public void setMapName(String value) {
         set(12, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.round.map_name</code>.
+     * Getter for <code>paradise_gamedb.round.map_name</code>.
      */
     public String getMapName() {
         return (String) get(12);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.round.station_name</code>.
+     * Setter for <code>paradise_gamedb.round.station_name</code>.
      */
     public void setStationName(String value) {
         set(13, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.round.station_name</code>.
+     * Getter for <code>paradise_gamedb.round.station_name</code>.
      */
     public String getStationName() {
         return (String) get(13);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.round.server_id</code>.
+     * Setter for <code>paradise_gamedb.round.server_id</code>.
      */
     public void setServerId(String value) {
         set(14, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.round.server_id</code>.
+     * Getter for <code>paradise_gamedb.round.server_id</code>.
      */
     public String getServerId() {
         return (String) get(14);

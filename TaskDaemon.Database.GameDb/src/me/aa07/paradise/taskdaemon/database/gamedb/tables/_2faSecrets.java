@@ -7,7 +7,7 @@ package me.aa07.paradise.taskdaemon.database.gamedb.tables;
 import java.time.LocalDateTime;
 
 import me.aa07.paradise.taskdaemon.database.gamedb.Keys;
-import me.aa07.paradise.taskdaemon.database.gamedb.ParadbUnmodified;
+import me.aa07.paradise.taskdaemon.database.gamedb.ParadiseGamedb;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.records._2faSecretsRecord;
 
 import org.jooq.Field;
@@ -34,7 +34,7 @@ public class _2faSecrets extends TableImpl<_2faSecretsRecord> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * The reference instance of <code>paradb_unmodified.2fa_secrets</code>
+     * The reference instance of <code>paradise_gamedb.2fa_secrets</code>
      */
     public static final _2faSecrets _2FA_SECRETS = new _2faSecrets();
 
@@ -47,22 +47,22 @@ public class _2faSecrets extends TableImpl<_2faSecretsRecord> {
     }
 
     /**
-     * The column <code>paradb_unmodified.2fa_secrets.ckey</code>.
+     * The column <code>paradise_gamedb.2fa_secrets.ckey</code>.
      */
     public final TableField<_2faSecretsRecord, String> CKEY = createField(DSL.name("ckey"), SQLDataType.VARCHAR(50).nullable(false), this, "");
 
     /**
-     * The column <code>paradb_unmodified.2fa_secrets.secret</code>.
+     * The column <code>paradise_gamedb.2fa_secrets.secret</code>.
      */
     public final TableField<_2faSecretsRecord, String> SECRET = createField(DSL.name("secret"), SQLDataType.VARCHAR(64).nullable(false), this, "");
 
     /**
-     * The column <code>paradb_unmodified.2fa_secrets.date_setup</code>.
+     * The column <code>paradise_gamedb.2fa_secrets.date_setup</code>.
      */
     public final TableField<_2faSecretsRecord, LocalDateTime> DATE_SETUP = createField(DSL.name("date_setup"), SQLDataType.LOCALDATETIME(0).nullable(false).defaultValue(DSL.field("current_timestamp()", SQLDataType.LOCALDATETIME)), this, "");
 
     /**
-     * The column <code>paradb_unmodified.2fa_secrets.last_time</code>.
+     * The column <code>paradise_gamedb.2fa_secrets.last_time</code>.
      */
     public final TableField<_2faSecretsRecord, LocalDateTime> LAST_TIME = createField(DSL.name("last_time"), SQLDataType.LOCALDATETIME(0).defaultValue(DSL.inline("NULL", SQLDataType.LOCALDATETIME)), this, "");
 
@@ -75,7 +75,7 @@ public class _2faSecrets extends TableImpl<_2faSecretsRecord> {
     }
 
     /**
-     * Create an aliased <code>paradb_unmodified.2fa_secrets</code> table
+     * Create an aliased <code>paradise_gamedb.2fa_secrets</code> table
      * reference
      */
     public _2faSecrets(String alias) {
@@ -83,7 +83,7 @@ public class _2faSecrets extends TableImpl<_2faSecretsRecord> {
     }
 
     /**
-     * Create an aliased <code>paradb_unmodified.2fa_secrets</code> table
+     * Create an aliased <code>paradise_gamedb.2fa_secrets</code> table
      * reference
      */
     public _2faSecrets(Name alias) {
@@ -91,7 +91,7 @@ public class _2faSecrets extends TableImpl<_2faSecretsRecord> {
     }
 
     /**
-     * Create a <code>paradb_unmodified.2fa_secrets</code> table reference
+     * Create a <code>paradise_gamedb.2fa_secrets</code> table reference
      */
     public _2faSecrets() {
         this(DSL.name("2fa_secrets"), null);
@@ -103,7 +103,7 @@ public class _2faSecrets extends TableImpl<_2faSecretsRecord> {
 
     @Override
     public Schema getSchema() {
-        return aliased() ? null : ParadbUnmodified.PARADB_UNMODIFIED;
+        return aliased() ? null : ParadiseGamedb.PARADISE_GAMEDB;
     }
 
     @Override

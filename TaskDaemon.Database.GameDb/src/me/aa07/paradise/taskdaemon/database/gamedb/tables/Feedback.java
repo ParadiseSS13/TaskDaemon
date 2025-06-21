@@ -7,7 +7,7 @@ package me.aa07.paradise.taskdaemon.database.gamedb.tables;
 import java.time.LocalDateTime;
 
 import me.aa07.paradise.taskdaemon.database.gamedb.Keys;
-import me.aa07.paradise.taskdaemon.database.gamedb.ParadbUnmodified;
+import me.aa07.paradise.taskdaemon.database.gamedb.ParadiseGamedb;
 import me.aa07.paradise.taskdaemon.database.gamedb.enums.FeedbackKeyType;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.records.FeedbackRecord;
 
@@ -38,7 +38,7 @@ public class Feedback extends TableImpl<FeedbackRecord> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * The reference instance of <code>paradb_unmodified.feedback</code>
+     * The reference instance of <code>paradise_gamedb.feedback</code>
      */
     public static final Feedback FEEDBACK = new Feedback();
 
@@ -51,37 +51,37 @@ public class Feedback extends TableImpl<FeedbackRecord> {
     }
 
     /**
-     * The column <code>paradb_unmodified.feedback.id</code>.
+     * The column <code>paradise_gamedb.feedback.id</code>.
      */
     public final TableField<FeedbackRecord, UInteger> ID = createField(DSL.name("id"), SQLDataType.INTEGERUNSIGNED.nullable(false).identity(true), this, "");
 
     /**
-     * The column <code>paradb_unmodified.feedback.datetime</code>.
+     * The column <code>paradise_gamedb.feedback.datetime</code>.
      */
     public final TableField<FeedbackRecord, LocalDateTime> DATETIME = createField(DSL.name("datetime"), SQLDataType.LOCALDATETIME(0).nullable(false), this, "");
 
     /**
-     * The column <code>paradb_unmodified.feedback.round_id</code>.
+     * The column <code>paradise_gamedb.feedback.round_id</code>.
      */
     public final TableField<FeedbackRecord, Integer> ROUND_ID = createField(DSL.name("round_id"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
-     * The column <code>paradb_unmodified.feedback.key_name</code>.
+     * The column <code>paradise_gamedb.feedback.key_name</code>.
      */
     public final TableField<FeedbackRecord, String> KEY_NAME = createField(DSL.name("key_name"), SQLDataType.VARCHAR(32).nullable(false), this, "");
 
     /**
-     * The column <code>paradb_unmodified.feedback.key_type</code>.
+     * The column <code>paradise_gamedb.feedback.key_type</code>.
      */
     public final TableField<FeedbackRecord, FeedbackKeyType> KEY_TYPE = createField(DSL.name("key_type"), SQLDataType.VARCHAR(13).nullable(false).asEnumDataType(me.aa07.paradise.taskdaemon.database.gamedb.enums.FeedbackKeyType.class), this, "");
 
     /**
-     * The column <code>paradb_unmodified.feedback.version</code>.
+     * The column <code>paradise_gamedb.feedback.version</code>.
      */
     public final TableField<FeedbackRecord, UByte> VERSION = createField(DSL.name("version"), SQLDataType.TINYINTUNSIGNED.nullable(false), this, "");
 
     /**
-     * The column <code>paradb_unmodified.feedback.json</code>.
+     * The column <code>paradise_gamedb.feedback.json</code>.
      */
     public final TableField<FeedbackRecord, String> JSON = createField(DSL.name("json"), SQLDataType.CLOB.nullable(false), this, "");
 
@@ -94,21 +94,21 @@ public class Feedback extends TableImpl<FeedbackRecord> {
     }
 
     /**
-     * Create an aliased <code>paradb_unmodified.feedback</code> table reference
+     * Create an aliased <code>paradise_gamedb.feedback</code> table reference
      */
     public Feedback(String alias) {
         this(DSL.name(alias), FEEDBACK);
     }
 
     /**
-     * Create an aliased <code>paradb_unmodified.feedback</code> table reference
+     * Create an aliased <code>paradise_gamedb.feedback</code> table reference
      */
     public Feedback(Name alias) {
         this(alias, FEEDBACK);
     }
 
     /**
-     * Create a <code>paradb_unmodified.feedback</code> table reference
+     * Create a <code>paradise_gamedb.feedback</code> table reference
      */
     public Feedback() {
         this(DSL.name("feedback"), null);
@@ -120,7 +120,7 @@ public class Feedback extends TableImpl<FeedbackRecord> {
 
     @Override
     public Schema getSchema() {
-        return aliased() ? null : ParadbUnmodified.PARADB_UNMODIFIED;
+        return aliased() ? null : ParadiseGamedb.PARADISE_GAMEDB;
     }
 
     @Override

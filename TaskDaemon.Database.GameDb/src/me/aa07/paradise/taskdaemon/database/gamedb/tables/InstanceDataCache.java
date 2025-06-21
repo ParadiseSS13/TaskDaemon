@@ -7,7 +7,7 @@ package me.aa07.paradise.taskdaemon.database.gamedb.tables;
 import java.time.LocalDateTime;
 
 import me.aa07.paradise.taskdaemon.database.gamedb.Keys;
-import me.aa07.paradise.taskdaemon.database.gamedb.ParadbUnmodified;
+import me.aa07.paradise.taskdaemon.database.gamedb.ParadiseGamedb;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.records.InstanceDataCacheRecord;
 
 import org.jooq.Field;
@@ -35,7 +35,7 @@ public class InstanceDataCache extends TableImpl<InstanceDataCacheRecord> {
 
     /**
      * The reference instance of
-     * <code>paradb_unmodified.instance_data_cache</code>
+     * <code>paradise_gamedb.instance_data_cache</code>
      */
     public static final InstanceDataCache INSTANCE_DATA_CACHE = new InstanceDataCache();
 
@@ -48,23 +48,22 @@ public class InstanceDataCache extends TableImpl<InstanceDataCacheRecord> {
     }
 
     /**
-     * The column <code>paradb_unmodified.instance_data_cache.server_id</code>.
+     * The column <code>paradise_gamedb.instance_data_cache.server_id</code>.
      */
     public final TableField<InstanceDataCacheRecord, String> SERVER_ID = createField(DSL.name("server_id"), SQLDataType.VARCHAR(50).nullable(false), this, "");
 
     /**
-     * The column <code>paradb_unmodified.instance_data_cache.key_name</code>.
+     * The column <code>paradise_gamedb.instance_data_cache.key_name</code>.
      */
     public final TableField<InstanceDataCacheRecord, String> KEY_NAME = createField(DSL.name("key_name"), SQLDataType.VARCHAR(50).nullable(false), this, "");
 
     /**
-     * The column <code>paradb_unmodified.instance_data_cache.key_value</code>.
+     * The column <code>paradise_gamedb.instance_data_cache.key_value</code>.
      */
     public final TableField<InstanceDataCacheRecord, String> KEY_VALUE = createField(DSL.name("key_value"), SQLDataType.VARCHAR(12345).nullable(false), this, "");
 
     /**
-     * The column
-     * <code>paradb_unmodified.instance_data_cache.last_updated</code>.
+     * The column <code>paradise_gamedb.instance_data_cache.last_updated</code>.
      */
     public final TableField<InstanceDataCacheRecord, LocalDateTime> LAST_UPDATED = createField(DSL.name("last_updated"), SQLDataType.LOCALDATETIME(0).nullable(false).defaultValue(DSL.field("current_timestamp()", SQLDataType.LOCALDATETIME)), this, "");
 
@@ -77,24 +76,23 @@ public class InstanceDataCache extends TableImpl<InstanceDataCacheRecord> {
     }
 
     /**
-     * Create an aliased <code>paradb_unmodified.instance_data_cache</code>
-     * table reference
+     * Create an aliased <code>paradise_gamedb.instance_data_cache</code> table
+     * reference
      */
     public InstanceDataCache(String alias) {
         this(DSL.name(alias), INSTANCE_DATA_CACHE);
     }
 
     /**
-     * Create an aliased <code>paradb_unmodified.instance_data_cache</code>
-     * table reference
+     * Create an aliased <code>paradise_gamedb.instance_data_cache</code> table
+     * reference
      */
     public InstanceDataCache(Name alias) {
         this(alias, INSTANCE_DATA_CACHE);
     }
 
     /**
-     * Create a <code>paradb_unmodified.instance_data_cache</code> table
-     * reference
+     * Create a <code>paradise_gamedb.instance_data_cache</code> table reference
      */
     public InstanceDataCache() {
         this(DSL.name("instance_data_cache"), null);
@@ -106,7 +104,7 @@ public class InstanceDataCache extends TableImpl<InstanceDataCacheRecord> {
 
     @Override
     public Schema getSchema() {
-        return aliased() ? null : ParadbUnmodified.PARADB_UNMODIFIED;
+        return aliased() ? null : ParadiseGamedb.PARADISE_GAMEDB;
     }
 
     @Override

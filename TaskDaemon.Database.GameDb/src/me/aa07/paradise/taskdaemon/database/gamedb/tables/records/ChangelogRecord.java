@@ -25,84 +25,84 @@ public class ChangelogRecord extends UpdatableRecordImpl<ChangelogRecord> implem
     private static final long serialVersionUID = 1L;
 
     /**
-     * Setter for <code>paradb_unmodified.changelog.id</code>.
+     * Setter for <code>paradise_gamedb.changelog.id</code>.
      */
     public void setId(Integer value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.changelog.id</code>.
+     * Getter for <code>paradise_gamedb.changelog.id</code>.
      */
     public Integer getId() {
         return (Integer) get(0);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.changelog.pr_number</code>.
+     * Setter for <code>paradise_gamedb.changelog.pr_number</code>.
      */
     public void setPrNumber(Integer value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.changelog.pr_number</code>.
+     * Getter for <code>paradise_gamedb.changelog.pr_number</code>.
      */
     public Integer getPrNumber() {
         return (Integer) get(1);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.changelog.date_merged</code>.
+     * Setter for <code>paradise_gamedb.changelog.date_merged</code>.
      */
     public void setDateMerged(LocalDateTime value) {
         set(2, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.changelog.date_merged</code>.
+     * Getter for <code>paradise_gamedb.changelog.date_merged</code>.
      */
     public LocalDateTime getDateMerged() {
         return (LocalDateTime) get(2);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.changelog.author</code>.
+     * Setter for <code>paradise_gamedb.changelog.author</code>.
      */
     public void setAuthor(String value) {
         set(3, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.changelog.author</code>.
+     * Getter for <code>paradise_gamedb.changelog.author</code>.
      */
     public String getAuthor() {
         return (String) get(3);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.changelog.cl_type</code>.
+     * Setter for <code>paradise_gamedb.changelog.cl_type</code>.
      */
     public void setClType(ChangelogClType value) {
         set(4, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.changelog.cl_type</code>.
+     * Getter for <code>paradise_gamedb.changelog.cl_type</code>.
      */
     public ChangelogClType getClType() {
         return (ChangelogClType) get(4);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.changelog.cl_entry</code>.
+     * Setter for <code>paradise_gamedb.changelog.cl_entry</code>.
      */
     public void setClEntry(String value) {
         set(5, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.changelog.cl_entry</code>.
+     * Getter for <code>paradise_gamedb.changelog.cl_entry</code>.
      */
     public String getClEntry() {
         return (String) get(5);

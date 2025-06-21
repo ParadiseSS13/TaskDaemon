@@ -25,42 +25,42 @@ public class IpintelRecord extends UpdatableRecordImpl<IpintelRecord> implements
     private static final long serialVersionUID = 1L;
 
     /**
-     * Setter for <code>paradb_unmodified.ipintel.ip</code>.
+     * Setter for <code>paradise_gamedb.ipintel.ip</code>.
      */
     public void setIp(UInteger value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.ipintel.ip</code>.
+     * Getter for <code>paradise_gamedb.ipintel.ip</code>.
      */
     public UInteger getIp() {
         return (UInteger) get(0);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.ipintel.date</code>.
+     * Setter for <code>paradise_gamedb.ipintel.date</code>.
      */
     public void setDate(LocalDateTime value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.ipintel.date</code>.
+     * Getter for <code>paradise_gamedb.ipintel.date</code>.
      */
     public LocalDateTime getDate() {
         return (LocalDateTime) get(1);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.ipintel.intel</code>.
+     * Setter for <code>paradise_gamedb.ipintel.intel</code>.
      */
     public void setIntel(Double value) {
         set(2, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.ipintel.intel</code>.
+     * Getter for <code>paradise_gamedb.ipintel.intel</code>.
      */
     public Double getIntel() {
         return (Double) get(2);

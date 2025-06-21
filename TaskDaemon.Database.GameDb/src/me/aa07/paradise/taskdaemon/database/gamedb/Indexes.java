@@ -25,7 +25,7 @@ import org.jooq.impl.Internal;
 
 
 /**
- * A class modelling indexes of tables in paradb_unmodified.
+ * A class modelling indexes of tables in paradise_gamedb.
  */
 @SuppressWarnings({ "all", "unchecked", "rawtypes" })
 public class Indexes {

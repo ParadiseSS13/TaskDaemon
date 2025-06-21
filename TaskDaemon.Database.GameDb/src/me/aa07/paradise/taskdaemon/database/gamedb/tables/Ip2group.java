@@ -10,7 +10,7 @@ import java.util.List;
 
 import me.aa07.paradise.taskdaemon.database.gamedb.Indexes;
 import me.aa07.paradise.taskdaemon.database.gamedb.Keys;
-import me.aa07.paradise.taskdaemon.database.gamedb.ParadbUnmodified;
+import me.aa07.paradise.taskdaemon.database.gamedb.ParadiseGamedb;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.records.Ip2groupRecord;
 
 import org.jooq.Field;
@@ -39,7 +39,7 @@ public class Ip2group extends TableImpl<Ip2groupRecord> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * The reference instance of <code>paradb_unmodified.ip2group</code>
+     * The reference instance of <code>paradise_gamedb.ip2group</code>
      */
     public static final Ip2group IP2GROUP = new Ip2group();
 
@@ -52,17 +52,17 @@ public class Ip2group extends TableImpl<Ip2groupRecord> {
     }
 
     /**
-     * The column <code>paradb_unmodified.ip2group.ip</code>.
+     * The column <code>paradise_gamedb.ip2group.ip</code>.
      */
     public final TableField<Ip2groupRecord, UInteger> IP = createField(DSL.name("ip"), SQLDataType.INTEGERUNSIGNED.nullable(false), this, "");
 
     /**
-     * The column <code>paradb_unmodified.ip2group.date</code>.
+     * The column <code>paradise_gamedb.ip2group.date</code>.
      */
     public final TableField<Ip2groupRecord, LocalDateTime> DATE = createField(DSL.name("date"), SQLDataType.LOCALDATETIME(0).nullable(false).defaultValue(DSL.field("current_timestamp()", SQLDataType.LOCALDATETIME)), this, "");
 
     /**
-     * The column <code>paradb_unmodified.ip2group.groupstr</code>.
+     * The column <code>paradise_gamedb.ip2group.groupstr</code>.
      */
     public final TableField<Ip2groupRecord, UInteger> GROUPSTR = createField(DSL.name("groupstr"), SQLDataType.INTEGERUNSIGNED.nullable(false), this, "");
 
@@ -75,21 +75,21 @@ public class Ip2group extends TableImpl<Ip2groupRecord> {
     }
 
     /**
-     * Create an aliased <code>paradb_unmodified.ip2group</code> table reference
+     * Create an aliased <code>paradise_gamedb.ip2group</code> table reference
      */
     public Ip2group(String alias) {
         this(DSL.name(alias), IP2GROUP);
     }
 
     /**
-     * Create an aliased <code>paradb_unmodified.ip2group</code> table reference
+     * Create an aliased <code>paradise_gamedb.ip2group</code> table reference
      */
     public Ip2group(Name alias) {
         this(alias, IP2GROUP);
     }
 
     /**
-     * Create a <code>paradb_unmodified.ip2group</code> table reference
+     * Create a <code>paradise_gamedb.ip2group</code> table reference
      */
     public Ip2group() {
         this(DSL.name("ip2group"), null);
@@ -101,7 +101,7 @@ public class Ip2group extends TableImpl<Ip2groupRecord> {
 
     @Override
     public Schema getSchema() {
-        return aliased() ? null : ParadbUnmodified.PARADB_UNMODIFIED;
+        return aliased() ? null : ParadiseGamedb.PARADISE_GAMEDB;
     }
 
     @Override

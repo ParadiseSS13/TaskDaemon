@@ -26,98 +26,98 @@ public class ConnectionLogRecord extends UpdatableRecordImpl<ConnectionLogRecord
     private static final long serialVersionUID = 1L;
 
     /**
-     * Setter for <code>paradb_unmodified.connection_log.id</code>.
+     * Setter for <code>paradise_gamedb.connection_log.id</code>.
      */
     public void setId(Integer value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.connection_log.id</code>.
+     * Getter for <code>paradise_gamedb.connection_log.id</code>.
      */
     public Integer getId() {
         return (Integer) get(0);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.connection_log.datetime</code>.
+     * Setter for <code>paradise_gamedb.connection_log.datetime</code>.
      */
     public void setDatetime(LocalDateTime value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.connection_log.datetime</code>.
+     * Getter for <code>paradise_gamedb.connection_log.datetime</code>.
      */
     public LocalDateTime getDatetime() {
         return (LocalDateTime) get(1);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.connection_log.ckey</code>.
+     * Setter for <code>paradise_gamedb.connection_log.ckey</code>.
      */
     public void setCkey(String value) {
         set(2, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.connection_log.ckey</code>.
+     * Getter for <code>paradise_gamedb.connection_log.ckey</code>.
      */
     public String getCkey() {
         return (String) get(2);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.connection_log.ip</code>.
+     * Setter for <code>paradise_gamedb.connection_log.ip</code>.
      */
     public void setIp(UInteger value) {
         set(3, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.connection_log.ip</code>.
+     * Getter for <code>paradise_gamedb.connection_log.ip</code>.
      */
     public UInteger getIp() {
         return (UInteger) get(3);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.connection_log.computerid</code>.
+     * Setter for <code>paradise_gamedb.connection_log.computerid</code>.
      */
     public void setComputerid(String value) {
         set(4, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.connection_log.computerid</code>.
+     * Getter for <code>paradise_gamedb.connection_log.computerid</code>.
      */
     public String getComputerid() {
         return (String) get(4);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.connection_log.server_id</code>.
+     * Setter for <code>paradise_gamedb.connection_log.server_id</code>.
      */
     public void setServerId(String value) {
         set(5, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.connection_log.server_id</code>.
+     * Getter for <code>paradise_gamedb.connection_log.server_id</code>.
      */
     public String getServerId() {
         return (String) get(5);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.connection_log.result</code>.
+     * Setter for <code>paradise_gamedb.connection_log.result</code>.
      */
     public void setResult(ConnectionLogResult value) {
         set(6, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.connection_log.result</code>.
+     * Getter for <code>paradise_gamedb.connection_log.result</code>.
      */
     public ConnectionLogResult getResult() {
         return (ConnectionLogResult) get(6);

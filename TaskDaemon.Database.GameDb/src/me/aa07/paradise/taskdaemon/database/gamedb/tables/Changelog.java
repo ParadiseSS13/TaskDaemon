@@ -7,7 +7,7 @@ package me.aa07.paradise.taskdaemon.database.gamedb.tables;
 import java.time.LocalDateTime;
 
 import me.aa07.paradise.taskdaemon.database.gamedb.Keys;
-import me.aa07.paradise.taskdaemon.database.gamedb.ParadbUnmodified;
+import me.aa07.paradise.taskdaemon.database.gamedb.ParadiseGamedb;
 import me.aa07.paradise.taskdaemon.database.gamedb.enums.ChangelogClType;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.records.ChangelogRecord;
 
@@ -36,7 +36,7 @@ public class Changelog extends TableImpl<ChangelogRecord> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * The reference instance of <code>paradb_unmodified.changelog</code>
+     * The reference instance of <code>paradise_gamedb.changelog</code>
      */
     public static final Changelog CHANGELOG = new Changelog();
 
@@ -49,32 +49,32 @@ public class Changelog extends TableImpl<ChangelogRecord> {
     }
 
     /**
-     * The column <code>paradb_unmodified.changelog.id</code>.
+     * The column <code>paradise_gamedb.changelog.id</code>.
      */
     public final TableField<ChangelogRecord, Integer> ID = createField(DSL.name("id"), SQLDataType.INTEGER.nullable(false).identity(true), this, "");
 
     /**
-     * The column <code>paradb_unmodified.changelog.pr_number</code>.
+     * The column <code>paradise_gamedb.changelog.pr_number</code>.
      */
     public final TableField<ChangelogRecord, Integer> PR_NUMBER = createField(DSL.name("pr_number"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
-     * The column <code>paradb_unmodified.changelog.date_merged</code>.
+     * The column <code>paradise_gamedb.changelog.date_merged</code>.
      */
     public final TableField<ChangelogRecord, LocalDateTime> DATE_MERGED = createField(DSL.name("date_merged"), SQLDataType.LOCALDATETIME(0).nullable(false).defaultValue(DSL.field("current_timestamp()", SQLDataType.LOCALDATETIME)), this, "");
 
     /**
-     * The column <code>paradb_unmodified.changelog.author</code>.
+     * The column <code>paradise_gamedb.changelog.author</code>.
      */
     public final TableField<ChangelogRecord, String> AUTHOR = createField(DSL.name("author"), SQLDataType.VARCHAR(32).nullable(false), this, "");
 
     /**
-     * The column <code>paradb_unmodified.changelog.cl_type</code>.
+     * The column <code>paradise_gamedb.changelog.cl_type</code>.
      */
     public final TableField<ChangelogRecord, ChangelogClType> CL_TYPE = createField(DSL.name("cl_type"), SQLDataType.VARCHAR(10).nullable(false).asEnumDataType(me.aa07.paradise.taskdaemon.database.gamedb.enums.ChangelogClType.class), this, "");
 
     /**
-     * The column <code>paradb_unmodified.changelog.cl_entry</code>.
+     * The column <code>paradise_gamedb.changelog.cl_entry</code>.
      */
     public final TableField<ChangelogRecord, String> CL_ENTRY = createField(DSL.name("cl_entry"), SQLDataType.CLOB.nullable(false), this, "");
 
@@ -87,23 +87,21 @@ public class Changelog extends TableImpl<ChangelogRecord> {
     }
 
     /**
-     * Create an aliased <code>paradb_unmodified.changelog</code> table
-     * reference
+     * Create an aliased <code>paradise_gamedb.changelog</code> table reference
      */
     public Changelog(String alias) {
         this(DSL.name(alias), CHANGELOG);
     }
 
     /**
-     * Create an aliased <code>paradb_unmodified.changelog</code> table
-     * reference
+     * Create an aliased <code>paradise_gamedb.changelog</code> table reference
      */
     public Changelog(Name alias) {
         this(alias, CHANGELOG);
     }
 
     /**
-     * Create a <code>paradb_unmodified.changelog</code> table reference
+     * Create a <code>paradise_gamedb.changelog</code> table reference
      */
     public Changelog() {
         this(DSL.name("changelog"), null);
@@ -115,7 +113,7 @@ public class Changelog extends TableImpl<ChangelogRecord> {
 
     @Override
     public Schema getSchema() {
-        return aliased() ? null : ParadbUnmodified.PARADB_UNMODIFIED;
+        return aliased() ? null : ParadiseGamedb.PARADISE_GAMEDB;
     }
 
     @Override

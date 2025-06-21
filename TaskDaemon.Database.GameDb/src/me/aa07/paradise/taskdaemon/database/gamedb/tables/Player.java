@@ -11,7 +11,7 @@ import java.util.List;
 
 import me.aa07.paradise.taskdaemon.database.gamedb.Indexes;
 import me.aa07.paradise.taskdaemon.database.gamedb.Keys;
-import me.aa07.paradise.taskdaemon.database.gamedb.ParadbUnmodified;
+import me.aa07.paradise.taskdaemon.database.gamedb.ParadiseGamedb;
 import me.aa07.paradise.taskdaemon.database.gamedb.enums.Player_2faStatus;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.records.PlayerRecord;
 
@@ -41,7 +41,7 @@ public class Player extends TableImpl<PlayerRecord> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * The reference instance of <code>paradb_unmodified.player</code>
+     * The reference instance of <code>paradise_gamedb.player</code>
      */
     public static final Player PLAYER = new Player();
 
@@ -54,192 +54,192 @@ public class Player extends TableImpl<PlayerRecord> {
     }
 
     /**
-     * The column <code>paradb_unmodified.player.id</code>.
+     * The column <code>paradise_gamedb.player.id</code>.
      */
     public final TableField<PlayerRecord, Integer> ID = createField(DSL.name("id"), SQLDataType.INTEGER.nullable(false).identity(true), this, "");
 
     /**
-     * The column <code>paradb_unmodified.player.ckey</code>.
+     * The column <code>paradise_gamedb.player.ckey</code>.
      */
     public final TableField<PlayerRecord, String> CKEY = createField(DSL.name("ckey"), SQLDataType.VARCHAR(32).nullable(false), this, "");
 
     /**
-     * The column <code>paradb_unmodified.player.firstseen</code>.
+     * The column <code>paradise_gamedb.player.firstseen</code>.
      */
     public final TableField<PlayerRecord, LocalDateTime> FIRSTSEEN = createField(DSL.name("firstseen"), SQLDataType.LOCALDATETIME(0).nullable(false), this, "");
 
     /**
-     * The column <code>paradb_unmodified.player.lastseen</code>.
+     * The column <code>paradise_gamedb.player.lastseen</code>.
      */
     public final TableField<PlayerRecord, LocalDateTime> LASTSEEN = createField(DSL.name("lastseen"), SQLDataType.LOCALDATETIME(0).nullable(false), this, "");
 
     /**
-     * The column <code>paradb_unmodified.player.ip</code>.
+     * The column <code>paradise_gamedb.player.ip</code>.
      */
     public final TableField<PlayerRecord, String> IP = createField(DSL.name("ip"), SQLDataType.VARCHAR(18).nullable(false), this, "");
 
     /**
-     * The column <code>paradb_unmodified.player.computerid</code>.
+     * The column <code>paradise_gamedb.player.computerid</code>.
      */
     public final TableField<PlayerRecord, String> COMPUTERID = createField(DSL.name("computerid"), SQLDataType.VARCHAR(32).nullable(false), this, "");
 
     /**
-     * The column <code>paradb_unmodified.player.lastadminrank</code>.
+     * The column <code>paradise_gamedb.player.lastadminrank</code>.
      */
     public final TableField<PlayerRecord, String> LASTADMINRANK = createField(DSL.name("lastadminrank"), SQLDataType.VARCHAR(32).nullable(false).defaultValue(DSL.inline("'Player'", SQLDataType.VARCHAR)), this, "");
 
     /**
-     * The column <code>paradb_unmodified.player.ooccolor</code>.
+     * The column <code>paradise_gamedb.player.ooccolor</code>.
      */
     public final TableField<PlayerRecord, String> OOCCOLOR = createField(DSL.name("ooccolor"), SQLDataType.VARCHAR(7).defaultValue(DSL.inline("'#b82e00'", SQLDataType.VARCHAR)), this, "");
 
     /**
-     * The column <code>paradb_unmodified.player.UI_style</code>.
+     * The column <code>paradise_gamedb.player.UI_style</code>.
      */
     public final TableField<PlayerRecord, String> UI_STYLE = createField(DSL.name("UI_style"), SQLDataType.VARCHAR(10).defaultValue(DSL.inline("'Midnight'", SQLDataType.VARCHAR)), this, "");
 
     /**
-     * The column <code>paradb_unmodified.player.UI_style_color</code>.
+     * The column <code>paradise_gamedb.player.UI_style_color</code>.
      */
     public final TableField<PlayerRecord, String> UI_STYLE_COLOR = createField(DSL.name("UI_style_color"), SQLDataType.VARCHAR(7).defaultValue(DSL.inline("'#ffffff'", SQLDataType.VARCHAR)), this, "");
 
     /**
-     * The column <code>paradb_unmodified.player.UI_style_alpha</code>.
+     * The column <code>paradise_gamedb.player.UI_style_alpha</code>.
      */
     public final TableField<PlayerRecord, Short> UI_STYLE_ALPHA = createField(DSL.name("UI_style_alpha"), SQLDataType.SMALLINT.defaultValue(DSL.inline("255", SQLDataType.SMALLINT)), this, "");
 
     /**
-     * The column <code>paradb_unmodified.player.be_role</code>.
+     * The column <code>paradise_gamedb.player.be_role</code>.
      */
     public final TableField<PlayerRecord, String> BE_ROLE = createField(DSL.name("be_role"), SQLDataType.CLOB.defaultValue(DSL.inline("NULL", SQLDataType.CLOB)), this, "");
 
     /**
-     * The column <code>paradb_unmodified.player.default_slot</code>.
+     * The column <code>paradise_gamedb.player.default_slot</code>.
      */
     public final TableField<PlayerRecord, Short> DEFAULT_SLOT = createField(DSL.name("default_slot"), SQLDataType.SMALLINT.defaultValue(DSL.inline("1", SQLDataType.SMALLINT)), this, "");
 
     /**
-     * The column <code>paradb_unmodified.player.toggles</code>.
+     * The column <code>paradise_gamedb.player.toggles</code>.
      */
     public final TableField<PlayerRecord, Integer> TOGGLES = createField(DSL.name("toggles"), SQLDataType.INTEGER.defaultValue(DSL.inline("NULL", SQLDataType.INTEGER)), this, "");
 
     /**
-     * The column <code>paradb_unmodified.player.toggles_2</code>.
+     * The column <code>paradise_gamedb.player.toggles_2</code>.
      */
     public final TableField<PlayerRecord, Integer> TOGGLES_2 = createField(DSL.name("toggles_2"), SQLDataType.INTEGER.defaultValue(DSL.inline("NULL", SQLDataType.INTEGER)), this, "");
 
     /**
-     * The column <code>paradb_unmodified.player.toggles_3</code>.
+     * The column <code>paradise_gamedb.player.toggles_3</code>.
      */
     public final TableField<PlayerRecord, Integer> TOGGLES_3 = createField(DSL.name("toggles_3"), SQLDataType.INTEGER.defaultValue(DSL.inline("NULL", SQLDataType.INTEGER)), this, "");
 
     /**
-     * The column <code>paradb_unmodified.player.sound</code>.
+     * The column <code>paradise_gamedb.player.sound</code>.
      */
     public final TableField<PlayerRecord, Integer> SOUND = createField(DSL.name("sound"), SQLDataType.INTEGER.defaultValue(DSL.inline("31", SQLDataType.INTEGER)), this, "");
 
     /**
-     * The column <code>paradb_unmodified.player.light</code>.
+     * The column <code>paradise_gamedb.player.light</code>.
      */
     public final TableField<PlayerRecord, Integer> LIGHT = createField(DSL.name("light"), SQLDataType.INTEGER.nullable(false).defaultValue(DSL.inline("7", SQLDataType.INTEGER)), this, "");
 
     /**
-     * The column <code>paradb_unmodified.player.glowlevel</code>.
+     * The column <code>paradise_gamedb.player.glowlevel</code>.
      */
     public final TableField<PlayerRecord, Byte> GLOWLEVEL = createField(DSL.name("glowlevel"), SQLDataType.TINYINT.nullable(false).defaultValue(DSL.inline("1", SQLDataType.TINYINT)), this, "");
 
     /**
-     * The column <code>paradb_unmodified.player.volume_mixer</code>.
+     * The column <code>paradise_gamedb.player.volume_mixer</code>.
      */
     public final TableField<PlayerRecord, String> VOLUME_MIXER = createField(DSL.name("volume_mixer"), SQLDataType.CLOB.defaultValue(DSL.inline("NULL", SQLDataType.CLOB)), this, "");
 
     /**
-     * The column <code>paradb_unmodified.player.lastchangelog</code>.
+     * The column <code>paradise_gamedb.player.lastchangelog</code>.
      */
     public final TableField<PlayerRecord, String> LASTCHANGELOG = createField(DSL.name("lastchangelog"), SQLDataType.VARCHAR(32).nullable(false).defaultValue(DSL.inline("'0'", SQLDataType.VARCHAR)), this, "");
 
     /**
-     * The column <code>paradb_unmodified.player.exp</code>.
+     * The column <code>paradise_gamedb.player.exp</code>.
      */
     public final TableField<PlayerRecord, String> EXP = createField(DSL.name("exp"), SQLDataType.CLOB.defaultValue(DSL.inline("NULL", SQLDataType.CLOB)), this, "");
 
     /**
-     * The column <code>paradb_unmodified.player.clientfps</code>.
+     * The column <code>paradise_gamedb.player.clientfps</code>.
      */
     public final TableField<PlayerRecord, Short> CLIENTFPS = createField(DSL.name("clientfps"), SQLDataType.SMALLINT.defaultValue(DSL.inline("63", SQLDataType.SMALLINT)), this, "");
 
     /**
-     * The column <code>paradb_unmodified.player.atklog</code>.
+     * The column <code>paradise_gamedb.player.atklog</code>.
      */
     public final TableField<PlayerRecord, Short> ATKLOG = createField(DSL.name("atklog"), SQLDataType.SMALLINT.defaultValue(DSL.inline("0", SQLDataType.SMALLINT)), this, "");
 
     /**
-     * The column <code>paradb_unmodified.player.fuid</code>.
+     * The column <code>paradise_gamedb.player.fuid</code>.
      */
     public final TableField<PlayerRecord, Long> FUID = createField(DSL.name("fuid"), SQLDataType.BIGINT.defaultValue(DSL.inline("NULL", SQLDataType.BIGINT)), this, "");
 
     /**
-     * The column <code>paradb_unmodified.player.fupdate</code>.
+     * The column <code>paradise_gamedb.player.fupdate</code>.
      */
     public final TableField<PlayerRecord, Short> FUPDATE = createField(DSL.name("fupdate"), SQLDataType.SMALLINT.defaultValue(DSL.inline("0", SQLDataType.SMALLINT)), this, "");
 
     /**
-     * The column <code>paradb_unmodified.player.parallax</code>.
+     * The column <code>paradise_gamedb.player.parallax</code>.
      */
     public final TableField<PlayerRecord, Byte> PARALLAX = createField(DSL.name("parallax"), SQLDataType.TINYINT.defaultValue(DSL.inline("8", SQLDataType.TINYINT)), this, "");
 
     /**
-     * The column <code>paradb_unmodified.player.byond_date</code>.
+     * The column <code>paradise_gamedb.player.byond_date</code>.
      */
     public final TableField<PlayerRecord, LocalDate> BYOND_DATE = createField(DSL.name("byond_date"), SQLDataType.LOCALDATE.defaultValue(DSL.inline("NULL", SQLDataType.LOCALDATE)), this, "");
 
     /**
-     * The column <code>paradb_unmodified.player.2fa_status</code>.
+     * The column <code>paradise_gamedb.player.2fa_status</code>.
      */
     public final TableField<PlayerRecord, Player_2faStatus> _2FA_STATUS = createField(DSL.name("2fa_status"), SQLDataType.VARCHAR(14).nullable(false).defaultValue(DSL.inline("'DISABLED'", SQLDataType.VARCHAR)).asEnumDataType(me.aa07.paradise.taskdaemon.database.gamedb.enums.Player_2faStatus.class), this, "");
 
     /**
-     * The column <code>paradb_unmodified.player.screentip_mode</code>.
+     * The column <code>paradise_gamedb.player.screentip_mode</code>.
      */
     public final TableField<PlayerRecord, Byte> SCREENTIP_MODE = createField(DSL.name("screentip_mode"), SQLDataType.TINYINT.defaultValue(DSL.inline("8", SQLDataType.TINYINT)), this, "");
 
     /**
-     * The column <code>paradb_unmodified.player.screentip_color</code>.
+     * The column <code>paradise_gamedb.player.screentip_color</code>.
      */
     public final TableField<PlayerRecord, String> SCREENTIP_COLOR = createField(DSL.name("screentip_color"), SQLDataType.VARCHAR(7).nullable(false).defaultValue(DSL.inline("'#ffd391'", SQLDataType.VARCHAR)), this, "");
 
     /**
-     * The column <code>paradb_unmodified.player.ghost_darkness_level</code>.
+     * The column <code>paradise_gamedb.player.ghost_darkness_level</code>.
      */
     public final TableField<PlayerRecord, UByte> GHOST_DARKNESS_LEVEL = createField(DSL.name("ghost_darkness_level"), SQLDataType.TINYINTUNSIGNED.nullable(false).defaultValue(DSL.inline("255", SQLDataType.TINYINTUNSIGNED)), this, "");
 
     /**
-     * The column <code>paradb_unmodified.player.colourblind_mode</code>.
+     * The column <code>paradise_gamedb.player.colourblind_mode</code>.
      */
     public final TableField<PlayerRecord, String> COLOURBLIND_MODE = createField(DSL.name("colourblind_mode"), SQLDataType.VARCHAR(48).nullable(false).defaultValue(DSL.inline("'None'", SQLDataType.VARCHAR)), this, "");
 
     /**
-     * The column <code>paradb_unmodified.player.keybindings</code>.
+     * The column <code>paradise_gamedb.player.keybindings</code>.
      */
     public final TableField<PlayerRecord, String> KEYBINDINGS = createField(DSL.name("keybindings"), SQLDataType.CLOB.defaultValue(DSL.inline("NULL", SQLDataType.CLOB)), this, "");
 
     /**
-     * The column <code>paradb_unmodified.player.server_region</code>.
+     * The column <code>paradise_gamedb.player.server_region</code>.
      */
     public final TableField<PlayerRecord, String> SERVER_REGION = createField(DSL.name("server_region"), SQLDataType.VARCHAR(32).defaultValue(DSL.inline("NULL", SQLDataType.VARCHAR)), this, "");
 
     /**
-     * The column <code>paradb_unmodified.player.muted_adminsounds_ckeys</code>.
+     * The column <code>paradise_gamedb.player.muted_adminsounds_ckeys</code>.
      */
     public final TableField<PlayerRecord, String> MUTED_ADMINSOUNDS_CKEYS = createField(DSL.name("muted_adminsounds_ckeys"), SQLDataType.CLOB.defaultValue(DSL.inline("NULL", SQLDataType.CLOB)), this, "");
 
     /**
-     * The column <code>paradb_unmodified.player.viewrange</code>.
+     * The column <code>paradise_gamedb.player.viewrange</code>.
      */
     public final TableField<PlayerRecord, String> VIEWRANGE = createField(DSL.name("viewrange"), SQLDataType.VARCHAR(5).nullable(false).defaultValue(DSL.inline("'19x15'", SQLDataType.VARCHAR)), this, "");
 
     /**
-     * The column <code>paradb_unmodified.player.map_vote_pref_json</code>.
+     * The column <code>paradise_gamedb.player.map_vote_pref_json</code>.
      */
     public final TableField<PlayerRecord, String> MAP_VOTE_PREF_JSON = createField(DSL.name("map_vote_pref_json"), SQLDataType.CLOB.defaultValue(DSL.inline("NULL", SQLDataType.CLOB)), this, "");
 
@@ -252,21 +252,21 @@ public class Player extends TableImpl<PlayerRecord> {
     }
 
     /**
-     * Create an aliased <code>paradb_unmodified.player</code> table reference
+     * Create an aliased <code>paradise_gamedb.player</code> table reference
      */
     public Player(String alias) {
         this(DSL.name(alias), PLAYER);
     }
 
     /**
-     * Create an aliased <code>paradb_unmodified.player</code> table reference
+     * Create an aliased <code>paradise_gamedb.player</code> table reference
      */
     public Player(Name alias) {
         this(alias, PLAYER);
     }
 
     /**
-     * Create a <code>paradb_unmodified.player</code> table reference
+     * Create a <code>paradise_gamedb.player</code> table reference
      */
     public Player() {
         this(DSL.name("player"), null);
@@ -278,7 +278,7 @@ public class Player extends TableImpl<PlayerRecord> {
 
     @Override
     public Schema getSchema() {
-        return aliased() ? null : ParadbUnmodified.PARADB_UNMODIFIED;
+        return aliased() ? null : ParadiseGamedb.PARADISE_GAMEDB;
     }
 
     @Override

@@ -21,200 +21,196 @@ public class CharactersRecord extends UpdatableRecordImpl<CharactersRecord> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * Setter for <code>paradb_unmodified.characters.id</code>.
+     * Setter for <code>paradise_gamedb.characters.id</code>.
      */
     public void setId(Integer value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.characters.id</code>.
+     * Getter for <code>paradise_gamedb.characters.id</code>.
      */
     public Integer getId() {
         return (Integer) get(0);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.characters.ckey</code>.
+     * Setter for <code>paradise_gamedb.characters.ckey</code>.
      */
     public void setCkey(String value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.characters.ckey</code>.
+     * Getter for <code>paradise_gamedb.characters.ckey</code>.
      */
     public String getCkey() {
         return (String) get(1);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.characters.slot</code>.
+     * Setter for <code>paradise_gamedb.characters.slot</code>.
      */
     public void setSlot(Integer value) {
         set(2, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.characters.slot</code>.
+     * Getter for <code>paradise_gamedb.characters.slot</code>.
      */
     public Integer getSlot() {
         return (Integer) get(2);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.characters.OOC_Notes</code>.
+     * Setter for <code>paradise_gamedb.characters.OOC_Notes</code>.
      */
     public void setOocNotes(String value) {
         set(3, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.characters.OOC_Notes</code>.
+     * Getter for <code>paradise_gamedb.characters.OOC_Notes</code>.
      */
     public String getOocNotes() {
         return (String) get(3);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.characters.real_name</code>.
+     * Setter for <code>paradise_gamedb.characters.real_name</code>.
      */
     public void setRealName(String value) {
         set(4, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.characters.real_name</code>.
+     * Getter for <code>paradise_gamedb.characters.real_name</code>.
      */
     public String getRealName() {
         return (String) get(4);
     }
 
     /**
-     * Setter for
-     * <code>paradb_unmodified.characters.name_is_always_random</code>.
+     * Setter for <code>paradise_gamedb.characters.name_is_always_random</code>.
      */
     public void setNameIsAlwaysRandom(Byte value) {
         set(5, value);
     }
 
     /**
-     * Getter for
-     * <code>paradb_unmodified.characters.name_is_always_random</code>.
+     * Getter for <code>paradise_gamedb.characters.name_is_always_random</code>.
      */
     public Byte getNameIsAlwaysRandom() {
         return (Byte) get(5);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.characters.gender</code>.
+     * Setter for <code>paradise_gamedb.characters.gender</code>.
      */
     public void setGender(String value) {
         set(6, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.characters.gender</code>.
+     * Getter for <code>paradise_gamedb.characters.gender</code>.
      */
     public String getGender() {
         return (String) get(6);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.characters.body_type</code>.
+     * Setter for <code>paradise_gamedb.characters.body_type</code>.
      */
     public void setBodyType(String value) {
         set(7, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.characters.body_type</code>.
+     * Getter for <code>paradise_gamedb.characters.body_type</code>.
      */
     public String getBodyType() {
         return (String) get(7);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.characters.age</code>.
+     * Setter for <code>paradise_gamedb.characters.age</code>.
      */
     public void setAge(Short value) {
         set(8, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.characters.age</code>.
+     * Getter for <code>paradise_gamedb.characters.age</code>.
      */
     public Short getAge() {
         return (Short) get(8);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.characters.species</code>.
+     * Setter for <code>paradise_gamedb.characters.species</code>.
      */
     public void setSpecies(String value) {
         set(9, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.characters.species</code>.
+     * Getter for <code>paradise_gamedb.characters.species</code>.
      */
     public String getSpecies() {
         return (String) get(9);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.characters.language</code>.
+     * Setter for <code>paradise_gamedb.characters.language</code>.
      */
     public void setLanguage(String value) {
         set(10, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.characters.language</code>.
+     * Getter for <code>paradise_gamedb.characters.language</code>.
      */
     public String getLanguage() {
         return (String) get(10);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.characters.hair_colour</code>.
+     * Setter for <code>paradise_gamedb.characters.hair_colour</code>.
      */
     public void setHairColour(String value) {
         set(11, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.characters.hair_colour</code>.
+     * Getter for <code>paradise_gamedb.characters.hair_colour</code>.
      */
     public String getHairColour() {
         return (String) get(11);
     }
 
     /**
-     * Setter for
-     * <code>paradb_unmodified.characters.secondary_hair_colour</code>.
+     * Setter for <code>paradise_gamedb.characters.secondary_hair_colour</code>.
      */
     public void setSecondaryHairColour(String value) {
         set(12, value);
     }
 
     /**
-     * Getter for
-     * <code>paradb_unmodified.characters.secondary_hair_colour</code>.
+     * Getter for <code>paradise_gamedb.characters.secondary_hair_colour</code>.
      */
     public String getSecondaryHairColour() {
         return (String) get(12);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.characters.facial_hair_colour</code>.
+     * Setter for <code>paradise_gamedb.characters.facial_hair_colour</code>.
      */
     public void setFacialHairColour(String value) {
         set(13, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.characters.facial_hair_colour</code>.
+     * Getter for <code>paradise_gamedb.characters.facial_hair_colour</code>.
      */
     public String getFacialHairColour() {
         return (String) get(13);
@@ -222,7 +218,7 @@ public class CharactersRecord extends UpdatableRecordImpl<CharactersRecord> {
 
     /**
      * Setter for
-     * <code>paradb_unmodified.characters.secondary_facial_hair_colour</code>.
+     * <code>paradise_gamedb.characters.secondary_facial_hair_colour</code>.
      */
     public void setSecondaryFacialHairColour(String value) {
         set(14, value);
@@ -230,107 +226,105 @@ public class CharactersRecord extends UpdatableRecordImpl<CharactersRecord> {
 
     /**
      * Getter for
-     * <code>paradb_unmodified.characters.secondary_facial_hair_colour</code>.
+     * <code>paradise_gamedb.characters.secondary_facial_hair_colour</code>.
      */
     public String getSecondaryFacialHairColour() {
         return (String) get(14);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.characters.skin_tone</code>.
+     * Setter for <code>paradise_gamedb.characters.skin_tone</code>.
      */
     public void setSkinTone(Short value) {
         set(15, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.characters.skin_tone</code>.
+     * Getter for <code>paradise_gamedb.characters.skin_tone</code>.
      */
     public Short getSkinTone() {
         return (Short) get(15);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.characters.skin_colour</code>.
+     * Setter for <code>paradise_gamedb.characters.skin_colour</code>.
      */
     public void setSkinColour(String value) {
         set(16, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.characters.skin_colour</code>.
+     * Getter for <code>paradise_gamedb.characters.skin_colour</code>.
      */
     public String getSkinColour() {
         return (String) get(16);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.characters.marking_colours</code>.
+     * Setter for <code>paradise_gamedb.characters.marking_colours</code>.
      */
     public void setMarkingColours(String value) {
         set(17, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.characters.marking_colours</code>.
+     * Getter for <code>paradise_gamedb.characters.marking_colours</code>.
      */
     public String getMarkingColours() {
         return (String) get(17);
     }
 
     /**
-     * Setter for
-     * <code>paradb_unmodified.characters.head_accessory_colour</code>.
+     * Setter for <code>paradise_gamedb.characters.head_accessory_colour</code>.
      */
     public void setHeadAccessoryColour(String value) {
         set(18, value);
     }
 
     /**
-     * Getter for
-     * <code>paradb_unmodified.characters.head_accessory_colour</code>.
+     * Getter for <code>paradise_gamedb.characters.head_accessory_colour</code>.
      */
     public String getHeadAccessoryColour() {
         return (String) get(18);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.characters.hair_style_name</code>.
+     * Setter for <code>paradise_gamedb.characters.hair_style_name</code>.
      */
     public void setHairStyleName(String value) {
         set(19, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.characters.hair_style_name</code>.
+     * Getter for <code>paradise_gamedb.characters.hair_style_name</code>.
      */
     public String getHairStyleName() {
         return (String) get(19);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.characters.facial_style_name</code>.
+     * Setter for <code>paradise_gamedb.characters.facial_style_name</code>.
      */
     public void setFacialStyleName(String value) {
         set(20, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.characters.facial_style_name</code>.
+     * Getter for <code>paradise_gamedb.characters.facial_style_name</code>.
      */
     public String getFacialStyleName() {
         return (String) get(20);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.characters.marking_styles</code>.
+     * Setter for <code>paradise_gamedb.characters.marking_styles</code>.
      */
     public void setMarkingStyles(String value) {
         set(21, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.characters.marking_styles</code>.
+     * Getter for <code>paradise_gamedb.characters.marking_styles</code>.
      */
     public String getMarkingStyles() {
         return (String) get(21);
@@ -338,7 +332,7 @@ public class CharactersRecord extends UpdatableRecordImpl<CharactersRecord> {
 
     /**
      * Setter for
-     * <code>paradb_unmodified.characters.head_accessory_style_name</code>.
+     * <code>paradise_gamedb.characters.head_accessory_style_name</code>.
      */
     public void setHeadAccessoryStyleName(String value) {
         set(22, value);
@@ -346,585 +340,581 @@ public class CharactersRecord extends UpdatableRecordImpl<CharactersRecord> {
 
     /**
      * Getter for
-     * <code>paradb_unmodified.characters.head_accessory_style_name</code>.
+     * <code>paradise_gamedb.characters.head_accessory_style_name</code>.
      */
     public String getHeadAccessoryStyleName() {
         return (String) get(22);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.characters.alt_head_name</code>.
+     * Setter for <code>paradise_gamedb.characters.alt_head_name</code>.
      */
     public void setAltHeadName(String value) {
         set(23, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.characters.alt_head_name</code>.
+     * Getter for <code>paradise_gamedb.characters.alt_head_name</code>.
      */
     public String getAltHeadName() {
         return (String) get(23);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.characters.eye_colour</code>.
+     * Setter for <code>paradise_gamedb.characters.eye_colour</code>.
      */
     public void setEyeColour(String value) {
         set(24, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.characters.eye_colour</code>.
+     * Getter for <code>paradise_gamedb.characters.eye_colour</code>.
      */
     public String getEyeColour() {
         return (String) get(24);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.characters.underwear</code>.
+     * Setter for <code>paradise_gamedb.characters.underwear</code>.
      */
     public void setUnderwear(String value) {
         set(25, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.characters.underwear</code>.
+     * Getter for <code>paradise_gamedb.characters.underwear</code>.
      */
     public String getUnderwear() {
         return (String) get(25);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.characters.undershirt</code>.
+     * Setter for <code>paradise_gamedb.characters.undershirt</code>.
      */
     public void setUndershirt(String value) {
         set(26, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.characters.undershirt</code>.
+     * Getter for <code>paradise_gamedb.characters.undershirt</code>.
      */
     public String getUndershirt() {
         return (String) get(26);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.characters.backbag</code>.
+     * Setter for <code>paradise_gamedb.characters.backbag</code>.
      */
     public void setBackbag(String value) {
         set(27, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.characters.backbag</code>.
+     * Getter for <code>paradise_gamedb.characters.backbag</code>.
      */
     public String getBackbag() {
         return (String) get(27);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.characters.b_type</code>.
+     * Setter for <code>paradise_gamedb.characters.b_type</code>.
      */
     public void setBType(String value) {
         set(28, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.characters.b_type</code>.
+     * Getter for <code>paradise_gamedb.characters.b_type</code>.
      */
     public String getBType() {
         return (String) get(28);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.characters.alternate_option</code>.
+     * Setter for <code>paradise_gamedb.characters.alternate_option</code>.
      */
     public void setAlternateOption(Short value) {
         set(29, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.characters.alternate_option</code>.
+     * Getter for <code>paradise_gamedb.characters.alternate_option</code>.
      */
     public Short getAlternateOption() {
         return (Short) get(29);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.characters.job_support_high</code>.
+     * Setter for <code>paradise_gamedb.characters.job_support_high</code>.
      */
     public void setJobSupportHigh(Integer value) {
         set(30, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.characters.job_support_high</code>.
+     * Getter for <code>paradise_gamedb.characters.job_support_high</code>.
      */
     public Integer getJobSupportHigh() {
         return (Integer) get(30);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.characters.job_support_med</code>.
+     * Setter for <code>paradise_gamedb.characters.job_support_med</code>.
      */
     public void setJobSupportMed(Integer value) {
         set(31, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.characters.job_support_med</code>.
+     * Getter for <code>paradise_gamedb.characters.job_support_med</code>.
      */
     public Integer getJobSupportMed() {
         return (Integer) get(31);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.characters.job_support_low</code>.
+     * Setter for <code>paradise_gamedb.characters.job_support_low</code>.
      */
     public void setJobSupportLow(Integer value) {
         set(32, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.characters.job_support_low</code>.
+     * Getter for <code>paradise_gamedb.characters.job_support_low</code>.
      */
     public Integer getJobSupportLow() {
         return (Integer) get(32);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.characters.job_medsci_high</code>.
+     * Setter for <code>paradise_gamedb.characters.job_medsci_high</code>.
      */
     public void setJobMedsciHigh(Integer value) {
         set(33, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.characters.job_medsci_high</code>.
+     * Getter for <code>paradise_gamedb.characters.job_medsci_high</code>.
      */
     public Integer getJobMedsciHigh() {
         return (Integer) get(33);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.characters.job_medsci_med</code>.
+     * Setter for <code>paradise_gamedb.characters.job_medsci_med</code>.
      */
     public void setJobMedsciMed(Integer value) {
         set(34, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.characters.job_medsci_med</code>.
+     * Getter for <code>paradise_gamedb.characters.job_medsci_med</code>.
      */
     public Integer getJobMedsciMed() {
         return (Integer) get(34);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.characters.job_medsci_low</code>.
+     * Setter for <code>paradise_gamedb.characters.job_medsci_low</code>.
      */
     public void setJobMedsciLow(Integer value) {
         set(35, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.characters.job_medsci_low</code>.
+     * Getter for <code>paradise_gamedb.characters.job_medsci_low</code>.
      */
     public Integer getJobMedsciLow() {
         return (Integer) get(35);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.characters.job_engsec_high</code>.
+     * Setter for <code>paradise_gamedb.characters.job_engsec_high</code>.
      */
     public void setJobEngsecHigh(Integer value) {
         set(36, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.characters.job_engsec_high</code>.
+     * Getter for <code>paradise_gamedb.characters.job_engsec_high</code>.
      */
     public Integer getJobEngsecHigh() {
         return (Integer) get(36);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.characters.job_engsec_med</code>.
+     * Setter for <code>paradise_gamedb.characters.job_engsec_med</code>.
      */
     public void setJobEngsecMed(Integer value) {
         set(37, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.characters.job_engsec_med</code>.
+     * Getter for <code>paradise_gamedb.characters.job_engsec_med</code>.
      */
     public Integer getJobEngsecMed() {
         return (Integer) get(37);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.characters.job_engsec_low</code>.
+     * Setter for <code>paradise_gamedb.characters.job_engsec_low</code>.
      */
     public void setJobEngsecLow(Integer value) {
         set(38, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.characters.job_engsec_low</code>.
+     * Getter for <code>paradise_gamedb.characters.job_engsec_low</code>.
      */
     public Integer getJobEngsecLow() {
         return (Integer) get(38);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.characters.flavor_text</code>.
+     * Setter for <code>paradise_gamedb.characters.flavor_text</code>.
      */
     public void setFlavorText(String value) {
         set(39, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.characters.flavor_text</code>.
+     * Getter for <code>paradise_gamedb.characters.flavor_text</code>.
      */
     public String getFlavorText() {
         return (String) get(39);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.characters.med_record</code>.
+     * Setter for <code>paradise_gamedb.characters.med_record</code>.
      */
     public void setMedRecord(String value) {
         set(40, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.characters.med_record</code>.
+     * Getter for <code>paradise_gamedb.characters.med_record</code>.
      */
     public String getMedRecord() {
         return (String) get(40);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.characters.sec_record</code>.
+     * Setter for <code>paradise_gamedb.characters.sec_record</code>.
      */
     public void setSecRecord(String value) {
         set(41, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.characters.sec_record</code>.
+     * Getter for <code>paradise_gamedb.characters.sec_record</code>.
      */
     public String getSecRecord() {
         return (String) get(41);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.characters.gen_record</code>.
+     * Setter for <code>paradise_gamedb.characters.gen_record</code>.
      */
     public void setGenRecord(String value) {
         set(42, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.characters.gen_record</code>.
+     * Getter for <code>paradise_gamedb.characters.gen_record</code>.
      */
     public String getGenRecord() {
         return (String) get(42);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.characters.disabilities</code>.
+     * Setter for <code>paradise_gamedb.characters.disabilities</code>.
      */
     public void setDisabilities(Integer value) {
         set(43, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.characters.disabilities</code>.
+     * Getter for <code>paradise_gamedb.characters.disabilities</code>.
      */
     public Integer getDisabilities() {
         return (Integer) get(43);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.characters.player_alt_titles</code>.
+     * Setter for <code>paradise_gamedb.characters.player_alt_titles</code>.
      */
     public void setPlayerAltTitles(String value) {
         set(44, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.characters.player_alt_titles</code>.
+     * Getter for <code>paradise_gamedb.characters.player_alt_titles</code>.
      */
     public String getPlayerAltTitles() {
         return (String) get(44);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.characters.organ_data</code>.
+     * Setter for <code>paradise_gamedb.characters.organ_data</code>.
      */
     public void setOrganData(String value) {
         set(45, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.characters.organ_data</code>.
+     * Getter for <code>paradise_gamedb.characters.organ_data</code>.
      */
     public String getOrganData() {
         return (String) get(45);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.characters.rlimb_data</code>.
+     * Setter for <code>paradise_gamedb.characters.rlimb_data</code>.
      */
     public void setRlimbData(String value) {
         set(46, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.characters.rlimb_data</code>.
+     * Getter for <code>paradise_gamedb.characters.rlimb_data</code>.
      */
     public String getRlimbData() {
         return (String) get(46);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.characters.nanotrasen_relation</code>.
+     * Setter for <code>paradise_gamedb.characters.nanotrasen_relation</code>.
      */
     public void setNanotrasenRelation(String value) {
         set(47, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.characters.nanotrasen_relation</code>.
+     * Getter for <code>paradise_gamedb.characters.nanotrasen_relation</code>.
      */
     public String getNanotrasenRelation() {
         return (String) get(47);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.characters.physique</code>.
+     * Setter for <code>paradise_gamedb.characters.physique</code>.
      */
     public void setPhysique(String value) {
         set(48, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.characters.physique</code>.
+     * Getter for <code>paradise_gamedb.characters.physique</code>.
      */
     public String getPhysique() {
         return (String) get(48);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.characters.height</code>.
+     * Setter for <code>paradise_gamedb.characters.height</code>.
      */
     public void setHeight(String value) {
         set(49, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.characters.height</code>.
+     * Getter for <code>paradise_gamedb.characters.height</code>.
      */
     public String getHeight() {
         return (String) get(49);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.characters.speciesprefs</code>.
+     * Setter for <code>paradise_gamedb.characters.speciesprefs</code>.
      */
     public void setSpeciesprefs(Integer value) {
         set(50, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.characters.speciesprefs</code>.
+     * Getter for <code>paradise_gamedb.characters.speciesprefs</code>.
      */
     public Integer getSpeciesprefs() {
         return (Integer) get(50);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.characters.socks</code>.
+     * Setter for <code>paradise_gamedb.characters.socks</code>.
      */
     public void setSocks(String value) {
         set(51, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.characters.socks</code>.
+     * Getter for <code>paradise_gamedb.characters.socks</code>.
      */
     public String getSocks() {
         return (String) get(51);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.characters.body_accessory</code>.
+     * Setter for <code>paradise_gamedb.characters.body_accessory</code>.
      */
     public void setBodyAccessory(String value) {
         set(52, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.characters.body_accessory</code>.
+     * Getter for <code>paradise_gamedb.characters.body_accessory</code>.
      */
     public String getBodyAccessory() {
         return (String) get(52);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.characters.gear</code>.
+     * Setter for <code>paradise_gamedb.characters.gear</code>.
      */
     public void setGear(String value) {
         set(53, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.characters.gear</code>.
+     * Getter for <code>paradise_gamedb.characters.gear</code>.
      */
     public String getGear() {
         return (String) get(53);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.characters.autohiss</code>.
+     * Setter for <code>paradise_gamedb.characters.autohiss</code>.
      */
     public void setAutohiss(Byte value) {
         set(54, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.characters.autohiss</code>.
+     * Getter for <code>paradise_gamedb.characters.autohiss</code>.
      */
     public Byte getAutohiss() {
         return (Byte) get(54);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.characters.hair_gradient</code>.
+     * Setter for <code>paradise_gamedb.characters.hair_gradient</code>.
      */
     public void setHairGradient(String value) {
         set(55, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.characters.hair_gradient</code>.
+     * Getter for <code>paradise_gamedb.characters.hair_gradient</code>.
      */
     public String getHairGradient() {
         return (String) get(55);
     }
 
     /**
-     * Setter for
-     * <code>paradb_unmodified.characters.hair_gradient_offset</code>.
+     * Setter for <code>paradise_gamedb.characters.hair_gradient_offset</code>.
      */
     public void setHairGradientOffset(String value) {
         set(56, value);
     }
 
     /**
-     * Getter for
-     * <code>paradb_unmodified.characters.hair_gradient_offset</code>.
+     * Getter for <code>paradise_gamedb.characters.hair_gradient_offset</code>.
      */
     public String getHairGradientOffset() {
         return (String) get(56);
     }
 
     /**
-     * Setter for
-     * <code>paradb_unmodified.characters.hair_gradient_colour</code>.
+     * Setter for <code>paradise_gamedb.characters.hair_gradient_colour</code>.
      */
     public void setHairGradientColour(String value) {
         set(57, value);
     }
 
     /**
-     * Getter for
-     * <code>paradb_unmodified.characters.hair_gradient_colour</code>.
+     * Getter for <code>paradise_gamedb.characters.hair_gradient_colour</code>.
      */
     public String getHairGradientColour() {
         return (String) get(57);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.characters.hair_gradient_alpha</code>.
+     * Setter for <code>paradise_gamedb.characters.hair_gradient_alpha</code>.
      */
     public void setHairGradientAlpha(UByte value) {
         set(58, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.characters.hair_gradient_alpha</code>.
+     * Getter for <code>paradise_gamedb.characters.hair_gradient_alpha</code>.
      */
     public UByte getHairGradientAlpha() {
         return (UByte) get(58);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.characters.custom_emotes</code>.
+     * Setter for <code>paradise_gamedb.characters.custom_emotes</code>.
      */
     public void setCustomEmotes(String value) {
         set(59, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.characters.custom_emotes</code>.
+     * Getter for <code>paradise_gamedb.characters.custom_emotes</code>.
      */
     public String getCustomEmotes() {
         return (String) get(59);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.characters.runechat_color</code>.
+     * Setter for <code>paradise_gamedb.characters.runechat_color</code>.
      */
     public void setRunechatColor(String value) {
         set(60, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.characters.runechat_color</code>.
+     * Getter for <code>paradise_gamedb.characters.runechat_color</code>.
      */
     public String getRunechatColor() {
         return (String) get(60);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.characters.cyborg_brain_type</code>.
+     * Setter for <code>paradise_gamedb.characters.cyborg_brain_type</code>.
      */
     public void setCyborgBrainType(CharactersCyborgBrainType value) {
         set(61, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.characters.cyborg_brain_type</code>.
+     * Getter for <code>paradise_gamedb.characters.cyborg_brain_type</code>.
      */
     public CharactersCyborgBrainType getCyborgBrainType() {
         return (CharactersCyborgBrainType) get(61);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.characters.pda_ringtone</code>.
+     * Setter for <code>paradise_gamedb.characters.pda_ringtone</code>.
      */
     public void setPdaRingtone(String value) {
         set(62, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.characters.pda_ringtone</code>.
+     * Getter for <code>paradise_gamedb.characters.pda_ringtone</code>.
      */
     public String getPdaRingtone() {
         return (String) get(62);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.characters.quirks</code>.
+     * Setter for <code>paradise_gamedb.characters.quirks</code>.
      */
     public void setQuirks(String value) {
         set(63, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.characters.quirks</code>.
+     * Getter for <code>paradise_gamedb.characters.quirks</code>.
      */
     public String getQuirks() {
         return (String) get(63);

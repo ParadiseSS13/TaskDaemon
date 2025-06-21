@@ -24,56 +24,56 @@ public class _2faSecretsRecord extends UpdatableRecordImpl<_2faSecretsRecord> im
     private static final long serialVersionUID = 1L;
 
     /**
-     * Setter for <code>paradb_unmodified.2fa_secrets.ckey</code>.
+     * Setter for <code>paradise_gamedb.2fa_secrets.ckey</code>.
      */
     public void setCkey(String value) {
         set(0, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.2fa_secrets.ckey</code>.
+     * Getter for <code>paradise_gamedb.2fa_secrets.ckey</code>.
      */
     public String getCkey() {
         return (String) get(0);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.2fa_secrets.secret</code>.
+     * Setter for <code>paradise_gamedb.2fa_secrets.secret</code>.
      */
     public void setSecret(String value) {
         set(1, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.2fa_secrets.secret</code>.
+     * Getter for <code>paradise_gamedb.2fa_secrets.secret</code>.
      */
     public String getSecret() {
         return (String) get(1);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.2fa_secrets.date_setup</code>.
+     * Setter for <code>paradise_gamedb.2fa_secrets.date_setup</code>.
      */
     public void setDateSetup(LocalDateTime value) {
         set(2, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.2fa_secrets.date_setup</code>.
+     * Getter for <code>paradise_gamedb.2fa_secrets.date_setup</code>.
      */
     public LocalDateTime getDateSetup() {
         return (LocalDateTime) get(2);
     }
 
     /**
-     * Setter for <code>paradb_unmodified.2fa_secrets.last_time</code>.
+     * Setter for <code>paradise_gamedb.2fa_secrets.last_time</code>.
      */
     public void setLastTime(LocalDateTime value) {
         set(3, value);
     }
 
     /**
-     * Getter for <code>paradb_unmodified.2fa_secrets.last_time</code>.
+     * Getter for <code>paradise_gamedb.2fa_secrets.last_time</code>.
      */
     public LocalDateTime getLastTime() {
         return (LocalDateTime) get(3);

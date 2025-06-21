@@ -7,7 +7,7 @@ package me.aa07.paradise.taskdaemon.database.gamedb.tables;
 import java.time.LocalDateTime;
 
 import me.aa07.paradise.taskdaemon.database.gamedb.Keys;
-import me.aa07.paradise.taskdaemon.database.gamedb.ParadbUnmodified;
+import me.aa07.paradise.taskdaemon.database.gamedb.ParadiseGamedb;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.records.DeathRecord;
 
 import org.jooq.Field;
@@ -35,7 +35,7 @@ public class Death extends TableImpl<DeathRecord> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * The reference instance of <code>paradb_unmodified.death</code>
+     * The reference instance of <code>paradise_gamedb.death</code>
      */
     public static final Death DEATH = new Death();
 
@@ -48,93 +48,92 @@ public class Death extends TableImpl<DeathRecord> {
     }
 
     /**
-     * The column <code>paradb_unmodified.death.id</code>.
+     * The column <code>paradise_gamedb.death.id</code>.
      */
     public final TableField<DeathRecord, Integer> ID = createField(DSL.name("id"), SQLDataType.INTEGER.nullable(false).identity(true), this, "");
 
     /**
-     * The column <code>paradb_unmodified.death.pod</code>. Place of death
+     * The column <code>paradise_gamedb.death.pod</code>. Place of death
      */
     public final TableField<DeathRecord, String> POD = createField(DSL.name("pod"), SQLDataType.CLOB.nullable(false), this, "Place of death");
 
     /**
-     * The column <code>paradb_unmodified.death.coord</code>. X, Y, Z POD
+     * The column <code>paradise_gamedb.death.coord</code>. X, Y, Z POD
      */
     public final TableField<DeathRecord, String> COORD = createField(DSL.name("coord"), SQLDataType.CLOB.nullable(false), this, "X, Y, Z POD");
 
     /**
-     * The column <code>paradb_unmodified.death.tod</code>. Time of death
+     * The column <code>paradise_gamedb.death.tod</code>. Time of death
      */
     public final TableField<DeathRecord, LocalDateTime> TOD = createField(DSL.name("tod"), SQLDataType.LOCALDATETIME(0).nullable(false), this, "Time of death");
 
     /**
-     * The column <code>paradb_unmodified.death.death_rid</code>.
+     * The column <code>paradise_gamedb.death.death_rid</code>.
      */
     public final TableField<DeathRecord, Integer> DEATH_RID = createField(DSL.name("death_rid"), SQLDataType.INTEGER.defaultValue(DSL.inline("NULL", SQLDataType.INTEGER)), this, "");
 
     /**
-     * The column <code>paradb_unmodified.death.last_words</code>.
+     * The column <code>paradise_gamedb.death.last_words</code>.
      */
     public final TableField<DeathRecord, String> LAST_WORDS = createField(DSL.name("last_words"), SQLDataType.CLOB.defaultValue(DSL.inline("NULL", SQLDataType.CLOB)), this, "");
 
     /**
-     * The column <code>paradb_unmodified.death.server_id</code>.
+     * The column <code>paradise_gamedb.death.server_id</code>.
      */
     public final TableField<DeathRecord, String> SERVER_ID = createField(DSL.name("server_id"), SQLDataType.CLOB.defaultValue(DSL.inline("NULL", SQLDataType.CLOB)), this, "");
 
     /**
-     * The column <code>paradb_unmodified.death.job</code>.
+     * The column <code>paradise_gamedb.death.job</code>.
      */
     public final TableField<DeathRecord, String> JOB = createField(DSL.name("job"), SQLDataType.CLOB.nullable(false), this, "");
 
     /**
-     * The column <code>paradb_unmodified.death.special</code>.
+     * The column <code>paradise_gamedb.death.special</code>.
      */
     public final TableField<DeathRecord, String> SPECIAL = createField(DSL.name("special"), SQLDataType.CLOB.nullable(false), this, "");
 
     /**
-     * The column <code>paradb_unmodified.death.name</code>.
+     * The column <code>paradise_gamedb.death.name</code>.
      */
     public final TableField<DeathRecord, String> NAME = createField(DSL.name("name"), SQLDataType.CLOB.nullable(false), this, "");
 
     /**
-     * The column <code>paradb_unmodified.death.byondkey</code>.
+     * The column <code>paradise_gamedb.death.byondkey</code>.
      */
     public final TableField<DeathRecord, String> BYONDKEY = createField(DSL.name("byondkey"), SQLDataType.CLOB.nullable(false), this, "");
 
     /**
-     * The column <code>paradb_unmodified.death.laname</code>. Last attacker
-     * name
+     * The column <code>paradise_gamedb.death.laname</code>. Last attacker name
      */
     public final TableField<DeathRecord, String> LANAME = createField(DSL.name("laname"), SQLDataType.CLOB.nullable(false), this, "Last attacker name");
 
     /**
-     * The column <code>paradb_unmodified.death.lakey</code>. Last attacker key
+     * The column <code>paradise_gamedb.death.lakey</code>. Last attacker key
      */
     public final TableField<DeathRecord, String> LAKEY = createField(DSL.name("lakey"), SQLDataType.CLOB.nullable(false), this, "Last attacker key");
 
     /**
-     * The column <code>paradb_unmodified.death.gender</code>.
+     * The column <code>paradise_gamedb.death.gender</code>.
      */
     public final TableField<DeathRecord, String> GENDER = createField(DSL.name("gender"), SQLDataType.CLOB.nullable(false), this, "");
 
     /**
-     * The column <code>paradb_unmodified.death.bruteloss</code>.
+     * The column <code>paradise_gamedb.death.bruteloss</code>.
      */
     public final TableField<DeathRecord, Integer> BRUTELOSS = createField(DSL.name("bruteloss"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
-     * The column <code>paradb_unmodified.death.brainloss</code>.
+     * The column <code>paradise_gamedb.death.brainloss</code>.
      */
     public final TableField<DeathRecord, Integer> BRAINLOSS = createField(DSL.name("brainloss"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
-     * The column <code>paradb_unmodified.death.fireloss</code>.
+     * The column <code>paradise_gamedb.death.fireloss</code>.
      */
     public final TableField<DeathRecord, Integer> FIRELOSS = createField(DSL.name("fireloss"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
-     * The column <code>paradb_unmodified.death.oxyloss</code>.
+     * The column <code>paradise_gamedb.death.oxyloss</code>.
      */
     public final TableField<DeathRecord, Integer> OXYLOSS = createField(DSL.name("oxyloss"), SQLDataType.INTEGER.nullable(false), this, "");
 
@@ -147,21 +146,21 @@ public class Death extends TableImpl<DeathRecord> {
     }
 
     /**
-     * Create an aliased <code>paradb_unmodified.death</code> table reference
+     * Create an aliased <code>paradise_gamedb.death</code> table reference
      */
     public Death(String alias) {
         this(DSL.name(alias), DEATH);
     }
 
     /**
-     * Create an aliased <code>paradb_unmodified.death</code> table reference
+     * Create an aliased <code>paradise_gamedb.death</code> table reference
      */
     public Death(Name alias) {
         this(alias, DEATH);
     }
 
     /**
-     * Create a <code>paradb_unmodified.death</code> table reference
+     * Create a <code>paradise_gamedb.death</code> table reference
      */
     public Death() {
         this(DSL.name("death"), null);
@@ -173,7 +172,7 @@ public class Death extends TableImpl<DeathRecord> {
 
     @Override
     public Schema getSchema() {
-        return aliased() ? null : ParadbUnmodified.PARADB_UNMODIFIED;
+        return aliased() ? null : ParadiseGamedb.PARADISE_GAMEDB;
     }
 
     @Override

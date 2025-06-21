@@ -10,7 +10,7 @@ import java.util.List;
 
 import me.aa07.paradise.taskdaemon.database.gamedb.Indexes;
 import me.aa07.paradise.taskdaemon.database.gamedb.Keys;
-import me.aa07.paradise.taskdaemon.database.gamedb.ParadbUnmodified;
+import me.aa07.paradise.taskdaemon.database.gamedb.ParadiseGamedb;
 import me.aa07.paradise.taskdaemon.database.gamedb.enums.ConnectionLogResult;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.records.ConnectionLogRecord;
 
@@ -41,7 +41,7 @@ public class ConnectionLog extends TableImpl<ConnectionLogRecord> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * The reference instance of <code>paradb_unmodified.connection_log</code>
+     * The reference instance of <code>paradise_gamedb.connection_log</code>
      */
     public static final ConnectionLog CONNECTION_LOG = new ConnectionLog();
 
@@ -54,37 +54,37 @@ public class ConnectionLog extends TableImpl<ConnectionLogRecord> {
     }
 
     /**
-     * The column <code>paradb_unmodified.connection_log.id</code>.
+     * The column <code>paradise_gamedb.connection_log.id</code>.
      */
     public final TableField<ConnectionLogRecord, Integer> ID = createField(DSL.name("id"), SQLDataType.INTEGER.nullable(false).identity(true), this, "");
 
     /**
-     * The column <code>paradb_unmodified.connection_log.datetime</code>.
+     * The column <code>paradise_gamedb.connection_log.datetime</code>.
      */
     public final TableField<ConnectionLogRecord, LocalDateTime> DATETIME = createField(DSL.name("datetime"), SQLDataType.LOCALDATETIME(0).nullable(false), this, "");
 
     /**
-     * The column <code>paradb_unmodified.connection_log.ckey</code>.
+     * The column <code>paradise_gamedb.connection_log.ckey</code>.
      */
     public final TableField<ConnectionLogRecord, String> CKEY = createField(DSL.name("ckey"), SQLDataType.VARCHAR(32).nullable(false), this, "");
 
     /**
-     * The column <code>paradb_unmodified.connection_log.ip</code>.
+     * The column <code>paradise_gamedb.connection_log.ip</code>.
      */
     public final TableField<ConnectionLogRecord, UInteger> IP = createField(DSL.name("ip"), SQLDataType.INTEGERUNSIGNED.nullable(false), this, "");
 
     /**
-     * The column <code>paradb_unmodified.connection_log.computerid</code>.
+     * The column <code>paradise_gamedb.connection_log.computerid</code>.
      */
     public final TableField<ConnectionLogRecord, String> COMPUTERID = createField(DSL.name("computerid"), SQLDataType.VARCHAR(32).nullable(false), this, "");
 
     /**
-     * The column <code>paradb_unmodified.connection_log.server_id</code>.
+     * The column <code>paradise_gamedb.connection_log.server_id</code>.
      */
     public final TableField<ConnectionLogRecord, String> SERVER_ID = createField(DSL.name("server_id"), SQLDataType.VARCHAR(50).defaultValue(DSL.inline("NULL", SQLDataType.VARCHAR)), this, "");
 
     /**
-     * The column <code>paradb_unmodified.connection_log.result</code>.
+     * The column <code>paradise_gamedb.connection_log.result</code>.
      */
     public final TableField<ConnectionLogRecord, ConnectionLogResult> RESULT = createField(DSL.name("result"), SQLDataType.VARCHAR(17).nullable(false).defaultValue(DSL.inline("'ESTABLISHED'", SQLDataType.VARCHAR)).asEnumDataType(me.aa07.paradise.taskdaemon.database.gamedb.enums.ConnectionLogResult.class), this, "");
 
@@ -97,7 +97,7 @@ public class ConnectionLog extends TableImpl<ConnectionLogRecord> {
     }
 
     /**
-     * Create an aliased <code>paradb_unmodified.connection_log</code> table
+     * Create an aliased <code>paradise_gamedb.connection_log</code> table
      * reference
      */
     public ConnectionLog(String alias) {
@@ -105,7 +105,7 @@ public class ConnectionLog extends TableImpl<ConnectionLogRecord> {
     }
 
     /**
-     * Create an aliased <code>paradb_unmodified.connection_log</code> table
+     * Create an aliased <code>paradise_gamedb.connection_log</code> table
      * reference
      */
     public ConnectionLog(Name alias) {
@@ -113,7 +113,7 @@ public class ConnectionLog extends TableImpl<ConnectionLogRecord> {
     }
 
     /**
-     * Create a <code>paradb_unmodified.connection_log</code> table reference
+     * Create a <code>paradise_gamedb.connection_log</code> table reference
      */
     public ConnectionLog() {
         this(DSL.name("connection_log"), null);
@@ -125,7 +125,7 @@ public class ConnectionLog extends TableImpl<ConnectionLogRecord> {
 
     @Override
     public Schema getSchema() {
-        return aliased() ? null : ParadbUnmodified.PARADB_UNMODIFIED;
+        return aliased() ? null : ParadiseGamedb.PARADISE_GAMEDB;
     }
 
     @Override

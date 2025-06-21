@@ -10,7 +10,7 @@ import java.util.List;
 
 import me.aa07.paradise.taskdaemon.database.gamedb.Indexes;
 import me.aa07.paradise.taskdaemon.database.gamedb.Keys;
-import me.aa07.paradise.taskdaemon.database.gamedb.ParadbUnmodified;
+import me.aa07.paradise.taskdaemon.database.gamedb.ParadiseGamedb;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.records.AdminLogRecord;
 
 import org.jooq.Field;
@@ -39,7 +39,7 @@ public class AdminLog extends TableImpl<AdminLogRecord> {
     private static final long serialVersionUID = 1L;
 
     /**
-     * The reference instance of <code>paradb_unmodified.admin_log</code>
+     * The reference instance of <code>paradise_gamedb.admin_log</code>
      */
     public static final AdminLog ADMIN_LOG = new AdminLog();
 
@@ -52,27 +52,27 @@ public class AdminLog extends TableImpl<AdminLogRecord> {
     }
 
     /**
-     * The column <code>paradb_unmodified.admin_log.id</code>.
+     * The column <code>paradise_gamedb.admin_log.id</code>.
      */
     public final TableField<AdminLogRecord, Integer> ID = createField(DSL.name("id"), SQLDataType.INTEGER.nullable(false).identity(true), this, "");
 
     /**
-     * The column <code>paradb_unmodified.admin_log.datetime</code>.
+     * The column <code>paradise_gamedb.admin_log.datetime</code>.
      */
     public final TableField<AdminLogRecord, LocalDateTime> DATETIME = createField(DSL.name("datetime"), SQLDataType.LOCALDATETIME(0).nullable(false), this, "");
 
     /**
-     * The column <code>paradb_unmodified.admin_log.adminckey</code>.
+     * The column <code>paradise_gamedb.admin_log.adminckey</code>.
      */
     public final TableField<AdminLogRecord, String> ADMINCKEY = createField(DSL.name("adminckey"), SQLDataType.VARCHAR(32).nullable(false), this, "");
 
     /**
-     * The column <code>paradb_unmodified.admin_log.adminip</code>.
+     * The column <code>paradise_gamedb.admin_log.adminip</code>.
      */
     public final TableField<AdminLogRecord, String> ADMINIP = createField(DSL.name("adminip"), SQLDataType.VARCHAR(18).nullable(false), this, "");
 
     /**
-     * The column <code>paradb_unmodified.admin_log.log</code>.
+     * The column <code>paradise_gamedb.admin_log.log</code>.
      */
     public final TableField<AdminLogRecord, String> LOG = createField(DSL.name("log"), SQLDataType.CLOB.nullable(false), this, "");
 
@@ -85,23 +85,21 @@ public class AdminLog extends TableImpl<AdminLogRecord> {
     }
 
     /**
-     * Create an aliased <code>paradb_unmodified.admin_log</code> table
-     * reference
+     * Create an aliased <code>paradise_gamedb.admin_log</code> table reference
      */
     public AdminLog(String alias) {
         this(DSL.name(alias), ADMIN_LOG);
     }
 
     /**
-     * Create an aliased <code>paradb_unmodified.admin_log</code> table
-     * reference
+     * Create an aliased <code>paradise_gamedb.admin_log</code> table reference
      */
     public AdminLog(Name alias) {
         this(alias, ADMIN_LOG);
     }
 
     /**
-     * Create a <code>paradb_unmodified.admin_log</code> table reference
+     * Create a <code>paradise_gamedb.admin_log</code> table reference
      */
     public AdminLog() {
         this(DSL.name("admin_log"), null);
@@ -113,7 +111,7 @@ public class AdminLog extends TableImpl<AdminLogRecord> {
 
     @Override
     public Schema getSchema() {
-        return aliased() ? null : ParadbUnmodified.PARADB_UNMODIFIED;
+        return aliased() ? null : ParadiseGamedb.PARADISE_GAMEDB;
     }
 
     @Override
