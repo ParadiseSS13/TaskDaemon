@@ -82,6 +82,20 @@ public class Core {
         // See below for CRON format
         // https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html
 
+        // ACL cleanup
+        JobDataMap jdm_aclcleanup = new JobDataMap();
+        jdm_aclcleanup.put("LOGGER", logger);
+        jdm_aclcleanup.put("DBCORE", dbCore);
+        jdm_aclcleanup.put("PFSENSE_CFG", config.pfsense);
+        JobDetail jd_aclcleanup = JobBuilder.newJob(AclCleanupJob.class)
+            .withIdentity("aclcleanup", "aclcleanup")
+            .usingJobData(jdm_aclcleanup)
+            .build();
+        CronTrigger ct_aclcleanup = TriggerBuilder.newTrigger()
+            .withIdentity("aclcleanup", "aclcleanup")
+            .withSchedule(CronScheduleBuilder.cronSchedule("0 */10 * * * ?"))
+            .build();
+
         // Bouncer restart
         JobDataMap jdm_bouncerrestart = new JobDataMap();
         jdm_bouncerrestart.put("LOGGER", logger);
@@ -121,21 +135,6 @@ public class Core {
             .withIdentity("profilercleanup", "profilercleanup")
             .withSchedule(CronScheduleBuilder.cronSchedule("0 0 8 * * ?")) // Every day - 8AM
             .build();
-
-        // ACL cleanup
-        JobDataMap jdm_aclcleanup = new JobDataMap();
-        jdm_aclcleanup.put("LOGGER", logger);
-        jdm_aclcleanup.put("DBCORE", dbCore);
-        jdm_aclcleanup.put("PFSENSE_CFG", config.pfsense);
-        JobDetail jd_aclcleanup = JobBuilder.newJob(AclCleanupJob.class)
-            .withIdentity("aclcleanup", "aclcleanup")
-            .usingJobData(jdm_aclcleanup)
-            .build();
-        CronTrigger ct_aclcleanup = TriggerBuilder.newTrigger()
-            .withIdentity("aclcleanup", "aclcleanup")
-            .withSchedule(CronScheduleBuilder.cronSchedule("0 */10 * * * ?"))
-            .build();
-
 
         // Schedule all
         scheduler.scheduleJob(jd_bouncerrestart, ct_bouncerrestart);

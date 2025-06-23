@@ -20,8 +20,14 @@ import org.quartz.JobDataMap;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
 
+/**
+ * Scheduled job that cleans up ACL by removing inactive player IPs
+ */
 public class AclCleanupJob implements Job {
 
+    /**
+     * Main job execution - fetches current ACL, checks database for inactive IPs, and removes them
+     */
     @Override
     public void execute(JobExecutionContext context) throws JobExecutionException {
         JobDataMap datamap = context.getMergedJobDataMap();
@@ -97,18 +103,40 @@ public class AclCleanupJob implements Job {
         }
     }
 
-    public void removeIpFromAcl(String ip, Logger logger, PfsenseConfig cfg) throws IOException {
-        logger.info("Removing {} from ACL", ip);
+    /**
+     * Checks which IPs should be removed from ACL based on database activity
+     * Removes IPs that don't exist in DB or haven't been seen in last 10 minutes
+     */
+    public List<String> checkIpsInDatabase(List<String> ips, Logger logger, DbCore dbcore) {
+        List<String> to_remove = new ArrayList<>();
 
-        Socket socket = new Socket(cfg.host, cfg.port);
-        OutputStream out = socket.getOutputStream();
+        DSLContext ctx = dbcore.jooq(DatabaseType.GameDb);
+        LocalDateTime ten_mins_ago = dbcore.now().minusMinutes(10);
 
-        String command = "del acl #1 " + ip + "\n";
-        out.write(command.getBytes("ascii"));
+        for (String ip : ips) {
+            if (!ctx.fetchExists(ctx.select(Tables.PLAYER.CKEY).from(Tables.PLAYER).where(Tables.PLAYER.IP.eq(ip)))) {
+                logger.info("IP {} no longer in database.", ip);
+                to_remove.add(ip);
+                continue;
+            }
 
-        socket.close();
+            boolean seen_in_last_10m = ctx.fetchExists(
+                ctx.select(Tables.PLAYER.CKEY).from(Tables.PLAYER).where(Tables.PLAYER.IP.eq(ip))
+                    .and(Tables.PLAYER.LASTSEEN.lt(ten_mins_ago))
+            );
+
+            if (!seen_in_last_10m) {
+                logger.info("IP {} not active within last 10 minutes.", ip);
+                to_remove.add(ip);
+            }
+        }
+
+        return to_remove;
     }
 
+    /**
+     * Retrieves current IP list from ACL via socket connection
+     */
     public List<String> fetchAcl(Logger logger, PfsenseConfig cfg) throws IOException {
         List<String> ip_list = new ArrayList<>();
 
@@ -146,30 +174,18 @@ public class AclCleanupJob implements Job {
         return ip_list;
     }
 
-    public List<String> checkIpsInDatabase(List<String> ips, Logger logger, DbCore dbcore) {
-        List<String> to_remove = new ArrayList<>();
+    /**
+     * Removes a specific IP from ACL #1 via socket command
+     */
+    public void removeIpFromAcl(String ip, Logger logger, PfsenseConfig cfg) throws IOException {
+        logger.info("Removing {} from ACL", ip);
 
-        DSLContext ctx = dbcore.jooq(DatabaseType.GameDb);
-        LocalDateTime ten_mins_ago = dbcore.now().minusMinutes(10);
+        Socket socket = new Socket(cfg.host, cfg.port);
+        OutputStream out = socket.getOutputStream();
 
-        for (String ip : ips) {
-            if (!ctx.fetchExists(ctx.select(Tables.PLAYER.CKEY).from(Tables.PLAYER).where(Tables.PLAYER.IP.eq(ip)))) {
-                logger.info("IP {} no longer in database.", ip);
-                to_remove.add(ip);
-                continue;
-            }
+        String command = "del acl #1 " + ip + "\n";
+        out.write(command.getBytes("ascii"));
 
-            boolean seen_in_last_10m = ctx.fetchExists(
-                ctx.select(Tables.PLAYER.CKEY).from(Tables.PLAYER).where(Tables.PLAYER.IP.eq(ip))
-                    .and(Tables.PLAYER.LASTSEEN.lt(ten_mins_ago))
-            );
-
-            if (!seen_in_last_10m) {
-                logger.info("IP {} not active within last 10 minutes.", ip);
-                to_remove.add(ip);
-            }
-        }
-
-        return to_remove;
+        socket.close();
     }
 }
