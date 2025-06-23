@@ -137,10 +137,10 @@ public class Core {
             .build();
 
         // Schedule all
+        scheduler.scheduleJob(jd_aclcleanup, ct_aclcleanup);
         scheduler.scheduleJob(jd_bouncerrestart, ct_bouncerrestart);
         scheduler.scheduleJob(jd_ip2asn, ct_ip2asn);
         scheduler.scheduleJob(jd_profilercleanup, ct_profilercleanup);
-        scheduler.scheduleJob(jd_aclcleanup, ct_aclcleanup);
     }
 
     private void launchAll() {
