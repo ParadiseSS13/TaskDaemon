@@ -62,6 +62,7 @@ public class AclCleanupJob implements Job {
 
         DbCore dbcore = dbcore_holder.get();
 
+        // Get pfSense configuration
         Object raw_pfs_cfg = datamap.get("PFSENSE_CFG");
         Optional<PfsenseConfig> pfs_cfg_holder = Optional.empty();
 
