@@ -22,3 +22,7 @@ host = "172.16.0.200"
 tgsHost = "http://10.0.0.30:5000" # dont put a trailing slash on the end of this
 username = "username_here"
 password = "password_here"
+
+[pfsense]
+host = "127.0.0.1"
+port = 1234

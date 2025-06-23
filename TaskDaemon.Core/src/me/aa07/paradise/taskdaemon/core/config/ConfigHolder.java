@@ -6,4 +6,5 @@ public class ConfigHolder {
     public DatabaseConfig profilerDatabase;
     public RedisConfig redis;
     public TgsConfig tgs;
+    public PfsenseConfig pfsense;
 }
