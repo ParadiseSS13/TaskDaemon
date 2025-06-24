@@ -9,6 +9,10 @@ database = "paradise_profilerdaemon"
 [ip2asn]
 host = "http://127.0.0.1:53661/v1/as/ip/" # Fill out URL - IP will be appended at the end
 
+[pfsense]
+host = "127.0.0.1"
+port = 1234
+
 [profilerDatabase]
 host = "172.16.0.200"
 username = "myuser"

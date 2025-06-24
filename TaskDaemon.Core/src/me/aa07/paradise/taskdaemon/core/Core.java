@@ -5,6 +5,7 @@ import java.io.File;
 import java.util.Optional;
 import me.aa07.paradise.taskdaemon.core.config.ConfigHolder;
 import me.aa07.paradise.taskdaemon.core.database.DbCore;
+import me.aa07.paradise.taskdaemon.core.modules.aclcleanup.AclCleanupJob;
 import me.aa07.paradise.taskdaemon.core.modules.bouncerrestart.BouncerRestartJob;
 import me.aa07.paradise.taskdaemon.core.modules.ip2asn.Ip2AsnJob;
 import me.aa07.paradise.taskdaemon.core.modules.profilercleanup.ProfilerCleanupJob;
@@ -81,6 +82,20 @@ public class Core {
         // See below for CRON format
         // https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html
 
+        // ACL cleanup
+        JobDataMap jdm_aclcleanup = new JobDataMap();
+        jdm_aclcleanup.put("LOGGER", logger);
+        jdm_aclcleanup.put("DBCORE", dbCore);
+        jdm_aclcleanup.put("PFSENSE_CFG", config.pfsense);
+        JobDetail jd_aclcleanup = JobBuilder.newJob(AclCleanupJob.class)
+            .withIdentity("aclcleanup", "aclcleanup")
+            .usingJobData(jdm_aclcleanup)
+            .build();
+        CronTrigger ct_aclcleanup = TriggerBuilder.newTrigger()
+            .withIdentity("aclcleanup", "aclcleanup")
+            .withSchedule(CronScheduleBuilder.cronSchedule("0 */10 * * * ?"))
+            .build();
+
         // Bouncer restart
         JobDataMap jdm_bouncerrestart = new JobDataMap();
         jdm_bouncerrestart.put("LOGGER", logger);
@@ -121,8 +136,8 @@ public class Core {
             .withSchedule(CronScheduleBuilder.cronSchedule("0 0 8 * * ?")) // Every day - 8AM
             .build();
 
-
         // Schedule all
+        scheduler.scheduleJob(jd_aclcleanup, ct_aclcleanup);
         scheduler.scheduleJob(jd_bouncerrestart, ct_bouncerrestart);
         scheduler.scheduleJob(jd_ip2asn, ct_ip2asn);
         scheduler.scheduleJob(jd_profilercleanup, ct_profilercleanup);
