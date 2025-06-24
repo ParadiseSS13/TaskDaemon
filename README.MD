@@ -6,10 +6,15 @@ Java application designed to automate various backend tasks we have within Parad
 
 It handles:
 
+- ACL Cleanup
 - Bouncer Restart
 - IP2ASN
 - Profiler Daemon Ingest
 - Profiler DB Cleanup
+
+### ACL Cleanup
+
+Removes entries from a HAproxy ACL via its socket interface in order for inactivate players t o be put through the bouncer server again.
 
 ### Bouncer Restart
 
