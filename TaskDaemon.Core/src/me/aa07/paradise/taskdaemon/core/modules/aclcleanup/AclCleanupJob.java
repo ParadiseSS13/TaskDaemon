@@ -141,7 +141,7 @@ public class AclCleanupJob implements Job {
     public List<String> fetchAcl(Logger logger, PfsenseConfig cfg) throws IOException {
         List<String> ip_list = new ArrayList<>();
 
-        Socket socket = new Socket("10.0.0.1", 7542);
+        Socket socket = new Socket(cfg.host, cfg.port);
         socket.setSoTimeout(10000);
 
         OutputStream out = socket.getOutputStream();
