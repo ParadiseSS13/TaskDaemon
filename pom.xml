@@ -17,6 +17,7 @@
 
     <modules>
         <module>TaskDaemon.Core</module>
+        <module>TaskDaemon.Database.Forums</module>
         <module>TaskDaemon.Database.GameDb</module>
         <module>TaskDaemon.Database.Profiler</module>
     </modules>
