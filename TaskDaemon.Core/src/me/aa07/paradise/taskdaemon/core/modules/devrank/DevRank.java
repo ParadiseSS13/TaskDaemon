@@ -46,7 +46,7 @@ public class DevRank implements Job {
         logger.info("[DevRank] Starting dev rank sync");
 
         try {
-            DSLContext forumsDb = dbcore.jooq(DatabaseType.Forums);  // Note enum name "Forums"
+            DSLContext forumsDb = dbcore.jooq(DatabaseType.Forums);
             DSLContext gameDb = dbcore.jooq(DatabaseType.GameDb);
 
             // Collect all dev team ckeys from forums database
