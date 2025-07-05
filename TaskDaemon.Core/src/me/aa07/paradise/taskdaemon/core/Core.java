@@ -1,12 +1,15 @@
 package me.aa07.paradise.taskdaemon.core;
 
 import com.moandjiezana.toml.Toml;
+
 import java.io.File;
 import java.util.Optional;
+
 import me.aa07.paradise.taskdaemon.core.config.ConfigHolder;
 import me.aa07.paradise.taskdaemon.core.database.DbCore;
 import me.aa07.paradise.taskdaemon.core.modules.aclcleanup.AclCleanupJob;
 import me.aa07.paradise.taskdaemon.core.modules.bouncerrestart.BouncerRestartJob;
+import me.aa07.paradise.taskdaemon.core.modules.devrank.DevRank;
 import me.aa07.paradise.taskdaemon.core.modules.ip2asn.Ip2AsnJob;
 import me.aa07.paradise.taskdaemon.core.modules.profilercleanup.ProfilerCleanupJob;
 import me.aa07.paradise.taskdaemon.core.modules.profileringest.ProfilerWorker;
@@ -101,13 +104,29 @@ public class Core {
         jdm_bouncerrestart.put("LOGGER", logger);
         jdm_bouncerrestart.put("TGS_CFG", config.tgs);
         JobDetail jd_bouncerrestart = JobBuilder.newJob(BouncerRestartJob.class)
-                .withIdentity("bouncerrestart", "bouncerrestart")
-                .usingJobData(jdm_bouncerrestart)
-                .build();
+            .withIdentity("bouncerrestart", "bouncerrestart")
+            .usingJobData(jdm_bouncerrestart)
+            .build();
         CronTrigger ct_bouncerrestart = TriggerBuilder.newTrigger()
-                .withIdentity("bouncerrestart", "bouncerrestart")
-                .withSchedule(CronScheduleBuilder.cronSchedule("0 0 0 * * ?")) // Every day - midnight
-                .build();
+            .withIdentity("bouncerrestart", "bouncerrestart")
+            .withSchedule(CronScheduleBuilder.cronSchedule("0 0 0 * * ?")) // Every day - midnight
+            .build();
+
+        // DevRank update
+        JobDataMap jdm_devrank = new JobDataMap();
+        jdm_devrank.put("LOGGER", logger);
+        jdm_devrank.put("DBCORE", dbCore);
+
+        JobDetail jd_devrank = JobBuilder.newJob(DevRank.class)
+            .withIdentity("devrank", "devrank")
+            .usingJobData(jdm_devrank)
+            .build();
+
+        CronTrigger ct_devrank = TriggerBuilder.newTrigger()
+            .withIdentity("devrank", "devrank")
+            .withSchedule(CronScheduleBuilder.cronSchedule("0 0 * * * ?")) // Every hour on the hour
+            .build();
+
 
         // IP2ASN
         JobDataMap jdm_ip2asn = new JobDataMap();
@@ -115,13 +134,13 @@ public class Core {
         jdm_ip2asn.put("DBCORE", dbCore);
         jdm_ip2asn.put("IP2ASNCFG", config.ip2asn);
         JobDetail jd_ip2asn = JobBuilder.newJob(Ip2AsnJob.class)
-                .withIdentity("ip2asn", "ip2asn")
-                .usingJobData(jdm_ip2asn)
-                .build();
+            .withIdentity("ip2asn", "ip2asn")
+            .usingJobData(jdm_ip2asn)
+            .build();
         CronTrigger ct_ip2asn = TriggerBuilder.newTrigger()
-                .withIdentity("ip2asn", "ip2asn")
-                .withSchedule(CronScheduleBuilder.cronSchedule("0 */10 * * * ?")) // Every 10 minutes
-                .build();
+            .withIdentity("ip2asn", "ip2asn")
+            .withSchedule(CronScheduleBuilder.cronSchedule("0 */10 * * * ?")) // Every 10 minutes
+            .build();
 
         // Profiler cleanup
         JobDataMap jdm_profilercleanup = new JobDataMap();
@@ -139,6 +158,7 @@ public class Core {
         // Schedule all
         scheduler.scheduleJob(jd_aclcleanup, ct_aclcleanup);
         scheduler.scheduleJob(jd_bouncerrestart, ct_bouncerrestart);
+        scheduler.scheduleJob(jd_devrank, ct_devrank);
         scheduler.scheduleJob(jd_ip2asn, ct_ip2asn);
         scheduler.scheduleJob(jd_profilercleanup, ct_profilercleanup);
     }
