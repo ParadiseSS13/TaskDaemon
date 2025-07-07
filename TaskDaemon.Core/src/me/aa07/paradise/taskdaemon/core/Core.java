@@ -1,10 +1,8 @@
 package me.aa07.paradise.taskdaemon.core;
 
 import com.moandjiezana.toml.Toml;
-
 import java.io.File;
 import java.util.Optional;
-
 import me.aa07.paradise.taskdaemon.core.config.ConfigHolder;
 import me.aa07.paradise.taskdaemon.core.database.DbCore;
 import me.aa07.paradise.taskdaemon.core.modules.aclcleanup.AclCleanupJob;
