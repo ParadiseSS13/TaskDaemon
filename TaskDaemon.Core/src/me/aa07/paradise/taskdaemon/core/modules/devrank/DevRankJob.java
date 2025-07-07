@@ -21,16 +21,14 @@ import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
 
 /**
- * Scheduled job that syncs dev team permissions between forums and game databases.
+ * Scheduled job that syncs dev team permissions between forums and game
+ * databases.
  */
-@SuppressWarnings({"checkstyle:Indentation", "checkstyle:LineLength"})
+
 public class DevRankJob implements Job {
-    @SuppressWarnings({"checkstyle:Indentation", "checkstyle:JavadocVariable"})
     private static final int DEV_TEAM_GROUP = 39;
-    @SuppressWarnings({"checkstyle:Indentation", "checkstyle:JavadocVariable"})
     private static final int DEV_TEAM_BITFLAG = 262144;
 
-    @SuppressWarnings({"checkstyle:Indentation", "checkstyle:LineLength", "checkstyle:LocalVariableName", "checkstyle:FinalParameters", "checkstyle:DesignForExtension"})
     @Override
     public void execute(JobExecutionContext context) throws JobExecutionException {
         JobDataMap data_map = context.getMergedJobDataMap();
@@ -54,13 +52,11 @@ public class DevRankJob implements Job {
             List<String> dev_team_ckeys = new ArrayList<>();
 
             Result<? extends Record> forum_records = forums_db.select(
-                            Tables.CORE_MEMBERS.MEMBER_ID,
-                            Tables.CORE_MEMBERS.NAME,
-                            Tables.CORE_MEMBERS.MEMBER_GROUP_ID,
-                            Tables.CORE_MEMBERS.MGROUP_OTHERS,
-                            Tables.CORE_PFIELDS_CONTENT.FIELD_10
-                    )
-                    .from(Tables.CORE_MEMBERS)
+                    Tables.CORE_MEMBERS.MEMBER_ID,
+                    Tables.CORE_MEMBERS.NAME,
+                    Tables.CORE_MEMBERS.MEMBER_GROUP_ID,
+                    Tables.CORE_MEMBERS.MGROUP_OTHERS,
+                    Tables.CORE_PFIELDS_CONTENT.FIELD_10).from(Tables.CORE_MEMBERS)
                     .leftJoin(Tables.CORE_PFIELDS_CONTENT)
                     .on(Tables.CORE_MEMBERS.MEMBER_ID.eq(Tables.CORE_PFIELDS_CONTENT.MEMBER_ID))
                     .fetch();
@@ -82,7 +78,8 @@ public class DevRankJob implements Job {
 
                 if (all_groups.contains(DEV_TEAM_GROUP)) {
                     if (ckey == null || ckey.isBlank()) {
-                        logger.warn("[DevRank] Forums user {} (ID {}) has no linked ckey", rec.get(Tables.CORE_MEMBERS.NAME), rec.get(Tables.CORE_MEMBERS.MEMBER_ID));
+                        logger.warn("[DevRank] Forums user {} (ID {}) has no linked ckey",
+                            rec.get(Tables.CORE_MEMBERS.NAME), rec.get(Tables.CORE_MEMBERS.MEMBER_ID));
                         continue;
                     }
 
@@ -98,16 +95,14 @@ public class DevRankJob implements Job {
                     Admin.ADMIN.ID,
                     Admin.ADMIN.CKEY,
                     Admin.ADMIN.ADMIN_RANK,
-                    Admin.ADMIN.FLAGS
-            ).from(Admin.ADMIN).fetch();
+                    Admin.ADMIN.FLAGS).from(Admin.ADMIN).fetch();
 
             for (Record rec : admin_records) {
                 String ckey = rec.get(Admin.ADMIN.CKEY);
                 ingame_admins.put(ckey, new AdminEntry(
                         rec.get(Admin.ADMIN.ID),
                         rec.get(Admin.ADMIN.ADMIN_RANK),
-                        rec.get(Admin.ADMIN.FLAGS)
-                ));
+                        rec.get(Admin.ADMIN.FLAGS)));
             }
 
             // Apply permissions to those who need them
@@ -172,7 +167,6 @@ public class DevRankJob implements Job {
         }
     }
 
-    @SuppressWarnings("checkstyle:Indentation")
     private record AdminEntry(int id, String rank, int flags) {
     }
 }
