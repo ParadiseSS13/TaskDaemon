@@ -33,11 +33,11 @@ public class DevRank implements Job {
     @SuppressWarnings({"checkstyle:Indentation", "checkstyle:LineLength", "checkstyle:LocalVariableName", "checkstyle:FinalParameters", "checkstyle:DesignForExtension"})
     @Override
     public void execute(JobExecutionContext context) throws JobExecutionException {
-        JobDataMap dataMap = context.getMergedJobDataMap();
+        JobDataMap data_map = context.getMergedJobDataMap();
 
         // Get logger and db
-        Logger logger = (Logger) dataMap.get("LOGGER");
-        DbCore dbcore = (DbCore) dataMap.get("DBCORE");
+        Logger logger = (Logger) data_map.get("LOGGER");
+        DbCore dbcore = (DbCore) data_map.get("DBCORE");
 
         if (logger == null || dbcore == null) {
             System.err.println("[DevRank] LOGGER or DBCORE was not set in JobDataMap.");
@@ -47,13 +47,13 @@ public class DevRank implements Job {
         logger.info("[DevRank] Starting dev rank sync");
 
         try {
-            DSLContext forumsDb = dbcore.jooq(DatabaseType.Forums);
-            DSLContext gameDb = dbcore.jooq(DatabaseType.GameDb);
+            DSLContext forums_db = dbcore.jooq(DatabaseType.Forums);
+            DSLContext game_db = dbcore.jooq(DatabaseType.GameDb);
 
             // Collect all dev team ckeys from forums database
             List<String> dev_team_ckeys = new ArrayList<>();
 
-            Result<? extends Record> forumRecords = forumsDb.select(
+            Result<? extends Record> forum_records = forums_db.select(
                             Tables.CORE_MEMBERS.MEMBER_ID,
                             Tables.CORE_MEMBERS.NAME,
                             Tables.CORE_MEMBERS.MEMBER_GROUP_ID,
@@ -65,16 +65,16 @@ public class DevRank implements Job {
                     .on(Tables.CORE_MEMBERS.MEMBER_ID.eq(Tables.CORE_PFIELDS_CONTENT.MEMBER_ID))
                     .fetch();
 
-            for (Record rec : forumRecords) {
-                int primaryGroup = rec.get(Tables.CORE_MEMBERS.MEMBER_GROUP_ID);
-                String otherGroups = rec.get(Tables.CORE_MEMBERS.MGROUP_OTHERS);
+            for (Record rec : forum_records) {
+                int primary_group = rec.get(Tables.CORE_MEMBERS.MEMBER_GROUP_ID);
+                String other_groups = rec.get(Tables.CORE_MEMBERS.MGROUP_OTHERS);
                 String ckey = rec.get(Tables.CORE_PFIELDS_CONTENT.FIELD_10);
 
                 Set<Integer> all_groups = new HashSet<Integer>();
-                all_groups.add(primaryGroup);
+                all_groups.add(primary_group);
 
-                if (otherGroups != null && !otherGroups.isBlank()) {
-                    Arrays.stream(otherGroups.split(","))
+                if (other_groups != null && !other_groups.isBlank()) {
+                    Arrays.stream(other_groups.split(","))
                             .filter(g -> !g.isBlank())
                             .map(Integer::parseInt)
                             .forEach(all_groups::add);
@@ -92,18 +92,18 @@ public class DevRank implements Job {
             }
 
             // Load all ingame admins
-            Map<String, AdminEntry> ingameAdmins = new HashMap<>();
+            Map<String, AdminEntry> ingame_admins = new HashMap<>();
 
-            Result<? extends Record> adminRecords = gameDb.select(
+            Result<? extends Record> admin_records = game_db.select(
                     Admin.ADMIN.ID,
                     Admin.ADMIN.CKEY,
                     Admin.ADMIN.ADMIN_RANK,
                     Admin.ADMIN.FLAGS
             ).from(Admin.ADMIN).fetch();
 
-            for (Record rec : adminRecords) {
+            for (Record rec : admin_records) {
                 String ckey = rec.get(Admin.ADMIN.CKEY);
-                ingameAdmins.put(ckey, new AdminEntry(
+                ingame_admins.put(ckey, new AdminEntry(
                         rec.get(Admin.ADMIN.ID),
                         rec.get(Admin.ADMIN.ADMIN_RANK),
                         rec.get(Admin.ADMIN.FLAGS)
@@ -112,11 +112,11 @@ public class DevRank implements Job {
 
             // Apply permissions to those who need them
             for (String ckey : dev_team_ckeys) {
-                AdminEntry entry = ingameAdmins.get(ckey);
+                AdminEntry entry = ingame_admins.get(ckey);
 
                 if (entry == null) {
                     logger.info("[DevRank] Ckey {} not in admin table, adding new dev", ckey);
-                    gameDb.insertInto(Admin.ADMIN)
+                    game_db.insertInto(Admin.ADMIN)
                             .set(Admin.ADMIN.CKEY, ckey)
                             .set(Admin.ADMIN.ADMIN_RANK, "Developer")
                             .set(Admin.ADMIN.FLAGS, DEV_TEAM_BITFLAG)
@@ -124,14 +124,14 @@ public class DevRank implements Job {
                 } else {
                     if ("Removed".equals(entry.rank()) || entry.flags() == 0) {
                         logger.info("[DevRank] Resetting {} to dev team with new flag", ckey);
-                        gameDb.update(Admin.ADMIN)
+                        game_db.update(Admin.ADMIN)
                                 .set(Admin.ADMIN.ADMIN_RANK, "Developer")
                                 .set(Admin.ADMIN.FLAGS, DEV_TEAM_BITFLAG)
                                 .where(Admin.ADMIN.ID.eq(entry.id()))
                                 .execute();
                     } else if ((entry.flags() & DEV_TEAM_BITFLAG) == 0) {
                         logger.info("[DevRank] Adding dev flag to {}", ckey);
-                        gameDb.update(Admin.ADMIN)
+                        game_db.update(Admin.ADMIN)
                                 .set(Admin.ADMIN.FLAGS, entry.flags() + DEV_TEAM_BITFLAG)
                                 .where(Admin.ADMIN.ID.eq(entry.id()))
                                 .execute();
@@ -142,21 +142,21 @@ public class DevRank implements Job {
             }
 
             // Remove devteam flag from those who no longer qualify
-            for (Map.Entry<String, AdminEntry> entry : ingameAdmins.entrySet()) {
+            for (Map.Entry<String, AdminEntry> entry : ingame_admins.entrySet()) {
                 String ckey = entry.getKey();
                 AdminEntry admin = entry.getValue();
 
                 if (!dev_team_ckeys.contains(ckey)) {
                     if (admin.flags() == DEV_TEAM_BITFLAG) {
                         logger.info("[DevRank] {} only had dev flag, removing rank and flags", ckey);
-                        gameDb.update(Admin.ADMIN)
+                        game_db.update(Admin.ADMIN)
                                 .set(Admin.ADMIN.ADMIN_RANK, "Removed")
                                 .set(Admin.ADMIN.FLAGS, 0)
                                 .where(Admin.ADMIN.ID.eq(admin.id()))
                                 .execute();
                     } else if ((admin.flags() & DEV_TEAM_BITFLAG) != 0) {
                         logger.info("[DevRank] {} no longer in dev team, removing dev flag only", ckey);
-                        gameDb.update(Admin.ADMIN)
+                        game_db.update(Admin.ADMIN)
                                 .set(Admin.ADMIN.FLAGS, admin.flags() - DEV_TEAM_BITFLAG)
                                 .where(Admin.ADMIN.ID.eq(admin.id()))
                                 .execute();
