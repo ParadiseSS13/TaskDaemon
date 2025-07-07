@@ -9,7 +9,7 @@ import me.aa07.paradise.taskdaemon.core.config.ConfigHolder;
 import me.aa07.paradise.taskdaemon.core.database.DbCore;
 import me.aa07.paradise.taskdaemon.core.modules.aclcleanup.AclCleanupJob;
 import me.aa07.paradise.taskdaemon.core.modules.bouncerrestart.BouncerRestartJob;
-import me.aa07.paradise.taskdaemon.core.modules.devrank.DevRank;
+import me.aa07.paradise.taskdaemon.core.modules.devrank.DevRankJob;
 import me.aa07.paradise.taskdaemon.core.modules.ip2asn.Ip2AsnJob;
 import me.aa07.paradise.taskdaemon.core.modules.profilercleanup.ProfilerCleanupJob;
 import me.aa07.paradise.taskdaemon.core.modules.profileringest.ProfilerWorker;
@@ -117,7 +117,7 @@ public class Core {
         jdm_devrank.put("LOGGER", logger);
         jdm_devrank.put("DBCORE", dbCore);
 
-        JobDetail jd_devrank = JobBuilder.newJob(DevRank.class)
+        JobDetail jd_devrank = JobBuilder.newJob(DevRankJob.class)
             .withIdentity("devrank", "devrank")
             .usingJobData(jdm_devrank)
             .build();

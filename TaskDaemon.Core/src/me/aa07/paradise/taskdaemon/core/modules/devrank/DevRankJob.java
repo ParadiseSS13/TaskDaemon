@@ -24,7 +24,7 @@ import org.quartz.JobExecutionException;
  * Scheduled job that syncs dev team permissions between forums and game databases.
  */
 @SuppressWarnings({"checkstyle:Indentation", "checkstyle:LineLength"})
-public class DevRank implements Job {
+public class DevRankJob implements Job {
     @SuppressWarnings({"checkstyle:Indentation", "checkstyle:JavadocVariable"})
     private static final int DEV_TEAM_GROUP = 39;
     @SuppressWarnings({"checkstyle:Indentation", "checkstyle:JavadocVariable"})
