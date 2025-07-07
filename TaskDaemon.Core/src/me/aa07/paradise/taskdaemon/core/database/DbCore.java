@@ -51,6 +51,7 @@ public class DbCore {
     private void establishConnections(ConfigHolder config) {
         HashMap<DatabaseType, DatabaseConfig> db_types = new HashMap<DatabaseType, DatabaseConfig>();
 
+        db_types.put(DatabaseType.Forums, config.forumsDatabase);
         db_types.put(DatabaseType.GameDb, config.gameDatabase);
         db_types.put(DatabaseType.ProfilerDb, config.profilerDatabase);
 

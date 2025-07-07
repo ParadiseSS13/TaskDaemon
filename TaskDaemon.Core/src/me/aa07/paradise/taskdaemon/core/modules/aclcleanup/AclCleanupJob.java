@@ -8,7 +8,6 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-
 import me.aa07.paradise.taskdaemon.core.config.PfsenseConfig;
 import me.aa07.paradise.taskdaemon.core.database.DatabaseType;
 import me.aa07.paradise.taskdaemon.core.database.DbCore;

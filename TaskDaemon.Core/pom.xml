@@ -14,6 +14,11 @@
     <dependencies>
         <dependency>
             <groupId>me.aa07.paradise</groupId>
+            <artifactId>taskdaemon-database-forums</artifactId>
+            <version>dev-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>me.aa07.paradise</groupId>
             <artifactId>taskdaemon-database-gamedb</artifactId>
             <version>dev-SNAPSHOT</version>
         </dependency>
@@ -73,6 +78,7 @@
                 <executions>
                     <execution>
                         <id>validate</id>
+                        <phase>validate</phase>
                         <configuration>
                             <configLocation>checkstyle.xml</configLocation>
                             <consoleOutput>true</consoleOutput>
