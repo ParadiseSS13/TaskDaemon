@@ -14,6 +14,7 @@ import me.aa07.paradise.taskdaemon.core.database.DbCore;
 import me.aa07.paradise.taskdaemon.database.gamedb.Tables;
 import org.apache.logging.log4j.Logger;
 import org.jooq.DSLContext;
+import org.quartz.DisallowConcurrentExecution;
 import org.quartz.Job;
 import org.quartz.JobDataMap;
 import org.quartz.JobExecutionContext;
@@ -22,6 +23,7 @@ import org.quartz.JobExecutionException;
 /**
  * Scheduled job that cleans up ACL by removing inactive player IPs
  */
+@DisallowConcurrentExecution // NO
 public class AclCleanupJob implements Job {
 
     /**
@@ -122,7 +124,7 @@ public class AclCleanupJob implements Job {
 
             boolean seen_in_last_10m = ctx.fetchExists(
                 ctx.select(Tables.PLAYER.CKEY).from(Tables.PLAYER).where(Tables.PLAYER.IP.eq(ip))
-                    .and(Tables.PLAYER.LASTSEEN.lt(ten_mins_ago))
+                    .and(Tables.PLAYER.LASTSEEN.gt(ten_mins_ago))
             );
 
             if (!seen_in_last_10m) {

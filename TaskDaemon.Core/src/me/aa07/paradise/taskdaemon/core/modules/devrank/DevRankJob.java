@@ -15,6 +15,7 @@ import org.apache.logging.log4j.Logger;
 import org.jooq.DSLContext;
 import org.jooq.Record;
 import org.jooq.Result;
+import org.quartz.DisallowConcurrentExecution;
 import org.quartz.Job;
 import org.quartz.JobDataMap;
 import org.quartz.JobExecutionContext;
@@ -24,7 +25,7 @@ import org.quartz.JobExecutionException;
  * Scheduled job that syncs dev team permissions between forums and game
  * databases.
  */
-
+@DisallowConcurrentExecution // NO
 public class DevRankJob implements Job {
     private static final int DEV_TEAM_GROUP = 39;
     private static final int DEV_TEAM_BITFLAG = 262144;
