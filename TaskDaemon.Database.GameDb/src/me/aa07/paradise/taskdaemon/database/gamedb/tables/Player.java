@@ -84,11 +84,6 @@ public class Player extends TableImpl<PlayerRecord> {
     public final TableField<PlayerRecord, String> COMPUTERID = createField(DSL.name("computerid"), SQLDataType.VARCHAR(32).nullable(false), this, "");
 
     /**
-     * The column <code>paradise_gamedb.player.lastadminrank</code>.
-     */
-    public final TableField<PlayerRecord, String> LASTADMINRANK = createField(DSL.name("lastadminrank"), SQLDataType.VARCHAR(32).nullable(false).defaultValue(DSL.inline("'Player'", SQLDataType.VARCHAR)), this, "");
-
-    /**
      * The column <code>paradise_gamedb.player.ooccolor</code>.
      */
     public final TableField<PlayerRecord, String> OOCCOLOR = createField(DSL.name("ooccolor"), SQLDataType.VARCHAR(7).defaultValue(DSL.inline("'#b82e00'", SQLDataType.VARCHAR)), this, "");
@@ -166,7 +161,7 @@ public class Player extends TableImpl<PlayerRecord> {
     /**
      * The column <code>paradise_gamedb.player.clientfps</code>.
      */
-    public final TableField<PlayerRecord, Short> CLIENTFPS = createField(DSL.name("clientfps"), SQLDataType.SMALLINT.defaultValue(DSL.inline("63", SQLDataType.SMALLINT)), this, "");
+    public final TableField<PlayerRecord, Short> CLIENTFPS = createField(DSL.name("clientfps"), SQLDataType.SMALLINT.defaultValue(DSL.inline("100", SQLDataType.SMALLINT)), this, "");
 
     /**
      * The column <code>paradise_gamedb.player.atklog</code>.

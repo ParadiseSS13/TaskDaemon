@@ -9,6 +9,7 @@ import java.util.List;
 
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.Admin;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.AdminLog;
+import me.aa07.paradise.taskdaemon.database.gamedb.tables.AdminRanks;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.Ban;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.Changelog;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.Characters;
@@ -68,6 +69,11 @@ public class ParadiseGamedb extends SchemaImpl {
      * The table <code>paradise_gamedb.admin_log</code>.
      */
     public final AdminLog ADMIN_LOG = AdminLog.ADMIN_LOG;
+
+    /**
+     * The table <code>paradise_gamedb.admin_ranks</code>.
+     */
+    public final AdminRanks ADMIN_RANKS = AdminRanks.ADMIN_RANKS;
 
     /**
      * The table <code>paradise_gamedb.ban</code>.
@@ -213,6 +219,7 @@ public class ParadiseGamedb extends SchemaImpl {
             _2faSecrets._2FA_SECRETS,
             Admin.ADMIN,
             AdminLog.ADMIN_LOG,
+            AdminRanks.ADMIN_RANKS,
             Ban.BAN,
             Changelog.CHANGELOG,
             Characters.CHARACTERS,

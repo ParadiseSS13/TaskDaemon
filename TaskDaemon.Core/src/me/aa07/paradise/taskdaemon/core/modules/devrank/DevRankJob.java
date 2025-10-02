@@ -11,6 +11,7 @@ import me.aa07.paradise.taskdaemon.core.database.DatabaseType;
 import me.aa07.paradise.taskdaemon.core.database.DbCore;
 import me.aa07.paradise.taskdaemon.database.forums.Tables;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.Admin;
+import me.aa07.paradise.taskdaemon.database.gamedb.tables.records.AdminRecord;
 import org.apache.logging.log4j.Logger;
 import org.jooq.DSLContext;
 import org.jooq.Record;
@@ -28,7 +29,8 @@ import org.quartz.JobExecutionException;
 @DisallowConcurrentExecution // NO
 public class DevRankJob implements Job {
     private static final int DEV_TEAM_GROUP = 39;
-    private static final int DEV_TEAM_BITFLAG = 262144;
+    private static final int DEV_RANK = 100;
+    private static final int REMOVED_RANK = 105;
 
     @Override
     public void execute(JobExecutionContext context) throws JobExecutionException {
@@ -80,7 +82,7 @@ public class DevRankJob implements Job {
                 if (all_groups.contains(DEV_TEAM_GROUP)) {
                     if (ckey == null || ckey.isBlank()) {
                         logger.warn("[DevRank] Forums user {} (ID {}) has no linked ckey",
-                            rec.get(Tables.CORE_MEMBERS.NAME), rec.get(Tables.CORE_MEMBERS.MEMBER_ID));
+                                rec.get(Tables.CORE_MEMBERS.NAME), rec.get(Tables.CORE_MEMBERS.MEMBER_ID));
                         continue;
                     }
 
@@ -92,18 +94,16 @@ public class DevRankJob implements Job {
             // Load all ingame admins
             Map<String, AdminEntry> ingame_admins = new HashMap<>();
 
-            Result<? extends Record> admin_records = game_db.select(
-                    Admin.ADMIN.ID,
-                    Admin.ADMIN.CKEY,
-                    Admin.ADMIN.ADMIN_RANK,
-                    Admin.ADMIN.FLAGS).from(Admin.ADMIN).fetch();
+            Result<AdminRecord> admin_records = game_db.selectFrom(Admin.ADMIN).fetch();
 
-            for (Record rec : admin_records) {
+            for (AdminRecord rec : admin_records) {
                 String ckey = rec.get(Admin.ADMIN.CKEY);
-                ingame_admins.put(ckey, new AdminEntry(
-                        rec.get(Admin.ADMIN.ID),
-                        rec.get(Admin.ADMIN.ADMIN_RANK),
-                        rec.get(Admin.ADMIN.FLAGS)));
+                int perm_rank = REMOVED_RANK;
+                if (rec.getPermissionsRank() != null) {
+                    perm_rank = rec.getPermissionsRank();
+                }
+
+                ingame_admins.put(ckey, new AdminEntry(rec.get(Admin.ADMIN.ID), perm_rank));
             }
 
             // Apply permissions to those who need them
@@ -114,21 +114,13 @@ public class DevRankJob implements Job {
                     logger.info("[DevRank] Ckey {} not in admin table, adding new dev", ckey);
                     game_db.insertInto(Admin.ADMIN)
                             .set(Admin.ADMIN.CKEY, ckey)
-                            .set(Admin.ADMIN.ADMIN_RANK, "Developer")
-                            .set(Admin.ADMIN.FLAGS, DEV_TEAM_BITFLAG)
+                            .set(Admin.ADMIN.PERMISSIONS_RANK, DEV_RANK)
                             .execute();
                 } else {
-                    if ("Removed".equals(entry.rank()) || entry.flags() == 0) {
+                    if (entry.rank() == REMOVED_RANK) {
                         logger.info("[DevRank] Resetting {} to dev team with new flag", ckey);
                         game_db.update(Admin.ADMIN)
-                                .set(Admin.ADMIN.ADMIN_RANK, "Developer")
-                                .set(Admin.ADMIN.FLAGS, DEV_TEAM_BITFLAG)
-                                .where(Admin.ADMIN.ID.eq(entry.id()))
-                                .execute();
-                    } else if ((entry.flags() & DEV_TEAM_BITFLAG) == 0) {
-                        logger.info("[DevRank] Adding dev flag to {}", ckey);
-                        game_db.update(Admin.ADMIN)
-                                .set(Admin.ADMIN.FLAGS, entry.flags() + DEV_TEAM_BITFLAG)
+                                .set(Admin.ADMIN.PERMISSIONS_RANK, DEV_RANK)
                                 .where(Admin.ADMIN.ID.eq(entry.id()))
                                 .execute();
                     } else {
@@ -143,17 +135,10 @@ public class DevRankJob implements Job {
                 AdminEntry admin = entry.getValue();
 
                 if (!dev_team_ckeys.contains(ckey)) {
-                    if (admin.flags() == DEV_TEAM_BITFLAG) {
+                    if (admin.rank() == DEV_RANK) {
                         logger.info("[DevRank] {} only had dev flag, removing rank and flags", ckey);
                         game_db.update(Admin.ADMIN)
-                                .set(Admin.ADMIN.ADMIN_RANK, "Removed")
-                                .set(Admin.ADMIN.FLAGS, 0)
-                                .where(Admin.ADMIN.ID.eq(admin.id()))
-                                .execute();
-                    } else if ((admin.flags() & DEV_TEAM_BITFLAG) != 0) {
-                        logger.info("[DevRank] {} no longer in dev team, removing dev flag only", ckey);
-                        game_db.update(Admin.ADMIN)
-                                .set(Admin.ADMIN.FLAGS, admin.flags() - DEV_TEAM_BITFLAG)
+                                .set(Admin.ADMIN.PERMISSIONS_RANK, REMOVED_RANK)
                                 .where(Admin.ADMIN.ID.eq(admin.id()))
                                 .execute();
                     }
@@ -168,6 +153,6 @@ public class DevRankJob implements Job {
         }
     }
 
-    private record AdminEntry(int id, String rank, int flags) {
+    private record AdminEntry(int id, int rank) {
     }
 }

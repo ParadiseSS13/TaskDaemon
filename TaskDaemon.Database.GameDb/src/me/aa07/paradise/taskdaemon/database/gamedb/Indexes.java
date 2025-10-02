@@ -6,6 +6,7 @@ package me.aa07.paradise.taskdaemon.database.gamedb;
 
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.Admin;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.AdminLog;
+import me.aa07.paradise.taskdaemon.database.gamedb.tables.AdminRanks;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.Ban;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.Characters;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.ConnectionLog;
@@ -58,5 +59,6 @@ public class Indexes {
     public static final Index CONNECTION_LOG_IP = Internal.createIndex(DSL.name("ip"), ConnectionLog.CONNECTION_LOG, new OrderField[] { ConnectionLog.CONNECTION_LOG.IP }, false);
     public static final Index PLAYER_IP = Internal.createIndex(DSL.name("ip"), Player.PLAYER, new OrderField[] { Player.PLAYER.IP }, false);
     public static final Index PLAYER_LASTSEEN = Internal.createIndex(DSL.name("lastseen"), Player.PLAYER, new OrderField[] { Player.PLAYER.LASTSEEN }, false);
+    public static final Index ADMIN_RANKS_NAME = Internal.createIndex(DSL.name("name"), AdminRanks.ADMIN_RANKS, new OrderField[] { AdminRanks.ADMIN_RANKS.NAME }, false);
     public static final Index NOTES_PUBLIC = Internal.createIndex(DSL.name("public"), Notes.NOTES, new OrderField[] { Notes.NOTES.PUBLIC }, false);
 }

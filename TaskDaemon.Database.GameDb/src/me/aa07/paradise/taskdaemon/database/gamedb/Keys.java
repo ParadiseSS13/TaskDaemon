@@ -6,6 +6,7 @@ package me.aa07.paradise.taskdaemon.database.gamedb;
 
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.Admin;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.AdminLog;
+import me.aa07.paradise.taskdaemon.database.gamedb.tables.AdminRanks;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.Ban;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.Changelog;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.Characters;
@@ -33,6 +34,7 @@ import me.aa07.paradise.taskdaemon.database.gamedb.tables.VpnWhitelist;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.Watch;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables._2faSecrets;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.records.AdminLogRecord;
+import me.aa07.paradise.taskdaemon.database.gamedb.tables.records.AdminRanksRecord;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.records.AdminRecord;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.records.BanRecord;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.records.ChangelogRecord;
@@ -81,6 +83,7 @@ public class Keys {
     public static final UniqueKey<_2faSecretsRecord> KEY_2FA_SECRETS_PRIMARY = Internal.createUniqueKey(_2faSecrets._2FA_SECRETS, DSL.name("KEY_2fa_secrets_PRIMARY"), new TableField[] { _2faSecrets._2FA_SECRETS.CKEY }, true);
     public static final UniqueKey<AdminRecord> KEY_ADMIN_PRIMARY = Internal.createUniqueKey(Admin.ADMIN, DSL.name("KEY_admin_PRIMARY"), new TableField[] { Admin.ADMIN.ID }, true);
     public static final UniqueKey<AdminLogRecord> KEY_ADMIN_LOG_PRIMARY = Internal.createUniqueKey(AdminLog.ADMIN_LOG, DSL.name("KEY_admin_log_PRIMARY"), new TableField[] { AdminLog.ADMIN_LOG.ID }, true);
+    public static final UniqueKey<AdminRanksRecord> KEY_ADMIN_RANKS_PRIMARY = Internal.createUniqueKey(AdminRanks.ADMIN_RANKS, DSL.name("KEY_admin_ranks_PRIMARY"), new TableField[] { AdminRanks.ADMIN_RANKS.ID }, true);
     public static final UniqueKey<BanRecord> KEY_BAN_PRIMARY = Internal.createUniqueKey(Ban.BAN, DSL.name("KEY_ban_PRIMARY"), new TableField[] { Ban.BAN.ID }, true);
     public static final UniqueKey<ChangelogRecord> KEY_CHANGELOG_PRIMARY = Internal.createUniqueKey(Changelog.CHANGELOG, DSL.name("KEY_changelog_PRIMARY"), new TableField[] { Changelog.CHANGELOG.ID }, true);
     public static final UniqueKey<CharactersRecord> KEY_CHARACTERS_PRIMARY = Internal.createUniqueKey(Characters.CHARACTERS, DSL.name("KEY_characters_PRIMARY"), new TableField[] { Characters.CHARACTERS.ID }, true);

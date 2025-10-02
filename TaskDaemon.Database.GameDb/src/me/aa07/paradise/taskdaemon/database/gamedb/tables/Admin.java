@@ -18,7 +18,7 @@ import org.jooq.Identity;
 import org.jooq.Index;
 import org.jooq.Name;
 import org.jooq.Record;
-import org.jooq.Row5;
+import org.jooq.Row6;
 import org.jooq.Schema;
 import org.jooq.Table;
 import org.jooq.TableField;
@@ -61,19 +61,25 @@ public class Admin extends TableImpl<AdminRecord> {
     public final TableField<AdminRecord, String> CKEY = createField(DSL.name("ckey"), SQLDataType.VARCHAR(32).nullable(false), this, "");
 
     /**
-     * The column <code>paradise_gamedb.admin.admin_rank</code>.
+     * The column <code>paradise_gamedb.admin.display_rank</code>.
      */
-    public final TableField<AdminRecord, String> ADMIN_RANK = createField(DSL.name("admin_rank"), SQLDataType.VARCHAR(32).nullable(false).defaultValue(DSL.inline("'Administrator'", SQLDataType.VARCHAR)), this, "");
+    public final TableField<AdminRecord, String> DISPLAY_RANK = createField(DSL.name("display_rank"), SQLDataType.VARCHAR(32).defaultValue(DSL.inline("NULL", SQLDataType.VARCHAR)), this, "");
 
     /**
-     * The column <code>paradise_gamedb.admin.level</code>.
+     * The column <code>paradise_gamedb.admin.permissions_rank</code>. Foreign
+     * key for admin_ranks.id
      */
-    public final TableField<AdminRecord, Integer> LEVEL = createField(DSL.name("level"), SQLDataType.INTEGER.nullable(false).defaultValue(DSL.inline("0", SQLDataType.INTEGER)), this, "");
+    public final TableField<AdminRecord, Integer> PERMISSIONS_RANK = createField(DSL.name("permissions_rank"), SQLDataType.INTEGER.defaultValue(DSL.inline("NULL", SQLDataType.INTEGER)), this, "Foreign key for admin_ranks.id");
 
     /**
-     * The column <code>paradise_gamedb.admin.flags</code>.
+     * The column <code>paradise_gamedb.admin.extra_permissions</code>.
      */
-    public final TableField<AdminRecord, Integer> FLAGS = createField(DSL.name("flags"), SQLDataType.INTEGER.nullable(false).defaultValue(DSL.inline("0", SQLDataType.INTEGER)), this, "");
+    public final TableField<AdminRecord, Integer> EXTRA_PERMISSIONS = createField(DSL.name("extra_permissions"), SQLDataType.INTEGER.nullable(false).defaultValue(DSL.inline("0", SQLDataType.INTEGER)), this, "");
+
+    /**
+     * The column <code>paradise_gamedb.admin.removed_permissions</code>.
+     */
+    public final TableField<AdminRecord, Integer> REMOVED_PERMISSIONS = createField(DSL.name("removed_permissions"), SQLDataType.INTEGER.nullable(false).defaultValue(DSL.inline("0", SQLDataType.INTEGER)), this, "");
 
     private Admin(Name alias, Table<AdminRecord> aliased) {
         this(alias, aliased, null);
@@ -155,11 +161,11 @@ public class Admin extends TableImpl<AdminRecord> {
     }
 
     // -------------------------------------------------------------------------
-    // Row5 type methods
+    // Row6 type methods
     // -------------------------------------------------------------------------
 
     @Override
-    public Row5<Integer, String, String, Integer, Integer> fieldsRow() {
-        return (Row5) super.fieldsRow();
+    public Row6<Integer, String, String, Integer, Integer, Integer> fieldsRow() {
+        return (Row6) super.fieldsRow();
     }
 }

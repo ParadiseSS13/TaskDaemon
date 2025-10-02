@@ -6,6 +6,7 @@ package me.aa07.paradise.taskdaemon.database.gamedb;
 
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.Admin;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.AdminLog;
+import me.aa07.paradise.taskdaemon.database.gamedb.tables.AdminRanks;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.Ban;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.Changelog;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.Characters;
@@ -54,6 +55,11 @@ public class Tables {
      * The table <code>paradise_gamedb.admin_log</code>.
      */
     public static final AdminLog ADMIN_LOG = AdminLog.ADMIN_LOG;
+
+    /**
+     * The table <code>paradise_gamedb.admin_ranks</code>.
+     */
+    public static final AdminRanks ADMIN_RANKS = AdminRanks.ADMIN_RANKS;
 
     /**
      * The table <code>paradise_gamedb.ban</code>.
