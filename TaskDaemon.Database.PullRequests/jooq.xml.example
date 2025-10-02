@@ -12,12 +12,12 @@
 
         <database>
             <name>org.jooq.meta.mysql.MySQLDatabase</name>
-            <inputSchema>aa07_pr_voting</inputSchema>
+            <inputSchema>paradise_profilerdaemon</inputSchema>
             <includes>.*</includes>
         </database>
 
         <target>
-            <packageName>me.aa07.paradise.taskdaemon.database.pullrequests</packageName>
+            <packageName>me.aa07.paradise.taskdaemon.database.profiler</packageName>
             <directory>src</directory>
         </target>
     </generator>

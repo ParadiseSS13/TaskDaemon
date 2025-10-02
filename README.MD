@@ -22,6 +22,7 @@ Removes entries from a HAproxy ACL via its socket interface in order for inactiv
 Restarts our "bouncer" server every day. This is the thing that does 2FA, server queue, and region redirection.
 
 ### Dev Rank
+
 Adds or removes members from development rank when changes are made. Performed hourly.
 
 ### IP2ASN
@@ -41,8 +42,11 @@ Just wipes rows older than 7 days out the profiler table.
 ## Provided Projects
 
 - `TaskDaemon.Core` - Core application which handles running tasks.
+- `TaskDaemon.Database.Forums` - Database project automatically generated with JOOQ for the `paradise_forums` database.
 - `TaskDaemon.Database.GameDb` - Database project automatically generated with JOOQ for the `paradise_gamedb` database.
 - `TaskDaemon.Database.Profiler` - Database project automatically generated with JOOQ for the `paradise_profiler` database.
+- `TaskDaemon.Database.PullRequests` - Database project automatically generated with JOOQ for the `aa07_pr_voting` database.
+  - No I will not apologise for that DB name.
 
 Use `mvn package -P update-db` to update DB projects.
 

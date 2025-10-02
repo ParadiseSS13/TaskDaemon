@@ -20,6 +20,7 @@
         <module>TaskDaemon.Database.Forums</module>
         <module>TaskDaemon.Database.GameDb</module>
         <module>TaskDaemon.Database.Profiler</module>
+        <module>TaskDaemon.Database.PullRequests</module>
     </modules>
 
     <dependencyManagement>
