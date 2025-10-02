@@ -28,6 +28,11 @@
             <version>dev-SNAPSHOT</version>
         </dependency>
         <dependency>
+            <groupId>me.aa07.paradise</groupId>
+            <artifactId>taskdaemon-database-pullrequests</artifactId>
+            <version>dev-SNAPSHOT</version>
+        </dependency>
+        <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
         </dependency>
@@ -54,6 +59,10 @@
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-slf4j2-impl</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.kohsuke</groupId>
+            <artifactId>github-api</artifactId>
         </dependency>
     </dependencies>
 

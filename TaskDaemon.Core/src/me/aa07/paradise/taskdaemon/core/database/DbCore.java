@@ -54,6 +54,7 @@ public class DbCore {
         db_types.put(DatabaseType.Forums, config.forumsDatabase);
         db_types.put(DatabaseType.GameDb, config.gameDatabase);
         db_types.put(DatabaseType.ProfilerDb, config.profilerDatabase);
+        db_types.put(DatabaseType.PullRequests, config.pullRequestsDatabase);
 
         for (DatabaseType dbtype : db_types.keySet()) {
             DatabaseConfig cfg = db_types.get(dbtype);

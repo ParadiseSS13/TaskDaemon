@@ -9,6 +9,7 @@ import me.aa07.paradise.taskdaemon.core.modules.aclcleanup.AclCleanupJob;
 import me.aa07.paradise.taskdaemon.core.modules.bouncerrestart.BouncerRestartJob;
 import me.aa07.paradise.taskdaemon.core.modules.devrank.DevRankJob;
 import me.aa07.paradise.taskdaemon.core.modules.ip2asn.Ip2AsnJob;
+import me.aa07.paradise.taskdaemon.core.modules.prlabel.PrLabelJob;
 import me.aa07.paradise.taskdaemon.core.modules.profilercleanup.ProfilerCleanupJob;
 import me.aa07.paradise.taskdaemon.core.modules.profileringest.ProfilerWorker;
 import me.aa07.paradise.taskdaemon.core.redis.RedisManager;
@@ -153,12 +154,28 @@ public class Core {
             .withSchedule(CronScheduleBuilder.cronSchedule("0 0 8 * * ?")) // Every day - 8AM
             .build();
 
+        // PR Label bot
+        JobDataMap jdm_pullrequests = new JobDataMap();
+        jdm_pullrequests.put("LOGGER", logger);
+        jdm_pullrequests.put("DBCORE", dbCore);
+        jdm_pullrequests.put("TGSCFG", config.tgs);
+        jdm_pullrequests.put("GITHUBCFG", config.github);
+        JobDetail jd_pullrequests = JobBuilder.newJob(PrLabelJob.class)
+                .withIdentity("pullrequests", "pullrequests")
+                .usingJobData(jdm_pullrequests)
+                .build();
+        CronTrigger ct_pullrequests = TriggerBuilder.newTrigger()
+                .withIdentity("pullrequests", "pullrequests")
+                .withSchedule(CronScheduleBuilder.cronSchedule("0 0 * * * ?")) // Every hour
+                .build();
+
         // Schedule all
         scheduler.scheduleJob(jd_aclcleanup, ct_aclcleanup);
         scheduler.scheduleJob(jd_bouncerrestart, ct_bouncerrestart);
         scheduler.scheduleJob(jd_devrank, ct_devrank);
         scheduler.scheduleJob(jd_ip2asn, ct_ip2asn);
         scheduler.scheduleJob(jd_profilercleanup, ct_profilercleanup);
+        scheduler.scheduleJob(jd_pullrequests, ct_pullrequests);
     }
 
     private void launchAll() {

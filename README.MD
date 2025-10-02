@@ -12,6 +12,7 @@ It handles:
 - IP2ASN
 - Profiler Daemon Ingest
 - Profiler DB Cleanup
+- PR Label Bot
 
 ### ACL Cleanup
 
@@ -39,6 +40,10 @@ This project itself does not provide a data extraction method, but that can be f
 
 Just wipes rows older than 7 days out the profiler table.
 
+### PR Label Bot
+
+Handles labelling PRs on the GitHub based on TM status, assigned type, votes and other stuff.
+
 ## Provided Projects
 
 - `TaskDaemon.Core` - Core application which handles running tasks.
@@ -58,7 +63,7 @@ To build, run `mvn package` to generate the JAR file. This will then appear in t
 
 1. Compile the codebase (See `Building`).
 2. Copy the jar and the example `config.toml` in the repository root to a running location.
-3. Import the `schemas/profiler_schema.sql` schema to your database server.
+3. Import the relevant schemas from the `schemas` dir to your database server.
 4. Setup the configuration as per section labels.
 5. Start the application up, it will now run tasks in the background.
 
