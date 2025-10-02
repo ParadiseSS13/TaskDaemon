@@ -2,7 +2,7 @@
 <configuration xmlns="http://www.jooq.org/xsd/jooq-codegen-3.14.0.xsd">
     <jdbc>
         <driver>com.mysql.cj.jdbc.Driver</driver>
-        <url>jdbc:mysql://172.16.0.200:3306/paradise_profilerdaemon</url>
+        <url>jdbc:mysql://172.16.0.200:3306/aa07_pr_voting</url>
         <user>username_here</user>
         <password>password_here</password>
     </jdbc>
@@ -12,12 +12,12 @@
 
         <database>
             <name>org.jooq.meta.mysql.MySQLDatabase</name>
-            <inputSchema>paradise_profilerdaemon</inputSchema>
+            <inputSchema>aa07_pr_voting</inputSchema>
             <includes>.*</includes>
         </database>
 
         <target>
-            <packageName>me.aa07.paradise.taskdaemon.database.profiler</packageName>
+            <packageName>me.aa07.paradise.taskdaemon.database.pullrequests</packageName>
             <directory>src</directory>
         </target>
     </generator>
