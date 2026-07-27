@@ -85,7 +85,7 @@ public class BouncerRestartJob implements Job {
                     .method("PATCH", HttpRequest.BodyPublishers.noBody())
                     .setHeader("Accept", "application/json")
                     .setHeader("Content-Type", "application/json")
-                    .setHeader("Instance", "2")
+                    .setHeader("Instance", String.valueOf(tgs_cfg.instanceId))
                     .setHeader("Api", "Tgstation.Server.Api/10.0.0")
                     .setHeader("Authorization", String.format("Bearer %s", tokres.bearer)).build();
 

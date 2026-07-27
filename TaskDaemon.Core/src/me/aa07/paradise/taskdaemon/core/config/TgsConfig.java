@@ -4,4 +4,5 @@ public class TgsConfig {
     public String tgsHost;
     public String username;
     public String password;
+    public int instanceId;
 }
