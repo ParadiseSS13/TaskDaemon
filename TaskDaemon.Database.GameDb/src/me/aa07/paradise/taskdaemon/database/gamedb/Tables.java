@@ -8,6 +8,7 @@ import me.aa07.paradise.taskdaemon.database.gamedb.tables.Admin;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.AdminLog;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.AdminRanks;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.Ban;
+import me.aa07.paradise.taskdaemon.database.gamedb.tables.BugReports;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.Changelog;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.Characters;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.ConnectionLog;
@@ -65,6 +66,11 @@ public class Tables {
      * The table <code>paradise_gamedb.ban</code>.
      */
     public static final Ban BAN = Ban.BAN;
+
+    /**
+     * The table <code>paradise_gamedb.bug_reports</code>.
+     */
+    public static final BugReports BUG_REPORTS = BugReports.BUG_REPORTS;
 
     /**
      * The table <code>paradise_gamedb.changelog</code>.

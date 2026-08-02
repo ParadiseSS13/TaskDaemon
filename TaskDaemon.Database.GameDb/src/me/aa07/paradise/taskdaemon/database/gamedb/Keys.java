@@ -8,6 +8,7 @@ import me.aa07.paradise.taskdaemon.database.gamedb.tables.Admin;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.AdminLog;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.AdminRanks;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.Ban;
+import me.aa07.paradise.taskdaemon.database.gamedb.tables.BugReports;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.Changelog;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.Characters;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.ConnectionLog;
@@ -37,6 +38,7 @@ import me.aa07.paradise.taskdaemon.database.gamedb.tables.records.AdminLogRecord
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.records.AdminRanksRecord;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.records.AdminRecord;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.records.BanRecord;
+import me.aa07.paradise.taskdaemon.database.gamedb.tables.records.BugReportsRecord;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.records.ChangelogRecord;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.records.CharactersRecord;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.records.ConnectionLogRecord;
@@ -85,6 +87,7 @@ public class Keys {
     public static final UniqueKey<AdminLogRecord> KEY_ADMIN_LOG_PRIMARY = Internal.createUniqueKey(AdminLog.ADMIN_LOG, DSL.name("KEY_admin_log_PRIMARY"), new TableField[] { AdminLog.ADMIN_LOG.ID }, true);
     public static final UniqueKey<AdminRanksRecord> KEY_ADMIN_RANKS_PRIMARY = Internal.createUniqueKey(AdminRanks.ADMIN_RANKS, DSL.name("KEY_admin_ranks_PRIMARY"), new TableField[] { AdminRanks.ADMIN_RANKS.ID }, true);
     public static final UniqueKey<BanRecord> KEY_BAN_PRIMARY = Internal.createUniqueKey(Ban.BAN, DSL.name("KEY_ban_PRIMARY"), new TableField[] { Ban.BAN.ID }, true);
+    public static final UniqueKey<BugReportsRecord> KEY_BUG_REPORTS_PRIMARY = Internal.createUniqueKey(BugReports.BUG_REPORTS, DSL.name("KEY_bug_reports_PRIMARY"), new TableField[] { BugReports.BUG_REPORTS.ID }, true);
     public static final UniqueKey<ChangelogRecord> KEY_CHANGELOG_PRIMARY = Internal.createUniqueKey(Changelog.CHANGELOG, DSL.name("KEY_changelog_PRIMARY"), new TableField[] { Changelog.CHANGELOG.ID }, true);
     public static final UniqueKey<CharactersRecord> KEY_CHARACTERS_PRIMARY = Internal.createUniqueKey(Characters.CHARACTERS, DSL.name("KEY_characters_PRIMARY"), new TableField[] { Characters.CHARACTERS.ID }, true);
     public static final UniqueKey<ConnectionLogRecord> KEY_CONNECTION_LOG_PRIMARY = Internal.createUniqueKey(ConnectionLog.CONNECTION_LOG, DSL.name("KEY_connection_log_PRIMARY"), new TableField[] { ConnectionLog.CONNECTION_LOG.ID }, true);

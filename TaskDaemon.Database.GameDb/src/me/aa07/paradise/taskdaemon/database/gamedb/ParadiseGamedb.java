@@ -11,6 +11,7 @@ import me.aa07.paradise.taskdaemon.database.gamedb.tables.Admin;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.AdminLog;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.AdminRanks;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.Ban;
+import me.aa07.paradise.taskdaemon.database.gamedb.tables.BugReports;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.Changelog;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.Characters;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.ConnectionLog;
@@ -79,6 +80,11 @@ public class ParadiseGamedb extends SchemaImpl {
      * The table <code>paradise_gamedb.ban</code>.
      */
     public final Ban BAN = Ban.BAN;
+
+    /**
+     * The table <code>paradise_gamedb.bug_reports</code>.
+     */
+    public final BugReports BUG_REPORTS = BugReports.BUG_REPORTS;
 
     /**
      * The table <code>paradise_gamedb.changelog</code>.
@@ -221,6 +227,7 @@ public class ParadiseGamedb extends SchemaImpl {
             AdminLog.ADMIN_LOG,
             AdminRanks.ADMIN_RANKS,
             Ban.BAN,
+            BugReports.BUG_REPORTS,
             Changelog.CHANGELOG,
             Characters.CHARACTERS,
             ConnectionLog.CONNECTION_LOG,
