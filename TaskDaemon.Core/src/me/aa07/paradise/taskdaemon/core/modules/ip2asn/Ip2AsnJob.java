@@ -137,8 +137,11 @@ public class Ip2AsnJob implements Job {
         for (String ip : ips_to_get) {
             try {
                 // Get our AS - probably a more elegant way to do this but meh
-                HttpRequest httpreq = HttpRequest.newBuilder().uri(new URI(String.format("%s%s", config.host, ip)))
-                        .GET().build();
+                HttpRequest httpreq = HttpRequest.newBuilder()
+                    .uri(new URI(String.format("%s%s", config.host, ip)))
+                    .GET()
+                    .header("Accept", "application/json")
+                    .build();
 
                 // Send the request off
                 HttpResponse<String> response = client.send(httpreq, BodyHandlers.ofString());
