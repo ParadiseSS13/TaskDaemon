@@ -16,6 +16,7 @@ import org.apache.logging.log4j.Logger;
 import org.jooq.DSLContext;
 import org.jooq.Record;
 import org.jooq.Result;
+import org.jooq.SQLDialect;
 import org.quartz.DisallowConcurrentExecution;
 import org.quartz.Job;
 import org.quartz.JobDataMap;
@@ -48,8 +49,8 @@ public class DevRankJob implements Job {
         logger.info("[DevRank] Starting dev rank sync");
 
         try {
-            DSLContext forums_db = dbcore.jooq(DatabaseType.Forums);
-            DSLContext game_db = dbcore.jooq(DatabaseType.GameDb);
+            DSLContext forums_db = dbcore.jooq(DatabaseType.Forums, SQLDialect.MYSQL);
+            DSLContext game_db = dbcore.jooq(DatabaseType.GameDb, SQLDialect.MYSQL);
 
             // Collect all dev team ckeys from forums database
             List<String> dev_team_ckeys = new ArrayList<>();

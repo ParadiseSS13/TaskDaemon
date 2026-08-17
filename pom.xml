@@ -17,6 +17,7 @@
 
     <modules>
         <module>TaskDaemon.Core</module>
+        <module>TaskDaemon.Database.Authentik</module>
         <module>TaskDaemon.Database.Forums</module>
         <module>TaskDaemon.Database.GameDb</module>
         <module>TaskDaemon.Database.Profiler</module>
@@ -84,6 +85,12 @@
                 <groupId>org.kohsuke</groupId>
                 <artifactId>github-api</artifactId>
                 <version>2.0-rc.5</version>
+            </dependency>
+            <!-- Postgres Client -->
+            <dependency>
+                <groupId>org.postgresql</groupId>
+                <artifactId>postgresql</artifactId>
+                <version>42.7.13</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

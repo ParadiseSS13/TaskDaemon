@@ -20,6 +20,7 @@ import org.jooq.DSLContext;
 import org.jooq.Record2;
 import org.jooq.Record4;
 import org.jooq.Result;
+import org.jooq.SQLDialect;
 import org.jooq.impl.DSL;
 import org.kohsuke.github.GHIssueState;
 import org.kohsuke.github.GHLabel;
@@ -103,7 +104,7 @@ public class PrLabelJob implements Job {
         // Initial setup is done - lets now load the important bits
 
         // Get this now - we need it
-        DSLContext ctx = dbcore.jooq(DatabaseType.PullRequests);
+        DSLContext ctx = dbcore.jooq(DatabaseType.PullRequests, SQLDialect.MYSQL);
 
         // Dictionary that holds all this in a nice lookup
         HashMap<Integer, PullRequest> prs = new HashMap<Integer, PullRequest>();

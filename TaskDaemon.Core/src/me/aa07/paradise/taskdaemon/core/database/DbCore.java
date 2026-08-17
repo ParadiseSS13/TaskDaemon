@@ -29,7 +29,7 @@ public class DbCore {
         logger.info("Ready to handle DB requests");
     }
 
-    private DataSource openDataSource(String url, String username, String password) {
+    private DataSource openMySqlDataSource(String url, String username, String password) {
         BasicDataSource source = new BasicDataSource();
         source.addConnectionProperty("autoReconnect", "true");
         source.addConnectionProperty("allowMultiQueries", "true");
@@ -48,29 +48,51 @@ public class DbCore {
         return source;
     }
 
+    private DataSource openPostgresDataSource(String url, String username, String password) {
+        BasicDataSource source = new BasicDataSource();
+        source.addConnectionProperty("autoReconnect", "true");
+        source.addConnectionProperty("allowMultiQueries", "true");
+        source.addConnectionProperty("zeroDateTimeBehavior", "convertToNull");
+        source.addConnectionProperty("connectionTimeZone", "UTC");
+        source.setDefaultTransactionIsolation(Connection.TRANSACTION_READ_COMMITTED);
+        source.setDriverClassName("org.postgresql.Driver");
+        source.setUrl(url);
+        source.setUsername(username);
+        source.setPassword(password);
+        source.setMaxTotal(8);
+        source.setMaxIdle(8);
+        source.setTimeBetweenEvictionRunsMillis(180 * 1000);
+        source.setSoftMinEvictableIdleTimeMillis(180 * 1000);
+
+        return source;
+    }
+
     private void establishConnections(ConfigHolder config) {
-        HashMap<DatabaseType, DatabaseConfig> db_types = new HashMap<DatabaseType, DatabaseConfig>();
+        HashMap<DatabaseType, DatabaseConfig> mysql_db_types = new HashMap<DatabaseType, DatabaseConfig>();
 
-        db_types.put(DatabaseType.Forums, config.forumsDatabase);
-        db_types.put(DatabaseType.GameDb, config.gameDatabase);
-        db_types.put(DatabaseType.ProfilerDb, config.profilerDatabase);
-        db_types.put(DatabaseType.PullRequests, config.pullRequestsDatabase);
+        mysql_db_types.put(DatabaseType.Forums, config.forumsDatabase);
+        mysql_db_types.put(DatabaseType.GameDb, config.gameDatabase);
+        mysql_db_types.put(DatabaseType.ProfilerDb, config.profilerDatabase);
+        mysql_db_types.put(DatabaseType.PullRequests, config.pullRequestsDatabase);
 
-        for (DatabaseType dbtype : db_types.keySet()) {
-            DatabaseConfig cfg = db_types.get(dbtype);
-            DataSource ds = openDataSource(String.format("jdbc:mysql://%s/%s", cfg.host, cfg.database), cfg.username, cfg.password);
+        for (DatabaseType dbtype : mysql_db_types.keySet()) {
+            DatabaseConfig cfg = mysql_db_types.get(dbtype);
+            DataSource ds = openMySqlDataSource(String.format("jdbc:mysql://%s/%s", cfg.host, cfg.database), cfg.username, cfg.password);
             connectionMap.put(dbtype, ds);
         }
 
+        // And do special stuff for Postgres
+        DatabaseConfig adb = config.authentikDatabase;
+        connectionMap.put(DatabaseType.Authentik, openPostgresDataSource(String.format("jdbc:postgresql://%s/%s", adb.host, adb.database), adb.username, adb.password));
     }
 
     // Get a DSL context
-    public DSLContext jooq(DatabaseType type) {
+    public DSLContext jooq(DatabaseType type, SQLDialect dialect) {
         if (!connectionMap.containsKey(type)) {
             throw new NoDataFoundException("Supplied type key not present in connection map");
         }
 
-        return DSL.using(connectionMap.get(type), SQLDialect.MYSQL);
+        return DSL.using(connectionMap.get(type), dialect);
     }
 
     // Easy way for NOW() in SQL

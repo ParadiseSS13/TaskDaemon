@@ -11,6 +11,7 @@ import me.aa07.paradise.taskdaemon.database.profiler.tables.records.SendmapsProc
 import me.aa07.paradise.taskdaemon.database.profiler.tables.records.SendmapsSamplesRecord;
 import org.apache.logging.log4j.Logger;
 import org.jooq.DSLContext;
+import org.jooq.SQLDialect;
 
 public class ProfilerSendmapsProcessor extends ProfilerBaseProcessor {
     public ProfilerSendmapsProcessor(DbCore database, Logger logger) {
@@ -25,9 +26,11 @@ public class ProfilerSendmapsProcessor extends ProfilerBaseProcessor {
 
         log(String.format("Procs logged: %s", proc_list.size()));
 
+        DSLContext ctx = database.jooq(DatabaseType.ProfilerDb, SQLDialect.MYSQL);
+
         for (SendmapsProcData procdata : proc_list) {
             long proc_id = getProcId(procdata.name);
-            SendmapsSamplesRecord sr = database.jooq(DatabaseType.ProfilerDb).newRecord(Tables.SENDMAPS_SAMPLES);
+            SendmapsSamplesRecord sr = ctx.newRecord(Tables.SENDMAPS_SAMPLES);
             sr.setRoundid(holder.roundId);
             sr.setSampletime(database.now());
             sr.setProcid(proc_id);
@@ -39,7 +42,7 @@ public class ProfilerSendmapsProcessor extends ProfilerBaseProcessor {
 
     @Override
     protected long getProcId(String procname) {
-        DSLContext ctx = database.jooq(DatabaseType.ProfilerDb);
+        DSLContext ctx = database.jooq(DatabaseType.ProfilerDb, SQLDialect.MYSQL);
         if (!ctx.fetchExists(ctx.select(Tables.SENDMAPS_PROCS.ID).from(Tables.SENDMAPS_PROCS).where(Tables.SENDMAPS_PROCS.PROCPATH.eq(procname)))) {
             // We dont exist, make us
             log(String.format("%s did not exist in the DB. It does now.", procname));

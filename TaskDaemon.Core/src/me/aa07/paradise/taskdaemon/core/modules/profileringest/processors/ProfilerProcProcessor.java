@@ -11,6 +11,7 @@ import me.aa07.paradise.taskdaemon.database.profiler.tables.records.ProcsRecord;
 import me.aa07.paradise.taskdaemon.database.profiler.tables.records.SamplesRecord;
 import org.apache.logging.log4j.Logger;
 import org.jooq.DSLContext;
+import org.jooq.SQLDialect;
 
 public class ProfilerProcProcessor extends ProfilerBaseProcessor {
     public ProfilerProcProcessor(DbCore database, Logger logger) {
@@ -25,9 +26,11 @@ public class ProfilerProcProcessor extends ProfilerBaseProcessor {
 
         log(String.format("Procs logged: %s", proc_list.size()));
 
+        DSLContext jooq = database.jooq(DatabaseType.ProfilerDb, SQLDialect.MYSQL);
+
         for (ProcData procdata : proc_list) {
             long proc_id = getProcId(procdata.name);
-            SamplesRecord sr = database.jooq(DatabaseType.ProfilerDb).newRecord(Tables.SAMPLES);
+            SamplesRecord sr = jooq.newRecord(Tables.SAMPLES);
             sr.setRoundid(holder.roundId);
             sr.setSampletime(database.now());
             sr.setProcid(proc_id);
@@ -42,7 +45,7 @@ public class ProfilerProcProcessor extends ProfilerBaseProcessor {
 
     @Override
     protected long getProcId(String procname) {
-        DSLContext ctx = database.jooq(DatabaseType.ProfilerDb);
+        DSLContext ctx = database.jooq(DatabaseType.ProfilerDb, SQLDialect.MYSQL);
         if (!ctx.fetchExists(ctx.select(Tables.PROCS.ID).from(Tables.PROCS).where(Tables.PROCS.PROCPATH.eq(procname)))) {
             // We dont exist, make us
             log(String.format("%s did not exist in the DB. It does now.", procname));

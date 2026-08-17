@@ -1,6 +1,7 @@
 package me.aa07.paradise.taskdaemon.core.config;
 
 public class ConfigHolder {
+    public DatabaseConfig authentikDatabase;
     public DatabaseConfig forumsDatabase;
     public DatabaseConfig gameDatabase;
     public GithubConfig github;

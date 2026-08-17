@@ -19,6 +19,7 @@ import me.aa07.paradise.taskdaemon.database.gamedb.tables.records.Ip2groupRecord
 import org.apache.logging.log4j.Logger;
 import org.jooq.DSLContext;
 import org.jooq.Record1;
+import org.jooq.SQLDialect;
 import org.jooq.Select;
 import org.jooq.types.UInteger;
 import org.quartz.DisallowConcurrentExecution;
@@ -79,7 +80,7 @@ public class Ip2AsnJob implements Job {
 
         Ip2AsnSerivceConfig config = ip2asn_cfg_holder.get();
 
-        DSLContext ctx = dbcore.jooq(DatabaseType.GameDb);
+        DSLContext ctx = dbcore.jooq(DatabaseType.GameDb, SQLDialect.MYSQL);
 
         // So
         // JOOQ doesnt have INET_ATON, presumably because its a MySQL native
