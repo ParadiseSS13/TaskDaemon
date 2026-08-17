@@ -48,6 +48,8 @@ Handles labelling PRs on the GitHub based on TM status, assigned type, votes and
 
 - `TaskDaemon.Core` - Core application which handles running tasks.
 - `TaskDaemon.Database.Authentik` - Database project automatically generated with JOOQ for the `authentik` database.
+- `TaskDaemon.Database.Automation` - Database project automatically generated with JOOQ for the `aa07_automation` database.
+  - No I will not apologise for that DB name.
 - `TaskDaemon.Database.Forums` - Database project automatically generated with JOOQ for the `paradise_forums` database.
 - `TaskDaemon.Database.GameDb` - Database project automatically generated with JOOQ for the `paradise_gamedb` database.
 - `TaskDaemon.Database.Profiler` - Database project automatically generated with JOOQ for the `paradise_profiler` database.

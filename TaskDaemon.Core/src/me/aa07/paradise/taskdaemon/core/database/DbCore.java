@@ -70,6 +70,7 @@ public class DbCore {
     private void establishConnections(ConfigHolder config) {
         HashMap<DatabaseType, DatabaseConfig> mysql_db_types = new HashMap<DatabaseType, DatabaseConfig>();
 
+        mysql_db_types.put(DatabaseType.Automation, config.automationDatabase);
         mysql_db_types.put(DatabaseType.Forums, config.forumsDatabase);
         mysql_db_types.put(DatabaseType.GameDb, config.gameDatabase);
         mysql_db_types.put(DatabaseType.ProfilerDb, config.profilerDatabase);

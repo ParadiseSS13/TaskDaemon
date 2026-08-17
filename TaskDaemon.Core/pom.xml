@@ -19,6 +19,11 @@
         </dependency>
         <dependency>
             <groupId>me.aa07.paradise</groupId>
+            <artifactId>taskdaemon-database-automation</artifactId>
+            <version>dev-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>me.aa07.paradise</groupId>
             <artifactId>taskdaemon-database-forums</artifactId>
             <version>dev-SNAPSHOT</version>
         </dependency>

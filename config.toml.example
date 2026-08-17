@@ -6,6 +6,12 @@ username = "myuser"
 password = "mypassword"
 database = "authentik"
 
+[automationDatabase]
+host = "172.16.0.200"
+username = "myuser"
+password = "mypassword"
+database = "aa07_automation"
+
 [forumsDatabase]
 host = "172.16.0.200"
 username = "myuser"
