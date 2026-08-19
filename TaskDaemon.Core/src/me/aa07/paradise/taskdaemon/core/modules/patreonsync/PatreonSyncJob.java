@@ -421,6 +421,7 @@ public class PatreonSyncJob implements Job {
 
         Result<PatreonSupportersRecord> valid_records = automationJooq.selectFrom(Tables.PATREON_SUPPORTERS)
             .where(Tables.PATREON_SUPPORTERS.CKEY.isNotNull())
+            .and(Tables.PATREON_SUPPORTERS.DONATION_TIER.ge(2)) // Tier 2 or higher to appear ingame
             .fetch();
 
         logger.info(String.format("[PatreonSync] Loaded %s records to update in the Game DB", valid_records.size()));
@@ -459,6 +460,8 @@ public class PatreonSyncJob implements Job {
                 dr2.setEndDate(null);
                 dr2.setActive((byte) 0x01);
 
+                dr2.store();
+
                 insert_count++;
             } else {
                 // Existing record - update
@@ -467,6 +470,8 @@ public class PatreonSyncJob implements Job {
                 dr.setStartDate(null);
                 dr.setEndDate(null);
                 dr.setActive((byte) 0x01);
+
+                dr.store();
 
                 update_count++;
             }
