@@ -28,7 +28,7 @@ database = "paradise_profilerdaemon"
 githubToken = "your token here"
 repoId = 123456
 orgName = "ParadiseSS13"
-reviewTeamName = "review-team" # Team name but with the dashes like "review-team" not "Review Team"
+reviewTeamSlug = "review-team" # Team name but with the dashes like "review-team" not "Review Team"
 reviewTeamToken = "your token here" # Review team gets a separate token because it needs org admin to get team members
 
 [ip2asn]
