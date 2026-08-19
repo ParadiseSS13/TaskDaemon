@@ -10,6 +10,7 @@ It handles:
 - Bouncer Restart
 - Dev Rank Handling
 - IP2ASN
+- Patreon Sync
 - Profiler Daemon Ingest
 - Profiler DB Cleanup
 - PR Label Bot
@@ -35,6 +36,10 @@ Caches ASNs for IP addresses of recent players.
 This takes BYOND Profiler results and split them apart to be indexed at a later date, allowing multiple procs from multiple rounds to easily be visualised alongside eachother over time. An example SS13 codebase implementation can be found at <https://github.com/ParadiseSS13/Paradise/pull/17459>.
 
 This project itself does not provide a data extraction method, but that can be found at <https://github.com/ParadiseSS13/ParadisePublicAPI>.
+
+### Patreon Sync
+
+Pulls data from Patreon to store in a DB. This is then used for Discord role sync, and ingame perk granting.
 
 ### Profiler DB Cleanup
 

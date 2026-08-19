@@ -4,14 +4,17 @@
 package me.aa07.paradise.taskdaemon.database.automation.tables;
 
 
-import java.math.BigDecimal;
+import java.util.Arrays;
+import java.util.List;
 
 import me.aa07.paradise.taskdaemon.database.automation.Aa07Automation;
+import me.aa07.paradise.taskdaemon.database.automation.Indexes;
 import me.aa07.paradise.taskdaemon.database.automation.Keys;
 import me.aa07.paradise.taskdaemon.database.automation.tables.records.PatreonSupportersRecord;
 
 import org.jooq.Field;
 import org.jooq.ForeignKey;
+import org.jooq.Index;
 import org.jooq.Name;
 import org.jooq.Record;
 import org.jooq.Row6;
@@ -54,12 +57,12 @@ public class PatreonSupporters extends TableImpl<PatreonSupportersRecord> {
     /**
      * The column <code>aa07_automation.patreon_supporters.donation_tier</code>.
      */
-    public final TableField<PatreonSupportersRecord, String> DONATION_TIER = createField(DSL.name("donation_tier"), SQLDataType.VARCHAR(64).nullable(false), this, "");
+    public final TableField<PatreonSupportersRecord, Integer> DONATION_TIER = createField(DSL.name("donation_tier"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
-     * The column <code>aa07_automation.patreon_supporters.amount_usd</code>.
+     * The column <code>aa07_automation.patreon_supporters.amount_cents</code>.
      */
-    public final TableField<PatreonSupportersRecord, BigDecimal> AMOUNT_USD = createField(DSL.name("amount_usd"), SQLDataType.DECIMAL(20, 6).nullable(false), this, "");
+    public final TableField<PatreonSupportersRecord, Integer> AMOUNT_CENTS = createField(DSL.name("amount_cents"), SQLDataType.INTEGER.nullable(false), this, "");
 
     /**
      * The column <code>aa07_automation.patreon_supporters.authentik_id</code>.
@@ -117,6 +120,11 @@ public class PatreonSupporters extends TableImpl<PatreonSupportersRecord> {
     }
 
     @Override
+    public List<Index> getIndexes() {
+        return Arrays.asList(Indexes.PATREON_SUPPORTERS_CKEY);
+    }
+
+    @Override
     public UniqueKey<PatreonSupportersRecord> getPrimaryKey() {
         return Keys.KEY_PATREON_SUPPORTERS_PRIMARY;
     }
@@ -152,7 +160,7 @@ public class PatreonSupporters extends TableImpl<PatreonSupportersRecord> {
     // -------------------------------------------------------------------------
 
     @Override
-    public Row6<Integer, String, BigDecimal, Integer, Long, String> fieldsRow() {
+    public Row6<Integer, Integer, Integer, Integer, Long, String> fieldsRow() {
         return (Row6) super.fieldsRow();
     }
 }

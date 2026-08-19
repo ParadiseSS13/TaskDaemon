@@ -7,6 +7,7 @@ public class ConfigHolder {
     public DatabaseConfig gameDatabase;
     public GithubConfig github;
     public Ip2AsnSerivceConfig ip2asn;
+    public PatreonConfig patreon;
     public PfsenseConfig pfsense;
     public DatabaseConfig profilerDatabase;
     public DatabaseConfig pullRequestsDatabase;

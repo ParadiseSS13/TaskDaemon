@@ -34,6 +34,10 @@ reviewTeamToken = "your token here" # Review team gets a separate token because 
 [ip2asn]
 host = "http://127.0.0.1:53661/v1/as/ip/" # Fill out URL - IP will be appended at the end
 
+[patreon]
+campaignId = 123
+creatorToken = "token goes here"
+
 [pfsense]
 host = "127.0.0.1"
 port = 1234

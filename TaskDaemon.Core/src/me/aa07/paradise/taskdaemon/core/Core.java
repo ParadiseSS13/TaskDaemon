@@ -2,6 +2,7 @@ package me.aa07.paradise.taskdaemon.core;
 
 import com.moandjiezana.toml.Toml;
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Optional;
 import me.aa07.paradise.taskdaemon.core.config.ConfigHolder;
 import me.aa07.paradise.taskdaemon.core.database.DbCore;
@@ -9,6 +10,7 @@ import me.aa07.paradise.taskdaemon.core.modules.aclcleanup.AclCleanupJob;
 import me.aa07.paradise.taskdaemon.core.modules.bouncerrestart.BouncerRestartJob;
 import me.aa07.paradise.taskdaemon.core.modules.devrank.DevRankJob;
 import me.aa07.paradise.taskdaemon.core.modules.ip2asn.Ip2AsnJob;
+import me.aa07.paradise.taskdaemon.core.modules.patreonsync.PatreonSyncJob;
 import me.aa07.paradise.taskdaemon.core.modules.prlabel.PrLabelJob;
 import me.aa07.paradise.taskdaemon.core.modules.profilercleanup.ProfilerCleanupJob;
 import me.aa07.paradise.taskdaemon.core.modules.profileringest.ProfilerWorker;
@@ -166,8 +168,45 @@ public class Core {
                 .build();
         CronTrigger ct_pullrequests = TriggerBuilder.newTrigger()
                 .withIdentity("pullrequests", "pullrequests")
-                .withSchedule(CronScheduleBuilder.cronSchedule("0 0 * * * ?")) // Every hour
+                .withSchedule(CronScheduleBuilder.cronSchedule("0 10 * * * ?")) // Every hour, offset 10 minutes
                 .build();
+
+        // Patreon Sync
+        JobDataMap jdm_patreonsync = new JobDataMap();
+        jdm_patreonsync.put("LOGGER", logger);
+        jdm_patreonsync.put("DBCORE", dbCore);
+        jdm_patreonsync.put("PTRCFG", config.patreon);
+        JobDetail jd_patreonsync = JobBuilder.newJob(PatreonSyncJob.class)
+                .withIdentity("patreonsync", "patreonsync")
+                .usingJobData(jdm_patreonsync)
+                .build();
+        CronTrigger ct_patreonsync = TriggerBuilder.newTrigger()
+                .withIdentity("patreonsync", "patreonsync")
+                .withSchedule(CronScheduleBuilder.cronSchedule("0 15 * * * ?")) // Every hour, offset 15 minutes
+                .build();
+
+        // Lists that exist just to make sure these things show as recognised
+        ArrayList<JobDetail> bin1 = new ArrayList<JobDetail>();
+        bin1.add(jd_aclcleanup);
+        bin1.add(jd_bouncerrestart);
+        bin1.add(jd_devrank);
+        bin1.add(jd_ip2asn);
+        bin1.add(jd_profilercleanup);
+        bin1.add(jd_pullrequests);
+        bin1.add(jd_patreonsync);
+        ArrayList<CronTrigger> bin2 = new ArrayList<CronTrigger>();
+        bin2.add(ct_aclcleanup);
+        bin2.add(ct_bouncerrestart);
+        bin2.add(ct_devrank);
+        bin2.add(ct_ip2asn);
+        bin2.add(ct_profilercleanup);
+        bin2.add(ct_pullrequests);
+        bin2.add(ct_patreonsync);
+
+        // Is this necessary? Prolly not!
+        bin1.clear();
+        bin2.clear();
+
 
         // Schedule all
         scheduler.scheduleJob(jd_aclcleanup, ct_aclcleanup);
@@ -176,6 +215,7 @@ public class Core {
         scheduler.scheduleJob(jd_ip2asn, ct_ip2asn);
         scheduler.scheduleJob(jd_profilercleanup, ct_profilercleanup);
         scheduler.scheduleJob(jd_pullrequests, ct_pullrequests);
+        scheduler.scheduleJob(jd_patreonsync, ct_patreonsync);
     }
 
     private void launchAll() {

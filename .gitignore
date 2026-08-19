@@ -7,3 +7,4 @@ out
 dependency-reduced-pom.xml
 jooq.xml
 config.toml
+patreon_debug_response.json
