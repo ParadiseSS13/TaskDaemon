@@ -14,6 +14,7 @@ import me.aa07.paradise.taskdaemon.database.automation.tables.Images;
 import me.aa07.paradise.taskdaemon.database.automation.tables.MemberCache;
 import me.aa07.paradise.taskdaemon.database.automation.tables.PatreonSupporters;
 import me.aa07.paradise.taskdaemon.database.automation.tables.ShortUrls;
+import me.aa07.paradise.taskdaemon.database.automation.tables.TaskQueue;
 
 import org.jooq.Catalog;
 import org.jooq.Table;
@@ -69,6 +70,11 @@ public class Aa07Automation extends SchemaImpl {
     public final ShortUrls SHORT_URLS = ShortUrls.SHORT_URLS;
 
     /**
+     * The table <code>aa07_automation.task_queue</code>.
+     */
+    public final TaskQueue TASK_QUEUE = TaskQueue.TASK_QUEUE;
+
+    /**
      * No further instances allowed
      */
     private Aa07Automation() {
@@ -90,7 +96,8 @@ public class Aa07Automation extends SchemaImpl {
             Images.IMAGES,
             MemberCache.MEMBER_CACHE,
             PatreonSupporters.PATREON_SUPPORTERS,
-            ShortUrls.SHORT_URLS
+            ShortUrls.SHORT_URLS,
+            TaskQueue.TASK_QUEUE
         );
     }
 }

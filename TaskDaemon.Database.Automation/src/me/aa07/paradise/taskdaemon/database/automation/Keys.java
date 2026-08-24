@@ -11,6 +11,7 @@ import me.aa07.paradise.taskdaemon.database.automation.tables.Images;
 import me.aa07.paradise.taskdaemon.database.automation.tables.MemberCache;
 import me.aa07.paradise.taskdaemon.database.automation.tables.PatreonSupporters;
 import me.aa07.paradise.taskdaemon.database.automation.tables.ShortUrls;
+import me.aa07.paradise.taskdaemon.database.automation.tables.TaskQueue;
 import me.aa07.paradise.taskdaemon.database.automation.tables.records.AdminPhpLogRecord;
 import me.aa07.paradise.taskdaemon.database.automation.tables.records.AvailabilityRecord;
 import me.aa07.paradise.taskdaemon.database.automation.tables.records.GithubLinksRecord;
@@ -18,6 +19,7 @@ import me.aa07.paradise.taskdaemon.database.automation.tables.records.ImagesReco
 import me.aa07.paradise.taskdaemon.database.automation.tables.records.MemberCacheRecord;
 import me.aa07.paradise.taskdaemon.database.automation.tables.records.PatreonSupportersRecord;
 import me.aa07.paradise.taskdaemon.database.automation.tables.records.ShortUrlsRecord;
+import me.aa07.paradise.taskdaemon.database.automation.tables.records.TaskQueueRecord;
 
 import org.jooq.TableField;
 import org.jooq.UniqueKey;
@@ -44,4 +46,5 @@ public class Keys {
     public static final UniqueKey<MemberCacheRecord> KEY_MEMBER_CACHE_PRIMARY = Internal.createUniqueKey(MemberCache.MEMBER_CACHE, DSL.name("KEY_member_cache_PRIMARY"), new TableField[] { MemberCache.MEMBER_CACHE.FUID }, true);
     public static final UniqueKey<PatreonSupportersRecord> KEY_PATREON_SUPPORTERS_PRIMARY = Internal.createUniqueKey(PatreonSupporters.PATREON_SUPPORTERS, DSL.name("KEY_patreon_supporters_PRIMARY"), new TableField[] { PatreonSupporters.PATREON_SUPPORTERS.MEMBER_ID }, true);
     public static final UniqueKey<ShortUrlsRecord> KEY_SHORT_URLS_PRIMARY = Internal.createUniqueKey(ShortUrls.SHORT_URLS, DSL.name("KEY_short_urls_PRIMARY"), new TableField[] { ShortUrls.SHORT_URLS.URL_KEY }, true);
+    public static final UniqueKey<TaskQueueRecord> KEY_TASK_QUEUE_PRIMARY = Internal.createUniqueKey(TaskQueue.TASK_QUEUE, DSL.name("KEY_task_queue_PRIMARY"), new TableField[] { TaskQueue.TASK_QUEUE.TASK_ID }, true);
 }

@@ -4,6 +4,7 @@
 package me.aa07.paradise.taskdaemon.database.automation.tables;
 
 
+import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.List;
 
@@ -17,7 +18,7 @@ import org.jooq.ForeignKey;
 import org.jooq.Index;
 import org.jooq.Name;
 import org.jooq.Record;
-import org.jooq.Row6;
+import org.jooq.Row7;
 import org.jooq.Schema;
 import org.jooq.Table;
 import org.jooq.TableField;
@@ -78,6 +79,11 @@ public class PatreonSupporters extends TableImpl<PatreonSupportersRecord> {
      * The column <code>aa07_automation.patreon_supporters.ckey</code>.
      */
     public final TableField<PatreonSupportersRecord, String> CKEY = createField(DSL.name("ckey"), SQLDataType.VARCHAR(64).defaultValue(DSL.inline("NULL", SQLDataType.VARCHAR)), this, "");
+
+    /**
+     * The column <code>aa07_automation.patreon_supporters.date_inserted</code>.
+     */
+    public final TableField<PatreonSupportersRecord, LocalDateTime> DATE_INSERTED = createField(DSL.name("date_inserted"), SQLDataType.LOCALDATETIME(0).nullable(false).defaultValue(DSL.field("current_timestamp()", SQLDataType.LOCALDATETIME)), this, "");
 
     private PatreonSupporters(Name alias, Table<PatreonSupportersRecord> aliased) {
         this(alias, aliased, null);
@@ -156,11 +162,11 @@ public class PatreonSupporters extends TableImpl<PatreonSupportersRecord> {
     }
 
     // -------------------------------------------------------------------------
-    // Row6 type methods
+    // Row7 type methods
     // -------------------------------------------------------------------------
 
     @Override
-    public Row6<Integer, Integer, Integer, Integer, Long, String> fieldsRow() {
-        return (Row6) super.fieldsRow();
+    public Row7<Integer, Integer, Integer, Integer, Long, String, LocalDateTime> fieldsRow() {
+        return (Row7) super.fieldsRow();
     }
 }

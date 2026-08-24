@@ -11,6 +11,7 @@ import me.aa07.paradise.taskdaemon.database.automation.tables.Images;
 import me.aa07.paradise.taskdaemon.database.automation.tables.MemberCache;
 import me.aa07.paradise.taskdaemon.database.automation.tables.PatreonSupporters;
 import me.aa07.paradise.taskdaemon.database.automation.tables.ShortUrls;
+import me.aa07.paradise.taskdaemon.database.automation.tables.TaskQueue;
 
 
 /**
@@ -53,4 +54,9 @@ public class Tables {
      * The table <code>aa07_automation.short_urls</code>.
      */
     public static final ShortUrls SHORT_URLS = ShortUrls.SHORT_URLS;
+
+    /**
+     * The table <code>aa07_automation.task_queue</code>.
+     */
+    public static final TaskQueue TASK_QUEUE = TaskQueue.TASK_QUEUE;
 }
