@@ -17,10 +17,13 @@ import me.aa07.paradise.taskdaemon.core.database.DbCore;
 import me.aa07.paradise.taskdaemon.core.models.patreon.PatreonOuterResponseModel;
 import me.aa07.paradise.taskdaemon.core.models.patreon.PatreonRawResponseModel;
 import me.aa07.paradise.taskdaemon.core.models.patreon.PatreonUser;
+import me.aa07.paradise.taskdaemon.core.models.tasks.DiscordRoleTaskArgsModel;
 import me.aa07.paradise.taskdaemon.core.util.UtilStr;
 import me.aa07.paradise.taskdaemon.database.authentik.tables.records.AuthentikCoreUsersourceconnectionRecord;
 import me.aa07.paradise.taskdaemon.database.automation.Tables;
+import me.aa07.paradise.taskdaemon.database.automation.enums.TaskQueueTaskConsumer;
 import me.aa07.paradise.taskdaemon.database.automation.tables.records.PatreonSupportersRecord;
+import me.aa07.paradise.taskdaemon.database.automation.tables.records.TaskQueueRecord;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.records.DonatorsRecord;
 import org.apache.logging.log4j.Logger;
 import org.jooq.DSLContext;
@@ -104,6 +107,7 @@ public class PatreonSyncJob implements Job {
         // The patreon API is kinda bad
         // Everything goes into the same loose model and you have to manually parse out members and tiers
         // Boy thats fun
+        Gson gson = new Gson(); // we use this later
 
         ArrayList<PatreonUser> users = new ArrayList<PatreonUser>();
 
@@ -127,7 +131,6 @@ public class PatreonSyncJob implements Job {
             logger.info("[PatreonSync] Pulling data");
             HttpResponse<String> response = client.send(httpreq, BodyHandlers.ofString());
 
-            Gson gson = new Gson();
             String response_body = response.body();
 
             /*
@@ -169,11 +172,37 @@ public class PatreonSyncJob implements Job {
             only_member_ids.add(pu.userId);
         }
 
-        // Step 1 - Clear out old
+        // Step 1 - Clear out old users
         DSLContext automation_jooq = dbcore.jooq(DatabaseType.Automation, SQLDialect.MYSQL);
-        automation_jooq.deleteFrom(Tables.PATREON_SUPPORTERS)
+
+
+        Result<PatreonSupportersRecord> records_to_purge = automation_jooq.selectFrom(Tables.PATREON_SUPPORTERS)
             .where(Tables.PATREON_SUPPORTERS.MEMBER_ID.notIn(only_member_ids))
-            .execute();
+            .fetch();
+
+        for (PatreonSupportersRecord psr : records_to_purge) {
+            Long database_discord_id = psr.getDiscordId();
+
+            // Store our removal task if necessary
+            if (database_discord_id != null && (psr.getDonationTier() >= 2)) {
+                TaskQueueRecord tqr = automation_jooq.newRecord(Tables.TASK_QUEUE);
+                tqr.setTaskId(UUID.randomUUID());
+                tqr.setTaskConsumer(TaskQueueTaskConsumer.ALICE);
+                tqr.setTaskType("REMOVE_PATREON_ROLE");
+
+                // No I will not apologise for these variable names
+                DiscordRoleTaskArgsModel drtam = new DiscordRoleTaskArgsModel();
+                drtam.discordId = database_discord_id;
+                String drtam_json = gson.toJson(drtam);
+
+                tqr.setTaskArguments(drtam_json);
+                tqr.setDateInserted(dbcore.now());
+                tqr.store();
+            }
+
+            // Clear out the supporter record
+            psr.delete();
+        }
 
         logger.info("[PatreonSync] Cleaned out old users");
 
@@ -222,7 +251,7 @@ public class PatreonSyncJob implements Job {
         findAuthentikUsers(only_member_ids, authentik_jooq, automation_jooq, logger, authentik_to_patreon);
 
         // Now find discord users
-        findDiscordUsers(authentik_jooq, automation_jooq, logger, authentik_to_patreon);
+        findDiscordUsers(authentik_jooq, automation_jooq, logger, authentik_to_patreon, gson, dbcore);
 
         // Now get ckeys
         findCkeys(authentik_jooq, automation_jooq, logger, authentik_to_patreon);
@@ -307,7 +336,9 @@ public class PatreonSyncJob implements Job {
         DSLContext authentikJooq,
         DSLContext automationJooq,
         Logger logger,
-        HashMap<Integer, Integer> authentik2patreon
+        HashMap<Integer, Integer> authentik2patreon,
+        Gson gson,
+        DbCore dbCore
     ) {
         HashMap<Integer, Long> authentik2discord = new HashMap<Integer, Long>();
 
@@ -341,7 +372,6 @@ public class PatreonSyncJob implements Job {
             long discord_id = authentik2discord.get(authentik_id);
 
             // Get our DB record
-
             PatreonSupportersRecord psr = automationJooq.selectFrom(Tables.PATREON_SUPPORTERS)
                 .where(Tables.PATREON_SUPPORTERS.MEMBER_ID.eq(patreon_id))
                 .fetchOne();
@@ -351,7 +381,64 @@ public class PatreonSyncJob implements Job {
                 continue;
             }
 
+            // See if we have a role to add
+            if (psr.getDiscordId() == null && psr.getDonationTier() >= 2) {
+                // We do - lets add the role
+                TaskQueueRecord tqr = automationJooq.newRecord(Tables.TASK_QUEUE);
+                tqr.setTaskId(UUID.randomUUID());
+                tqr.setTaskConsumer(TaskQueueTaskConsumer.ALICE);
+                tqr.setTaskType("ADD_PATREON_ROLE");
+
+                // No I will not apologise for these variable names
+                DiscordRoleTaskArgsModel drtam = new DiscordRoleTaskArgsModel();
+                drtam.discordId = discord_id;
+                String drtam_json = gson.toJson(drtam);
+
+                tqr.setTaskArguments(drtam_json);
+                tqr.setDateInserted(dbCore.now());
+                tqr.store();
+            }
+
+            // See if their tier changed between runs
+            if (psr.getDiscordId() != null && (psr.getLastrunDonationTier().intValue() != psr.getDonationTier().intValue())) {
+                // Tier changed - see if they went below the threshold
+                if (psr.getDonationTier() <= 1) {
+                    // They went below the threshold - strip the role
+                    TaskQueueRecord tqr = automationJooq.newRecord(Tables.TASK_QUEUE);
+                    tqr.setTaskId(UUID.randomUUID());
+                    tqr.setTaskConsumer(TaskQueueTaskConsumer.ALICE);
+                    tqr.setTaskType("REMOVE_PATREON_ROLE");
+
+                    // No I will not apologise for these variable names
+                    DiscordRoleTaskArgsModel drtam = new DiscordRoleTaskArgsModel();
+                    drtam.discordId = discord_id;
+                    String drtam_json = gson.toJson(drtam);
+
+                    tqr.setTaskArguments(drtam_json);
+                    tqr.setDateInserted(dbCore.now());
+                    tqr.store();
+                }
+
+                // Add if we just upgraded
+                if (psr.getDonationTier() >= 2 && psr.getLastrunDonationTier() == 1) {
+                    TaskQueueRecord tqr = automationJooq.newRecord(Tables.TASK_QUEUE);
+                    tqr.setTaskId(UUID.randomUUID());
+                    tqr.setTaskConsumer(TaskQueueTaskConsumer.ALICE);
+                    tqr.setTaskType("ADD_PATREON_ROLE");
+
+                    // No I will not apologise for these variable names
+                    DiscordRoleTaskArgsModel drtam = new DiscordRoleTaskArgsModel();
+                    drtam.discordId = discord_id;
+                    String drtam_json = gson.toJson(drtam);
+
+                    tqr.setTaskArguments(drtam_json);
+                    tqr.setDateInserted(dbCore.now());
+                    tqr.store();
+                }
+            }
+
             supporters_updated++;
+            psr.setLastrunDonationTier(psr.getDonationTier());
             psr.setDiscordId(discord_id);
             psr.store(); // Store it back in
         }

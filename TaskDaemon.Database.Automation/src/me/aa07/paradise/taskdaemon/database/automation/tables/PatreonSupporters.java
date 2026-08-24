@@ -18,7 +18,7 @@ import org.jooq.ForeignKey;
 import org.jooq.Index;
 import org.jooq.Name;
 import org.jooq.Record;
-import org.jooq.Row7;
+import org.jooq.Row8;
 import org.jooq.Schema;
 import org.jooq.Table;
 import org.jooq.TableField;
@@ -59,6 +59,12 @@ public class PatreonSupporters extends TableImpl<PatreonSupportersRecord> {
      * The column <code>aa07_automation.patreon_supporters.donation_tier</code>.
      */
     public final TableField<PatreonSupportersRecord, Integer> DONATION_TIER = createField(DSL.name("donation_tier"), SQLDataType.INTEGER.nullable(false), this, "");
+
+    /**
+     * The column
+     * <code>aa07_automation.patreon_supporters.lastrun_donation_tier</code>.
+     */
+    public final TableField<PatreonSupportersRecord, Integer> LASTRUN_DONATION_TIER = createField(DSL.name("lastrun_donation_tier"), SQLDataType.INTEGER.nullable(false).defaultValue(DSL.inline("0", SQLDataType.INTEGER)), this, "");
 
     /**
      * The column <code>aa07_automation.patreon_supporters.amount_cents</code>.
@@ -162,11 +168,11 @@ public class PatreonSupporters extends TableImpl<PatreonSupportersRecord> {
     }
 
     // -------------------------------------------------------------------------
-    // Row7 type methods
+    // Row8 type methods
     // -------------------------------------------------------------------------
 
     @Override
-    public Row7<Integer, Integer, Integer, Integer, Long, String, LocalDateTime> fieldsRow() {
-        return (Row7) super.fieldsRow();
+    public Row8<Integer, Integer, Integer, Integer, Integer, Long, String, LocalDateTime> fieldsRow() {
+        return (Row8) super.fieldsRow();
     }
 }
