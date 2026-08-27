@@ -10,12 +10,13 @@ public class UtilStr {
         if (ckey == null) {
             return "";
         }
-
-        // Clean these out from Authentik
-        ckey = ckey.replace("User:", "");
-
+        
         // Lowercase it
         ckey = ckey.toLowerCase();
+
+        // Clean these out from Authentik
+        ckey = ckey.replace("user:", "");
+
 
         // Split anything else out
         return CKEY_PATTERN.matcher(ckey).replaceAll("");
