@@ -1,8 +1,8 @@
 package me.aa07.paradise.taskdaemon.core.modules.profilercleanup;
 
 import java.util.Optional;
-import me.aa07.paradise.taskdaemon.core.database.DatabaseType;
-import me.aa07.paradise.taskdaemon.core.database.DbCore;
+import me.aa07.paradise.taskdaemon.core.services.database.DatabaseType;
+import me.aa07.paradise.taskdaemon.core.services.database.DbCore;
 import me.aa07.paradise.taskdaemon.database.profiler.Tables;
 import org.apache.logging.log4j.Logger;
 import org.jooq.DSLContext;

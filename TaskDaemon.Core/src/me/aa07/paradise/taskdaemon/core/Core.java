@@ -5,7 +5,6 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Optional;
 import me.aa07.paradise.taskdaemon.core.config.ConfigHolder;
-import me.aa07.paradise.taskdaemon.core.database.DbCore;
 import me.aa07.paradise.taskdaemon.core.modules.aclcleanup.AclCleanupJob;
 import me.aa07.paradise.taskdaemon.core.modules.bouncerrestart.BouncerRestartJob;
 import me.aa07.paradise.taskdaemon.core.modules.devrank.DevRankJob;
@@ -16,6 +15,8 @@ import me.aa07.paradise.taskdaemon.core.modules.prlabel.PrLabelJob;
 import me.aa07.paradise.taskdaemon.core.modules.profilercleanup.ProfilerCleanupJob;
 import me.aa07.paradise.taskdaemon.core.modules.profileringest.ProfilerWorker;
 import me.aa07.paradise.taskdaemon.core.redis.RedisManager;
+import me.aa07.paradise.taskdaemon.core.services.database.DbCore;
+import me.aa07.paradise.taskdaemon.core.services.invision.InvisionUtil;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.quartz.CronScheduleBuilder;
@@ -64,6 +65,7 @@ public class Core {
     private void setupThreads(ConfigHolder config, Logger logger) {
         // Initial setup
         DbCore database = new DbCore(config, logger);
+        InvisionUtil iu = new InvisionUtil(config.invisionConfig);
 
         // Profiler stuff
         ProfilerWorker pw = new ProfilerWorker(database, logger);
@@ -76,14 +78,14 @@ public class Core {
         // Launch Quartz
         try {
             Scheduler scheduler = StdSchedulerFactory.getDefaultScheduler();
-            setupJobs(scheduler, database, config, logger);
+            setupJobs(scheduler, database, iu, config, logger);
             scheduler.start();
         } catch (SchedulerException ex) {
             logger.error("Quartz had a hissy fit!", ex);
         }
     }
 
-    private void setupJobs(Scheduler scheduler, DbCore dbCore, ConfigHolder config, Logger logger) throws SchedulerException {
+    private void setupJobs(Scheduler scheduler, DbCore dbCore, InvisionUtil iu, ConfigHolder config, Logger logger) throws SchedulerException {
         // See below for CRON format
         // https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html
 
@@ -190,6 +192,7 @@ public class Core {
         JobDataMap jdm_igvsync = new JobDataMap();
         jdm_igvsync.put("LOGGER", logger);
         jdm_igvsync.put("DBCORE", dbCore);
+        jdm_igvsync.put("IU", iu);
         JobDetail jd_igvsync = JobBuilder.newJob(IngameVerifiedSyncJob.class)
                 .withIdentity("igvsync", "igvsync")
                 .usingJobData(jdm_igvsync)

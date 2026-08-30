@@ -2,10 +2,10 @@ package me.aa07.paradise.taskdaemon.core.modules.profileringest.processors;
 
 import com.google.gson.reflect.TypeToken;
 import java.util.List;
-import me.aa07.paradise.taskdaemon.core.database.DatabaseType;
-import me.aa07.paradise.taskdaemon.core.database.DbCore;
 import me.aa07.paradise.taskdaemon.core.models.profiler.ProcData;
 import me.aa07.paradise.taskdaemon.core.models.profiler.ProfilerHolder;
+import me.aa07.paradise.taskdaemon.core.services.database.DatabaseType;
+import me.aa07.paradise.taskdaemon.core.services.database.DbCore;
 import me.aa07.paradise.taskdaemon.core.util.UtilConst;
 import me.aa07.paradise.taskdaemon.database.profiler.Tables;
 import me.aa07.paradise.taskdaemon.database.profiler.tables.records.ProcsRecord;

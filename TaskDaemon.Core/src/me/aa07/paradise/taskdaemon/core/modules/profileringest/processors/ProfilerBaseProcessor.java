@@ -1,7 +1,7 @@
 package me.aa07.paradise.taskdaemon.core.modules.profileringest.processors;
 
-import me.aa07.paradise.taskdaemon.core.database.DbCore;
 import me.aa07.paradise.taskdaemon.core.models.profiler.ProfilerHolder;
+import me.aa07.paradise.taskdaemon.core.services.database.DbCore;
 import org.apache.logging.log4j.Logger;
 
 public abstract class ProfilerBaseProcessor {
