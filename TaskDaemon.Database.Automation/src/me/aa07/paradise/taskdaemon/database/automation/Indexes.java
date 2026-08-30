@@ -5,6 +5,7 @@ package me.aa07.paradise.taskdaemon.database.automation;
 
 
 import me.aa07.paradise.taskdaemon.database.automation.tables.AdminPhpLog;
+import me.aa07.paradise.taskdaemon.database.automation.tables.IngameVerifiedDirectory;
 import me.aa07.paradise.taskdaemon.database.automation.tables.PatreonSupporters;
 import me.aa07.paradise.taskdaemon.database.automation.tables.TaskQueue;
 
@@ -25,6 +26,7 @@ public class Indexes {
     // -------------------------------------------------------------------------
 
     public static final Index PATREON_SUPPORTERS_CKEY = Internal.createIndex(DSL.name("ckey"), PatreonSupporters.PATREON_SUPPORTERS, new OrderField[] { PatreonSupporters.PATREON_SUPPORTERS.CKEY }, false);
+    public static final Index INGAME_VERIFIED_DIRECTORY_DISCORD_ID = Internal.createIndex(DSL.name("discord_id"), IngameVerifiedDirectory.INGAME_VERIFIED_DIRECTORY, new OrderField[] { IngameVerifiedDirectory.INGAME_VERIFIED_DIRECTORY.DISCORD_ID }, false);
     public static final Index ADMIN_PHP_LOG_FUID = Internal.createIndex(DSL.name("fuid"), AdminPhpLog.ADMIN_PHP_LOG, new OrderField[] { AdminPhpLog.ADMIN_PHP_LOG.FUID }, false);
     public static final Index TASK_QUEUE_PROCESSED = Internal.createIndex(DSL.name("processed"), TaskQueue.TASK_QUEUE, new OrderField[] { TaskQueue.TASK_QUEUE.PROCESSED }, false);
     public static final Index TASK_QUEUE_TASK_CONSUMER = Internal.createIndex(DSL.name("task_consumer"), TaskQueue.TASK_QUEUE, new OrderField[] { TaskQueue.TASK_QUEUE.TASK_CONSUMER }, false);

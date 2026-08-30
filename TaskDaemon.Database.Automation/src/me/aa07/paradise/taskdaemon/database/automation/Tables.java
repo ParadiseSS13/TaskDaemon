@@ -8,6 +8,7 @@ import me.aa07.paradise.taskdaemon.database.automation.tables.AdminPhpLog;
 import me.aa07.paradise.taskdaemon.database.automation.tables.Availability;
 import me.aa07.paradise.taskdaemon.database.automation.tables.GithubLinks;
 import me.aa07.paradise.taskdaemon.database.automation.tables.Images;
+import me.aa07.paradise.taskdaemon.database.automation.tables.IngameVerifiedDirectory;
 import me.aa07.paradise.taskdaemon.database.automation.tables.MemberCache;
 import me.aa07.paradise.taskdaemon.database.automation.tables.PatreonSupporters;
 import me.aa07.paradise.taskdaemon.database.automation.tables.ShortUrls;
@@ -39,6 +40,11 @@ public class Tables {
      * The table <code>aa07_automation.images</code>.
      */
     public static final Images IMAGES = Images.IMAGES;
+
+    /**
+     * The table <code>aa07_automation.ingame_verified_directory</code>.
+     */
+    public static final IngameVerifiedDirectory INGAME_VERIFIED_DIRECTORY = IngameVerifiedDirectory.INGAME_VERIFIED_DIRECTORY;
 
     /**
      * The table <code>aa07_automation.member_cache</code>.

@@ -9,6 +9,7 @@ It handles:
 - ACL Cleanup
 - Bouncer Restart
 - Dev Rank Handling
+- Ingame Verified Syncc
 - IP2ASN
 - Patreon Sync
 - Profiler Daemon Ingest
@@ -26,6 +27,10 @@ Restarts our "bouncer" server every day. This is the thing that does 2FA, server
 ### Dev Rank
 
 Adds or removes members from development rank when changes are made. Performed hourly.
+
+### Ingame Verified Sync
+
+Tacks roles onto the relevant people for their ingame verified state
 
 ### IP2ASN
 

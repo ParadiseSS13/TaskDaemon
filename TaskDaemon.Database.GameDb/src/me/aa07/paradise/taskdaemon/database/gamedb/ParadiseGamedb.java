@@ -27,12 +27,12 @@ import me.aa07.paradise.taskdaemon.database.gamedb.tables.LegacyPopulation;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.Library;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.Memo;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.Notes;
-import me.aa07.paradise.taskdaemon.database.gamedb.tables.OauthTokens;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.PaiSaves;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.Player;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.PlaytimeHistory;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.Privacy;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.Round;
+import me.aa07.paradise.taskdaemon.database.gamedb.tables.TaskQueue;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.Tickets;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.VpnWhitelist;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.Watch;
@@ -162,11 +162,6 @@ public class ParadiseGamedb extends SchemaImpl {
     public final Notes NOTES = Notes.NOTES;
 
     /**
-     * The table <code>paradise_gamedb.oauth_tokens</code>.
-     */
-    public final OauthTokens OAUTH_TOKENS = OauthTokens.OAUTH_TOKENS;
-
-    /**
      * The table <code>paradise_gamedb.pai_saves</code>.
      */
     public final PaiSaves PAI_SAVES = PaiSaves.PAI_SAVES;
@@ -190,6 +185,11 @@ public class ParadiseGamedb extends SchemaImpl {
      * The table <code>paradise_gamedb.round</code>.
      */
     public final Round ROUND = Round.ROUND;
+
+    /**
+     * The table <code>paradise_gamedb.task_queue</code>.
+     */
+    public final TaskQueue TASK_QUEUE = TaskQueue.TASK_QUEUE;
 
     /**
      * The table <code>paradise_gamedb.tickets</code>.
@@ -243,12 +243,12 @@ public class ParadiseGamedb extends SchemaImpl {
             Library.LIBRARY,
             Memo.MEMO,
             Notes.NOTES,
-            OauthTokens.OAUTH_TOKENS,
             PaiSaves.PAI_SAVES,
             Player.PLAYER,
             PlaytimeHistory.PLAYTIME_HISTORY,
             Privacy.PRIVACY,
             Round.ROUND,
+            TaskQueue.TASK_QUEUE,
             Tickets.TICKETS,
             VpnWhitelist.VPN_WHITELIST,
             Watch.WATCH

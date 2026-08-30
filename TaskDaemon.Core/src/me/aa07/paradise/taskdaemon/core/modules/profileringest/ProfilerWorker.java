@@ -1,18 +1,17 @@
 package me.aa07.paradise.taskdaemon.core.modules.profileringest;
 
-import com.google.gson.Gson;
 import java.util.ArrayList;
-import me.aa07.paradise.taskdaemon.core.database.DbCore;
 import me.aa07.paradise.taskdaemon.core.models.profiler.ProfilerHolder;
 import me.aa07.paradise.taskdaemon.core.modules.profileringest.processors.ProfilerProcProcessor;
 import me.aa07.paradise.taskdaemon.core.modules.profileringest.processors.ProfilerSendmapsProcessor;
+import me.aa07.paradise.taskdaemon.core.services.database.DbCore;
+import me.aa07.paradise.taskdaemon.core.util.UtilConst;
 import org.apache.logging.log4j.Logger;
 
 public class ProfilerWorker {
     private ArrayList<String> queue;
     private Logger logger;
     private Object listLock;
-    private Gson gson;
 
     private ProfilerProcProcessor procProcessor;
     private ProfilerSendmapsProcessor sendmapsProcessor;
@@ -25,7 +24,6 @@ public class ProfilerWorker {
 
         queue = new ArrayList<String>();
         listLock = new Object();
-        gson = new Gson();
     }
 
     // TODO - Refactor into quartz job
@@ -75,7 +73,7 @@ public class ProfilerWorker {
         long start = System.currentTimeMillis();
         logger.info(String.format("Processing entry with size %s bytes", entry.length()));
 
-        ProfilerHolder holder = gson.fromJson(entry, ProfilerHolder.class);
+        ProfilerHolder holder = UtilConst.GSON.fromJson(entry, ProfilerHolder.class);
         logger.info(String.format("Round ID: %s | Profile size: %s bytes", holder.roundId, holder.profilerData.length()));
 
         procProcessor.processData(holder);

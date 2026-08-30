@@ -1,6 +1,5 @@
 package me.aa07.paradise.taskdaemon.core.modules.ip2asn;
 
-import com.google.gson.Gson;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -11,15 +10,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import me.aa07.paradise.taskdaemon.core.config.Ip2AsnSerivceConfig;
-import me.aa07.paradise.taskdaemon.core.database.DatabaseType;
-import me.aa07.paradise.taskdaemon.core.database.DbCore;
 import me.aa07.paradise.taskdaemon.core.models.ip2asn.Ip2AsnResponseModel;
+import me.aa07.paradise.taskdaemon.core.services.database.DatabaseType;
+import me.aa07.paradise.taskdaemon.core.services.database.DbCore;
+import me.aa07.paradise.taskdaemon.core.util.UtilConst;
 import me.aa07.paradise.taskdaemon.database.gamedb.Tables;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.records.Ip2groupRecord;
 import org.apache.logging.log4j.Logger;
 import org.jooq.DSLContext;
 import org.jooq.Record1;
-import org.jooq.SQLDialect;
 import org.jooq.Select;
 import org.jooq.types.UInteger;
 import org.quartz.DisallowConcurrentExecution;
@@ -80,7 +79,7 @@ public class Ip2AsnJob implements Job {
 
         Ip2AsnSerivceConfig config = ip2asn_cfg_holder.get();
 
-        DSLContext ctx = dbcore.jooq(DatabaseType.GameDb, SQLDialect.MYSQL);
+        DSLContext ctx = dbcore.jooq(DatabaseType.GameDb);
 
         // So
         // JOOQ doesnt have INET_ATON, presumably because its a MySQL native
@@ -134,7 +133,6 @@ public class Ip2AsnJob implements Job {
 
         // Now do the big refresh
         HttpClient client = HttpClient.newHttpClient();
-        Gson gson = new Gson();
         for (String ip : ips_to_get) {
             try {
                 // Get our AS - probably a more elegant way to do this but meh
@@ -148,7 +146,7 @@ public class Ip2AsnJob implements Job {
                 HttpResponse<String> response = client.send(httpreq, BodyHandlers.ofString());
 
                 // Decode the shenanigans
-                Ip2AsnResponseModel res_model = gson.fromJson(response.body(), Ip2AsnResponseModel.class);
+                Ip2AsnResponseModel res_model = UtilConst.GSON.fromJson(response.body(), Ip2AsnResponseModel.class);
                 UInteger ip_uint = ip2uint(ip);
                 UInteger asn = UInteger.valueOf(res_model.asn);
 

@@ -1,6 +1,5 @@
 package me.aa07.paradise.taskdaemon.core.modules.bouncerrestart;
 
-import com.google.gson.Gson;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -11,6 +10,7 @@ import java.util.Base64;
 import java.util.Optional;
 import me.aa07.paradise.taskdaemon.core.config.TgsConfig;
 import me.aa07.paradise.taskdaemon.core.models.tgs.TokenResponseModel;
+import me.aa07.paradise.taskdaemon.core.util.UtilConst;
 import org.apache.logging.log4j.Logger;
 import org.quartz.DisallowConcurrentExecution;
 import org.quartz.Job;
@@ -76,8 +76,7 @@ public class BouncerRestartJob implements Job {
             logger.info("[BouncerRestart] Sending auth token request");
             HttpResponse<String> response = client.send(httpreq, BodyHandlers.ofString());
 
-            Gson gson = new Gson();
-            TokenResponseModel tokres = gson.fromJson(response.body(), TokenResponseModel.class);
+            TokenResponseModel tokres = UtilConst.GSON.fromJson(response.body(), TokenResponseModel.class);
 
             // And send our restart request
             HttpRequest httreq2 = HttpRequest.newBuilder()

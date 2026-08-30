@@ -31,6 +31,10 @@ orgName = "ParadiseSS13"
 reviewTeamSlug = "review-team" # Team name but with the dashes like "review-team" not "Review Team"
 reviewTeamToken = "your token here" # Review team gets a separate token because it needs org admin to get team members
 
+[invisionConfig]
+apiBaseUrl = "https://www.paradisestation.org/forum/api"
+apiKey = "key goes here"
+
 [ip2asn]
 host = "http://127.0.0.1:53661/v1/as/ip/" # Fill out URL - IP will be appended at the end
 

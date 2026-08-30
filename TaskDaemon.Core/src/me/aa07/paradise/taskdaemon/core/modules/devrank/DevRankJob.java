@@ -7,8 +7,8 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import me.aa07.paradise.taskdaemon.core.database.DatabaseType;
-import me.aa07.paradise.taskdaemon.core.database.DbCore;
+import me.aa07.paradise.taskdaemon.core.services.database.DatabaseType;
+import me.aa07.paradise.taskdaemon.core.services.database.DbCore;
 import me.aa07.paradise.taskdaemon.database.forums.Tables;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.Admin;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.records.AdminRecord;
@@ -16,7 +16,6 @@ import org.apache.logging.log4j.Logger;
 import org.jooq.DSLContext;
 import org.jooq.Record;
 import org.jooq.Result;
-import org.jooq.SQLDialect;
 import org.quartz.DisallowConcurrentExecution;
 import org.quartz.Job;
 import org.quartz.JobDataMap;
@@ -49,8 +48,8 @@ public class DevRankJob implements Job {
         logger.info("[DevRank] Starting dev rank sync");
 
         try {
-            DSLContext forums_db = dbcore.jooq(DatabaseType.Forums, SQLDialect.MYSQL);
-            DSLContext game_db = dbcore.jooq(DatabaseType.GameDb, SQLDialect.MYSQL);
+            DSLContext forums_db = dbcore.jooq(DatabaseType.Forums);
+            DSLContext game_db = dbcore.jooq(DatabaseType.GameDb);
 
             // Collect all dev team ckeys from forums database
             List<String> dev_team_ckeys = new ArrayList<>();

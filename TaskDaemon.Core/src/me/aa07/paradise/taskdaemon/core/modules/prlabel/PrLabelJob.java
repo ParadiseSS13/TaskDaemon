@@ -7,9 +7,9 @@ import java.util.List;
 import java.util.Optional;
 import me.aa07.paradise.taskdaemon.core.config.GithubConfig;
 import me.aa07.paradise.taskdaemon.core.config.TgsConfig;
-import me.aa07.paradise.taskdaemon.core.database.DatabaseType;
-import me.aa07.paradise.taskdaemon.core.database.DbCore;
 import me.aa07.paradise.taskdaemon.core.models.prlabel.PullRequest;
+import me.aa07.paradise.taskdaemon.core.services.database.DatabaseType;
+import me.aa07.paradise.taskdaemon.core.services.database.DbCore;
 import me.aa07.paradise.taskdaemon.database.pullrequests.Tables;
 import me.aa07.paradise.taskdaemon.database.pullrequests.enums.PrsPrStatus;
 import me.aa07.paradise.taskdaemon.database.pullrequests.enums.VotesNewVoteType;
@@ -20,7 +20,6 @@ import org.jooq.DSLContext;
 import org.jooq.Record2;
 import org.jooq.Record4;
 import org.jooq.Result;
-import org.jooq.SQLDialect;
 import org.jooq.impl.DSL;
 import org.kohsuke.github.GHIssueState;
 import org.kohsuke.github.GHLabel;
@@ -104,7 +103,7 @@ public class PrLabelJob implements Job {
         // Initial setup is done - lets now load the important bits
 
         // Get this now - we need it
-        DSLContext ctx = dbcore.jooq(DatabaseType.PullRequests, SQLDialect.MYSQL);
+        DSLContext ctx = dbcore.jooq(DatabaseType.PullRequests);
 
         // Dictionary that holds all this in a nice lookup
         HashMap<Integer, PullRequest> prs = new HashMap<Integer, PullRequest>();

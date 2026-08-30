@@ -9,12 +9,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import me.aa07.paradise.taskdaemon.core.config.PfsenseConfig;
-import me.aa07.paradise.taskdaemon.core.database.DatabaseType;
-import me.aa07.paradise.taskdaemon.core.database.DbCore;
+import me.aa07.paradise.taskdaemon.core.services.database.DatabaseType;
+import me.aa07.paradise.taskdaemon.core.services.database.DbCore;
 import me.aa07.paradise.taskdaemon.database.gamedb.Tables;
 import org.apache.logging.log4j.Logger;
 import org.jooq.DSLContext;
-import org.jooq.SQLDialect;
 import org.quartz.DisallowConcurrentExecution;
 import org.quartz.Job;
 import org.quartz.JobDataMap;
@@ -113,7 +112,7 @@ public class AclCleanupJob implements Job {
     public List<String> checkIpsInDatabase(List<String> ips, Logger logger, DbCore dbcore) {
         List<String> to_remove = new ArrayList<>();
 
-        DSLContext ctx = dbcore.jooq(DatabaseType.GameDb, SQLDialect.MYSQL);
+        DSLContext ctx = dbcore.jooq(DatabaseType.GameDb);
         LocalDateTime ten_mins_ago = dbcore.now().minusMinutes(10);
 
         for (String ip : ips) {

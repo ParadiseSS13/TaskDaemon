@@ -24,12 +24,12 @@ import me.aa07.paradise.taskdaemon.database.gamedb.tables.LegacyPopulation;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.Library;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.Memo;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.Notes;
-import me.aa07.paradise.taskdaemon.database.gamedb.tables.OauthTokens;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.PaiSaves;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.Player;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.PlaytimeHistory;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.Privacy;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.Round;
+import me.aa07.paradise.taskdaemon.database.gamedb.tables.TaskQueue;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.Tickets;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.VpnWhitelist;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.Watch;
@@ -148,11 +148,6 @@ public class Tables {
     public static final Notes NOTES = Notes.NOTES;
 
     /**
-     * The table <code>paradise_gamedb.oauth_tokens</code>.
-     */
-    public static final OauthTokens OAUTH_TOKENS = OauthTokens.OAUTH_TOKENS;
-
-    /**
      * The table <code>paradise_gamedb.pai_saves</code>.
      */
     public static final PaiSaves PAI_SAVES = PaiSaves.PAI_SAVES;
@@ -176,6 +171,11 @@ public class Tables {
      * The table <code>paradise_gamedb.round</code>.
      */
     public static final Round ROUND = Round.ROUND;
+
+    /**
+     * The table <code>paradise_gamedb.task_queue</code>.
+     */
+    public static final TaskQueue TASK_QUEUE = TaskQueue.TASK_QUEUE;
 
     /**
      * The table <code>paradise_gamedb.tickets</code>.

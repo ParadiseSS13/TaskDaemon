@@ -8,6 +8,7 @@ import me.aa07.paradise.taskdaemon.database.automation.tables.AdminPhpLog;
 import me.aa07.paradise.taskdaemon.database.automation.tables.Availability;
 import me.aa07.paradise.taskdaemon.database.automation.tables.GithubLinks;
 import me.aa07.paradise.taskdaemon.database.automation.tables.Images;
+import me.aa07.paradise.taskdaemon.database.automation.tables.IngameVerifiedDirectory;
 import me.aa07.paradise.taskdaemon.database.automation.tables.MemberCache;
 import me.aa07.paradise.taskdaemon.database.automation.tables.PatreonSupporters;
 import me.aa07.paradise.taskdaemon.database.automation.tables.ShortUrls;
@@ -16,6 +17,7 @@ import me.aa07.paradise.taskdaemon.database.automation.tables.records.AdminPhpLo
 import me.aa07.paradise.taskdaemon.database.automation.tables.records.AvailabilityRecord;
 import me.aa07.paradise.taskdaemon.database.automation.tables.records.GithubLinksRecord;
 import me.aa07.paradise.taskdaemon.database.automation.tables.records.ImagesRecord;
+import me.aa07.paradise.taskdaemon.database.automation.tables.records.IngameVerifiedDirectoryRecord;
 import me.aa07.paradise.taskdaemon.database.automation.tables.records.MemberCacheRecord;
 import me.aa07.paradise.taskdaemon.database.automation.tables.records.PatreonSupportersRecord;
 import me.aa07.paradise.taskdaemon.database.automation.tables.records.ShortUrlsRecord;
@@ -43,6 +45,8 @@ public class Keys {
     public static final UniqueKey<AvailabilityRecord> KEY_AVAILABILITY_PRIMARY = Internal.createUniqueKey(Availability.AVAILABILITY, DSL.name("KEY_availability_PRIMARY"), new TableField[] { Availability.AVAILABILITY.ID }, true);
     public static final UniqueKey<GithubLinksRecord> KEY_GITHUB_LINKS_PRIMARY = Internal.createUniqueKey(GithubLinks.GITHUB_LINKS, DSL.name("KEY_github_links_PRIMARY"), new TableField[] { GithubLinks.GITHUB_LINKS.GITHUB_ID }, true);
     public static final UniqueKey<ImagesRecord> KEY_IMAGES_PRIMARY = Internal.createUniqueKey(Images.IMAGES, DSL.name("KEY_images_PRIMARY"), new TableField[] { Images.IMAGES.ID }, true);
+    public static final UniqueKey<IngameVerifiedDirectoryRecord> KEY_INGAME_VERIFIED_DIRECTORY_CKEY = Internal.createUniqueKey(IngameVerifiedDirectory.INGAME_VERIFIED_DIRECTORY, DSL.name("KEY_ingame_verified_directory_ckey"), new TableField[] { IngameVerifiedDirectory.INGAME_VERIFIED_DIRECTORY.CKEY }, true);
+    public static final UniqueKey<IngameVerifiedDirectoryRecord> KEY_INGAME_VERIFIED_DIRECTORY_PRIMARY = Internal.createUniqueKey(IngameVerifiedDirectory.INGAME_VERIFIED_DIRECTORY, DSL.name("KEY_ingame_verified_directory_PRIMARY"), new TableField[] { IngameVerifiedDirectory.INGAME_VERIFIED_DIRECTORY.AUTHENTIK_ID }, true);
     public static final UniqueKey<MemberCacheRecord> KEY_MEMBER_CACHE_PRIMARY = Internal.createUniqueKey(MemberCache.MEMBER_CACHE, DSL.name("KEY_member_cache_PRIMARY"), new TableField[] { MemberCache.MEMBER_CACHE.FUID }, true);
     public static final UniqueKey<PatreonSupportersRecord> KEY_PATREON_SUPPORTERS_PRIMARY = Internal.createUniqueKey(PatreonSupporters.PATREON_SUPPORTERS, DSL.name("KEY_patreon_supporters_PRIMARY"), new TableField[] { PatreonSupporters.PATREON_SUPPORTERS.MEMBER_ID }, true);
     public static final UniqueKey<ShortUrlsRecord> KEY_SHORT_URLS_PRIMARY = Internal.createUniqueKey(ShortUrls.SHORT_URLS, DSL.name("KEY_short_urls_PRIMARY"), new TableField[] { ShortUrls.SHORT_URLS.URL_KEY }, true);

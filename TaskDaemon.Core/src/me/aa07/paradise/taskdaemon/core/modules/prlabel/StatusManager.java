@@ -9,6 +9,7 @@ import java.util.HashMap;
 import java.util.List;
 import me.aa07.paradise.taskdaemon.core.config.GithubConfig;
 import me.aa07.paradise.taskdaemon.core.models.prlabel.PullRequest;
+import me.aa07.paradise.taskdaemon.core.util.UtilConst;
 import me.aa07.paradise.taskdaemon.database.pullrequests.enums.VotesNewVoteType;
 import me.aa07.paradise.taskdaemon.database.pullrequests.enums.VotesNewVotingGroup;
 import org.apache.logging.log4j.Logger;
@@ -61,9 +62,8 @@ public class StatusManager implements IPullRequestProcessor {
         }
 
         // If we got here we can begin the rest
-        Type inner_string_type = new TypeToken<ArrayList<String>>() {
-        }.getType();
-        List<String> pr_types = new Gson().fromJson(pr.prTypes, inner_string_type);
+        Type inner_string_type = new TypeToken<ArrayList<String>>() {}.getType();
+        List<String> pr_types = UtilConst.GSON.fromJson(pr.prTypes, inner_string_type);
 
         boolean passes_approval = false;
         boolean passes_review = false;

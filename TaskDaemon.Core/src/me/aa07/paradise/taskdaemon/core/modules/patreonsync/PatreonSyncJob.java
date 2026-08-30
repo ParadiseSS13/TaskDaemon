@@ -1,6 +1,5 @@
 package me.aa07.paradise.taskdaemon.core.modules.patreonsync;
 
-import com.google.gson.Gson;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -12,12 +11,13 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 import me.aa07.paradise.taskdaemon.core.config.PatreonConfig;
-import me.aa07.paradise.taskdaemon.core.database.DatabaseType;
-import me.aa07.paradise.taskdaemon.core.database.DbCore;
 import me.aa07.paradise.taskdaemon.core.models.patreon.PatreonOuterResponseModel;
 import me.aa07.paradise.taskdaemon.core.models.patreon.PatreonRawResponseModel;
 import me.aa07.paradise.taskdaemon.core.models.patreon.PatreonUser;
 import me.aa07.paradise.taskdaemon.core.models.tasks.DiscordRoleTaskArgsModel;
+import me.aa07.paradise.taskdaemon.core.services.database.DatabaseType;
+import me.aa07.paradise.taskdaemon.core.services.database.DbCore;
+import me.aa07.paradise.taskdaemon.core.util.UtilConst;
 import me.aa07.paradise.taskdaemon.core.util.UtilStr;
 import me.aa07.paradise.taskdaemon.database.authentik.tables.records.AuthentikCoreUsersourceconnectionRecord;
 import me.aa07.paradise.taskdaemon.database.automation.Tables;
@@ -28,7 +28,6 @@ import me.aa07.paradise.taskdaemon.database.gamedb.tables.records.DonatorsRecord
 import org.apache.logging.log4j.Logger;
 import org.jooq.DSLContext;
 import org.jooq.Result;
-import org.jooq.SQLDialect;
 import org.quartz.DisallowConcurrentExecution;
 import org.quartz.Job;
 import org.quartz.JobDataMap;
@@ -47,10 +46,6 @@ public class PatreonSyncJob implements Job {
     - mass sync ingame stuff
 
     */
-
-    private static final UUID PATREON_OAUTH_SERVICE_ID = UUID.fromString("626f4935-d046-4957-9862-f26102e27a70");
-    private static final UUID DISCORD_OAUTH_SERVICE_ID = UUID.fromString("bc9fb785-6a1f-434e-80da-26a37450a29a");
-    private static final UUID BYOND_OAUTH_SERVICE_ID = UUID.fromString("d7a7b659-69bd-4435-b585-3b4ba97ca076");
 
     @Override
     public void execute(JobExecutionContext event) throws JobExecutionException {
@@ -107,7 +102,6 @@ public class PatreonSyncJob implements Job {
         // The patreon API is kinda bad
         // Everything goes into the same loose model and you have to manually parse out members and tiers
         // Boy thats fun
-        Gson gson = new Gson(); // we use this later
 
         ArrayList<PatreonUser> users = new ArrayList<PatreonUser>();
 
@@ -144,7 +138,7 @@ public class PatreonSyncJob implements Job {
             fw.close();
             */
 
-            PatreonOuterResponseModel holder = gson.fromJson(response_body, PatreonOuterResponseModel.class);
+            PatreonOuterResponseModel holder = UtilConst.GSON.fromJson(response_body, PatreonOuterResponseModel.class);
 
             logger.info(String.format("[PatreonSync] Pulled %s raw models from Patreon", holder.data.size()));
 
@@ -173,7 +167,7 @@ public class PatreonSyncJob implements Job {
         }
 
         // Step 1 - Clear out old users
-        DSLContext automation_jooq = dbcore.jooq(DatabaseType.Automation, SQLDialect.MYSQL);
+        DSLContext automation_jooq = dbcore.jooq(DatabaseType.Automation);
 
 
         Result<PatreonSupportersRecord> records_to_purge = automation_jooq.selectFrom(Tables.PATREON_SUPPORTERS)
@@ -193,7 +187,7 @@ public class PatreonSyncJob implements Job {
                 // No I will not apologise for these variable names
                 DiscordRoleTaskArgsModel drtam = new DiscordRoleTaskArgsModel();
                 drtam.discordId = database_discord_id;
-                String drtam_json = gson.toJson(drtam);
+                String drtam_json = UtilConst.GSON.toJson(drtam);
 
                 tqr.setTaskArguments(drtam_json);
                 tqr.setDateInserted(dbcore.now());
@@ -243,15 +237,15 @@ public class PatreonSyncJob implements Job {
         logger.info(String.format("[PatreonSync] Inserted %s users, updated %s users", insert_count, update_count));
 
 
-        DSLContext game_jooq = dbcore.jooq(DatabaseType.GameDb, SQLDialect.MYSQL);
-        DSLContext authentik_jooq = dbcore.jooq(DatabaseType.Authentik, SQLDialect.POSTGRES);
+        DSLContext game_jooq = dbcore.jooq(DatabaseType.GameDb);
+        DSLContext authentik_jooq = dbcore.jooq(DatabaseType.Authentik);
 
         // Find authentik users
         HashMap<Integer, Integer> authentik_to_patreon = new HashMap<Integer, Integer>();
         findAuthentikUsers(only_member_ids, authentik_jooq, automation_jooq, logger, authentik_to_patreon);
 
         // Now find discord users
-        findDiscordUsers(authentik_jooq, automation_jooq, logger, authentik_to_patreon, gson, dbcore);
+        findDiscordUsers(authentik_jooq, automation_jooq, logger, authentik_to_patreon, dbcore);
 
         // Now get ckeys
         findCkeys(authentik_jooq, automation_jooq, logger, authentik_to_patreon);
@@ -296,7 +290,7 @@ public class PatreonSyncJob implements Job {
             AuthentikCoreUsersourceconnectionRecord authentik_record = authentikJooq
                 .selectFrom(me.aa07.paradise.taskdaemon.database.authentik.Tables.AUTHENTIK_CORE_USERSOURCECONNECTION)
                 .where(me.aa07.paradise.taskdaemon.database.authentik.Tables.AUTHENTIK_CORE_USERSOURCECONNECTION.IDENTIFIER.eq(String.valueOf(member_id)))
-                .and(me.aa07.paradise.taskdaemon.database.authentik.Tables.AUTHENTIK_CORE_USERSOURCECONNECTION.SOURCE_ID.eq(PATREON_OAUTH_SERVICE_ID))
+                .and(me.aa07.paradise.taskdaemon.database.authentik.Tables.AUTHENTIK_CORE_USERSOURCECONNECTION.SOURCE_ID.eq(UtilConst.PATREON_OAUTH_SERVICE_ID))
                 .fetchOne();
 
             if (authentik_record == null) {
@@ -337,7 +331,6 @@ public class PatreonSyncJob implements Job {
         DSLContext automationJooq,
         Logger logger,
         HashMap<Integer, Integer> authentik2patreon,
-        Gson gson,
         DbCore dbCore
     ) {
         HashMap<Integer, Long> authentik2discord = new HashMap<Integer, Long>();
@@ -349,7 +342,7 @@ public class PatreonSyncJob implements Job {
             AuthentikCoreUsersourceconnectionRecord authentik_record = authentikJooq
                 .selectFrom(me.aa07.paradise.taskdaemon.database.authentik.Tables.AUTHENTIK_CORE_USERSOURCECONNECTION)
                 .where(me.aa07.paradise.taskdaemon.database.authentik.Tables.AUTHENTIK_CORE_USERSOURCECONNECTION.USER_ID.eq(authentik_id))
-                .and(me.aa07.paradise.taskdaemon.database.authentik.Tables.AUTHENTIK_CORE_USERSOURCECONNECTION.SOURCE_ID.eq(DISCORD_OAUTH_SERVICE_ID))
+                .and(me.aa07.paradise.taskdaemon.database.authentik.Tables.AUTHENTIK_CORE_USERSOURCECONNECTION.SOURCE_ID.eq(UtilConst.DISCORD_OAUTH_SERVICE_ID))
                 .fetchOne();
 
             if (authentik_record == null) {
@@ -392,7 +385,7 @@ public class PatreonSyncJob implements Job {
                 // No I will not apologise for these variable names
                 DiscordRoleTaskArgsModel drtam = new DiscordRoleTaskArgsModel();
                 drtam.discordId = discord_id;
-                String drtam_json = gson.toJson(drtam);
+                String drtam_json = UtilConst.GSON.toJson(drtam);
 
                 tqr.setTaskArguments(drtam_json);
                 tqr.setDateInserted(dbCore.now());
@@ -412,7 +405,7 @@ public class PatreonSyncJob implements Job {
                     // No I will not apologise for these variable names
                     DiscordRoleTaskArgsModel drtam = new DiscordRoleTaskArgsModel();
                     drtam.discordId = discord_id;
-                    String drtam_json = gson.toJson(drtam);
+                    String drtam_json = UtilConst.GSON.toJson(drtam);
 
                     tqr.setTaskArguments(drtam_json);
                     tqr.setDateInserted(dbCore.now());
@@ -429,7 +422,7 @@ public class PatreonSyncJob implements Job {
                     // No I will not apologise for these variable names
                     DiscordRoleTaskArgsModel drtam = new DiscordRoleTaskArgsModel();
                     drtam.discordId = discord_id;
-                    String drtam_json = gson.toJson(drtam);
+                    String drtam_json = UtilConst.GSON.toJson(drtam);
 
                     tqr.setTaskArguments(drtam_json);
                     tqr.setDateInserted(dbCore.now());
@@ -461,7 +454,7 @@ public class PatreonSyncJob implements Job {
             AuthentikCoreUsersourceconnectionRecord authentik_record = authentikJooq
                 .selectFrom(me.aa07.paradise.taskdaemon.database.authentik.Tables.AUTHENTIK_CORE_USERSOURCECONNECTION)
                 .where(me.aa07.paradise.taskdaemon.database.authentik.Tables.AUTHENTIK_CORE_USERSOURCECONNECTION.USER_ID.eq(authentik_id))
-                .and(me.aa07.paradise.taskdaemon.database.authentik.Tables.AUTHENTIK_CORE_USERSOURCECONNECTION.SOURCE_ID.eq(BYOND_OAUTH_SERVICE_ID))
+                .and(me.aa07.paradise.taskdaemon.database.authentik.Tables.AUTHENTIK_CORE_USERSOURCECONNECTION.SOURCE_ID.eq(UtilConst.BYOND_OAUTH_SERVICE_ID))
                 .fetchOne();
 
             if (authentik_record == null) {
