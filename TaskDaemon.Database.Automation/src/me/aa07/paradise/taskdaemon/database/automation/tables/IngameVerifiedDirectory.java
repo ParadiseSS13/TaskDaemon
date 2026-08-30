@@ -132,6 +132,11 @@ public class IngameVerifiedDirectory extends TableImpl<IngameVerifiedDirectoryRe
     }
 
     @Override
+    public List<UniqueKey<IngameVerifiedDirectoryRecord>> getUniqueKeys() {
+        return Arrays.asList(Keys.KEY_INGAME_VERIFIED_DIRECTORY_CKEY);
+    }
+
+    @Override
     public IngameVerifiedDirectory as(String alias) {
         return new IngameVerifiedDirectory(DSL.name(alias), this);
     }
