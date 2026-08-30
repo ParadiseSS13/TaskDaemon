@@ -9,6 +9,7 @@ import javax.sql.DataSource;
 import me.aa07.paradise.taskdaemon.core.config.ConfigHolder;
 import me.aa07.paradise.taskdaemon.core.config.DatabaseConfig;
 import org.apache.commons.dbcp2.BasicDataSource;
+import org.apache.commons.lang3.tuple.Pair;
 import org.apache.logging.log4j.Logger;
 import org.jooq.DSLContext;
 import org.jooq.SQLDialect;
@@ -16,14 +17,14 @@ import org.jooq.exception.NoDataFoundException;
 import org.jooq.impl.DSL;
 
 public class DbCore {
-    private HashMap<DatabaseType, DataSource> connectionMap;
+    private HashMap<DatabaseType, Pair<DataSource, SQLDialect>> connectionMap;
 
     public DbCore(ConfigHolder config, Logger logger) {
         // Suppress JOOQ console spam
         System.getProperties().setProperty("org.jooq.no-logo", "true");
         System.getProperties().setProperty("org.jooq.no-tips", "true");
 
-        connectionMap = new HashMap<DatabaseType, DataSource>();
+        connectionMap = new HashMap<DatabaseType, Pair<DataSource, SQLDialect>>();
 
         establishConnections(config);
         logger.info("Ready to handle DB requests");
@@ -79,21 +80,24 @@ public class DbCore {
         for (DatabaseType dbtype : mysql_db_types.keySet()) {
             DatabaseConfig cfg = mysql_db_types.get(dbtype);
             DataSource ds = openMySqlDataSource(String.format("jdbc:mysql://%s/%s", cfg.host, cfg.database), cfg.username, cfg.password);
-            connectionMap.put(dbtype, ds);
+            connectionMap.put(dbtype, Pair.of(ds, SQLDialect.MYSQL));
         }
 
         // And do special stuff for Postgres
         DatabaseConfig adb = config.authentikDatabase;
-        connectionMap.put(DatabaseType.Authentik, openPostgresDataSource(String.format("jdbc:postgresql://%s/%s", adb.host, adb.database), adb.username, adb.password));
+        DataSource authentik_ds = openPostgresDataSource(String.format("jdbc:postgresql://%s/%s", adb.host, adb.database), adb.username, adb.password);
+        connectionMap.put(DatabaseType.Authentik, Pair.of(authentik_ds, SQLDialect.POSTGRES));
     }
 
     // Get a DSL context
-    public DSLContext jooq(DatabaseType type, SQLDialect dialect) {
+    public DSLContext jooq(DatabaseType type) {
         if (!connectionMap.containsKey(type)) {
             throw new NoDataFoundException("Supplied type key not present in connection map");
         }
 
-        return DSL.using(connectionMap.get(type), dialect);
+        Pair<DataSource, SQLDialect> ds_pair = connectionMap.get(type);
+
+        return DSL.using(ds_pair.getLeft(), ds_pair.getRight());
     }
 
     // Easy way for NOW() in SQL

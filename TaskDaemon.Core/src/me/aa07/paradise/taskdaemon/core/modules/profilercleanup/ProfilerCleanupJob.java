@@ -6,7 +6,6 @@ import me.aa07.paradise.taskdaemon.core.database.DbCore;
 import me.aa07.paradise.taskdaemon.database.profiler.Tables;
 import org.apache.logging.log4j.Logger;
 import org.jooq.DSLContext;
-import org.jooq.SQLDialect;
 import org.quartz.DisallowConcurrentExecution;
 import org.quartz.Job;
 import org.quartz.JobDataMap;
@@ -50,7 +49,7 @@ public class ProfilerCleanupJob implements Job {
 
         DbCore dbcore = dbcore_holder.get();
 
-        DSLContext profiler_db = dbcore.jooq(DatabaseType.ProfilerDb, SQLDialect.MYSQL);
+        DSLContext profiler_db = dbcore.jooq(DatabaseType.ProfilerDb);
 
         logger.info("[ProfilerCleanup] Cleaning out profiler DB - proc samples");
         profiler_db.delete(Tables.SAMPLES).where(Tables.SAMPLES.SAMPLETIME.lt(dbcore.now().minusDays(7))).execute();

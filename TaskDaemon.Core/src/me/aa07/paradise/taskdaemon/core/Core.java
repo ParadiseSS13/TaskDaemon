@@ -9,6 +9,7 @@ import me.aa07.paradise.taskdaemon.core.database.DbCore;
 import me.aa07.paradise.taskdaemon.core.modules.aclcleanup.AclCleanupJob;
 import me.aa07.paradise.taskdaemon.core.modules.bouncerrestart.BouncerRestartJob;
 import me.aa07.paradise.taskdaemon.core.modules.devrank.DevRankJob;
+import me.aa07.paradise.taskdaemon.core.modules.ingameverifiedsync.IngameVerifiedSyncJob;
 import me.aa07.paradise.taskdaemon.core.modules.ip2asn.Ip2AsnJob;
 import me.aa07.paradise.taskdaemon.core.modules.patreonsync.PatreonSyncJob;
 import me.aa07.paradise.taskdaemon.core.modules.prlabel.PrLabelJob;
@@ -185,6 +186,20 @@ public class Core {
                 .withSchedule(CronScheduleBuilder.cronSchedule("0 15 * * * ?")) // Every hour, offset 15 minutes
                 .build();
 
+        // Ingame verified sync
+        JobDataMap jdm_igvsync = new JobDataMap();
+        jdm_igvsync.put("LOGGER", logger);
+        jdm_igvsync.put("DBCORE", dbCore);
+        JobDetail jd_igvsync = JobBuilder.newJob(IngameVerifiedSyncJob.class)
+                .withIdentity("igvsync", "igvsync")
+                .usingJobData(jdm_igvsync)
+                .build();
+        CronTrigger ct_igvsync = TriggerBuilder.newTrigger()
+                .withIdentity("igvsync", "igvsync")
+                //.withSchedule(CronScheduleBuilder.cronSchedule("0 23 * * * ?")) // Every hour, offset 23 minutes
+                .withSchedule(CronScheduleBuilder.cronSchedule("0 * * * * ?")) // Every hour, offset 23 minutes
+                .build();
+
         // Lists that exist just to make sure these things show as recognised
         ArrayList<JobDetail> bin1 = new ArrayList<JobDetail>();
         bin1.add(jd_aclcleanup);
@@ -194,6 +209,7 @@ public class Core {
         bin1.add(jd_profilercleanup);
         bin1.add(jd_pullrequests);
         bin1.add(jd_patreonsync);
+        bin1.add(jd_igvsync);
         ArrayList<CronTrigger> bin2 = new ArrayList<CronTrigger>();
         bin2.add(ct_aclcleanup);
         bin2.add(ct_bouncerrestart);
@@ -202,6 +218,7 @@ public class Core {
         bin2.add(ct_profilercleanup);
         bin2.add(ct_pullrequests);
         bin2.add(ct_patreonsync);
+        bin2.add(ct_igvsync);
 
         // Is this necessary? Prolly not!
         bin1.clear();
@@ -209,13 +226,14 @@ public class Core {
 
 
         // Schedule all
-        scheduler.scheduleJob(jd_aclcleanup, ct_aclcleanup);
-        scheduler.scheduleJob(jd_bouncerrestart, ct_bouncerrestart);
-        scheduler.scheduleJob(jd_devrank, ct_devrank);
-        scheduler.scheduleJob(jd_ip2asn, ct_ip2asn);
-        scheduler.scheduleJob(jd_profilercleanup, ct_profilercleanup);
-        scheduler.scheduleJob(jd_pullrequests, ct_pullrequests);
-        scheduler.scheduleJob(jd_patreonsync, ct_patreonsync);
+        //scheduler.scheduleJob(jd_aclcleanup, ct_aclcleanup);
+        //scheduler.scheduleJob(jd_bouncerrestart, ct_bouncerrestart);
+        //scheduler.scheduleJob(jd_devrank, ct_devrank);
+        //scheduler.scheduleJob(jd_ip2asn, ct_ip2asn);
+        //scheduler.scheduleJob(jd_profilercleanup, ct_profilercleanup);
+        //scheduler.scheduleJob(jd_pullrequests, ct_pullrequests);
+        //scheduler.scheduleJob(jd_patreonsync, ct_patreonsync);
+        scheduler.scheduleJob(jd_igvsync, ct_igvsync);
     }
 
     private void launchAll() {

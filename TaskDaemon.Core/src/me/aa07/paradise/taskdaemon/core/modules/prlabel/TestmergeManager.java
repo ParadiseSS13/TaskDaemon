@@ -1,6 +1,5 @@
 package me.aa07.paradise.taskdaemon.core.modules.prlabel;
 
-import com.google.gson.Gson;
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -15,6 +14,7 @@ import me.aa07.paradise.taskdaemon.core.models.prlabel.PullRequest;
 import me.aa07.paradise.taskdaemon.core.models.tgs.DreamDaemonResponse;
 import me.aa07.paradise.taskdaemon.core.models.tgs.TestMerge;
 import me.aa07.paradise.taskdaemon.core.models.tgs.TokenResponseModel;
+import me.aa07.paradise.taskdaemon.core.util.UtilConst;
 import org.apache.logging.log4j.Logger;
 
 public class TestmergeManager implements IPullRequestProcessor {
@@ -56,8 +56,7 @@ public class TestmergeManager implements IPullRequestProcessor {
             logger.info("[PrLabelJob] [TestmergeManager] Sending auth token request");
             HttpResponse<String> response = client.send(httpreq, BodyHandlers.ofString());
 
-            Gson gson = new Gson();
-            TokenResponseModel tokres = gson.fromJson(response.body(), TokenResponseModel.class);
+            TokenResponseModel tokres = UtilConst.GSON.fromJson(response.body(), TokenResponseModel.class);
 
             HttpRequest httreq2 = HttpRequest.newBuilder()
                     .uri(new URI(String.format("%s/api/DreamDaemon", tgsConfig.tgsHost))).GET()
@@ -70,7 +69,7 @@ public class TestmergeManager implements IPullRequestProcessor {
             HttpClient client2 = HttpClient.newHttpClient();
             HttpResponse<String> response2 = client2.send(httreq2, BodyHandlers.ofString());
 
-            DreamDaemonResponse ddr = gson.fromJson(response2.body(), DreamDaemonResponse.class);
+            DreamDaemonResponse ddr = UtilConst.GSON.fromJson(response2.body(), DreamDaemonResponse.class);
 
             if (ddr.activeCompileJob.revisionInformation.activeTestMerges != null) {
                 for (TestMerge tm : ddr.activeCompileJob.revisionInformation.activeTestMerges) {

@@ -17,8 +17,8 @@ import me.aa07.paradise.taskdaemon.database.gamedb.tables.Ip2group;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.JsonDatumSaves;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.Library;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.Notes;
-import me.aa07.paradise.taskdaemon.database.gamedb.tables.OauthTokens;
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.Player;
+import me.aa07.paradise.taskdaemon.database.gamedb.tables.TaskQueue;
 
 import org.jooq.Index;
 import org.jooq.OrderField;
@@ -45,7 +45,6 @@ public class Indexes {
     public static final Index JSON_DATUM_SAVES_CKEY = Internal.createIndex(DSL.name("ckey"), JsonDatumSaves.JSON_DATUM_SAVES, new OrderField[] { JsonDatumSaves.JSON_DATUM_SAVES.CKEY }, false);
     public static final Index LIBRARY_CKEY = Internal.createIndex(DSL.name("ckey"), Library.LIBRARY, new OrderField[] { Library.LIBRARY.CKEY }, false);
     public static final Index NOTES_CKEY = Internal.createIndex(DSL.name("ckey"), Notes.NOTES, new OrderField[] { Notes.NOTES.CKEY }, false);
-    public static final Index OAUTH_TOKENS_CKEY = Internal.createIndex(DSL.name("ckey"), OauthTokens.OAUTH_TOKENS, new OrderField[] { OauthTokens.OAUTH_TOKENS.CKEY }, false);
     public static final Index BAN_COMPUTERID = Internal.createIndex(DSL.name("computerid"), Ban.BAN, new OrderField[] { Ban.BAN.COMPUTERID }, false);
     public static final Index CONNECTION_LOG_COMPUTERID = Internal.createIndex(DSL.name("computerid"), ConnectionLog.CONNECTION_LOG, new OrderField[] { ConnectionLog.CONNECTION_LOG.COMPUTERID }, false);
     public static final Index PLAYER_COMPUTERID = Internal.createIndex(DSL.name("computerid"), Player.PLAYER, new OrderField[] { Player.PLAYER.COMPUTERID }, false);
@@ -61,6 +60,7 @@ public class Indexes {
     public static final Index PLAYER_IP = Internal.createIndex(DSL.name("ip"), Player.PLAYER, new OrderField[] { Player.PLAYER.IP }, false);
     public static final Index PLAYER_LASTSEEN = Internal.createIndex(DSL.name("lastseen"), Player.PLAYER, new OrderField[] { Player.PLAYER.LASTSEEN }, false);
     public static final Index ADMIN_RANKS_NAME = Internal.createIndex(DSL.name("name"), AdminRanks.ADMIN_RANKS, new OrderField[] { AdminRanks.ADMIN_RANKS.NAME }, false);
+    public static final Index TASK_QUEUE_PROCESSED = Internal.createIndex(DSL.name("processed"), TaskQueue.TASK_QUEUE, new OrderField[] { TaskQueue.TASK_QUEUE.PROCESSED }, false);
     public static final Index NOTES_PUBLIC = Internal.createIndex(DSL.name("public"), Notes.NOTES, new OrderField[] { Notes.NOTES.PUBLIC }, false);
     public static final Index BUG_REPORTS_SUBMITTED = Internal.createIndex(DSL.name("submitted"), BugReports.BUG_REPORTS, new OrderField[] { BugReports.BUG_REPORTS.SUBMITTED }, false);
 }

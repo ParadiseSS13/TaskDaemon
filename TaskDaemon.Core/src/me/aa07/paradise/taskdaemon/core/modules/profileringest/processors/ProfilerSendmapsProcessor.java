@@ -6,12 +6,12 @@ import me.aa07.paradise.taskdaemon.core.database.DatabaseType;
 import me.aa07.paradise.taskdaemon.core.database.DbCore;
 import me.aa07.paradise.taskdaemon.core.models.profiler.ProfilerHolder;
 import me.aa07.paradise.taskdaemon.core.models.profiler.SendmapsProcData;
+import me.aa07.paradise.taskdaemon.core.util.UtilConst;
 import me.aa07.paradise.taskdaemon.database.profiler.Tables;
 import me.aa07.paradise.taskdaemon.database.profiler.tables.records.SendmapsProcsRecord;
 import me.aa07.paradise.taskdaemon.database.profiler.tables.records.SendmapsSamplesRecord;
 import org.apache.logging.log4j.Logger;
 import org.jooq.DSLContext;
-import org.jooq.SQLDialect;
 
 public class ProfilerSendmapsProcessor extends ProfilerBaseProcessor {
     public ProfilerSendmapsProcessor(DbCore database, Logger logger) {
@@ -20,13 +20,13 @@ public class ProfilerSendmapsProcessor extends ProfilerBaseProcessor {
 
     @Override
     protected void doProcessing(ProfilerHolder holder) {
-        List<SendmapsProcData> proc_list = gson.fromJson(
+        List<SendmapsProcData> proc_list = UtilConst.GSON.fromJson(
             holder.sendmapsData, new TypeToken<List<SendmapsProcData>>() {}.getType()
         );
 
         log(String.format("Procs logged: %s", proc_list.size()));
 
-        DSLContext ctx = database.jooq(DatabaseType.ProfilerDb, SQLDialect.MYSQL);
+        DSLContext ctx = database.jooq(DatabaseType.ProfilerDb);
 
         for (SendmapsProcData procdata : proc_list) {
             long proc_id = getProcId(procdata.name);
@@ -42,7 +42,7 @@ public class ProfilerSendmapsProcessor extends ProfilerBaseProcessor {
 
     @Override
     protected long getProcId(String procname) {
-        DSLContext ctx = database.jooq(DatabaseType.ProfilerDb, SQLDialect.MYSQL);
+        DSLContext ctx = database.jooq(DatabaseType.ProfilerDb);
         if (!ctx.fetchExists(ctx.select(Tables.SENDMAPS_PROCS.ID).from(Tables.SENDMAPS_PROCS).where(Tables.SENDMAPS_PROCS.PROCPATH.eq(procname)))) {
             // We dont exist, make us
             log(String.format("%s did not exist in the DB. It does now.", procname));
