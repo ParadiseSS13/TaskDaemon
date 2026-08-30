@@ -2,6 +2,7 @@ package me.aa07.paradise.taskdaemon.core.modules.ingameverifiedsync;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -19,7 +20,9 @@ import me.aa07.paradise.taskdaemon.database.automation.tables.records.TaskQueueR
 import me.aa07.paradise.taskdaemon.database.gamedb.tables.records.PlayerRecord;
 import org.apache.commons.lang3.tuple.Pair;
 import org.apache.logging.log4j.Logger;
+import org.jooq.Condition;
 import org.jooq.DSLContext;
+import org.jooq.Record1;
 import org.jooq.Result;
 import org.quartz.DisallowConcurrentExecution;
 import org.quartz.Job;
@@ -173,6 +176,37 @@ public class IngameVerifiedSyncJob implements Job {
         }
         logger.info(String.format("[IngameVerifiedSync] Removed %s records for members who unlinked byond", removed));
 
+        // Now get a list of banned people
+        HashSet<String> banned_ckeys = new HashSet<String>();
+
+        // Shared
+        Condition unbanned_null = me.aa07.paradise.taskdaemon.database.gamedb.Tables.BAN.UNBANNED.isNull();
+        Condition unbanned_0 = me.aa07.paradise.taskdaemon.database.gamedb.Tables.BAN.UNBANNED.eq((byte) 0);
+        Condition unban_combined_or = unbanned_null.or(unbanned_0);
+
+        // Permaban
+        Condition bantype_perma = me.aa07.paradise.taskdaemon.database.gamedb.Tables.BAN.BANTYPE.eq("PERMABAN");
+
+        // Tempban
+        Condition bantype_temp = me.aa07.paradise.taskdaemon.database.gamedb.Tables.BAN.BANTYPE.eq("TEMPBAN");
+        Condition tempban_expired = me.aa07.paradise.taskdaemon.database.gamedb.Tables.BAN.EXPIRATION_TIME.gt(dbcore.now());
+        Condition tempban_combined_final = bantype_temp.and(tempban_expired);
+
+        // Final condition
+        Condition ban_check_merged = bantype_perma.or(tempban_combined_final);
+        Condition is_banned = unban_combined_or.and(ban_check_merged);
+
+        Result<Record1<String>> raw_bans_result = game_jooq.selectDistinct(me.aa07.paradise.taskdaemon.database.gamedb.Tables.BAN.CKEY)
+            .from(me.aa07.paradise.taskdaemon.database.gamedb.Tables.BAN)
+            .where(is_banned)
+            .fetch();
+
+        for (Record1<String> rbr : raw_bans_result) {
+            banned_ckeys.add(rbr.value1());
+        }
+
+        logger.info(String.format("[IngameVerifiedSync] Loaded %s banned ckeys", banned_ckeys.size()));
+
         // Now begin the mass inserts
         int raw_added = 0;
         int raw_updated = 0;
@@ -243,6 +277,7 @@ public class IngameVerifiedSyncJob implements Job {
         for (IngameVerifiedDirectoryRecord ivdr : records_to_update) {
             boolean update_made = false;
             int authentik_id = ivdr.getAuthentikId();
+            String ckey = ivdr.getCkey();
             int forum_id = 0;
             long discord_id = 0L;
 
@@ -266,8 +301,9 @@ public class IngameVerifiedSyncJob implements Job {
 
                 if (gsg_response.getLeft()) {
                     List<Integer> forum_secondaries = gsg_response.getRight();
-                    if (!forum_secondaries.contains(UtilConst.INVISION_INGAMEVERIFIED_GID)) {
-                        forum_secondaries.add(UtilConst.INVISION_INGAMEVERIFIED_GID);
+                    int target_group = banned_ckeys.contains(ckey) ? UtilConst.INVISION_INGAMEBANNED_GID : UtilConst.INVISION_INGAMEVERIFIED_GID;
+                    if (!forum_secondaries.contains(target_group)) {
+                        forum_secondaries.add(target_group);
 
                         boolean ssg_response = iu.updateUserSecondaryGroups(forum_id, forum_secondaries);
 
@@ -290,7 +326,7 @@ public class IngameVerifiedSyncJob implements Job {
                 TaskQueueRecord tqr = automation_jooq.newRecord(Tables.TASK_QUEUE);
                 tqr.setTaskId(UUID.randomUUID());
                 tqr.setTaskConsumer(TaskQueueTaskConsumer.ALICE);
-                tqr.setTaskType("ADD_IGV_ROLE");
+                tqr.setTaskType(banned_ckeys.contains(ckey) ? "ADD_IGB_ROLE" : "ADD_IGV_ROLE");
 
                 // No I will not apologise for these variable names
                 DiscordRoleTaskArgsModel drtam = new DiscordRoleTaskArgsModel();

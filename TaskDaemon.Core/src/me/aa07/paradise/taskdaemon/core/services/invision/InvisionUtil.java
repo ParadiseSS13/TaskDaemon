@@ -12,7 +12,6 @@ import java.util.Base64;
 import java.util.List;
 import me.aa07.paradise.taskdaemon.core.config.InvisionConfig;
 import me.aa07.paradise.taskdaemon.core.models.invision.GetUserModel;
-import me.aa07.paradise.taskdaemon.core.models.invision.UpdateSecondaryGroupsModel;
 import me.aa07.paradise.taskdaemon.core.util.UtilConst;
 import org.apache.commons.lang3.tuple.Pair;
 
@@ -98,16 +97,19 @@ public class InvisionUtil {
     }
 
     public boolean updateUserSecondaryGroups(int userId, List<Integer> secondaryGroups) {
-        String request_uri = String.format("core/members/%s", userId);
-        UpdateSecondaryGroupsModel usgm = new UpdateSecondaryGroupsModel();
-        usgm.secondaryGroups = secondaryGroups;
+        ArrayList<String> group_ids_list_str = new ArrayList<String>();
+        for (Integer i : secondaryGroups) {
+            // I hate PHP array syntax
+            group_ids_list_str.add(String.format("secondaryGroups[]=%s", i.toString()));
+        }
+        String secondary_groups_str = String.join("&", group_ids_list_str);
 
-        String request_body = UtilConst.GSON.toJson(usgm);
+        String request_uri = String.format("core/members/%s?%s", userId, secondary_groups_str);
         Pair<String, Integer> invision_response = null;
 
         // Send it off
         try {
-            invision_response = makeInvisionRequest(request_uri, HttpRequestMethod.Post, request_body);
+            invision_response = makeInvisionRequest(request_uri, HttpRequestMethod.Post, null);
         } catch (Exception e) {
             e.printStackTrace();
             return false;

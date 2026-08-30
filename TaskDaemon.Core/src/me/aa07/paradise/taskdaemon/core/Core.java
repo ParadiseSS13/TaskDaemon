@@ -199,8 +199,7 @@ public class Core {
                 .build();
         CronTrigger ct_igvsync = TriggerBuilder.newTrigger()
                 .withIdentity("igvsync", "igvsync")
-                //.withSchedule(CronScheduleBuilder.cronSchedule("0 23 * * * ?")) // Every hour, offset 23 minutes
-                .withSchedule(CronScheduleBuilder.cronSchedule("0 * * * * ?")) // Every hour, offset 23 minutes
+                .withSchedule(CronScheduleBuilder.cronSchedule("0 23 * * * ?")) // Every hour, offset 23 minutes
                 .build();
 
         // Lists that exist just to make sure these things show as recognised
@@ -229,13 +228,13 @@ public class Core {
 
 
         // Schedule all
-        //scheduler.scheduleJob(jd_aclcleanup, ct_aclcleanup);
-        //scheduler.scheduleJob(jd_bouncerrestart, ct_bouncerrestart);
-        //scheduler.scheduleJob(jd_devrank, ct_devrank);
-        //scheduler.scheduleJob(jd_ip2asn, ct_ip2asn);
-        //scheduler.scheduleJob(jd_profilercleanup, ct_profilercleanup);
-        //scheduler.scheduleJob(jd_pullrequests, ct_pullrequests);
-        //scheduler.scheduleJob(jd_patreonsync, ct_patreonsync);
+        scheduler.scheduleJob(jd_aclcleanup, ct_aclcleanup);
+        scheduler.scheduleJob(jd_bouncerrestart, ct_bouncerrestart);
+        scheduler.scheduleJob(jd_devrank, ct_devrank);
+        scheduler.scheduleJob(jd_ip2asn, ct_ip2asn);
+        scheduler.scheduleJob(jd_profilercleanup, ct_profilercleanup);
+        scheduler.scheduleJob(jd_pullrequests, ct_pullrequests);
+        scheduler.scheduleJob(jd_patreonsync, ct_patreonsync);
         scheduler.scheduleJob(jd_igvsync, ct_igvsync);
     }
 
