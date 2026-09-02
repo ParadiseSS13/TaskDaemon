@@ -10,11 +10,13 @@ import me.aa07.paradise.taskdaemon.core.modules.bouncerrestart.BouncerRestartJob
 import me.aa07.paradise.taskdaemon.core.modules.devrank.DevRankJob;
 import me.aa07.paradise.taskdaemon.core.modules.ingameverifiedsync.IngameVerifiedSyncJob;
 import me.aa07.paradise.taskdaemon.core.modules.ip2asn.Ip2AsnJob;
+import me.aa07.paradise.taskdaemon.core.modules.kibanaaccess.KibanaAccessJob;
 import me.aa07.paradise.taskdaemon.core.modules.patreonsync.PatreonSyncJob;
 import me.aa07.paradise.taskdaemon.core.modules.prlabel.PrLabelJob;
 import me.aa07.paradise.taskdaemon.core.modules.profilercleanup.ProfilerCleanupJob;
 import me.aa07.paradise.taskdaemon.core.modules.profileringest.ProfilerWorker;
 import me.aa07.paradise.taskdaemon.core.redis.RedisManager;
+import me.aa07.paradise.taskdaemon.core.services.authentik.AuthentikUtil;
 import me.aa07.paradise.taskdaemon.core.services.database.DbCore;
 import me.aa07.paradise.taskdaemon.core.services.invision.InvisionUtil;
 import org.apache.logging.log4j.LogManager;
@@ -66,6 +68,7 @@ public class Core {
         // Initial setup
         DbCore database = new DbCore(config, logger);
         InvisionUtil iu = new InvisionUtil(config.invisionConfig);
+        AuthentikUtil au = new AuthentikUtil(config.authentikApi);
 
         // Profiler stuff
         ProfilerWorker pw = new ProfilerWorker(database, logger);
@@ -78,14 +81,14 @@ public class Core {
         // Launch Quartz
         try {
             Scheduler scheduler = StdSchedulerFactory.getDefaultScheduler();
-            setupJobs(scheduler, database, iu, config, logger);
+            setupJobs(scheduler, database, iu, au, config, logger);
             scheduler.start();
         } catch (SchedulerException ex) {
             logger.error("Quartz had a hissy fit!", ex);
         }
     }
 
-    private void setupJobs(Scheduler scheduler, DbCore dbCore, InvisionUtil iu, ConfigHolder config, Logger logger) throws SchedulerException {
+    private void setupJobs(Scheduler scheduler, DbCore dbCore, InvisionUtil iu, AuthentikUtil au, ConfigHolder config, Logger logger) throws SchedulerException {
         // See below for CRON format
         // https://www.quartz-scheduler.org/documentation/quartz-2.3.0/tutorials/crontrigger.html
 
@@ -202,6 +205,20 @@ public class Core {
                 .withSchedule(CronScheduleBuilder.cronSchedule("0 23 * * * ?")) // Every hour, offset 23 minutes
                 .build();
 
+        // Kibana access
+        JobDataMap jdm_kibanaaccess = new JobDataMap();
+        jdm_kibanaaccess.put("LOGGER", logger);
+        jdm_kibanaaccess.put("DBCORE", dbCore);
+        jdm_kibanaaccess.put("AU", au);
+        JobDetail jd_kibanaaccess = JobBuilder.newJob(KibanaAccessJob.class)
+                .withIdentity("kibanaaccess", "kibanaaccess")
+                .usingJobData(jdm_kibanaaccess)
+                .build();
+        CronTrigger ct_kibanaaccess = TriggerBuilder.newTrigger()
+                .withIdentity("kibanaaccess", "kibanaaccess")
+                .withSchedule(CronScheduleBuilder.cronSchedule("0 28 * * * ?")) // Every hour, offset 28 minutes
+                .build();
+
         // Lists that exist just to make sure these things show as recognised
         ArrayList<JobDetail> bin1 = new ArrayList<JobDetail>();
         bin1.add(jd_aclcleanup);
@@ -212,6 +229,7 @@ public class Core {
         bin1.add(jd_pullrequests);
         bin1.add(jd_patreonsync);
         bin1.add(jd_igvsync);
+        bin1.add(jd_kibanaaccess);
         ArrayList<CronTrigger> bin2 = new ArrayList<CronTrigger>();
         bin2.add(ct_aclcleanup);
         bin2.add(ct_bouncerrestart);
@@ -221,6 +239,7 @@ public class Core {
         bin2.add(ct_pullrequests);
         bin2.add(ct_patreonsync);
         bin2.add(ct_igvsync);
+        bin2.add(ct_kibanaaccess);
 
         // Is this necessary? Prolly not!
         bin1.clear();
@@ -236,6 +255,7 @@ public class Core {
         scheduler.scheduleJob(jd_pullrequests, ct_pullrequests);
         scheduler.scheduleJob(jd_patreonsync, ct_patreonsync);
         scheduler.scheduleJob(jd_igvsync, ct_igvsync);
+        scheduler.scheduleJob(jd_kibanaaccess, ct_kibanaaccess);
     }
 
     private void launchAll() {

@@ -11,6 +11,7 @@ It handles:
 - Dev Rank Handling
 - Ingame Verified Syncc
 - IP2ASN
+- Kibana Access
 - Patreon Sync
 - Profiler Daemon Ingest
 - Profiler DB Cleanup
@@ -35,6 +36,10 @@ Tacks roles onto the relevant people for their ingame verified state
 ### IP2ASN
 
 Caches ASNs for IP addresses of recent players.
+
+### Kibana Access
+
+Adds/Removes authentik group for those who need Kibana access.
 
 ### Profiler Daemon Ingest
 

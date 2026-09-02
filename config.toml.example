@@ -1,4 +1,7 @@
 # This is an example configuration. Please see README.MD
+[authentikApi]
+apiRoot = "https://auth.paradisestation.org/api/"
+apiKey = "key goes here"
 
 [authentikDatabase]
 host = "172.16.0.200"
