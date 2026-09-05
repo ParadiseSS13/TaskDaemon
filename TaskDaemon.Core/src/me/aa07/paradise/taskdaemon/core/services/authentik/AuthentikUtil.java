@@ -7,7 +7,7 @@ import java.net.http.HttpRequest.BodyPublisher;
 import java.net.http.HttpResponse;
 import java.net.http.HttpResponse.BodyHandlers;
 import java.util.UUID;
-import me.aa07.paradise.taskdaemon.core.config.AuthentikConfig;
+import me.aa07.paradise.taskdaemon.core.config.sections.AuthentikConfig;
 import me.aa07.paradise.taskdaemon.core.models.authentik.ModifyGroupRequestModel;
 import me.aa07.paradise.taskdaemon.core.util.UtilConst;
 

@@ -10,7 +10,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Base64;
 import java.util.List;
-import me.aa07.paradise.taskdaemon.core.config.InvisionConfig;
+import me.aa07.paradise.taskdaemon.core.config.sections.InvisionConfig;
 import me.aa07.paradise.taskdaemon.core.models.invision.GetUserModel;
 import me.aa07.paradise.taskdaemon.core.util.UtilConst;
 import org.apache.commons.lang3.tuple.Pair;

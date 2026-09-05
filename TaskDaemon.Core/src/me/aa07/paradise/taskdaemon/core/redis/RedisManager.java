@@ -1,6 +1,6 @@
 package me.aa07.paradise.taskdaemon.core.redis;
 
-import me.aa07.paradise.taskdaemon.core.config.RedisConfig;
+import me.aa07.paradise.taskdaemon.core.config.sections.RedisConfig;
 import me.aa07.paradise.taskdaemon.core.modules.profileringest.ProfilerPubSubHandler;
 import me.aa07.paradise.taskdaemon.core.modules.profileringest.ProfilerWorker;
 import org.apache.logging.log4j.Logger;

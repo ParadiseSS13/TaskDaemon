@@ -9,7 +9,7 @@ import java.net.http.HttpResponse.BodyHandlers;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Base64;
-import me.aa07.paradise.taskdaemon.core.config.TgsConfig;
+import me.aa07.paradise.taskdaemon.core.config.sections.TgsConfig;
 import me.aa07.paradise.taskdaemon.core.models.prlabel.PullRequest;
 import me.aa07.paradise.taskdaemon.core.models.tgs.DreamDaemonResponse;
 import me.aa07.paradise.taskdaemon.core.models.tgs.TestMerge;

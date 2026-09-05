@@ -1,4 +1,4 @@
-package me.aa07.paradise.taskdaemon.core.config;
+package me.aa07.paradise.taskdaemon.core.config.sections;
 
 public class TgsConfig {
     public String tgsHost;

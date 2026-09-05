@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-import me.aa07.paradise.taskdaemon.core.config.Ip2AsnSerivceConfig;
+import me.aa07.paradise.taskdaemon.core.config.sections.Ip2AsnSerivceConfig;
 import me.aa07.paradise.taskdaemon.core.models.ip2asn.Ip2AsnResponseModel;
 import me.aa07.paradise.taskdaemon.core.services.database.DatabaseType;
 import me.aa07.paradise.taskdaemon.core.services.database.DbCore;

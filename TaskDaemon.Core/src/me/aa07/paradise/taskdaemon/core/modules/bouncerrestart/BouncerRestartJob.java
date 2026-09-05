@@ -8,7 +8,7 @@ import java.net.http.HttpResponse.BodyHandlers;
 import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 import java.util.Optional;
-import me.aa07.paradise.taskdaemon.core.config.TgsConfig;
+import me.aa07.paradise.taskdaemon.core.config.sections.TgsConfig;
 import me.aa07.paradise.taskdaemon.core.models.tgs.TokenResponseModel;
 import me.aa07.paradise.taskdaemon.core.util.UtilConst;
 import org.apache.logging.log4j.Logger;

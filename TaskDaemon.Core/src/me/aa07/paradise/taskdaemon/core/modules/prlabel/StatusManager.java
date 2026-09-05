@@ -1,13 +1,12 @@
 package me.aa07.paradise.taskdaemon.core.modules.prlabel;
 
-import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import me.aa07.paradise.taskdaemon.core.config.GithubConfig;
+import me.aa07.paradise.taskdaemon.core.config.sections.GithubConfig;
 import me.aa07.paradise.taskdaemon.core.models.prlabel.PullRequest;
 import me.aa07.paradise.taskdaemon.core.util.UtilConst;
 import me.aa07.paradise.taskdaemon.database.pullrequests.enums.VotesNewVoteType;

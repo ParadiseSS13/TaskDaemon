@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
-import me.aa07.paradise.taskdaemon.core.config.PatreonConfig;
+import me.aa07.paradise.taskdaemon.core.config.sections.PatreonConfig;
 import me.aa07.paradise.taskdaemon.core.models.patreon.PatreonOuterResponseModel;
 import me.aa07.paradise.taskdaemon.core.models.patreon.PatreonRawResponseModel;
 import me.aa07.paradise.taskdaemon.core.models.patreon.PatreonUser;

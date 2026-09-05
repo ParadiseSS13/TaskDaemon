@@ -7,7 +7,7 @@ import java.util.Date;
 import java.util.HashMap;
 import javax.sql.DataSource;
 import me.aa07.paradise.taskdaemon.core.config.ConfigHolder;
-import me.aa07.paradise.taskdaemon.core.config.DatabaseConfig;
+import me.aa07.paradise.taskdaemon.core.config.sections.DatabaseConfig;
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.apache.commons.lang3.tuple.Pair;
 import org.apache.logging.log4j.Logger;
