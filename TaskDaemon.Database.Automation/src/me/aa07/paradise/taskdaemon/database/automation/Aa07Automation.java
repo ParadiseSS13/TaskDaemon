@@ -9,6 +9,7 @@ import java.util.List;
 
 import me.aa07.paradise.taskdaemon.database.automation.tables.AdminPhpLog;
 import me.aa07.paradise.taskdaemon.database.automation.tables.Availability;
+import me.aa07.paradise.taskdaemon.database.automation.tables.Documents;
 import me.aa07.paradise.taskdaemon.database.automation.tables.GithubLinks;
 import me.aa07.paradise.taskdaemon.database.automation.tables.Images;
 import me.aa07.paradise.taskdaemon.database.automation.tables.IngameVerifiedDirectory;
@@ -44,6 +45,11 @@ public class Aa07Automation extends SchemaImpl {
      * The table <code>aa07_automation.availability</code>.
      */
     public final Availability AVAILABILITY = Availability.AVAILABILITY;
+
+    /**
+     * The table <code>aa07_automation.documents</code>.
+     */
+    public final Documents DOCUMENTS = Documents.DOCUMENTS;
 
     /**
      * The table <code>aa07_automation.github_links</code>.
@@ -98,6 +104,7 @@ public class Aa07Automation extends SchemaImpl {
         return Arrays.asList(
             AdminPhpLog.ADMIN_PHP_LOG,
             Availability.AVAILABILITY,
+            Documents.DOCUMENTS,
             GithubLinks.GITHUB_LINKS,
             Images.IMAGES,
             IngameVerifiedDirectory.INGAME_VERIFIED_DIRECTORY,

@@ -6,6 +6,7 @@ package me.aa07.paradise.taskdaemon.database.automation;
 
 import me.aa07.paradise.taskdaemon.database.automation.tables.AdminPhpLog;
 import me.aa07.paradise.taskdaemon.database.automation.tables.Availability;
+import me.aa07.paradise.taskdaemon.database.automation.tables.Documents;
 import me.aa07.paradise.taskdaemon.database.automation.tables.GithubLinks;
 import me.aa07.paradise.taskdaemon.database.automation.tables.Images;
 import me.aa07.paradise.taskdaemon.database.automation.tables.IngameVerifiedDirectory;
@@ -15,6 +16,7 @@ import me.aa07.paradise.taskdaemon.database.automation.tables.ShortUrls;
 import me.aa07.paradise.taskdaemon.database.automation.tables.TaskQueue;
 import me.aa07.paradise.taskdaemon.database.automation.tables.records.AdminPhpLogRecord;
 import me.aa07.paradise.taskdaemon.database.automation.tables.records.AvailabilityRecord;
+import me.aa07.paradise.taskdaemon.database.automation.tables.records.DocumentsRecord;
 import me.aa07.paradise.taskdaemon.database.automation.tables.records.GithubLinksRecord;
 import me.aa07.paradise.taskdaemon.database.automation.tables.records.ImagesRecord;
 import me.aa07.paradise.taskdaemon.database.automation.tables.records.IngameVerifiedDirectoryRecord;
@@ -43,6 +45,7 @@ public class Keys {
     public static final UniqueKey<AdminPhpLogRecord> KEY_ADMIN_PHP_LOG_PRIMARY = Internal.createUniqueKey(AdminPhpLog.ADMIN_PHP_LOG, DSL.name("KEY_admin_php_log_PRIMARY"), new TableField[] { AdminPhpLog.ADMIN_PHP_LOG.ID }, true);
     public static final UniqueKey<AvailabilityRecord> KEY_AVAILABILITY_FUID = Internal.createUniqueKey(Availability.AVAILABILITY, DSL.name("KEY_availability_fuid"), new TableField[] { Availability.AVAILABILITY.FUID, Availability.AVAILABILITY.THREADID }, true);
     public static final UniqueKey<AvailabilityRecord> KEY_AVAILABILITY_PRIMARY = Internal.createUniqueKey(Availability.AVAILABILITY, DSL.name("KEY_availability_PRIMARY"), new TableField[] { Availability.AVAILABILITY.ID }, true);
+    public static final UniqueKey<DocumentsRecord> KEY_DOCUMENTS_PRIMARY = Internal.createUniqueKey(Documents.DOCUMENTS, DSL.name("KEY_documents_PRIMARY"), new TableField[] { Documents.DOCUMENTS.DOC_NAME }, true);
     public static final UniqueKey<GithubLinksRecord> KEY_GITHUB_LINKS_PRIMARY = Internal.createUniqueKey(GithubLinks.GITHUB_LINKS, DSL.name("KEY_github_links_PRIMARY"), new TableField[] { GithubLinks.GITHUB_LINKS.GITHUB_ID }, true);
     public static final UniqueKey<ImagesRecord> KEY_IMAGES_PRIMARY = Internal.createUniqueKey(Images.IMAGES, DSL.name("KEY_images_PRIMARY"), new TableField[] { Images.IMAGES.ID }, true);
     public static final UniqueKey<IngameVerifiedDirectoryRecord> KEY_INGAME_VERIFIED_DIRECTORY_CKEY = Internal.createUniqueKey(IngameVerifiedDirectory.INGAME_VERIFIED_DIRECTORY, DSL.name("KEY_ingame_verified_directory_ckey"), new TableField[] { IngameVerifiedDirectory.INGAME_VERIFIED_DIRECTORY.CKEY }, true);

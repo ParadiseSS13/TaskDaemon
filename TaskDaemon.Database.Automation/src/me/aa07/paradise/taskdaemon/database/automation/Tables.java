@@ -6,6 +6,7 @@ package me.aa07.paradise.taskdaemon.database.automation;
 
 import me.aa07.paradise.taskdaemon.database.automation.tables.AdminPhpLog;
 import me.aa07.paradise.taskdaemon.database.automation.tables.Availability;
+import me.aa07.paradise.taskdaemon.database.automation.tables.Documents;
 import me.aa07.paradise.taskdaemon.database.automation.tables.GithubLinks;
 import me.aa07.paradise.taskdaemon.database.automation.tables.Images;
 import me.aa07.paradise.taskdaemon.database.automation.tables.IngameVerifiedDirectory;
@@ -30,6 +31,11 @@ public class Tables {
      * The table <code>aa07_automation.availability</code>.
      */
     public static final Availability AVAILABILITY = Availability.AVAILABILITY;
+
+    /**
+     * The table <code>aa07_automation.documents</code>.
+     */
+    public static final Documents DOCUMENTS = Documents.DOCUMENTS;
 
     /**
      * The table <code>aa07_automation.github_links</code>.

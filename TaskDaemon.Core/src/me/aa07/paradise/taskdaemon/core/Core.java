@@ -8,6 +8,7 @@ import me.aa07.paradise.taskdaemon.core.config.ConfigHolder;
 import me.aa07.paradise.taskdaemon.core.modules.aclcleanup.AclCleanupJob;
 import me.aa07.paradise.taskdaemon.core.modules.bouncerrestart.BouncerRestartJob;
 import me.aa07.paradise.taskdaemon.core.modules.devrank.DevRankJob;
+import me.aa07.paradise.taskdaemon.core.modules.githubdocs.GitHubDocsJob;
 import me.aa07.paradise.taskdaemon.core.modules.ingameverifiedsync.IngameVerifiedSyncJob;
 import me.aa07.paradise.taskdaemon.core.modules.ip2asn.Ip2AsnJob;
 import me.aa07.paradise.taskdaemon.core.modules.kibanaaccess.KibanaAccessJob;
@@ -219,6 +220,20 @@ public class Core {
                 .withSchedule(CronScheduleBuilder.cronSchedule("0 28 * * * ?")) // Every hour, offset 28 minutes
                 .build();
 
+        // GitHub docs
+        JobDataMap jdm_githubdocs = new JobDataMap();
+        jdm_githubdocs.put("LOGGER", logger);
+        jdm_githubdocs.put("DBCORE", dbCore);
+        jdm_githubdocs.put("GHDC", config.githubDocs);
+        JobDetail jd_githubdocs = JobBuilder.newJob(GitHubDocsJob.class)
+                .withIdentity("githubdocs", "githubdocs")
+                .usingJobData(jdm_githubdocs)
+                .build();
+        CronTrigger ct_githubdocs = TriggerBuilder.newTrigger()
+                .withIdentity("githubdocs", "githubdocs")
+                .withSchedule(CronScheduleBuilder.cronSchedule("0 36 * * * ?")) // Every hour, offset 36 minutes
+                .build();
+
         // Lists that exist just to make sure these things show as recognised
         ArrayList<JobDetail> bin1 = new ArrayList<JobDetail>();
         bin1.add(jd_aclcleanup);
@@ -230,6 +245,7 @@ public class Core {
         bin1.add(jd_patreonsync);
         bin1.add(jd_igvsync);
         bin1.add(jd_kibanaaccess);
+        bin1.add(jd_githubdocs);
         ArrayList<CronTrigger> bin2 = new ArrayList<CronTrigger>();
         bin2.add(ct_aclcleanup);
         bin2.add(ct_bouncerrestart);
@@ -240,6 +256,7 @@ public class Core {
         bin2.add(ct_patreonsync);
         bin2.add(ct_igvsync);
         bin2.add(ct_kibanaaccess);
+        bin2.add(ct_githubdocs);
 
         // Is this necessary? Prolly not!
         bin1.clear();
@@ -256,6 +273,7 @@ public class Core {
         scheduler.scheduleJob(jd_patreonsync, ct_patreonsync);
         scheduler.scheduleJob(jd_igvsync, ct_igvsync);
         scheduler.scheduleJob(jd_kibanaaccess, ct_kibanaaccess);
+        scheduler.scheduleJob(jd_githubdocs, ct_githubdocs);
     }
 
     private void launchAll() {

@@ -34,6 +34,12 @@ orgName = "ParadiseSS13"
 reviewTeamSlug = "review-team" # Team name but with the dashes like "review-team" not "Review Team"
 reviewTeamToken = "your token here" # Review team gets a separate token because it needs org admin to get team members
 
+[githubDocs]
+docs = [
+    # Add one line of these for each corresponding doc
+    { repoSlug = "org/repo", docKey = "DATABASE_ENTRY", docPath = "path/to/file.md", apiKey = "pat goes here" },
+]
+
 [invisionConfig]
 apiBaseUrl = "https://www.paradisestation.org/forum/api"
 apiKey = "key goes here"

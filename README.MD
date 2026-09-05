@@ -9,6 +9,7 @@ It handles:
 - ACL Cleanup
 - Bouncer Restart
 - Dev Rank Handling
+- GitHub Docs Pull
 - Ingame Verified Syncc
 - IP2ASN
 - Kibana Access
@@ -28,6 +29,10 @@ Restarts our "bouncer" server every day. This is the thing that does 2FA, server
 ### Dev Rank
 
 Adds or removes members from development rank when changes are made. Performed hourly.
+
+### GitHub Docs Pull
+
+Pulls files from GitHub with a PAT to store in a docs database.
 
 ### Ingame Verified Sync
 
